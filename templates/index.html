@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝓡𝓞��𝓩𝓔 Intelligence Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #F8F6F0; 
+            color: #2C2C2C; 
+            line-height: 1.6; 
+        }
+        .hero { 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding: 40px 20px; 
+        }
+        h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 72px; 
+            margin-bottom: 20px; 
+        }
+        .tagline { 
+            font-size: 24px; 
+            color: #E8C5D1; 
+            margin-bottom: 60px; 
+            font-style: italic; 
+        }
+        .services { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 40px; 
+            max-width: 1200px; 
+            width: 100%; 
+        }
+        .service-card { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 8px; 
+            border-top: 4px solid #E8C5D1; 
+            cursor: pointer; 
+            transition: transform 0.2s; 
+        }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card h3 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 28px; 
+            margin-bottom: 15px; 
+        }
+        .price { 
+            font-size: 20px; 
+            font-weight: 600; 
+            color: #E8C5D1; 
+        }
+        .cta-button { 
+            background: #E8C5D1; 
+            color: white; 
+            border: none; 
+            padding: 15px 40px; 
+            font-size: 16px; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            margin-top: 20px; 
+        }
+        .cta-button:hover { background: #D4A5B8; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>𝓡𝓞𝓤𝓩𝓔</h1>
+        <p class="tagline">Raw Signals → Real Insights → Real Revenue</p>
+        
+        <div class="services">
+            <div class="service-card" onclick="window.location.href='/intake/healthcare'">
+                <h3>Healthcare Intelligence</h3>
+                <p>Adverse event detection, regulatory risk assessment, pharmaceutical intelligence</p>
+                <p class="price">$1,500 - $5,000</p>
+                <button class="cta-button">Start Project</button>
+            </div>
+            
+            <div class="service-card" onclick="window.location.href='/intake/saas'">
+                <h3>SaaS Intelligence</h3>
+                <p>Feature gap analysis, competitor positioning, product-market fit validation</p>
+                <p class="price">$800 - $3,000</p>
+                <button class="cta-button">Start Project</button>
+            </div>
+            
+            <div class="service-card" onclick="window.location.href='/intake/ecommerce'">
+                <h3>E-commerce Intelligence</h3>
+                <p>Viral prediction, trend forecasting, influencer impact analysis</p>
+                <p class="price">$500 - $2,000</p>
+                <button class="cta-button">Start Project</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

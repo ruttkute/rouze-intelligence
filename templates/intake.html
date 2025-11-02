@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rouze Intake - {{ industry|title }}</title>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            max-width: 800px; 
+            margin: 50px auto; 
+            padding: 20px; 
+            background: #F8F6F0;
+        }
+        h1 { 
+            color: #E8C5D1; 
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+        }
+        .form-group { margin-bottom: 20px; }
+        label { 
+            display: block; 
+            margin-bottom: 5px; 
+            font-weight: 600; 
+        }
+        input, textarea, select { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ddd; 
+            border-radius: 4px; 
+            font-size: 16px;
+        }
+        button { 
+            background: #E8C5D1; 
+            color: white; 
+            padding: 15px 40px; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-size: 16px;
+            font-weight: 600;
+        }
+        button:hover { background: #D4A5B8; }
+    </style>
+</head>
+<body>
+    <h1>{{ industry|title }} Intelligence Intake</h1>
+    <p style="margin-bottom: 30px;">Help us understand your needs for custom intelligence research.</p>
+    
+    <form method="POST" action="/api/submit">
+        <div class="form-group">
+            <label>What specific decision are you trying to make?</label>
+            <textarea name="decision" rows="4" placeholder="e.g., Should we launch product X in market Y?" required></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>Timeline for decision</label>
+            <select name="timeline" required>
+                <option value="urgent">Urgent (< 48 hours) - $2,500</option>
+                <option value="high">High priority (3-7 days) - $1,500</option>
+                <option value="standard" selected>Standard (7-14 days) - $800</option>
+                <option value="flexible">Flexible (> 14 days) - $500</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Your company name</label>
+            <input type="text" name="company" placeholder="Acme Corp" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Your contact email</label>
+            <input type="email" name="email" placeholder="email@company.com" required>
+        </div>
+        
+        <button type="submit">Continue to Payment</button>
+    </form>
+</body>
+</html>
