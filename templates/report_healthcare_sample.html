@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Healthcare Intelligence Report - SAMPLE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #F8F6F0; color: #2C2C2C; }
+        
+        .sample-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #FF6B6B, #E74C3C);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            z-index: 10000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 60px;
+            width: 280px;
+            height: calc(100vh - 60px);
+            background: #2C2C2C;
+            color: white;
+            padding: 40px 30px;
+            overflow-y: auto;
+        }
+        
+        .sidebar-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #E8C5D1;
+        }
+        
+        .nav-section {
+            margin-bottom: 30px;
+        }
+        
+        .nav-section-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #666;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 10px 15px;
+            color: #CCC;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255,255,255,0.1);
+            color: #E8C5D1;
+            padding-left: 20px;
+        }
+        
+        .nav-link.active {
+            background: #E8C5D1;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            padding: 100px 80px 60px;
+            max-width: 1400px;
+        }
+        
+        .page-section {
+            background: white;
+            padding: 60px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(44, 44, 44, 0.06);
+        }
+        
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+        
+        .page-subtitle {
+            font-size: 18px;
+            color: #E8C5D1;
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin: 40px 0 20px;
+            color: #2C2C2C;
+            border-bottom: 3px solid #E8C5D1;
+            padding-bottom: 15px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .metric-card {
+            background: #F5F3ED;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #E8C5D1;
+        }
+        
+        .metric-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        
+        .metric-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #E8C5D1;
+            margin-bottom: 5px;
+        }
+        
+        .metric-description {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .alert-box {
+            background: #FFEBEE;
+            border-left: 4px solid #F44336;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .alert-box h4 {
+            color: #F44336;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        
+        th {
+            background: #2C2C2C;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        .chart-placeholder {
+            background: linear-gradient(135deg, #F5F3ED, #E8C5D1);
+            height: 300px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="sample-banner">
+        📄 SAMPLE REPORT - This is an example of what your actual report will contain with your real data
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-logo">ROUZE</div>
+        <p style="font-size: 12px; color: #999; margin-bottom: 30px;">Healthcare Intelligence</p>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Overview</div>
+            <a href="#executive-summary" class="nav-link active">Executive Summary</a>
+            <a href="#risk-score" class="nav-link">Risk Score</a>
+            <a href="#recommendation" class="nav-link">Recommendation</a>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Signal Analysis</div>
+            <a href="#adverse-events" class="nav-link">Adverse Event Detection</a>
+            <a href="#patient-forums" class="nav-link">Patient Forum Analysis</a>
+            <a href="#statistical" class="nav-link">Statistical Validation</a>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Regulatory Intelligence</div>
+            <a href="#fda-risk" class="nav-link">FDA Action Probability</a>
+            <a href="#timeline" class="nav-link">Regulatory Timeline</a>
+            <a href="#cost-analysis" class="nav-link">Cost-Benefit Analysis</a>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Competitive</div>
+            <a href="#competitive" class="nav-link">Competitor Analysis</a>
+            <a href="#market-impact" class="nav-link">Market Impact</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="page-section" id="executive-summary">
+            <div class="page-title">Adverse Event Intelligence Report</div>
+            <div class="page-subtitle">Drug XYZ-123 Safety Signal Analysis</div>
+            
+            <h2>Executive Summary</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Overall Risk Score</div>
+                    <div class="metric-value">78/100</div>
+                    <div class="metric-description">High priority - immediate action recommended</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Signal Strength</div>
+                    <div class="metric-value">14.3%</div>
+                    <div class="metric-description">Adverse event rate vs 4.2% baseline (p<0.001)</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Patient Signals Analyzed</div>
+                    <div class="metric-value">3,247</div>
+                    <div class="metric-description">Across 12 sources over 180 days</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">FDA Action Probability</div>
+                    <div class="metric-value">68%</div>
+                    <div class="metric-description">Within 12 months based on signal trajectory</div>
+                </div>
+            </div>
+            
+            <div class="alert-box">
+                <h4>⚠️ HIGH PRIORITY: Proactive Label Update Recommended</h4>
+                <p>
+                    Statistical analysis of 3,247 patient-reported adverse events across patient forums, social media, 
+                    and medical communities reveals significant elevation in cardiovascular symptoms (14.3% vs 4.2% 
+                    baseline, p<0.001). This signal emerged 6-9 months before expected FDA MAUDE reporting lag. 
+                    Proactive label update estimated to prevent $650K reactive compliance costs and preserve physician confidence.
+                </p>
+            </div>
+            
+            <h2>Key Findings</h2>
+            <ul style="line-height: 2; margin-left: 20px;">
+                <li><strong>Adverse Event Pattern Detected:</strong> Cardiovascular symptoms occurring in 14.3% of patient-reported cases (vs 4.2% baseline FDA data)</li>
+                <li><strong>Statistical Significance:</strong> Chi-square test p<0.001 indicates <0.1% probability this pattern is random noise</li>
+                <li><strong>Early Warning Advantage:</strong> Signal detected 180 days before expected FDA MAUDE database reflection</li>
+                <li><strong>Patient Forum Sentiment:</strong> Negative sentiment increasing 23% month-over-month in cardiovascular discussions</li>
+                <li><strong>Competitive Intelligence:</strong> No competitor drugs in class showing similar pattern (defensive positioning opportunity)</li>
+            </ul>
+        </div>
+
+        <div class="page-section" id="adverse-events">
+            <h2>Adverse Event Signal Detection</h2>
+            
+            <h3>Data Sources Analyzed</h3>
+            <table>
+                <tr>
+                    <th>Source Type</th>
+                    <th>Signals Collected</th>
+                    <th>Time Period</th>
+                    <th>Quality Score</th>
+                </tr>
+                <tr>
+                    <td>Patient Forums (Drugs.com, WebMD)</td>
+                    <td>1,247 reports</td>
+                    <td>180 days</td>
+                    <td>High (verified users)</td>
+                </tr>
+                <tr>
+                    <td>Social Media (Twitter, Reddit r/AskDocs)</td>
+                    <td>892 mentions</td>
+                    <td>180 days</td>
+                    <td>Medium (unverified)</td>
+                </tr>
+                <tr>
+                    <td>Medical Professional Forums</td>
+                    <td>420 discussions</td>
+                    <td>180 days</td>
+                    <td>Very High (MD-verified)</td>
+                </tr>
+                <tr>
+                    <td>Clinical Trial Recruitment Sites</td>
+                    <td>340 mentions</td>
+                    <td>180 days</td>
+                    <td>High (structured data)</td>
+                </tr>
+                <tr>
+                    <td>FDA MAUDE Database (baseline)</td>
+                    <td>348 reports</td>
+                    <td>360 days (lag)</td>
+                    <td>Very High (official)</td>
+                </tr>
+            </table>
+            
+            <h3>Temporal Pattern Analysis</h3>
+            <div class="chart-placeholder">
+                📊 Interactive Chart: Adverse Event Frequency Over Time
+                <br>Your actual report includes interactive Plotly charts showing signal emergence
+            </div>
+            
+            <h3>Statistical Validation</h3>
+            <div style="background: #F5F3ED; padding: 30px; border-radius: 12px; margin: 30px 0;">
+                <h4 style="margin-bottom: 15px;">Chi-Square Test Results</h4>
+                <p><strong>Null Hypothesis:</strong> Observed adverse event rate equals baseline rate (4.2%)</p>
+                <p><strong>Observed Rate:</strong> 14.3% (465 events / 3,247 patient reports)</p>
+                <p><strong>Expected Rate:</strong> 4.2% (136 events expected at baseline)</p>
+                <p><strong>Chi-Square Statistic:</strong> χ² = 187.3</p>
+                <p><strong>P-value:</strong> p < 0.001</p>
+                <p><strong>Effect Size (Cohen's h):</strong> 0.62 (medium-large effect)</p>
+                <p style="margin-top: 20px; color: #E74C3C; font-weight: 600;">
+                    Conclusion: Less than 0.1% probability this pattern occurred by chance. Signal is statistically robust.
+                </p>
+            </div>
+        </div>
+
+        <div class="page-section" id="fda-risk">
+            <h2>FDA Action Probability Assessment</h2>
+            
+            <h3>Regulatory Risk Scoring Model</h3>
+            <p>
+                Based on historical FDA enforcement patterns for similar adverse event signals, we model the probability 
+                of regulatory action within specific timeframes.
+            </p>
+            
+            <table>
+                <tr>
+                    <th>Timeframe</th>
+                    <th>Action Type</th>
+                    <th>Probability</th>
+                    <th>Expected Cost (Reactive)</th>
+                </tr>
+                <tr>
+                    <td>0-6 months</td>
+                    <td>FDA Information Request</td>
+                    <td>35%</td>
+                    <td>$45K (response preparation)</td>
+                </tr>
+                <tr>
+                    <td>6-12 months</td>
+                    <td>Safety Communication Required</td>
+                    <td>68%</td>
+                    <td>$180K (emergency protocol)</td>
+                </tr>
+                <tr>
+                    <td>12-18 months</td>
+                    <td>Mandatory Label Change</td>
+                    <td>42%</td>
+                    <td>$650K (reactive compliance)</td>
+                </tr>
+                <tr>
+                    <td>18+ months</td>
+                    <td>Black Box Warning</td>
+                    <td>12%</td>
+                    <td>$2.3M+ (market impact)</td>
+                </tr>
+            </table>
+            
+            <h3>Proactive vs Reactive Cost Analysis</h3>
+            <div class="metrics-grid">
+                <div class="metric-card" style="border-left-color: #4CAF50;">
+                    <div class="metric-label">Proactive Label Update (Now)</div>
+                    <div class="metric-value" style="color: #4CAF50;">$120K</div>
+                    <div class="metric-description">Voluntary update, controlled timeline, maintain physician confidence</div>
+                </div>
+                
+                <div class="metric-card" style="border-left-color: #E74C3C;">
+                    <div class="metric-label">Reactive Response (12mo)</div>
+                    <div class="metric-value" style="color: #E74C3C;">$650K</div>
+                    <div class="metric-description">Emergency compliance, reputation damage, market share loss</div>
+                </div>
+            </div>
+            
+            <div style="background: #E8F5E9; padding: 30px; border-radius: 12px; border-left: 4px solid #4CAF50; margin: 30px 0;">
+                <h4 style="color: #4CAF50; margin-bottom: 15px;">💡 Strategic Recommendation</h4>
+                <p>
+                    Expected value analysis: Proactive action saves $530K in avoided reactive costs (68% probability × $650K 
+                    reactive - $120K proactive). Additionally preserves competitive positioning by demonstrating safety 
+                    leadership rather than reactive compliance.
+                </p>
+            </div>
+        </div>
+
+        <div class="page-section" id="competitive">
+            <h2>Competitive Intelligence</h2>
+            
+            <h3>Competitor Safety Profile Comparison</h3>
+            <table>
+                <tr>
+                    <th>Drug</th>
+                    <th>Company</th>
+                    <th>Similar AE Pattern?</th>
+                    <th>Market Share</th>
+                    <th>Strategic Implication</th>
+                </tr>
+                <tr>
+                    <td>Competitor Drug A</td>
+                    <td>Pharma Co 1</td>
+                    <td>No (4.1% rate)</td>
+                    <td>32%</td>
+                    <td>Competitive vulnerability if they have similar unreported signals</td>
+                </tr>
+                <tr>
+                    <td>Competitor Drug B</td>
+                    <td>Pharma Co 2</td>
+                    <td>No (3.8% rate)</td>
+                    <td>28%</td>
+                    <td>Potential positioning advantage through safety transparency</td>
+                </tr>
+                <tr>
+                    <td>Competitor Drug C</td>
+                    <td>Pharma Co 3</td>
+                    <td>Unknown</td>
+                    <td>19%</td>
+                    <td>Monitor for similar pattern emergence</td>
+                </tr>
+            </table>
+            
+            <h3>Competitive Positioning Opportunity</h3>
+            <p>
+                Analysis of competitor safety communications reveals no major players have proactively disclosed 
+                cardiovascular signals in this drug class. Voluntary transparency positions your drug as safety leader, 
+                potentially converting competitor concerns into market share gain.
+            </p>
+        </div>
+
+        <div style="margin-top: 80px; padding: 40px 60px; background: #2C2C2C; border-radius: 12px; color: white; text-align: center;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 32px; font-style: italic; margin-bottom: 15px; color: #E8C5D1;">
+                ROUZE
+            </div>
+            <div style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.15em; color: #999; margin-bottom: 25px;">
+                Healthcare Intelligence
+            </div>
+            <p style="font-size: 14px; line-height: 1.8; color: #CCC; max-width: 600px; margin: 0 auto;">
+                This sample demonstrates the depth and rigor of Rouze healthcare intelligence reports. 
+                Your actual report will contain your specific drug data, customized analysis, and actionable recommendations 
+                based on real-time signal monitoring across 15+ data sources.
+            </p>
+            <div style="margin-top: 30px;">
+                <a href="/intake/healthcare" style="display: inline-block; background: #E8C5D1; color: white; padding: 14px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">
+                    Request Your Analysis
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

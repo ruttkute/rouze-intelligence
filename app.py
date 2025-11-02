@@ -94,3 +94,22 @@ def business_validation_report(report_id):
     return render_template('report_business_validation.html', 
                          business_name='Sample Business Idea',
                          report_date='November 2, 2025')
+
+# Sample report routes for preview
+@app.route('/report/sample/healthcare')
+def sample_report_healthcare():
+    return render_template('report_healthcare_sample.html')
+
+@app.route('/report/sample/saas')
+def sample_report_saas():
+    return render_template('report_saas_sample.html')
+
+@app.route('/report/sample/ecommerce')
+def sample_report_ecommerce():
+    return render_template('report_ecommerce_sample.html')
+
+@app.route('/report/sample/business-validation')
+def sample_report_business():
+    return render_template('report_business_validation.html',
+                         business_name='Sample Business Idea',
+                         report_date='November 2, 2025')
