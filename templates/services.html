@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Services - Rouze Intelligence Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #F8F6F0; }
+        
+        nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(248, 246, 240, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(232, 197, 209, 0.2); padding: 20px 0; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 600; font-style: italic; color: #2C2C2C; text-decoration: none; }
+        .nav-menu { display: flex; gap: 40px; list-style: none; }
+        .nav-menu a { color: #2C2C2C; text-decoration: none; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        .hero { padding: 140px 40px 80px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 48px; margin-bottom: 20px; }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; padding: 0 40px 80px; }
+        .service-card { background: white; padding: 50px 40px; border-radius: 12px; border-top: 4px solid #E8C5D1; transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(232, 197, 209, 0.25); }
+        .service-card h2 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 20px; }
+        .service-card p { line-height: 1.7; color: rgba(44, 44, 44, 0.7); margin-bottom: 20px; }
+        .price { font-size: 22px; font-weight: 600; color: #E8C5D1; margin: 20px 0; }
+        .cta-button { background: linear-gradient(135deg, #E8C5D1, #D4A5B8); color: white; border: none; padding: 14px 35px; font-size: 15px; font-weight: 600; border-radius: 50px; cursor: pointer; text-decoration: none; display: inline-block; }
+        .features-list { margin: 20px 0; padding-left: 0; list-style: none; }
+        .features-list li { margin: 10px 0; padding-left: 25px; position: relative; }
+        .features-list li::before { content: '✓'; position: absolute; left: 0; color: #E8C5D1; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">ROUZE</a>
+            <ul class="nav-menu">
+                <li><a href="/about">About</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/methodology">Methodology</a></li>
+                <li><a href="/">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Intelligence Services</h1>
+        <p style="font-size: 18px; color: #666;">Industry-specific raw signal analysis for strategic decisions</p>
+    </div>
+
+    <div class="services-grid">
+        <div class="service-card">
+            <h2>Healthcare Intelligence</h2>
+            <p>Detect adverse events and regulatory risks 6-9 months before FDA action through patient forum analysis and clinical signal monitoring.</p>
+            <p class="price">$1,500 - $5,000</p>
+            <ul class="features-list">
+                <li>Adverse event pattern detection</li>
+                <li>Regulatory risk probability scoring</li>
+                <li>Competitive drug intelligence</li>
+                <li>FDA MAUDE early warning</li>
+                <li>Clinical trial recruitment signals</li>
+            </ul>
+            <a href="/intake/healthcare" class="cta-button">Get Started</a>
+        </div>
+
+        <div class="service-card">
+            <h2>SaaS Intelligence</h2>
+            <p>Identify feature gaps and competitor pivots 60-90 days early through developer forum and user review analysis.</p>
+            <p class="price">$800 - $3,000</p>
+            <ul class="features-list">
+                <li>Feature gap analysis from real complaints</li>
+                <li>Competitor pivot detection</li>
+                <li>Product-market fit validation</li>
+                <li>Pricing strategy intelligence</li>
+                <li>Developer sentiment tracking</li>
+            </ul>
+            <a href="/intake/saas" class="cta-button">Get Started</a>
+        </div>
+
+        <div class="service-card">
+            <h2>E-commerce Intelligence</h2>
+            <p>Predict viral products 30-60 days before mainstream breakout through TikTok engagement and review pattern analysis.</p>
+            <p class="price">$500 - $2,000</p>
+            <ul class="features-list">
+                <li>Viral product prediction (30-60 day lead)</li>
+                <li>Trend forecasting with confidence scores</li>
+                <li>Influencer impact ROI analysis</li>
+                <li>Inventory timing recommendations</li>
+                <li>Competitor product tracking</li>
+            </ul>
+            <a href="/intake/ecommerce" class="cta-button">Get Started</a>
+        </div>
+    </div>
+</body>
+</html>
