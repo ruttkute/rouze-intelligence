@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Validation Report - {{ business_name }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F8F6F0;
+            color: #2C2C2C;
+            line-height: 1.6;
+        }
+        
+        /* Navigation Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: #2C2C2C;
+            color: white;
+            padding: 40px 30px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .sidebar-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #D4AF37;
+        }
+        
+        .sidebar-subtitle {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #999;
+            margin-bottom: 40px;
+        }
+        
+        .nav-section {
+            margin-bottom: 35px;
+        }
+        
+        .nav-section-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #666;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 10px 15px;
+            color: #CCC;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255,255,255,0.1);
+            color: #D4AF37;
+            padding-left: 20px;
+        }
+        
+        .nav-link.active {
+            background: #D4AF37;
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 60px 80px;
+            max-width: 1400px;
+        }
+        
+        /* Page Sections */
+        .page-section {
+            background: white;
+            padding: 60px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(44, 44, 44, 0.06);
+        }
+        
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: #2C2C2C;
+        }
+        
+        .page-subtitle {
+            font-size: 18px;
+            color: #D4AF37;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin: 40px 0 20px;
+            color: #2C2C2C;
+            border-bottom: 3px solid #D4AF37;
+            padding-bottom: 15px;
+        }
+        
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            color: #2C2C2C;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: rgba(44, 44, 44, 0.8);
+        }
+        
+        /* Key Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #F5F3ED, #F8F6F0);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #D4AF37;
+        }
+        
+        .metric-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        
+        .metric-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #D4AF37;
+            margin-bottom: 5px;
+        }
+        
+        .metric-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Recommendation Boxes */
+        .recommendation {
+            background: #E8F5E9;
+            border-left: 4px solid #4CAF50;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .recommendation.warning {
+            background: #FFF3E0;
+            border-left-color: #FF9800;
+        }
+        
+        .recommendation.critical {
+            background: #FFEBEE;
+            border-left-color: #F44336;
+        }
+        
+        .recommendation h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        /* Data Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        
+        th {
+            background: #2C2C2C;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        tr:hover {
+            background: #F5F3ED;
+        }
+        
+        /* Score Bars */
+        .score-bar {
+            background: #E0E0E0;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 10px 0;
+            position: relative;
+        }
+        
+        .score-fill {
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            height: 100%;
+            border-radius: 15px;
+            transition: width 1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        /* Scenario Analysis */
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .scenario-card {
+            background: white;
+            border: 2px solid #E0E0E0;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .scenario-card.best {
+            border-color: #4CAF50;
+        }
+        
+        .scenario-card.base {
+            border-color: #D4AF37;
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.2);
+        }
+        
+        .scenario-card.worst {
+            border-color: #E74C3C;
+        }
+        
+        .scenario-title {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .scenario-probability {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 20px;
+        }
+        
+        .scenario-revenue {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+        
+        /* Print Styles */
+        @media print {
+            .sidebar { display: none; }
+            .main-content { margin-left: 0; }
+            .page-section { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-logo">ROUZE</div>
+        <div class="sidebar-subtitle">Intelligence Report</div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Overview</div>
+            <a href="#executive-summary" class="nav-link active">Executive Summary</a>
+            <a href="#key-findings" class="nav-link">Key Findings</a>
+            <a href="#recommendation" class="nav-link">Recommendation</a>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Market Analysis</div>
+            <a href="#market-size" class="nav-link">Market Sizing</a>
+            <a href="#demand-signals" class="nav-link">Demand Signals</a>
+            <a href="#customer-validation" class="nav-link">Customer Validation</a>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Competitive Intelligence</div>
+            <a href="#competitive-landscape" class="nav-link">Landscape Overview</a>
+            <a href="#positioning" class="nav-link">Positioning Analysis</a>
+            <a href="#moat-assessment" class="nav-link">Defensibility</a>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Financial Viability</div>
+            <a href="#unit-economics" class="nav-link">Unit Economics</a>
+            <a href="#projections" class="nav-link">3-Year Projections</a>
+            <a href="#scenarios" class="nav-link">Scenario Analysis</a>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Execution</div>
+            <a href="#gtm-strategy" class="nav-link">Go-to-Market</a>
+            <a href="#roadmap" class="nav-link">90-Day Roadmap</a>
+            <a href="#risks" class="nav-link">Risk Assessment</a>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Appendix</div>
+            <a href="#methodology" class="nav-link">Methodology</a>
+            <a href="#sources" class="nav-link">Data Sources</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Executive Summary Section -->
+        <div class="page-section" id="executive-summary">
+            <div class="page-title">Business Validation Report</div>
+            <div class="page-subtitle">{{ business_name }} - Deep Multi-Framework Analysis</div>
+            
+            <h2>Executive Summary</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Overall Viability Score</div>
+                    <div class="metric-value">78/100</div>
+                    <div class="metric-description">Strong market opportunity with addressable risks</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Market Attractiveness</div>
+                    <div class="metric-value">$2.3B</div>
+                    <div class="metric-description">Total addressable market (TAM) identified</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Competitive Intensity</div>
+                    <div class="metric-value">Moderate</div>
+                    <div class="metric-description">12 direct competitors, positioning opportunities exist</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Financial Viability</div>
+                    <div class="metric-value">24mo</div>
+                    <div class="metric-description">Estimated time to profitability at base case</div>
+                </div>
+            </div>
+            
+            <div class="recommendation">
+                <h4>Primary Recommendation: PROCEED WITH STRATEGIC MODIFICATIONS</h4>
+                <p>
+                    Based on raw signal analysis of 15,842 customer conversations across Reddit, forums, and review sites, 
+                    combined with competitive intelligence and financial modeling, we recommend proceeding with this business 
+                    idea subject to three critical modifications detailed in Section 8. The market opportunity is validated 
+                    through authentic demand signals, competitive positioning is defensible, and unit economics achieve 
+                    viability at reasonable scale.
+                </p>
+            </div>
+            
+            <h3>Key Findings at a Glance</h3>
+            <ul style="line-height: 2; margin-left: 20px;">
+                <li><strong>Market Demand Validated:</strong> 3,247 unique customer complaints directly address the problem you're solving (p<0.001 statistical significance)</li>
+                <li><strong>Willingness to Pay Confirmed:</strong> 67% of surveyed prospects indicated willingness to pay $29-49/month for proposed solution</li>
+                <li><strong>Competitive Gap Identified:</strong> No incumbent adequately serves the [specific segment] creating clear positioning opportunity</li>
+                <li><strong>CAC Achievable:</strong> Customer acquisition cost of $180-250 is feasible through identified channels with 3.2x LTV/CAC ratio</li>
+                <li><strong>Three Critical Risks:</strong> Regulatory compliance (medium), competitive response (high), technical scalability (low)</li>
+            </ul>
+        </div>
+
+        <!-- Market Analysis Section -->
+        <div class="page-section" id="market-size">
+            <h2>Market Size & Opportunity</h2>
+            
+            <h3>TAM / SAM / SOM Framework</h3>
+            
+            <table>
+                <tr>
+                    <th>Market Segment</th>
+                    <th>Market Size</th>
+                    <th>Growth Rate (CAGR)</th>
+                    <th>Methodology</th>
+                </tr>
+                <tr>
+                    <td><strong>Total Addressable Market (TAM)</strong></td>
+                    <td>$2.3 Billion</td>
+                    <td>18.4%</td>
+                    <td>Industry reports + demographic analysis</td>
+                </tr>
+                <tr>
+                    <td><strong>Serviceable Available Market (SAM)</strong></td>
+                    <td>$680 Million</td>
+                    <td>22.1%</td>
+                    <td>Geographic + segment filtering</td>
+                </tr>
+                <tr>
+                    <td><strong>Serviceable Obtainable Market (SOM)</strong></td>
+                    <td>$34 Million</td>
+                    <td>N/A (Year 3 target)</td>
+                    <td>Conservative 5% SAM capture</td>
+                </tr>
+            </table>
+            
+            <h3>Market Demand Signals</h3>
+            <p>
+                We analyzed 15,842 authentic customer conversations across Reddit (r/[relevant_sub], 3,247 posts), 
+                industry forums (4,892 threads), product review sites (6,103 reviews), and social media (1,600 mentions) 
+                to validate genuine market demand.
+            </p>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Problem Mentions</div>
+                    <div class="metric-value">3,247</div>
+                    <div class="metric-description">Unique complaints matching your problem statement</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Solution Requests</div>
+                    <div class="metric-value">892</div>
+                    <div class="metric-description">Explicit requests for solution like yours</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Frustration Intensity</div>
+                    <div class="metric-value">8.2/10</div>
+                    <div class="metric-description">Average sentiment score indicates strong pain point</div>
+                </div>
+            </ul>
+            
+            <h3>Demand Signal Quality Score</h3>
+            <div class="score-bar">
+                <div class="score-fill" style="width: 84%;">84% Confidence</div>
+            </div>
+            <p style="color: #666; font-size: 14px; margin-top: 10px;">
+                High confidence: Multiple independent sources confirm demand, statistical significance p<0.001, 
+                problem mentioned consistently across 18-month timeline without seasonal variation.
+            </p>
+        </div>
+
+        <!-- Competitive Analysis Section -->
+        <div class="page-section" id="competitive-landscape">
+            <h2>Competitive Landscape Intelligence</h2>
+            
+            <h3>Competitor Matrix</h3>
+            <table>
+                <tr>
+                    <th>Competitor</th>
+                    <th>Market Share</th>
+                    <th>Strengths</th>
+                    <th>Weaknesses (from customer signals)</th>
+                    <th>Positioning Gap</th>
+                </tr>
+                <tr>
+                    <td><strong>Competitor A</strong></td>
+                    <td>28%</td>
+                    <td>Brand recognition, enterprise features</td>
+                    <td>Complex UI (247 complaints), expensive ($189 avg mention)</td>
+                    <td>SMB accessibility</td>
+                </tr>
+                <tr>
+                    <td><strong>Competitor B</strong></td>
+                    <td>19%</td>
+                    <td>Low price point, easy onboarding</td>
+                    <td>Limited features (412 complaints), poor support</td>
+                    <td>Mid-market depth</td>
+                </tr>
+                <tr>
+                    <td><strong>Competitor C</strong></td>
+                    <td>15%</td>
+                    <td>Integration ecosystem, API</td>
+                    <td>Slow performance (178 complaints), outdated UX</td>
+                    <td>Modern experience</td>
+                </tr>
+            </table>
+            
+            <div class="recommendation warning">
+                <h4>Competitive Response Risk: HIGH</h4>
+                <p>
+                    Competitor B has raised $45M Series B (announced 3 months ago) and job postings indicate product 
+                    expansion into your target segment. Timeline to respond: estimated 9-12 months. Recommendation: 
+                    Launch aggressively within 6 months to establish first-mover advantage.
+                </p>
+            </div>
+            
+            <h3>Your Defensible Positioning</h3>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Unique Value Proposition</div>
+                    <div class="metric-value">Strong</div>
+                    <div class="metric-description">[Specific differentiator] addresses unmet need identified in 892 customer conversations</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Moat Potential</div>
+                    <div class="metric-value">Medium</div>
+                    <div class="metric-description">Network effects + data moat achievable at 5K+ users</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial Viability Section -->
+        <div class="page-section" id="projections">
+            <h2>Financial Viability Analysis</h2>
+            
+            <h3>Unit Economics</h3>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Conservative</th>
+                    <th>Base Case</th>
+                    <th>Optimistic</th>
+                    <th>Benchmark</th>
+                </tr>
+                <tr>
+                    <td>Average Revenue Per User (ARPU)</td>
+                    <td>$29/mo</td>
+                    <td>$39/mo</td>
+                    <td>$49/mo</td>
+                    <td>$35-45/mo (industry)</td>
+                </tr>
+                <tr>
+                    <td>Customer Acquisition Cost (CAC)</td>
+                    <td>$250</td>
+                    <td>$180</td>
+                    <td>$120</td>
+                    <td>$150-200 (peers)</td>
+                </tr>
+                <tr>
+                    <td>Gross Margin</td>
+                    <td>65%</td>
+                    <td>75%</td>
+                    <td>82%</td>
+                    <td>70-80% (SaaS)</td>
+                </tr>
+                <tr>
+                    <td>LTV (36mo assumed tenure)</td>
+                    <td>$627</td>
+                    <td>$1,053</td>
+                    <td>$1,440</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td><strong>LTV/CAC Ratio</strong></td>
+                    <td><strong>2.5x</strong></td>
+                    <td><strong>5.8x</strong></td>
+                    <td><strong>12x</strong></td>
+                    <td><strong>3x+ healthy</strong></td>
+                </tr>
+            </table>
+            
+            <div class="recommendation">
+                <h4>Unit Economics Verdict: VIABLE</h4>
+                <p>
+                    Base case LTV/CAC of 5.8x exceeds industry standard of 3x, indicating healthy unit economics. 
+                    CAC of $180 is achievable through identified channels (content marketing + paid social). 
+                    ARPU of $39/month validated through willingness-to-pay analysis of 340 prospect interviews.
+                </p>
+            </div>
+            
+            <h3>3-Year Financial Projections (Base Case)</h3>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Year 1</th>
+                    <th>Year 2</th>
+                    <th>Year 3</th>
+                </tr>
+                <tr>
+                    <td>Customers</td>
+                    <td>450</td>
+                    <td>2,800</td>
+                    <td>8,900</td>
+                </tr>
+                <tr>
+                    <td>Revenue</td>
+                    <td>$210K</td>
+                    <td>$1.3M</td>
+                    <td>$4.2M</td>
+                </tr>
+                <tr>
+                    <td>Operating Expenses</td>
+                    <td>$480K</td>
+                    <td>$980K</td>
+                    <td>$2.1M</td>
+                </tr>
+                <tr>
+                    <td>EBITDA</td>
+                    <td>-$270K</td>
+                    <td>$320K</td>
+                    <td>$2.1M</td>
+                </tr>
+                <tr>
+                    <td>Burn Rate</td>
+                    <td>$22.5K/mo</td>
+                    <td>Break-even M24</td>
+                    <td>Profitable</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Scenario Analysis -->
+        <div class="page-section" id="scenarios">
+            <h2>Scenario Analysis</h2>
+            
+            <div class="scenario-grid">
+                <div class="scenario-card worst">
+                    <div class="scenario-title" style="color: #E74C3C;">Worst Case</div>
+                    <div class="scenario-probability">15% probability</div>
+                    <div class="scenario-revenue" style="color: #E74C3C;">$890K</div>
+                    <p style="font-size: 14px; color: #666; margin-top: 15px;">
+                        Year 3 revenue if CAC 50% higher, churn 2x base case, competitive response aggressive
+                    </p>
+                </div>
+                
+                <div class="scenario-card base">
+                    <div class="scenario-title" style="color: #D4AF37;">Base Case</div>
+                    <div class="scenario-probability">70% probability</div>
+                    <div class="scenario-revenue" style="color: #D4AF37;">$4.2M</div>
+                    <p style="font-size: 14px; color: #666; margin-top: 15px;">
+                        Most likely outcome based on validated assumptions and market conditions
+                    </p>
+                </div>
+                
+                <div class="scenario-card best">
+                    <div class="scenario-title" style="color: #4CAF50;">Best Case</div>
+                    <div class="scenario-probability">15% probability</div>
+                    <div class="scenario-revenue" style="color: #4CAF50;">$12.8M</div>
+                    <p style="font-size: 14px; color: #666; margin-top: 15px;">
+                        Viral growth, network effects kick in early, enterprise upsell successful
+                    </p>
+                </div>
+            </div>
+            
+            <h3>Sensitivity Analysis</h3>
+            <p>Key variables most sensitive to outcome variance:</p>
+            <div class="score-bar">
+                <div class="score-fill" style="width: 85%; background: linear-gradient(90deg, #E74C3C, #F39C12);">CAC ±50% = ±$2.1M revenue impact</div>
+            </div>
+            <div class="score-bar">
+                <div class="score-fill" style="width: 62%; background: linear-gradient(90deg, #E74C3C, #F39C12);">Churn ±30% = ±$1.3M revenue impact</div>
+            </div>
+            <div class="score-bar">
+                <div class="score-fill" style="width: 48%; background: linear-gradient(90deg, #E74C3C, #F39C12);">ARPU ±20% = ±$840K revenue impact</div>
+            </div>
+        </div>
+
+        <!-- GTM Strategy -->
+        <div class="page-section" id="gtm-strategy">
+            <h2>Go-to-Market Strategy</h2>
+            
+            <h3>Customer Acquisition Channels (Prioritized)</h3>
+            <table>
+                <tr>
+                    <th>Channel</th>
+                    <th>Estimated CAC</th>
+                    <th>Time to Scale</th>
+                    <th>Recommendation</th>
+                </tr>
+                <tr>
+                    <td><strong>Content Marketing + SEO</strong></td>
+                    <td>$45 (organic)</td>
+                    <td>6-12 months</td>
+                    <td>Primary long-term channel, start immediately</td>
+                </tr>
+                <tr>
+                    <td><strong>Paid Social (LinkedIn/FB)</strong></td>
+                    <td>$180-220</td>
+                    <td>Immediate</td>
+                    <td>Initial traction, validate messaging</td>
+                </tr>
+                <tr>
+                    <td><strong>Community Building</strong></td>
+                    <td>$12 (highly efficient)</td>
+                    <td>3-6 months</td>
+                    <td>Secondary, high-quality leads</td>
+                </tr>
+                <tr>
+                    <td><strong>Partnership/Affiliate</strong></td>
+                    <td>$90 (commission-based)</td>
+                    <td>6+ months</td>
+                    <td>Tertiary, scale after PMF</td>
+                </tr>
+            </table>
+            
+            <h3>90-Day Launch Roadmap</h3>
+            
+            <div style="margin: 30px 0;">
+                <h4 style="margin-bottom: 15px;">Weeks 1-4: Foundation</h4>
+                <ul style="line-height: 2; margin-left: 20px;">
+                    <li>Finalize MVP feature set (remove [specific features], prioritize [core features])</li>
+                    <li>Set up analytics infrastructure (Mixpanel/Amplitude)</li>
+                    <li>Create content calendar (30 pieces targeting [specific keywords])</li>
+                    <li>Build landing page with clear value proposition</li>
+                    <li>Establish beta waitlist campaign</li>
+                </ul>
+                
+                <h4 style="margin: 25px 0 15px;">Weeks 5-8: Private Beta</h4>
+                <ul style="line-height: 2; margin-left: 20px;">
+                    <li>Launch to 50 hand-picked beta users</li>
+                    <li>Weekly user interviews (minimum 15 conversations)</li>
+                    <li>Track activation metrics (target: 70% weekly active users)</li>
+                    <li>Iterate on core workflow based on feedback</li>
+                    <li>Begin content publishing (2-3 pieces/week)</li>
+                </ul>
+                
+                <h4 style="margin: 25px 0 15px;">Weeks 9-12: Public Launch</h4>
+                <ul style="line-height: 2; margin-left: 20px;">
+                    <li>Product Hunt launch (prep 2 weeks prior)</li>
+                    <li>Activate paid acquisition ($5K initial budget)</li>
+                    <li>Onboard 250+ users (target)</li>
+                    <li>Achieve 30% activation rate</li>
+                    <li>Validate CAC < $200 across channels</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Risk Assessment -->
+        <div class="page-section" id="risks">
+            <h2>Risk Assessment & Mitigation</h2>
+            
+            <div class="recommendation critical">
+                <h4>Critical Risk #1: Competitive Response</h4>
+                <p><strong>Risk Level: HIGH</strong></p>
+                <p>
+                    <strong>Description:</strong> Competitor B has $45M in funding and job postings indicate product 
+                    expansion into your target segment. If they launch before you achieve scale, customer acquisition 
+                    will become significantly more expensive.
+                </p>
+                <p>
+                    <strong>Probability:</strong> 65% within 12 months<br>
+                    <strong>Impact if occurs:</strong> CAC increases 2-3x, market share capture reduced by 40%<br>
+                    <strong>Mitigation:</strong> Accelerate launch timeline to 6 months (vs 9 month plan), establish 
+                    brand presence in community early, secure key partnerships pre-launch, build network effects into 
+                    product from day 1
+                </p>
+            </div>
+            
+            <div class="recommendation warning">
+                <h4>Moderate Risk #2: Regulatory Compliance</h4>
+                <p><strong>Risk Level: MEDIUM</strong></p>
+                <p>
+                    <strong>Description:</strong> [Specific regulation] may require licensing depending on feature 
+                    interpretation. Legal ambiguity exists in current framework.
+                </p>
+                <p>
+                    <strong>Probability:</strong> 35% enforcement within 24 months<br>
+                    <strong>Impact if occurs:</strong> $45K compliance costs, 2-3 month delay<br>
+                    <strong>Mitigation:</strong> Consult with regulatory attorney pre-launch ($5K), structure features 
+                    to avoid trigger language, maintain $50K compliance reserve
+                </p>
+            </div>
+            
+            <div class="recommendation">
+                <h4>Low Risk #3: Technical Scalability</h4>
+                <p><strong>Risk Level: LOW</strong></p>
+                <p>
+                    <strong>Description:</strong> Architecture may require refactoring at 10K+ users based on current 
+                    technical decisions.
+                </p>
+                <p>
+                    <strong>Probability:</strong> 80% will occur (expected)<br>
+                    <strong>Impact if occurs:</strong> $80K engineering costs, 6-week timeline<br>
+                    <strong>Mitigation:</strong> Design database schema for scale from start, implement monitoring 
+                    at 5K users, budget $100K technical debt reserve
+                </p>
+            </div>
+        </div>
+
+        <!-- Methodology -->
+        <div class="page-section" id="methodology">
+            <h2>Methodology & Data Sources</h2>
+            
+            <h3>Research Approach</h3>
+            <p>
+                This validation report synthesizes data from multiple independent sources using Rouze's raw signal 
+                intelligence methodology. Unlike traditional market research that relies on surveys, we analyze 
+                authentic conversations where customers don't know they're being researched, eliminating response bias.
+            </p>
+            
+            <h3>Data Collection</h3>
+            <ul style="line-height: 2; margin: 20px 0 20px 20px;">
+                <li><strong>Social Media Analysis:</strong> 15,842 posts/comments from Reddit (8 subreddits), Twitter (2,400 mentions), LinkedIn groups (1,200 discussions)</li>
+                <li><strong>Forum Mining:</strong> 4,892 threads from [industry-specific forums], analyzed for problem frequency and solution requests</li>
+                <li><strong>Review Site Analysis:</strong> 6,103 product reviews from G2, Capterra, Trustpilot analyzing competitor weaknesses</li>
+                <li><strong>Job Posting Analysis:</strong> 340 relevant job postings indicating market growth and competitor product roadmaps</li>
+                <li><strong>Financial Benchmarking:</strong> Public comparable company data, industry reports, VC portfolio metrics</li>
+            </ul>
+            
+            <h3>Statistical Rigor</h3>
+            <p>
+                All market sizing calculations include confidence intervals. Demand signal analysis requires p<0.05 
+                statistical significance. Competitive intelligence cross-validated across minimum 3 independent sources. 
+                Financial projections based on peer benchmarks with conservative assumptions documented.
+            </p>
+            
+            <h3>Confidence Levels by Section</h3>
+            <div class="score-bar">
+                <div class="score-fill" style="width: 92%;">Market Demand: 92% Confidence</div>
+            </div>
+            <div class="score-bar">
+                <div class="score-fill" style="width: 78%;">Competitive Analysis: 78% Confidence</div>
+            </div>
+            <div class="score-bar">
+                <div class="score-fill" style="width: 65%;">Financial Projections: 65% Confidence</div>
+            </div>
+            <div class="score-bar">
+                <div class="score-fill" style="width: 70%;">GTM Strategy: 70% Confidence</div>
+            </div>
+        </div>
+
+        <!-- Final Recommendation -->
+        <div class="page-section" id="final-recommendation">
+            <h2>Final Recommendation</h2>
+            
+            <div class="recommendation">
+                <h4>VERDICT: PROCEED WITH STRATEGIC MODIFICATIONS</h4>
+                <p style="font-size: 16px; line-height: 1.8; margin-top: 15px;">
+                    Based on comprehensive multi-framework analysis of market demand, competitive positioning, financial 
+                    viability, and execution risk, we recommend <strong>proceeding with this business idea</strong> subject 
+                    to three critical modifications:
+                </p>
+            </div>
+            
+            <h3>Required Modifications Before Launch:</h3>
+            <ol style="line-height: 2; margin-left: 20px; font-size: 16px;">
+                <li style="margin-bottom: 20px;">
+                    <strong>Accelerate Timeline:</strong> Reduce launch window from 9 months to 6 months to establish 
+                    first-mover advantage before Competitor B enters market (65% probability within 12 months based on 
+                    intelligence signals).
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <strong>Narrow Initial Target:</strong> Focus exclusively on [specific segment] for first 12 months 
+                    rather than broad market approach. This segment shows 2.8x higher willingness-to-pay and 40% lower CAC 
+                    based on signal analysis.
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <strong>Implement Network Effects Early:</strong> Build viral/referral mechanisms into MVP rather than 
+                    post-launch addition. Analysis shows 3.2x faster growth for products with day-1 sharing functionality 
+                    in this category.
+                </li>
+            </ol>
+            
+            <h3>Expected Outcome with Modifications:</h3>
+            <ul style="line-height: 2; margin-left: 20px; font-size: 16px;">
+                <li>70% probability of achieving base case scenario ($4.2M Year 3 revenue)</li>
+                <li>24-month timeline to profitability</li>
+                <li>Defensible market position before major competitive response</li>
+                <li>Unit economics support sustainable growth (5.8x LTV/CAC ratio)</li>
+            </ul>
+            
+            <div style="margin: 40px 0; padding: 30px; background: #F5F3ED; border-radius: 12px; border-left: 6px solid #D4AF37;">
+                <h4 style="font-size: 20px; margin-bottom: 15px;">Next Immediate Steps:</h4>
+                <ol style="line-height: 2; margin-left: 20px;">
+                    <li>Secure initial funding ($480K minimum for 24-month runway)</li>
+                    <li>Retain regulatory counsel for compliance assessment ($5K, 2-week timeline)</li>
+                    <li>Begin MVP development with modified scope (6-month aggressive timeline)</li>
+                    <li>Implement community-building strategy in target segment (start immediately, zero cost)</li>
+                    <li>Establish metrics dashboard to track assumptions (activation rate, CAC, churn)</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Report Footer -->
+        <div style="margin-top: 80px; padding: 40px 60px; background: #2C2C2C; border-radius: 12px; color: white; text-align: center;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 32px; font-style: italic; margin-bottom: 15px; color: #D4AF37;">
+                ROUZE
+            </div>
+            <div style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.15em; color: #999; margin-bottom: 25px;">
+                Intelligence Agency
+            </div>
+            <p style="font-size: 14px; line-height: 1.8; color: #CCC; max-width: 600px; margin: 0 auto;">
+                This report was generated through raw signal analysis of 15,842 authentic customer conversations 
+                combined with competitive intelligence and financial modeling. Confidence levels and assumptions 
+                documented throughout. Questions? Contact: intelligence@rouze.agency
+            </p>
+            <div style="margin-top: 30px; font-size: 12px; color: #666;">
+                Report Generated: {{ report_date }} | Confidential & Proprietary
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Update active state
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

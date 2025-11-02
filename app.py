@@ -83,3 +83,14 @@ def health():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
+
+@app.route('/intake/business-idea')
+def intake_business_idea():
+    return render_template('intake_business_idea.html')
+
+@app.route('/report/business-validation/<report_id>')
+def business_validation_report(report_id):
+    # In production, load actual report data from database
+    return render_template('report_business_validation.html', 
+                         business_name='Sample Business Idea',
+                         report_date='November 2, 2025')

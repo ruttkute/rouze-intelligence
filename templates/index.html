@@ -21,7 +21,6 @@
             color: var(--signal-black);
         }
         
-        /* Sticky Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -78,7 +77,6 @@
             color: var(--intelligence-pink);
         }
         
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -113,11 +111,10 @@
             margin-bottom: 50px;
         }
         
-        /* Service Cards */
         .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
             max-width: 1400px;
             width: 100%;
             padding: 0 40px;
@@ -126,7 +123,7 @@
         
         .service-card {
             background: white;
-            padding: 50px 40px;
+            padding: 45px 35px;
             border-radius: 12px;
             border-top: 3px solid var(--intelligence-pink);
             transition: all 0.4s;
@@ -139,37 +136,65 @@
             box-shadow: 0 20px 60px rgba(232, 197, 209, 0.25);
         }
         
+        .service-card.featured {
+            border-top-color: var(--data-gold);
+            position: relative;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--data-gold);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
         .service-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-size: 24px;
+            margin-bottom: 15px;
         }
         
         .service-card p {
             color: rgba(44, 44, 44, 0.7);
-            margin-bottom: 25px;
-            line-height: 1.7;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 14px;
         }
         
         .price-range {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
             color: var(--intelligence-pink);
-            margin: 20px 0;
+            margin: 18px 0;
+        }
+        
+        .service-card.featured .price-range {
+            color: var(--data-gold);
         }
         
         .cta-button {
             background: linear-gradient(135deg, #E8C5D1, #D4A5B8);
             color: white;
             border: none;
-            padding: 16px 40px;
-            font-size: 15px;
+            padding: 14px 35px;
+            font-size: 14px;
             font-weight: 600;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+        }
+        
+        .service-card.featured .cta-button {
+            background: linear-gradient(135deg, var(--data-gold), #B8860B);
         }
         
         .cta-button:hover {
@@ -191,7 +216,6 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/services">Services</a></li>
                 <li><a href="/methodology">Methodology</a></li>
-                <li><a href="/pricing/saas">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -227,11 +251,18 @@
                 <p class="price-range">$500 - $2,000</p>
                 <button class="cta-button">Get Started</button>
             </div>
+
+            <div class="service-card featured" onclick="window.location.href='/intake/business-idea'">
+                <span class="featured-badge">New</span>
+                <h3>Business Idea Validation</h3>
+                <p>Deep multi-framework validation: market demand, competitive landscape, financial viability, risk assessment. Comprehensive 30-page HTML report with multiple scenario analysis.</p>
+                <p class="price-range">$2,000 - $8,000</p>
+                <button class="cta-button">Validate Idea</button>
+            </div>
         </div>
     </div>
 
     <script>
-        // Sticky nav scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
