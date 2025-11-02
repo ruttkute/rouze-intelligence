@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Validation Report - SAMPLE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #F8F6F0; color: #2C2C2C; }
+        
+        .sample-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #FF6B6B, #E74C3C);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            z-index: 10000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 60px;
+            width: 280px;
+            height: calc(100vh - 60px);
+            background: #2C2C2C;
+            color: white;
+            padding: 40px 30px;
+            overflow-y: auto;
+        }
+        
+        .sidebar-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #D4AF37;
+        }
+        
+        .nav-section {
+            margin-bottom: 30px;
+        }
+        
+        .nav-section-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #666;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 10px 15px;
+            color: #CCC;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255,255,255,0.1);
+            color: #D4AF37;
+            padding-left: 20px;
+        }
+        
+        .nav-link.active {
+            background: #D4AF37;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            padding: 100px 80px 60px;
+            max-width: 1400px;
+        }
+        
+        .page-section {
+            background: white;
+            padding: 60px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(44, 44, 44, 0.06);
+        }
+        
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+        
+        .page-subtitle {
+            font-size: 18px;
+            color: #D4AF37;
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin: 40px 0 20px;
+            color: #2C2C2C;
+            border-bottom: 3px solid #D4AF37;
+            padding-bottom: 15px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .metric-card {
+            background: #F5F3ED;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #D4AF37;
+        }
+        
+        .metric-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        
+        .metric-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #D4AF37;
+            margin-bottom: 5px;
+        }
+        
+        .recommendation {
+            background: #E8F5E9;
+            border-left: 4px solid #4CAF50;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        
+        th {
+            background: #2C2C2C;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .scenario-card {
+            background: white;
+            border: 2px solid #E0E0E0;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .scenario-card.best { border-color: #4CAF50; }
+        .scenario-card.base { border-color: #D4AF37; box-shadow: 0 8px 30px rgba(212, 175, 55, 0.2); }
+        .scenario-card.worst { border-color: #E74C3C; }
+        
+        .scenario-title {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .scenario-revenue {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="sample-banner">
+        SAMPLE REPORT - Example of 40-page interactive validation report
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-logo">ROUZE</div>
+        <p style="font-size: 12px; color: #999; margin-bottom: 30px;">Business Validation</p>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Overview</div>
+            <a href="#executive-summary" class="nav-link active">Executive Summary</a>
+            <a href="#viability-score" class="nav-link">Viability Score</a>
+            <a href="#recommendation" class="nav-link">Recommendation</a>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Market Analysis</div>
+            <a href="#market-size" class="nav-link">Market Sizing</a>
+            <a href="#demand-signals" class="nav-link">Demand Validation</a>
+            <a href="#customer-research" class="nav-link">Customer Research</a>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Competitive Intelligence</div>
+            <a href="#competitive" class="nav-link">Landscape Analysis</a>
+            <a href="#positioning" class="nav-link">Positioning Gaps</a>
+            <a href="#moat" class="nav-link">Defensibility</a>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Financial Viability</div>
+            <a href="#unit-economics" class="nav-link">Unit Economics</a>
+            <a href="#projections" class="nav-link">3-Year Projections</a>
+            <a href="#scenarios" class="nav-link">Scenario Analysis</a>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Execution</div>
+            <a href="#gtm" class="nav-link">Go-to-Market</a>
+            <a href="#roadmap" class="nav-link">90-Day Roadmap</a>
+            <a href="#risks" class="nav-link">Risk Assessment</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="page-section" id="executive-summary">
+            <div class="page-title">Business Validation Report</div>
+            <div class="page-subtitle">Sample Business Idea - Multi-Framework Analysis</div>
+            
+            <h2>Executive Summary</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Overall Viability Score</div>
+                    <div class="metric-value">78/100</div>
+                    <div class="metric-description">Strong opportunity with addressable risks</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Market Attractiveness</div>
+                    <div class="metric-value">$2.3B</div>
+                    <div class="metric-description">Total addressable market identified</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Competitive Intensity</div>
+                    <div class="metric-value">Moderate</div>
+                    <div class="metric-description">12 direct competitors, gaps identified</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Time to Profitability</div>
+                    <div class="metric-value">24mo</div>
+                    <div class="metric-description">Estimated break-even at base case</div>
+                </div>
+            </div>
+            
+            <div class="recommendation">
+                <h4>Primary Recommendation: PROCEED WITH MODIFICATIONS</h4>
+                <p>
+                    Based on analysis of 15,842 customer conversations across Reddit, forums, and review sites, 
+                    combined with competitive intelligence and financial modeling, we recommend proceeding with 
+                    three strategic modifications detailed in Section 8.
+                </p>
+            </div>
+        </div>
+
+        <div class="page-section" id="market-size">
+            <h2>Market Size Analysis</h2>
+            
+            <table>
+                <tr>
+                    <th>Market Segment</th>
+                    <th>Market Size</th>
+                    <th>Growth Rate</th>
+                    <th>Methodology</th>
+                </tr>
+                <tr>
+                    <td>Total Addressable Market (TAM)</td>
+                    <td>$2.3 Billion</td>
+                    <td>18.4%</td>
+                    <td>Industry reports + demographic analysis</td>
+                </tr>
+                <tr>
+                    <td>Serviceable Available Market (SAM)</td>
+                    <td>$680 Million</td>
+                    <td>22.1%</td>
+                    <td>Geographic + segment filtering</td>
+                </tr>
+                <tr>
+                    <td>Serviceable Obtainable Market (SOM)</td>
+                    <td>$34 Million</td>
+                    <td>N/A</td>
+                    <td>Conservative 5% SAM capture (Year 3)</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="page-section" id="scenarios">
+            <h2>Scenario Analysis</h2>
+            
+            <div class="scenario-grid">
+                <div class="scenario-card worst">
+                    <div class="scenario-title" style="color: #E74C3C;">Worst Case</div>
+                    <div style="font-size: 14px; color: #999; margin-bottom: 15px;">15% probability</div>
+                    <div class="scenario-revenue" style="color: #E74C3C;">$890K</div>
+                    <p style="font-size: 14px; color: #666; margin-top: 15px;">
+                        Year 3 revenue if CAC 50% higher, churn 2x, aggressive competitive response
+                    </p>
+                </div>
+                
+                <div class="scenario-card base">
+                    <div class="scenario-title" style="color: #D4AF37;">Base Case</div>
+                    <div style="font-size: 14px; color: #999; margin-bottom: 15px;">70% probability</div>
+                    <div class="scenario-revenue" style="color: #D4AF37;">$4.2M</div>
+                    <p style="font-size: 14px; color: #666; margin-top: 15px;">
+                        Most likely outcome based on validated assumptions
+                    </p>
+                </div>
+                
+                <div class="scenario-card best">
+                    <div class="scenario-title" style="color: #4CAF50;">Best Case</div>
+                    <div style="font-size: 14px; color: #999; margin-bottom: 15px;">15% probability</div>
+                    <div class="scenario-revenue" style="color: #4CAF50;">$12.8M</div>
+                    <p style="font-size: 14px; color: #666; margin-top: 15px;">
+                        Viral growth, network effects, enterprise upsell success
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 80px; padding: 40px 60px; background: #2C2C2C; border-radius: 12px; color: white; text-align: center;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 32px; font-style: italic; margin-bottom: 15px; color: #D4AF37;">
+                ROUZE
+            </div>
+            <p style="font-size: 14px; line-height: 1.8; color: #CCC; max-width: 600px; margin: 0 auto 30px;">
+                This sample demonstrates validation report depth. Your actual report contains your specific business data, 
+                customized analysis, and actionable recommendations based on real-time signal monitoring across 15+ sources.
+            </p>
+            <a href="/intake/business-idea" style="display: inline-block; background: #D4AF37; color: white; padding: 14px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; text-transform: uppercase;">
+                Request Your Validation
+            </a>
+        </div>
+    </div>
+</body>
+</html>

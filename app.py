@@ -113,3 +113,11 @@ def sample_report_business():
     return render_template('report_business_validation.html',
                          business_name='Sample Business Idea',
                          report_date='November 2, 2025')
+
+@app.route('/cart')
+def cart():
+    return render_template('cart.html')
+
+@app.route('/report/sample/business-validation')
+def sample_business_validation():
+    return render_template('report_business_sample.html')
