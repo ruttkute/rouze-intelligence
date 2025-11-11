@@ -1,5 +1,0 @@
-adverse_event,patient_mentions,fda_reports,validation_status,confidence
-nausea,1,22,CONFIRMED,HIGH
-headache,1,10,CONFIRMED,HIGH
-dizziness,1,4,CONFIRMED,HIGH
-gastrointestinal,1,4,CONFIRMED,HIGH

@@ -1,7 +1,0 @@
-scenario_name,num_caravans,occupancy_rate,daily_rate,annual_rental_revenue,annual_operational_costs,annual_insurance_maintenance,gross_profit,monthly_loan_payment,annual_debt_service,annual_net_profit,payback_months,payback_years,description
-Budget Eco-Tourism (High Volume),6,68%,30 EUR,44676.0,8041.68,2400,34234.32,978.31,11739.72,22494.6,26.7,2.22,"Budget tourists focus, 30 EUR/night pricing"
-Digital Nomad Community (Monthly Focus),4,78%,18 EUR,20498.4,3689.71,1600,15208.69,978.31,11739.72,3468.97,173.0,14.41,Monthly stays (550 EUR/month = 18.3 EUR/day avg)
-Premium Corporate Events (High Margin),4,42%,48 EUR,29433.6,5298.05,1600,22535.55,978.31,11739.72,10795.83,55.6,4.63,"Corporate team-building focus, 45-50 EUR/night premium"
-Hybrid Mixed Model (RECOMMENDED),6,68%,31.5 EUR,46909.8,8443.76,2400,36066.04,978.31,11739.72,24326.32,24.7,2.06,60% tourists / 25% monthly / 15% corporate blend
-Aggressive Growth (Scale Up),10,70%,32 EUR,81760.0,14716.8,4000,63043.2,978.31,11739.72,51303.48,11.7,0.97,"10 caravans, optimized pricing, mature operations"
-Conservative Safe (Low Risk),3,60%,30 EUR,19710.0,3547.8,1200,14962.2,978.31,11739.72,3222.48,186.2,15.52,"Minimal investment, proven demand before scaling"

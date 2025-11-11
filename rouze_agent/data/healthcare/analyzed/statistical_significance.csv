@@ -1,5 +1,0 @@
-adverse_event,observed_count,expected_count,observed_rate,baseline_rate,chi_square,p_value,significance,effect_size,ci_95_lower,ci_95_upper
-nausea,1,16.25,0.3%,5.0%,14.312,0.0002,***,-0.34,0.1%,1.7%
-headache,1,26.0,0.3%,8.0%,24.038,0.0000,***,-0.463,0.1%,1.7%
-dizziness,1,13.0,0.3%,4.0%,11.077,0.0009,***,-0.292,0.1%,1.7%
-gastrointestinal,1,19.5,0.3%,6.0%,17.551,0.0000,***,-0.384,0.1%,1.7%

@@ -1,5 +1,0 @@
-adverse_event,risk_score,risk_level,recommended_action
-nausea,52.8,HIGH,Safety committee review within 48 hours + label assessment
-headache,57.4,HIGH,Safety committee review within 48 hours + label assessment
-dizziness,51.0,HIGH,Safety committee review within 48 hours + label assessment
-gastrointestinal,54.4,HIGH,Safety committee review within 48 hours + label assessment
