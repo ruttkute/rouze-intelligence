@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rouze Intelligence - Executive Brief Sample</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rouze-cream: #F8F6F0;
+            --intelligence-pink: #E8C5D1;
+            --signal-black: #2C2C2C;
+            --archive-ivory: #F5F3ED;
+            --insight-rose: #D4A5B8;
+            --analysis-gray: #8B8B8B;
+            --data-gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--rouze-cream) 0%, var(--archive-ivory) 100%);
+            color: var(--signal-black);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .document-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(44, 44, 44, 0.15);
+            overflow: hidden;
+            border: 2px solid var(--intelligence-pink);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--intelligence-pink) 0%, var(--insight-rose) 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="lace" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23lace)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .brand-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tagline {
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .document-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--signal-black);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .document-subtitle {
+            text-align: center;
+            color: var(--analysis-gray);
+            font-size: 18px;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .executive-summary {
+            background: var(--archive-ivory);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 6px solid var(--intelligence-pink);
+            margin-bottom: 40px;
+        }
+
+        .summary-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--signal-black);
+            margin-bottom: 20px;
+        }
+
+        .key-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(44, 44, 44, 0.08);
+            border-top: 4px solid var(--data-gold);
+        }
+
+        .metric-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--data-gold);
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: var(--analysis-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .insights-section {
+            margin: 40px 0;
+        }
+
+        .insight-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--intelligence-pink);
+            box-shadow: 0 4px 15px rgba(44, 44, 44, 0.05);
+        }
+
+        .insight-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--signal-black);
+            margin-bottom: 15px;
+        }
+
+        .data-source {
+            background: var(--intelligence-pink);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+            margin: 3px 3px 3px 0;
+        }
+
+        .recommendations {
+            background: var(--rouze-cream);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .recommendations-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--signal-black);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .recommendation-item {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+        }
+
+        .recommendation-item:last-child {
+            border-bottom: none;
+        }
+
+        .watermark {
+            text-align: center;
+            padding: 30px;
+            color: var(--analysis-gray);
+            font-size: 14px;
+            background: var(--archive-ivory);
+        }
+
+        .highlight {
+            color: var(--intelligence-pink);
+            font-weight: 600;
+        }
+
+        .methodology-note {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid var(--intelligence-pink);
+            margin: 20px 0;
+            font-size: 14px;
+            color: var(--analysis-gray);
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px;
+            }
+            
+            .document-title {
+                font-size: 28px;
+            }
+            
+            .key-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="document-container">
+        <div class="header">
+            <div class="brand-mark">𝓡𝓞𝓤𝓩𝓔</div>
+            <div class="tagline">Raw Signals → Strategic Insights</div>
+        </div>
+
+        <div class="content">
+            <h1 class="document-title">Executive Intelligence Brief</h1>
+            <p class="document-subtitle">E-commerce Sustainability Market Analysis</p>
+
+            <div class="executive-summary">
+                <h2 class="summary-title">Executive Summary</h2>
+                <p><strong>Challenge:</strong> Mid-market e-commerce company needed actionable sustainability intelligence beyond generic industry trend reports.</p>
+                <br>
+                <p><strong>Methodology:</strong> Analyzed 10,984 raw signals from social platforms, reviews, and forums to extract authentic consumer sentiment patterns.</p>
+                <br>
+                <p><strong>Strategic Outcome:</strong> Client launched authentic sustainability line 3 months ahead of industry trend recognition, generating $380K in first-year revenue.</p>
+            </div>
+
+            <div class="key-metrics">
+                <div class="metric-card">
+                    <div class="metric-number">$380K</div>
+                    <div class="metric-label">Revenue Generated</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">3 Months</div>
+                    <div class="metric-label">Market Advantage</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">5 Days</div>
+                    <div class="metric-label">Delivery Time</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">10,984</div>
+                    <div class="metric-label">Signals Analyzed</div>
+                </div>
+            </div>
+
+            <div class="insights-section">
+                <h3 class="summary-title">Key Intelligence Extracted</h3>
+
+                <div class="insight-item">
+                    <h4 class="insight-title">🔍 Consumer Sophistication Surge</h4>
+                    <p><strong>Signal Detected:</strong> 340% increase in "greenwashing" complaints across sustainability communities</p>
+                    <p><strong>Strategic Implication:</strong> Authenticity now trumps marketing claims - focus on measurable impact</p>
+                    <div style="margin-top: 10px;">
+                        <span class="data-source">Reddit Analysis</span>
+                        <span class="data-source">6-Month Trend</span>
+                    </div>
+                </div>
+
+                <div class="insight-item">
+                    <h4 class="insight-title">📈 Premium Pricing Window Opens</h4>
+                    <p><strong>Cross-Platform Validation:</strong> Gen-Z willing to pay 23% premium for authentic sustainability</p>
+                    <p><strong>Market Opportunity:</strong> Early movers can establish premium positioning before competition responds</p>
+                    <div style="margin-top: 10px;">
+                        <span class="data-source">TikTok Sentiment</span>
+                        <span class="data-source">Amazon Reviews</span>
+                        <span class="data-source">Price Analysis</span>
+                    </div>
+                </div>
+
+                <div class="insight-item">
+                    <h4 class="insight-title">⚠️ Competitive Vulnerability Identified</h4>
+                    <p><strong>Intelligence Gathered:</strong> Major competitor showing 18% increase in "expensive but not green" complaints</p>
+                    <p><strong>Strategic Window:</strong> 3-month opportunity before competitor likely pivots approach</p>
+                    <div style="margin-top: 10px;">
+                        <span class="data-source">Competitor Reviews</span>
+                        <span class="data-source">Sentiment Tracking</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="methodology-note">
+                <strong>Methodology Advantage:</strong> While traditional research takes 3-6 months and provides generic insights, Rouze analyzes fresh, unfiltered signals in 5-7 days, delivering unique intelligence your competitors cannot access.
+            </div>
+
+            <div class="recommendations">
+                <h3 class="recommendations-title">Strategic Recommendations</h3>
+                
+                <div class="recommendation-item">
+                    <strong>Immediate Action (0-30 days):</strong> Audit all sustainability claims for measurable backing and develop quantifiable impact metrics for customer communication.
+                </div>
+                
+                <div class="recommendation-item">
+                    <strong>Market Positioning (30-90 days):</strong> Launch premium sustainability line leveraging authentic impact measurement advantage over competitors.
+                </div>
+                
+                <div class="recommendation-item">
+                    <strong>Long-term Strategy (90+ days):</strong> Establish thought leadership position in authentic sustainability space while maintaining ongoing competitive monitoring.
+                </div>
+            </div>
+        </div>
+
+        <div class="watermark">
+            <p><strong>𝓡𝓞𝓤𝓩𝓔 Intelligence</strong> • Strategic Intelligence Consultancy</p>
+            <p>Raw Signals → Real Insights → Real Revenue</p>
+        </div>
+    </div>
+</body>
+</html>

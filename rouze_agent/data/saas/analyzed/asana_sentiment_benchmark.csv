@@ -1,0 +1,6 @@
+category,mean_score,median_score,std_dev,industry_benchmark,performance,t_statistic,p_value,significance
+Overall,3.7,3.75,1.01,4.0,BELOW,-4.211,0.0000,***
+Ease Of Use,3.8,3.75,0.81,4.0,BELOW,-3.473,0.0006,***
+Features,3.7,3.75,1.01,4.0,BELOW,-4.211,0.0000,***
+Support,3.5,3.75,1.25,4.0,BELOW,-5.665,0.0000,***
+Value,3.85,4.0,0.55,4.0,BELOW,-3.847,0.0002,***

@@ -1,0 +1,6 @@
+feature_gap,mention_count,mention_rate,chi_square,p_value,significance,priority
+Api Limitations,120,60.0%,1210.0,0.0000,***,HIGH
+Support,120,60.0%,1210.0,0.0000,***,HIGH
+Mobile Issues,80,40.0%,490.0,0.0000,***,HIGH
+Customization,80,40.0%,490.0,0.0000,***,HIGH
+Performance,80,40.0%,490.0,0.0000,***,HIGH

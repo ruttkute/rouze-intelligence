@@ -1,0 +1,19 @@
+{
+  "persona": {
+    "name": "Rouze",
+    "niches": ["design", "writing", "data entry"],
+    "tone": "friendly, confident, warm"
+  },
+  "scan": {
+    "subreddits": ["forhire", "slavelabour", "hireawriter", "DesignJobs", "callforartists"],
+    "recency_hours": 48,
+    "limit_per_sub": 50
+  },
+  "keywords": {
+    "include": ["logo", "banner", "poster", "thumbnail", "flyer", "brand", "figma", "canva", "copy", "bio", "about", "article", "blog", "product description", "caption", "data entry", "excel", "spreadsheet", "clean", "format"],
+    "exclude": ["unpaid", "exposure", "free"]
+  },
+  "budget_floor_usd": 15,
+  "style_default": "invite/modern",
+  "blacklist": ["NSFW", "adult"]
+}

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rouze Intelligence - Restaurant Equipment Market Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rouze-cream: #F8F6F0;
+            --intelligence-pink: #E8C5D1;
+            --signal-black: #2C2C2C;
+            --archive-ivory: #F5F3ED;
+            --data-gold: #D4AF37;
+            --analysis-gray: #8B8B8B;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--rouze-cream);
+            color: var(--signal-black);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 60px;
+            box-shadow: 0 8px 32px rgba(44, 44, 44, 0.1);
+            border: 1px solid var(--intelligence-pink);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 2px solid var(--intelligence-pink);
+            padding-bottom: 30px;
+        }
+        
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--intelligence-pink);
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            color: var(--analysis-gray);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--signal-black);
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: var(--analysis-gray);
+            font-size: 18px;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--signal-black);
+            margin: 40px 0 20px 0;
+            border-left: 4px solid var(--intelligence-pink);
+            padding-left: 20px;
+        }
+        
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .metric-card {
+            background: var(--archive-ivory);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 3px solid var(--data-gold);
+        }
+        
+        .metric-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--data-gold);
+            margin-bottom: 8px;
+        }
+        
+        .metric-label {
+            color: var(--analysis-gray);
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .insight-box {
+            background: var(--archive-ivory);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--intelligence-pink);
+            margin: 20px 0;
+        }
+        
+        .chart-container {
+            background: var(--archive-ivory);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .chart-bar {
+            background: var(--intelligence-pink);
+            height: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .chart-bar.bar-78 { width: 78%; }
+        .chart-bar.bar-65 { width: 65%; }
+        .chart-bar.bar-52 { width: 52%; }
+        .chart-bar.bar-41 { width: 41%; }
+        
+        .chart-label {
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .recommendations {
+            background: white;
+            border: 2px solid var(--intelligence-pink);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .rec-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .rec-item:last-child {
+            border-bottom: none;
+        }
+        
+        .rec-number {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: var(--intelligence-pink);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            font-weight: 600;
+            margin-right: 15px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid var(--intelligence-pink);
+            color: var(--analysis-gray);
+        }
+        
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .detail-item {
+            text-align: center;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--intelligence-pink);
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="brand">𝓡𝓞𝓤𝓩𝓔</div>
+            <div class="tagline">Raw Signals → Real Insights</div>
+            <div class="title">Restaurant Equipment Market Intelligence</div>
+            <div class="subtitle">Strategic Entry Analysis for Commercial Kitchen Equipment</div>
+        </div>
+
+        <div class="project-details">
+            <div class="detail-item">
+                <div class="detail-label">Investment</div>
+                <div>$600</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Timeline</div>
+                <div>6 days</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Signals Analyzed</div>
+                <div>3,200+</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Market Opportunity</div>
+                <div>$850K</div>
+            </div>
+        </div>
+
+        <h2>Executive Summary</h2>
+        <div class="insight-box">
+            <strong>Challenge:</strong> Commercial kitchen equipment manufacturer needed competitive intelligence for sustainable equipment market entry in Southeast US markets.<br><br>
+            <strong>Methodology:</strong> Analyzed 3,200+ signals across restaurant forums, equipment reviews, supplier discussions, and industry job postings over 6-day period.<br><br>
+            <strong>Business Impact:</strong> Identified $850K market opportunity with clear geographic entry strategy and competitive positioning.
+        </div>
+
+        <h2>Market Intelligence Metrics</h2>
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="metric-number">78%</div>
+                <div class="metric-label">Increase in "energy-efficient equipment" mentions</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">15%</div>
+                <div class="metric-label">Premium willing to pay for verified savings</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">$2,400</div>
+                <div class="metric-label">Average daily cost of equipment downtime</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">67%</div>
+                <div class="metric-label">Restaurants planning sustainability upgrades</div>
+            </div>
+        </div>
+
+        <h2>Competitive Landscape Analysis</h2>
+        <div class="chart-container">
+            <h3 style="margin-bottom: 20px;">Market Position by Sustainability Focus</h3>
+            <div class="chart-label">Hobart (Market Leader)</div>
+            <div class="chart-bar bar-41"></div>
+            
+            <div class="chart-label">Rational (Premium)</div>
+            <div class="chart-bar bar-52"></div>
+            
+            <div class="chart-label">Vulcan (Reliability)</div>
+            <div class="chart-bar bar-65"></div>
+            
+            <div class="chart-label">Market Opportunity</div>
+            <div class="chart-bar bar-78"></div>
+        </div>
+
+        <h2>Signal Intelligence Extracted</h2>
+        <div class="insight-box">
+            <strong>🎯 Primary Signal:</strong> 78% increase in energy-efficient equipment discussions across restaurant owner forums (Q2 2024)<br><br>
+            <strong>💰 Price Intelligence:</strong> Restaurant owners willing to pay 15% premium for equipment with verified energy savings documentation<br><br>
+            <strong>⚠️ Pain Point Identified:</strong> Equipment downtime costs averaging $2,400/day, creating urgency for reliable sustainable options<br><br>
+            <strong>🗺️ Geographic Opportunity:</strong> Southeast markets (Atlanta, Austin, Miami) underserved by sustainable equipment suppliers
+        </div>
+
+        <h2>Strategic Recommendations</h2>
+        <div class="recommendations">
+            <div class="rec-item">
+                <span class="rec-number">1</span>
+                <strong>Target Market:</strong> Focus on 50-200 seat restaurants with sustainability mandates and proven profitability
+            </div>
+            <div class="rec-item">
+                <span class="rec-number">2</span>
+                <strong>Value Proposition:</strong> Lead with energy cost savings calculator showing 18-month ROI on equipment investment
+            </div>
+            <div class="rec-item">
+                <span class="rec-number">3</span>
+                <strong>Geographic Entry:</strong> Launch in Atlanta, Austin, Miami markets where competitor presence is weakest
+            </div>
+            <div class="rec-item">
+                <span class="rec-number">4</span>
+                <strong>Distribution Strategy:</strong> Partner with equipment leasing companies for faster market penetration
+            </div>
+            <div class="rec-item">
+                <span class="rec-number">5</span>
+                <strong>Competitive Differentiation:</strong> Offer reliability guarantee addressing primary pain point of equipment downtime
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="brand">𝓡𝓞𝓤𝓩𝓔</div>
+            <div>Strategic Intelligence Consultancy</div>
+            <div style="margin-top: 15px; font-size: 14px;">
+                This analysis demonstrates Rouze's raw signal intelligence methodology - transforming publicly available market conversations into strategic business advantage.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,824 @@
+report_date,medication,adverse_event,severity,source,report_id
+20140522,Ozempic,Stenosis,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Hunger,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Visual impairment,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Incorrect dose administered,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Inappropriate schedule of product administration,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Intervertebral disc degeneration,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Extra dose administered,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Cataract,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Diabetes mellitus inadequate control,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Therapeutic response decreased,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Sciatica,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Memory impairment,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Hyperglycaemia,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Blood glucose abnormal,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Off label use,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Product dose omission issue,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Back pain,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Amnesia,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Blood glucose increased,Non-serious,FDA_MAUDE,10188271
+20140522,Ozempic,Asthma,Non-serious,FDA_MAUDE,10188271
+20140821,Ozempic,Off label use,Non-serious,FDA_MAUDE,10398782
+20140821,Ozempic,Atrial flutter,Non-serious,FDA_MAUDE,10398782
+20140821,Ozempic,Ventricular extrasystoles,Non-serious,FDA_MAUDE,10398782
+20140821,Ozempic,Panic disorder,Non-serious,FDA_MAUDE,10398782
+20141014,Ozempic,Diarrhoea haemorrhagic,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Fall,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Osteoarthritis,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Intervertebral disc protrusion,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Concomitant disease aggravated,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Back pain,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Pneumonia,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Asthma,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Lower respiratory tract infection,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Productive cough,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Rhinorrhoea,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Wheezing,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Blood pressure increased,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Stress,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Oropharyngeal pain,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Insomnia,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Heart rate increased,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Burning sensation,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Swelling face,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Eye pain,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Thyroid cyst,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Malaise,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Vertigo,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Ageusia,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Anosmia,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Dizziness exertional,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Forced expiratory volume decreased,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Seasonal allergy,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Weight decreased,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Aphonia,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Middle insomnia,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Fatigue,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Asthma,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Inappropriate schedule of product administration,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Product dose omission issue,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Throat irritation,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Somnolence,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Breath sounds abnormal,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Dyspnoea exertional,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Sinusitis fungal,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Influenza,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Nasopharyngitis,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Nasal congestion,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Fungal rhinitis,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Sinusitis,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Dyspnoea,Non-serious,FDA_MAUDE,10515213
+20141014,Ozempic,Cough,Non-serious,FDA_MAUDE,10515213
+20150211,Ozempic,Forced expiratory volume decreased,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Middle insomnia,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Malaise,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Dyspnoea,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Total lung capacity decreased,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Vital capacity decreased,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Lung disorder,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Weight decreased,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Pollakiuria,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Rhinorrhoea,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Nasopharyngitis,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Heart rate increased,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Respiratory rate increased,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Bronchial hyperreactivity,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Abdominal pain upper,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Influenza like illness,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Headache,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Productive cough,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Obstructive airways disorder,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Asthma,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Wheezing,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Blood pressure increased,Non-serious,FDA_MAUDE,10787292
+20150211,Ozempic,Inappropriate schedule of product administration,Non-serious,FDA_MAUDE,10787292
+20150511,Ozempic,Diabetes mellitus,Non-serious,FDA_MAUDE,11104986
+20150511,Ozempic,Barrett^s oesophagus,Non-serious,FDA_MAUDE,11104986
+20150511,Ozempic,Vitamin B12 deficiency,Non-serious,FDA_MAUDE,11104986
+20150511,Ozempic,Vitamin D deficiency,Non-serious,FDA_MAUDE,11104986
+20150511,Ozempic,Blood cholesterol increased,Non-serious,FDA_MAUDE,11104986
+20150511,Ozempic,Hiatus hernia,Non-serious,FDA_MAUDE,11104986
+20150521,Ozempic,Wheezing,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Fatigue,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Visual impairment,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Cervical spinal stenosis,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Optic nerve disorder,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Blood cholesterol increased,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Bronchospasm,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Nasal congestion,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Muscle spasms,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Eye disorder,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Periarthritis,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Heart rate increased,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Nerve injury,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Nervous system disorder,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Visual field defect,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Blindness,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Sputum discoloured,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Rales,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Heart rate increased,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Middle insomnia,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Blindness unilateral,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Nerve compression,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Asthma,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Blood pressure increased,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Glycosylated haemoglobin increased,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Myalgia,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Forced expiratory volume decreased,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Dyspnoea,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Inappropriate schedule of product administration,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Eye pain,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Musculoskeletal stiffness,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Sinusitis,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Nasal discharge discolouration,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Lung disorder,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Neuritis,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Gastroenteritis,Non-serious,FDA_MAUDE,11128878
+20150521,Ozempic,Pain in extremity,Non-serious,FDA_MAUDE,11128878
+20150827,Ozempic,Weight increased,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Abscess,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Bacteraemia,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Intestinal perforation,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Varicella,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Infection,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Diverticulitis,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Immunodeficiency,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Sepsis,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Arthralgia,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Swelling,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Neuralgia,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Gait disturbance,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Dysstasia,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Arthropathy,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Ankle fracture,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Insulin-requiring type 2 diabetes mellitus,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Diabetes mellitus,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Headache,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Blood pressure increased,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Wound,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Pyrexia,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Pain,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,C-reactive protein decreased,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Pruritus,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Skin irritation,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Skin infection,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Eczema,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Drug ineffective,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Inflammation,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,White blood cell count decreased,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Peripheral swelling,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Skin wrinkling,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Fall,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Musculoskeletal stiffness,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Infection,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Sinusitis,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Rheumatoid arthritis,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Suspected COVID-19,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Influenza,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Viral infection,Non-serious,FDA_MAUDE,11421842
+20150827,Ozempic,Tendon rupture,Non-serious,FDA_MAUDE,11421842
+20150908,Ozempic,Renal cancer,Non-serious,FDA_MAUDE,11472947
+20150908,Ozempic,Weight decreased,Non-serious,FDA_MAUDE,11472947
+20150908,Ozempic,Blood glucose increased,Non-serious,FDA_MAUDE,11472947
+20150908,Ozempic,Blood glucose decreased,Non-serious,FDA_MAUDE,11472947
+20150908,Ozempic,Hepatic steatosis,Non-serious,FDA_MAUDE,11472947
+20150908,Ozempic,Sleep apnoea syndrome,Non-serious,FDA_MAUDE,11472947
+20150911,Ozempic,Fluid retention,Non-serious,FDA_MAUDE,11495853
+20150911,Ozempic,Dyspnoea,Non-serious,FDA_MAUDE,11495853
+20150911,Ozempic,Muscle spasms,Non-serious,FDA_MAUDE,11495853
+20150911,Ozempic,Fatigue,Non-serious,FDA_MAUDE,11495853
+20150911,Ozempic,Asthenia,Non-serious,FDA_MAUDE,11495853
+20150911,Ozempic,Illness,Non-serious,FDA_MAUDE,11495853
+20150911,Ozempic,Malaise,Non-serious,FDA_MAUDE,11495853
+20150911,Ozempic,Influenza,Non-serious,FDA_MAUDE,11495853
+20150911,Ozempic,Off label use,Non-serious,FDA_MAUDE,11495853
+20151027,Ozempic,Pancreatitis,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Chest pain,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Posture abnormal,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,White blood cell count increased,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Cholelithiasis,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Hypertension,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Pancreatitis,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Lower respiratory tract infection,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Upper respiratory tract congestion,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Sinus congestion,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Upper-airway cough syndrome,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Throat irritation,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Palpitations,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Dust allergy,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Sensitivity to weather change,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Chronic obstructive pulmonary disease,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Lip swelling,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Wheezing,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Gait disturbance,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Gout,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Hepatic steatosis,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Blood pressure decreased,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Gastroenteritis viral,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Dehydration,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Vomiting,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Nausea,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Weight decreased,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Sleep disorder,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Injection site haemorrhage,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Asthma,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Dyspnoea,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Cough,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Arthralgia,Non-serious,FDA_MAUDE,11663279
+20151027,Ozempic,Obesity,Non-serious,FDA_MAUDE,11663279
+20160511,Ozempic,Blood pressure abnormal,Non-serious,FDA_MAUDE,12355938
+20160511,Ozempic,Hospitalisation,Non-serious,FDA_MAUDE,12355938
+20160511,Ozempic,Vascular dementia,Non-serious,FDA_MAUDE,12355938
+20160511,Ozempic,Drug interaction,Non-serious,FDA_MAUDE,12355938
+20160511,Ozempic,Aggression,Non-serious,FDA_MAUDE,12355938
+20160511,Ozempic,Hypertension,Non-serious,FDA_MAUDE,12355938
+20160511,Ozempic,Tremor,Non-serious,FDA_MAUDE,12355938
+20160511,Ozempic,Treatment noncompliance,Non-serious,FDA_MAUDE,12355938
+20160511,Ozempic,Product administration interrupted,Non-serious,FDA_MAUDE,12355938
+20160524,Ozempic,Respiratory distress,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Lower respiratory tract infection,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Asthma,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Hypoventilation,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Blood pressure increased,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Illness,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Oedema peripheral,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Obstructive airways disorder,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Insomnia,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Blood pressure diastolic decreased,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Weight decreased,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Middle insomnia,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Joint swelling,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Nasopharyngitis,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Weight increased,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Sinusitis,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Wound,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Fall,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Asthma,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Drug hypersensitivity,Non-serious,FDA_MAUDE,12395995
+20160524,Ozempic,Somnolence,Non-serious,FDA_MAUDE,12395995
+20160707,Ozempic,Crohn^s disease,Non-serious,FDA_MAUDE,12537069
+20160707,Ozempic,Inflammatory marker increased,Non-serious,FDA_MAUDE,12537069
+20160707,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,12537069
+20160707,Ozempic,Pain,Non-serious,FDA_MAUDE,12537069
+20160707,Ozempic,Hepatic enzyme increased,Non-serious,FDA_MAUDE,12537069
+20160707,Ozempic,Vomiting,Non-serious,FDA_MAUDE,12537069
+20160707,Ozempic,Nausea,Non-serious,FDA_MAUDE,12537069
+20160707,Ozempic,Off label use,Non-serious,FDA_MAUDE,12537069
+20160711,Ozempic,Osteoarthritis,Non-serious,FDA_MAUDE,12543649
+20160711,Ozempic,Benign prostatic hyperplasia,Non-serious,FDA_MAUDE,12543649
+20160711,Ozempic,Prostate cancer,Non-serious,FDA_MAUDE,12543649
+20160711,Ozempic,Radiation associated haemorrhage,Non-serious,FDA_MAUDE,12543649
+20160711,Ozempic,Haematemesis,Non-serious,FDA_MAUDE,12543649
+20160711,Ozempic,Large intestinal haemorrhage,Non-serious,FDA_MAUDE,12543649
+20160711,Ozempic,Pallor,Non-serious,FDA_MAUDE,12543649
+20160711,Ozempic,Hot flush,Non-serious,FDA_MAUDE,12543649
+20160711,Ozempic,Depression,Non-serious,FDA_MAUDE,12543649
+20160711,Ozempic,Pre-existing condition improved,Non-serious,FDA_MAUDE,12543649
+20160711,Ozempic,Illness,Non-serious,FDA_MAUDE,12543649
+20160729,Ozempic,Chest discomfort,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Nephrolithiasis,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Retinopathy,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Diverticulitis,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Mental impairment,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Atrial fibrillation,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Bone marrow failure,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Chronic kidney disease,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Neuropathy peripheral,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Dyspnoea,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Platelet count decreased,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Splenomegaly,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Fluid retention,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Blood uric acid increased,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Blood calcium decreased,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Weight decreased,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Influenza,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Blood glucose abnormal,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Proteinuria,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Intervertebral disc protrusion,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Meniscus injury,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Synovial cyst,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Road traffic accident,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Tooth infection,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Sinusitis,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Bone marrow disorder,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Hepatomegaly,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Hepatic pain,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Abdominal discomfort,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Sneezing,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Blood iron increased,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Blood iron decreased,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Gastrointestinal disorder,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Pruritus,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Myopia,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Hypermetropia,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Full blood count abnormal,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Brain fog,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Immune system disorder,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Depression,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Memory impairment,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Anxiety,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Pain,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Oedema,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Swelling,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Decreased activity,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Asthenia,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Palmar-plantar erythrodysaesthesia syndrome,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Product availability issue,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Herpes zoster,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Blood triglycerides increased,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Nasopharyngitis,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Fatigue,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Epistaxis,Non-serious,FDA_MAUDE,12607639
+20160729,Ozempic,Red blood cell count decreased,Non-serious,FDA_MAUDE,12607639
+20160815,Ozempic,Diabetes mellitus,Non-serious,FDA_MAUDE,12651086
+20160815,Ozempic,Glycosylated haemoglobin increased,Non-serious,FDA_MAUDE,12651086
+20160815,Ozempic,Neuralgia,Non-serious,FDA_MAUDE,12651086
+20160921,Ozempic,Psoriatic arthropathy,Non-serious,FDA_MAUDE,12768904
+20160921,Ozempic,Tinnitus,Non-serious,FDA_MAUDE,12768904
+20161017,Ozempic,Seizure,Non-serious,FDA_MAUDE,12852924
+20161017,Ozempic,Cataplexy,Non-serious,FDA_MAUDE,12852924
+20161017,Ozempic,Stress,Non-serious,FDA_MAUDE,12852924
+20161017,Ozempic,Upper respiratory tract infection,Non-serious,FDA_MAUDE,12852924
+20161017,Ozempic,Skin infection,Non-serious,FDA_MAUDE,12852924
+20161017,Ozempic,Headache,Non-serious,FDA_MAUDE,12852924
+20161017,Ozempic,Pre-existing condition improved,Non-serious,FDA_MAUDE,12852924
+20161017,Ozempic,Therapeutic response unexpected,Non-serious,FDA_MAUDE,12852924
+20161017,Ozempic,Product administration interrupted,Non-serious,FDA_MAUDE,12852924
+20161031,Ozempic,Colitis ulcerative,Non-serious,FDA_MAUDE,12897579
+20161031,Ozempic,Infection,Non-serious,FDA_MAUDE,12897579
+20161031,Ozempic,Product dose omission issue,Non-serious,FDA_MAUDE,12897579
+20161206,Ozempic,Bacteraemia,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Blood pressure decreased,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Pneumonia,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Lower respiratory tract congestion,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Perforated ulcer,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Hypertension,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Nephrolithiasis,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Eye disorder,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Forced expiratory volume decreased,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Oxygen saturation decreased,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Dyspnoea exertional,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Dysuria,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Malaise,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Weight decreased,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Bronchitis,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Middle insomnia,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,COVID-19,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Dyspnoea,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Oropharyngeal pain,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Productive cough,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Asthma,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Cough,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Influenza like illness,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Nasopharyngitis,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Headache,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Pyrexia,Non-serious,FDA_MAUDE,13000715
+20161206,Ozempic,Chills,Non-serious,FDA_MAUDE,13000715
+20161215,Ozempic,Campylobacter gastroenteritis,Non-serious,FDA_MAUDE,13031485
+20161215,Ozempic,Stomal hernia,Non-serious,FDA_MAUDE,13031485
+20161215,Ozempic,Pain,Non-serious,FDA_MAUDE,13031485
+20161215,Ozempic,Product dose omission issue,Non-serious,FDA_MAUDE,13031485
+20161215,Ozempic,Constipation,Non-serious,FDA_MAUDE,13031485
+20161215,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,13031485
+20161215,Ozempic,Abdominal pain upper,Non-serious,FDA_MAUDE,13031485
+20161215,Ozempic,Weight fluctuation,Non-serious,FDA_MAUDE,13031485
+20161215,Ozempic,Abdominal pain,Non-serious,FDA_MAUDE,13031485
+20161215,Ozempic,Myalgia,Non-serious,FDA_MAUDE,13031485
+20161215,Ozempic,Arthritis,Non-serious,FDA_MAUDE,13031485
+20161215,Ozempic,Hypoaesthesia,Non-serious,FDA_MAUDE,13031485
+20161215,Ozempic,Fatigue,Non-serious,FDA_MAUDE,13031485
+20161215,Ozempic,Nausea,Non-serious,FDA_MAUDE,13031485
+20170103,Ozempic,Nasopharyngitis,Non-serious,FDA_MAUDE,13081022
+20170103,Ozempic,Fall,Non-serious,FDA_MAUDE,13081022
+20170210,Ozempic,Myocardial infarction,Non-serious,FDA_MAUDE,13214933
+20170210,Ozempic,Hypercholesterolaemia,Non-serious,FDA_MAUDE,13214933
+20170210,Ozempic,Hypertension,Non-serious,FDA_MAUDE,13214933
+20170210,Ozempic,Overweight,Non-serious,FDA_MAUDE,13214933
+20170210,Ozempic,Product administration interrupted,Non-serious,FDA_MAUDE,13214933
+20170220,Ozempic,Malaise,Non-serious,FDA_MAUDE,13251688
+20170220,Ozempic,Fatigue,Non-serious,FDA_MAUDE,13251688
+20170220,Ozempic,Tri-iodothyronine decreased,Non-serious,FDA_MAUDE,13251688
+20170413,Ozempic,Prescribed overdose,Non-serious,FDA_MAUDE,13435584
+20170413,Ozempic,Intentional product use issue,Non-serious,FDA_MAUDE,13435584
+20170413,Ozempic,Drug ineffective,Non-serious,FDA_MAUDE,13435584
+20170512,Ozempic,Diabetic ketoacidosis,Non-serious,FDA_MAUDE,13540713
+20170524,Ozempic,Pneumonia,Non-serious,FDA_MAUDE,13577321
+20170524,Ozempic,Type 3 diabetes mellitus,Non-serious,FDA_MAUDE,13577321
+20170524,Ozempic,Bronchitis,Non-serious,FDA_MAUDE,13577321
+20170524,Ozempic,Stress,Non-serious,FDA_MAUDE,13577321
+20170524,Ozempic,Insomnia,Non-serious,FDA_MAUDE,13577321
+20170524,Ozempic,Hypersensitivity,Non-serious,FDA_MAUDE,13577321
+20170524,Ozempic,Nervousness,Non-serious,FDA_MAUDE,13577321
+20170524,Ozempic,Memory impairment,Non-serious,FDA_MAUDE,13577321
+20170612,Ozempic,Mouth injury,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Areflexia,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Depressed mood,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Anger,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Dysphonia,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Visual impairment,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Neck pain,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Pleurisy,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Respiratory tract infection,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Insomnia,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Vomiting,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Mental disorder,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Memory impairment,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Headache,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Sciatic nerve injury,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Chest pain,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Dyspepsia,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Neuropathy peripheral,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Cognitive disorder,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Arthralgia,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Renal disorder,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Pain,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Myalgia,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Personality disorder,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Weight increased,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Back pain,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Anxiety,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Depression,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Nausea,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Bone pain,Non-serious,FDA_MAUDE,13645453
+20170612,Ozempic,Pyrexia,Non-serious,FDA_MAUDE,13645453
+20170630,Ozempic,Rotator cuff syndrome,Non-serious,FDA_MAUDE,13707614
+20170630,Ozempic,Condition aggravated,Non-serious,FDA_MAUDE,13707614
+20170630,Ozempic,Diabetes mellitus,Non-serious,FDA_MAUDE,13707614
+20170630,Ozempic,Joint swelling,Non-serious,FDA_MAUDE,13707614
+20170630,Ozempic,Psoriasis,Non-serious,FDA_MAUDE,13707614
+20170630,Ozempic,Periarthritis,Non-serious,FDA_MAUDE,13707614
+20170915,Ozempic,Retinal haemorrhage,Non-serious,FDA_MAUDE,13977432
+20170915,Ozempic,CSF volume increased,Non-serious,FDA_MAUDE,13977432
+20170915,Ozempic,Optic nerve injury,Non-serious,FDA_MAUDE,13977432
+20170915,Ozempic,Drug hypersensitivity,Non-serious,FDA_MAUDE,13977432
+20170915,Ozempic,Intervertebral disc protrusion,Non-serious,FDA_MAUDE,13977432
+20170915,Ozempic,Intervertebral disc degeneration,Non-serious,FDA_MAUDE,13977432
+20171206,Ozempic,Tendon rupture,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Abdominal pain,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Fall,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Pain in extremity,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Dental restoration failure,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Pain in extremity,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Impaired healing,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Liver function test increased,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Drug ineffective,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Oral herpes,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Disease recurrence,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Condition aggravated,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Peripheral swelling,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Renal pain,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Condition aggravated,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Burning sensation,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Osteoarthritis,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Contusion,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Dizziness,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Abdominal abscess,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,General physical health deterioration,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Hepatic steatosis,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Arthralgia,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Pneumonia,Non-serious,FDA_MAUDE,14256440
+20171206,Ozempic,Contusion,Non-serious,FDA_MAUDE,14256440
+20171211,Ozempic,Osteoarthritis,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Dental restoration failure,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Fall,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Condition aggravated,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Arthralgia,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,General physical health deterioration,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Abdominal abscess,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Abdominal pain,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Renal pain,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Rheumatoid arthritis,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Dizziness,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Burning sensation,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Liver function test increased,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Tendon rupture,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Contusion,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Impaired healing,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Pneumonia,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Peripheral swelling,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Pain in extremity,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Hepatic steatosis,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Drug ineffective,Non-serious,FDA_MAUDE,14271170
+20171211,Ozempic,Oral herpes,Non-serious,FDA_MAUDE,14271170
+20171227,Ozempic,Cataract,Non-serious,FDA_MAUDE,14330643
+20171227,Ozempic,Respiratory tract congestion,Non-serious,FDA_MAUDE,14330643
+20171227,Ozempic,Pruritus,Non-serious,FDA_MAUDE,14330643
+20171227,Ozempic,Nausea,Non-serious,FDA_MAUDE,14330643
+20171227,Ozempic,Headache,Non-serious,FDA_MAUDE,14330643
+20171227,Ozempic,Tooth disorder,Non-serious,FDA_MAUDE,14330643
+20171227,Ozempic,Memory impairment,Non-serious,FDA_MAUDE,14330643
+20171227,Ozempic,Pneumonia,Non-serious,FDA_MAUDE,14330643
+20171227,Ozempic,Red blood cell abnormality,Non-serious,FDA_MAUDE,14330643
+20171227,Ozempic,Rebound psoriasis,Non-serious,FDA_MAUDE,14330643
+20171227,Ozempic,Fatigue,Non-serious,FDA_MAUDE,14330643
+20171227,Ozempic,White blood cell count decreased,Non-serious,FDA_MAUDE,14330643
+20171227,Ozempic,Dyspnoea,Non-serious,FDA_MAUDE,14330643
+20171227,Ozempic,Irritability,Non-serious,FDA_MAUDE,14330643
+20171229,Ozempic,Surgery,Non-serious,FDA_MAUDE,14336752
+20171229,Ozempic,Muscle spasms,Non-serious,FDA_MAUDE,14336752
+20171229,Ozempic,Pain,Non-serious,FDA_MAUDE,14336752
+20180102,Ozempic,Dyspnoea,Non-serious,FDA_MAUDE,14343404
+20180102,Ozempic,Blood glucose increased,Non-serious,FDA_MAUDE,14343404
+20180102,Ozempic,Blood pressure increased,Non-serious,FDA_MAUDE,14343404
+20180102,Ozempic,Chronic obstructive pulmonary disease,Non-serious,FDA_MAUDE,14343404
+20180102,Ozempic,Oedema peripheral,Non-serious,FDA_MAUDE,14343404
+20180102,Ozempic,Breast mass,Non-serious,FDA_MAUDE,14343404
+20180102,Ozempic,Flushing,Non-serious,FDA_MAUDE,14343404
+20180102,Ozempic,Blood glucose decreased,Non-serious,FDA_MAUDE,14343404
+20180102,Ozempic,Weight increased,Non-serious,FDA_MAUDE,14343404
+20180102,Ozempic,Blood potassium decreased,Non-serious,FDA_MAUDE,14343404
+20180105,Ozempic,Crohn^s disease,Non-serious,FDA_MAUDE,14353540
+20180105,Ozempic,Gastroenteritis viral,Non-serious,FDA_MAUDE,14353540
+20180105,Ozempic,Neoplasm malignant,Non-serious,FDA_MAUDE,14353540
+20180105,Ozempic,Poor venous access,Non-serious,FDA_MAUDE,14353540
+20180105,Ozempic,Blood pressure diastolic decreased,Non-serious,FDA_MAUDE,14353540
+20180105,Ozempic,Malaise,Non-serious,FDA_MAUDE,14353540
+20180105,Ozempic,Incorrect dose administered,Non-serious,FDA_MAUDE,14353540
+20180105,Ozempic,Off label use,Non-serious,FDA_MAUDE,14353540
+20180105,Ozempic,Platelet count increased,Non-serious,FDA_MAUDE,14353540
+20180105,Ozempic,Heart rate increased,Non-serious,FDA_MAUDE,14353540
+20180105,Ozempic,Arthralgia,Non-serious,FDA_MAUDE,14353540
+20180105,Ozempic,Fatigue,Non-serious,FDA_MAUDE,14353540
+20180105,Ozempic,Infusion site extravasation,Non-serious,FDA_MAUDE,14353540
+20180105,Ozempic,Oral herpes,Non-serious,FDA_MAUDE,14358613
+20180105,Ozempic,Dermatitis atopic,Non-serious,FDA_MAUDE,14358613
+20180105,Ozempic,Paraesthesia,Non-serious,FDA_MAUDE,14358613
+20180105,Ozempic,Rash,Non-serious,FDA_MAUDE,14358613
+20180123,Ozempic,Hepatic enzyme increased,Non-serious,FDA_MAUDE,14422954
+20180212,Ozempic,Pancreatitis,Non-serious,FDA_MAUDE,14523252
+20180212,Ozempic,Hepatitis C,Non-serious,FDA_MAUDE,14523252
+20180212,Ozempic,Hip surgery,Non-serious,FDA_MAUDE,14523252
+20180212,Ozempic,Hip fracture,Non-serious,FDA_MAUDE,14523252
+20180212,Ozempic,Fall,Non-serious,FDA_MAUDE,14523252
+20180212,Ozempic,Osteoporosis,Non-serious,FDA_MAUDE,14523252
+20180212,Ozempic,Dehydration,Non-serious,FDA_MAUDE,14523252
+20180216,Ozempic,Nausea,Non-serious,FDA_MAUDE,14541803
+20180216,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,14541803
+20180216,Ozempic,Diarrhoea haemorrhagic,Non-serious,FDA_MAUDE,14541803
+20180216,Ozempic,Vomiting,Non-serious,FDA_MAUDE,14541803
+20180227,Ozempic,Vomiting,Non-serious,FDA_MAUDE,14582870
+20180227,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,14582870
+20180305,Ozempic,Ketosis,Non-serious,FDA_MAUDE,14599778
+20180305,Ozempic,Vomiting,Non-serious,FDA_MAUDE,14599778
+20180305,Ozempic,Decreased appetite,Non-serious,FDA_MAUDE,14599778
+20180305,Ozempic,Acute kidney injury,Non-serious,FDA_MAUDE,14599778
+20180305,Ozempic,Nausea,Non-serious,FDA_MAUDE,14599778
+20180309,Ozempic,Trigeminal neuralgia,Non-serious,FDA_MAUDE,14621039
+20180309,Ozempic,Pain,Non-serious,FDA_MAUDE,14621039
+20180309,Ozempic,Pain in jaw,Non-serious,FDA_MAUDE,14621039
+20180309,Ozempic,Confusional state,Non-serious,FDA_MAUDE,14621039
+20180309,Ozempic,Lethargy,Non-serious,FDA_MAUDE,14621039
+20180309,Ozempic,Urinary tract infection,Non-serious,FDA_MAUDE,14621039
+20180309,Ozempic,Intervertebral disc protrusion,Non-serious,FDA_MAUDE,14621039
+20180309,Ozempic,Blood glucose increased,Non-serious,FDA_MAUDE,14621039
+20180309,Ozempic,Hypertension,Non-serious,FDA_MAUDE,14621039
+20180309,Ozempic,Blood cholesterol increased,Non-serious,FDA_MAUDE,14621039
+20180309,Ozempic,Diabetes mellitus inadequate control,Non-serious,FDA_MAUDE,14621039
+20180319,Ozempic,Product use in unapproved indication,Non-serious,FDA_MAUDE,14654781
+20180319,Ozempic,Photosensitivity reaction,Non-serious,FDA_MAUDE,14654797
+20180319,Ozempic,Nausea,Non-serious,FDA_MAUDE,14654798
+20180319,Ozempic,Product use issue,Non-serious,FDA_MAUDE,14654799
+20180319,Ozempic,Vomiting,Non-serious,FDA_MAUDE,14654799
+20180319,Ozempic,Eructation,Non-serious,FDA_MAUDE,14654800
+20180319,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,14654800
+20180319,Ozempic,Nausea,Non-serious,FDA_MAUDE,14654800
+20180319,Ozempic,Abdominal pain upper,Non-serious,FDA_MAUDE,14654800
+20180319,Ozempic,Product use issue,Non-serious,FDA_MAUDE,14654801
+20180319,Ozempic,Pain,Non-serious,FDA_MAUDE,14654802
+20180319,Ozempic,Decreased appetite,Non-serious,FDA_MAUDE,14654803
+20180319,Ozempic,Nausea,Non-serious,FDA_MAUDE,14654803
+20180319,Ozempic,Oropharyngeal pain,Non-serious,FDA_MAUDE,14654803
+20180319,Ozempic,Vomiting,Non-serious,FDA_MAUDE,14654803
+20180319,Ozempic,Eructation,Non-serious,FDA_MAUDE,14654803
+20180319,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,14654803
+20180319,Ozempic,Retching,Non-serious,FDA_MAUDE,14654803
+20180319,Ozempic,Abdominal pain upper,Non-serious,FDA_MAUDE,14654803
+20180319,Ozempic,Headache,Non-serious,FDA_MAUDE,14654815
+20180319,Ozempic,Fatigue,Non-serious,FDA_MAUDE,14654815
+20180319,Ozempic,Blood glucose increased,Non-serious,FDA_MAUDE,14654815
+20180319,Ozempic,Muscle spasms,Non-serious,FDA_MAUDE,14654815
+20180319,Ozempic,Decreased appetite,Non-serious,FDA_MAUDE,14654816
+20180319,Ozempic,Nausea,Non-serious,FDA_MAUDE,14654816
+20180319,Ozempic,Dehydration,Non-serious,FDA_MAUDE,14654817
+20180319,Ozempic,Vomiting,Non-serious,FDA_MAUDE,14654817
+20180319,Ozempic,Blood glucose decreased,Non-serious,FDA_MAUDE,14654817
+20180319,Ozempic,Drug dose omission,Non-serious,FDA_MAUDE,14654818
+20180319,Ozempic,Drug dispensing error,Non-serious,FDA_MAUDE,14654818
+20180319,Ozempic,Blood glucose increased,Non-serious,FDA_MAUDE,14654823
+20180319,Ozempic,Constipation,Non-serious,FDA_MAUDE,14654823
+20180319,Ozempic,Feeling abnormal,Non-serious,FDA_MAUDE,14654824
+20180319,Ozempic,Photophobia,Non-serious,FDA_MAUDE,14654824
+20180319,Ozempic,Eructation,Non-serious,FDA_MAUDE,14654825
+20180327,Ozempic,Dehydration,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Adrenal insufficiency,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Blood pressure decreased,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Sepsis,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Tooth extraction,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Clostridium difficile infection,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Blood glucose abnormal,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Influenza,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Fatigue,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Nausea,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Vomiting,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Chills,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Contusion,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Immune system disorder,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Injection site pain,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Cystitis,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Off label use,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Product dose omission issue,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Wrong technique in device usage process,Non-serious,FDA_MAUDE,14685655
+20180327,Ozempic,Multiple use of single-use product,Non-serious,FDA_MAUDE,14685655
+20180412,Ozempic,Renal failure,Non-serious,FDA_MAUDE,14751455
+20180413,Ozempic,Blood glucose increased,Non-serious,FDA_MAUDE,14758461
+20180416,Ozempic,Diabetic ketoacidosis,Non-serious,FDA_MAUDE,14762981
+20180417,Ozempic,Gastrointestinal disorder,Non-serious,FDA_MAUDE,14767966
+20180417,Ozempic,Death,Non-serious,FDA_MAUDE,14767966
+20180417,Ozempic,Helicobacter infection,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Gait disturbance,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Arthralgia,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Neck pain,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Pain,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Oedema peripheral,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Drug ineffective,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Pain in extremity,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Dizziness,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Weight increased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Joint swelling,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Nasopharyngitis,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Peripheral swelling,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Skin induration,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Feeling hot,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Dyspnoea,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Joint swelling,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Cough,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Underdose,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Incorrect dose administered,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Nausea,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Skin ulcer,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Blood pressure increased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Blood glucose increased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Blood pressure fluctuation,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Blood pressure systolic increased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Disability assessment scale score increased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Feeling jittery,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Hypertension,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Feeling hot,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Platelet count decreased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Arthropathy,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Weight decreased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Movement disorder,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Heart rate increased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Adrenal insufficiency,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Cortisol decreased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Back pain,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Oxygen saturation decreased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Oedema,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Sinusitis,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Osteoarthritis,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Multiple fractures,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Productive cough,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Alanine aminotransferase increased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Hepatic enzyme increased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Musculoskeletal stiffness,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Malaise,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Heart rate decreased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Arthritis,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Spinal pain,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Blood pressure diastolic decreased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Blood pressure diastolic abnormal,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Hypersensitivity,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Eye swelling,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Rhinorrhoea,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Cystitis,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Kidney infection,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Blood pressure systolic abnormal,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Lacrimation increased,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Dysphonia,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Peripheral swelling,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Illness,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Back pain,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Headache,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Lower respiratory tract infection,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Bronchitis,Non-serious,FDA_MAUDE,14768747
+20180417,Ozempic,Malaise,Non-serious,FDA_MAUDE,14768747
+20180426,Ozempic,Diabetic ketoacidosis,Non-serious,FDA_MAUDE,14812878
+20180426,Ozempic,Diabetic ketoacidosis,Non-serious,FDA_MAUDE,14814336
+20180426,Ozempic,Unintentional use for unapproved indication,Non-serious,FDA_MAUDE,14814336
+20180426,Ozempic,Dehydration,Non-serious,FDA_MAUDE,14814336
+20180504,Ozempic,Abdominal pain,Non-serious,FDA_MAUDE,14847628
+20180504,Ozempic,Hypoglycaemic unconsciousness,Non-serious,FDA_MAUDE,14847628
+20180504,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,14847628
+20180504,Ozempic,Nephrolithiasis,Non-serious,FDA_MAUDE,14847628
+20180504,Ozempic,Decreased appetite,Non-serious,FDA_MAUDE,14847628
+20180504,Ozempic,Eructation,Non-serious,FDA_MAUDE,14847628
+20180504,Ozempic,Dehydration,Non-serious,FDA_MAUDE,14847628
+20180504,Ozempic,Weight decreased,Non-serious,FDA_MAUDE,14847628
+20180514,Ozempic,Gastrointestinal disorder,Non-serious,FDA_MAUDE,14891080
+20180514,Ozempic,Musculoskeletal pain,Non-serious,FDA_MAUDE,14891080
+20180514,Ozempic,Chromaturia,Non-serious,FDA_MAUDE,14891080
+20180514,Ozempic,Glaucoma,Non-serious,FDA_MAUDE,14891137
+20180514,Ozempic,Hypoglycaemia,Non-serious,FDA_MAUDE,14891719
+20180514,Ozempic,Road traffic accident,Non-serious,FDA_MAUDE,14891719
+20180515,Ozempic,Chronic kidney disease,Non-serious,FDA_MAUDE,14894415
+20180515,Ozempic,Renal failure,Non-serious,FDA_MAUDE,14894415
+20180515,Ozempic,Chronic kidney disease-mineral and bone disorder,Non-serious,FDA_MAUDE,14894415
+20180515,Ozempic,Nephrogenic anaemia,Non-serious,FDA_MAUDE,14894415
+20180521,Ozempic,Endometrial ablation,Non-serious,FDA_MAUDE,14919066
+20180524,Ozempic,Drug ineffective,Non-serious,FDA_MAUDE,14933003
+20180524,Ozempic,Cardiac disorder,Non-serious,FDA_MAUDE,14933003
+20180524,Ozempic,Dyspnoea,Non-serious,FDA_MAUDE,14933003
+20180529,Ozempic,Gynaecomastia,Non-serious,FDA_MAUDE,14947172
+20180529,Ozempic,Breast mass,Non-serious,FDA_MAUDE,14947172
+20180529,Ozempic,Diffuse idiopathic skeletal hyperostosis,Non-serious,FDA_MAUDE,14947172
+20180529,Ozempic,Glycosylated haemoglobin increased,Non-serious,FDA_MAUDE,14947172
+20180529,Ozempic,Intervertebral disc degeneration,Non-serious,FDA_MAUDE,14947172
+20180529,Ozempic,Muscle spasms,Non-serious,FDA_MAUDE,14947172
+20180529,Ozempic,Throat tightness,Non-serious,FDA_MAUDE,14947927
+20180529,Ozempic,Glycosylated haemoglobin increased,Non-serious,FDA_MAUDE,14948183
+20180529,Ozempic,Overweight,Non-serious,FDA_MAUDE,14948183
+20180529,Ozempic,Atrial fibrillation,Non-serious,FDA_MAUDE,14948183
+20180531,Ozempic,General physical condition abnormal,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Malaise,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Hypertension,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Pain,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Stress,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Swelling of eyelid,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Influenza,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Headache,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Nasopharyngitis,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Illness,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Drug ineffective,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Urticaria,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Gastrointestinal infection,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Weight increased,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Rash,Non-serious,FDA_MAUDE,14956851
+20180531,Ozempic,Fatigue,Non-serious,FDA_MAUDE,14956851
+20180601,Ozempic,Hospitalisation,Non-serious,FDA_MAUDE,14962718
+20180601,Ozempic,Retinopathy,Non-serious,FDA_MAUDE,14962718
+20180604,Ozempic,Splenomegaly,Non-serious,FDA_MAUDE,14969306
+20180606,Ozempic,Cholecystitis,Non-serious,FDA_MAUDE,14979355
+20180606,Ozempic,Pancreatitis acute,Non-serious,FDA_MAUDE,14979355
+20180611,Ozempic,Neck pain,Non-serious,FDA_MAUDE,14996257
+20180611,Ozempic,Nausea,Non-serious,FDA_MAUDE,14996257
+20180611,Ozempic,Radiotherapy to brain,Non-serious,FDA_MAUDE,14996306
+20180611,Ozempic,Nausea,Non-serious,FDA_MAUDE,14996306
+20180611,Ozempic,Malaise,Non-serious,FDA_MAUDE,14996306
+20180611,Ozempic,Injection site reaction,Non-serious,FDA_MAUDE,14996306
+20180612,Ozempic,Diabetic ketoacidosis,Non-serious,FDA_MAUDE,15000560
+20180612,Ozempic,Type 1 diabetes mellitus,Non-serious,FDA_MAUDE,15000560
+20180612,Ozempic,Vomiting,Non-serious,FDA_MAUDE,15000560
+20180612,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,15000560
+20180613,Ozempic,Subchorionic haemorrhage,Non-serious,FDA_MAUDE,15005745
+20180613,Ozempic,Exposure during pregnancy,Non-serious,FDA_MAUDE,15005745
+20180613,Ozempic,Euglycaemic diabetic ketoacidosis,Non-serious,FDA_MAUDE,15007451
+20180613,Ozempic,Acute myocardial infarction,Non-serious,FDA_MAUDE,15007451
+20180613,Ozempic,Dehydration,Non-serious,FDA_MAUDE,15007451
+20180613,Ozempic,Lactic acidosis,Non-serious,FDA_MAUDE,15007451
+20180613,Ozempic,Metabolic acidosis,Non-serious,FDA_MAUDE,15007451
+20180613,Ozempic,Dyspnoea exertional,Non-serious,FDA_MAUDE,15007451
+20180614,Ozempic,Retching,Non-serious,FDA_MAUDE,15010958
+20180614,Ozempic,Colonoscopy,Non-serious,FDA_MAUDE,15010958
+20180614,Ozempic,Incorrect dose administered,Non-serious,FDA_MAUDE,15010958
+20180614,Ozempic,Malaise,Non-serious,FDA_MAUDE,15010958
+20180614,Ozempic,Abdominal pain upper,Non-serious,FDA_MAUDE,15010958
+20180614,Ozempic,Nausea,Non-serious,FDA_MAUDE,15012101
+20180614,Ozempic,Asthenia,Non-serious,FDA_MAUDE,15012101
+20180614,Ozempic,Abdominal discomfort,Non-serious,FDA_MAUDE,15012112
+20180614,Ozempic,Nausea,Non-serious,FDA_MAUDE,15012112
+20180614,Ozempic,Vomiting,Non-serious,FDA_MAUDE,15012112
+20180614,Ozempic,Weight decreased,Non-serious,FDA_MAUDE,15012112
+20180619,Ozempic,Weight decreased,Non-serious,FDA_MAUDE,15028324
+20180620,Ozempic,Blood pressure increased,Non-serious,FDA_MAUDE,15036719
+20180620,Ozempic,Nephrolithiasis,Non-serious,FDA_MAUDE,15036719
+20180620,Ozempic,Anxiety,Non-serious,FDA_MAUDE,15036719
+20180620,Ozempic,Palpitations,Non-serious,FDA_MAUDE,15036719
+20180620,Ozempic,Nausea,Non-serious,FDA_MAUDE,15036719
+20180620,Ozempic,Diarrhoea,Non-serious,FDA_MAUDE,15036719
+20180620,Ozempic,Headache,Non-serious,FDA_MAUDE,15038000
+20180620,Ozempic,Blood glucose increased,Non-serious,FDA_MAUDE,15038001
+20180620,Ozempic,Flatulence,Non-serious,FDA_MAUDE,15038002
+20180620,Ozempic,Nausea,Non-serious,FDA_MAUDE,15038002
+20180620,Ozempic,Constipation,Non-serious,FDA_MAUDE,15038002
+20180620,Ozempic,Hypersensitivity,Non-serious,FDA_MAUDE,15038003
+20180620,Ozempic,Injection site rash,Non-serious,FDA_MAUDE,15038004
+20180620,Ozempic,Wrong technique in product usage process,Non-serious,FDA_MAUDE,15038006
+20180620,Ozempic,Nausea,Non-serious,FDA_MAUDE,15038011
+20180620,Ozempic,Back pain,Non-serious,FDA_MAUDE,15038011
+20180620,Ozempic,Blood glucose increased,Non-serious,FDA_MAUDE,15038012
+20180620,Ozempic,Drug ineffective,Non-serious,FDA_MAUDE,15038012
+20180620,Ozempic,Off label use,Non-serious,FDA_MAUDE,15038012
+20180620,Ozempic,Impaired gastric emptying,Non-serious,FDA_MAUDE,15038017
+20180620,Ozempic,Eructation,Non-serious,FDA_MAUDE,15038017
+20180620,Ozempic,Constipation,Non-serious,FDA_MAUDE,15038017
+20180620,Ozempic,Nausea,Non-serious,FDA_MAUDE,15038017
+20180620,Ozempic,Dyspepsia,Non-serious,FDA_MAUDE,15038018
+20180620,Ozempic,Nausea,Non-serious,FDA_MAUDE,15038018

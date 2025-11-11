@@ -1,0 +1,64 @@
+{
+  "workbench.colorCustomizations": {
+    // === Mauve backgrounds ===
+    "editor.background": "#2F1A3A",
+    "sideBar.background": "#2F1A3A",
+    "activityBar.background": "#2F1A3A",
+    "panel.background": "#2F1A3A",
+    "statusBar.background": "#2F1A3A",
+    "titleBar.activeBackground": "#2F1A3A",
+    "titleBar.inactiveBackground": "#2F1A3A",
+
+    // === Neon purple accents & text ===
+    "foreground": "#BC13FE",
+    "editor.foreground": "#BC13FE",
+    "editorCursor.foreground": "#BC13FE",
+    "editorLineNumber.foreground": "#BC13FE",
+    "editorLineNumber.activeForeground": "#BC13FE",
+    "editor.selectionBackground": "#BC13FE33",
+    "editor.selectionForeground": "#BC13FE",
+    "editor.inactiveSelectionBackground": "#BC13FE22",
+    "editor.wordHighlightBackground": "#BC13FE22",
+    "editor.wordHighlightStrongBackground": "#BC13FE33",
+
+    "sideBar.foreground": "#BC13FE",
+    "activityBar.foreground": "#BC13FE",
+    "activityBar.inactiveForeground": "#BC13FE99",
+    "activityBarBadge.background": "#BC13FE",
+    "activityBarBadge.foreground": "#2F1A3A",
+
+    "panel.foreground": "#BC13FE",
+    "statusBar.foreground": "#BC13FE",
+    "titleBar.activeForeground": "#BC13FE",
+    "titleBar.inactiveForeground": "#BC13FE99",
+
+    "tab.activeForeground": "#BC13FE",
+    "tab.inactiveForeground": "#BC13FE99",
+    "tab.activeBorder": "#BC13FE",
+
+    // Terminal
+    "terminal.foreground": "#BC13FE",
+    "terminalCursor.foreground": "#BC13FE",
+
+    // Borders & focus rings
+    "focusBorder": "#BC13FE",
+    "selection.background": "#BC13FE55",
+    "dropdown.foreground": "#BC13FE",
+    "list.activeSelectionForeground": "#2F1A3A",
+    "list.activeSelectionBackground": "#BC13FE",
+    "list.focusForeground": "#2F1A3A",
+    "list.focusBackground": "#BC13FE",
+    "list.hoverForeground": "#BC13FE",
+    "list.inactiveSelectionForeground": "#BC13FE",
+    "list.inactiveSelectionBackground": "#BC13FE22"
+  },
+
+  // Make code tokens neon too (strings/keywords/etc.)
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      { "scope": ["comment","string","keyword","storage","constant","variable","meta","entity","punctuation"],
+        "settings": { "foreground": "#BC13FE" }
+      }
+    ]
+  }
+}

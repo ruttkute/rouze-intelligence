@@ -1,0 +1,23 @@
+{
+    "invite_modern": {
+        "bg": "#0f0f14",
+        "primary": "#c2b5a3",
+        "accent": "#7e6b5a",
+        "ink": "#eae6df",
+        "font": "Helvetica"
+    },
+    "dark_academia": {
+        "bg": "#121214",
+        "primary": "#c8b79e",
+        "accent": "#7a6755",
+        "ink": "#efe9df",
+        "font": "Cormorant Garamond"
+    },
+    "corporate_minimal": {
+        "bg": "#ffffff",
+        "primary": "#111827",
+        "accent": "#3b82f6",
+        "ink": "#111827",
+        "font": "Inter"
+    }
+}

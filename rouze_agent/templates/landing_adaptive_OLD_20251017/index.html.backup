@@ -1,0 +1,56 @@
+<!-- THREE PATHS: Problem-Based Entry Points -->
+<section id="paths" class="paths-section">
+    <div class="container">
+        <div class="paths-grid">
+            
+            <!-- Path 1: Market Understanding -->
+            <div class="path-card" data-path="market">
+                <span class="path-label">Market Intelligence</span>
+                <h3>I need to understand my market</h3>
+                <p>What do customers actually want? What are they complaining about? Where are the gaps?</p>
+                <button class="btn btn-secondary" onclick="selectPath('market')">
+                    Explore this path
+                </button>
+            </div>
+
+            <!-- Path 2: Competitive Intelligence -->
+            <div class="path-card" data-path="competitors">
+                <span class="path-label">Competitive Intelligence</span>
+                <h3>I need to beat my competitors</h3>
+                <p>What are they missing? Where are they weak? How can we differentiate?</p>
+                <button class="btn btn-secondary" onclick="selectPath('competitors')">
+                    Explore this path
+                </button>
+            </div>
+
+            <!-- Path 3: Prediction -->
+            <div class="path-card" data-path="prediction">
+                <span class="path-label">Trend Forecasting</span>
+                <h3>I need to predict what's coming</h3>
+                <p>What trends are emerging? What should we prepare for? Where should we invest?</p>
+                <button class="btn btn-secondary" onclick="selectPath('prediction')">
+                    Explore this path
+                </button>
+            </div>
+
+            <!-- Path 4: Creative/Design Industry (NEW) -->
+            <div class="path-card" data-path="creative">
+                <span class="path-label">Creative Intelligence</span>
+                <h3>I need to understand creative markets</h3>
+                <p>What do artists, designers, and agencies need? Where are the opportunities in creative industries?</p>
+                <button class="btn btn-secondary" onclick="selectPath('creative')">
+                    Explore this path
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Alternative: Interactive Quiz -->
+        <div class="quiz-trigger">
+            <p>Not sure which path fits your challenge?</p>
+            <button class="btn btn-primary" onclick="startQuiz()">
+                Answer three questions
+            </button>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROUZE - Strategic Intelligence Proposal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rouze-cream: #F8F6F0;
+            --intelligence-pink: #E8C5D1;
+            --signal-black: #2C2C2C;
+            --luxe-gold: #D4AF37;
+            --executive-white: #FFFFFF;
+            --soft-gray: #8B8B8B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(45deg, var(--rouze-cream) 0%, var(--executive-white) 100%);
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(232, 197, 209, 0.06) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="sketch" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="0.5" fill="%23E8C5D1" opacity="0.1"/><path d="M0,4 Q2,2 4,4 Q6,6 8,4" stroke="%23D4AF37" stroke-width="0.2" fill="none" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23sketch)"/></svg>');
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .proposal-canvas {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .proposal-layer {
+            background: var(--executive-white);
+            margin: 35px 0;
+            padding: 60px;
+            border-radius: 12px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+            position: relative;
+            transform: rotate(-0.4deg);
+            border-left: 4px solid var(--intelligence-pink);
+            transition: transform 0.3s ease;
+        }
+
+        .proposal-layer:nth-child(odd) {
+            transform: rotate(0.3deg);
+            border-left-color: var(--luxe-gold);
+        }
+
+        .proposal-layer:hover {
+            transform: rotate(0deg) scale(1.01);
+        }
+
+        .priority-stamp {
+            position: absolute;
+            top: -18px;
+            right: 35px;
+            background: linear-gradient(135deg, var(--luxe-gold), #E6C76B);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .rouze-watermark {
+            position: absolute;
+            bottom: 25px;
+            right: 35px;
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            color: var(--intelligence-pink);
+            opacity: 0.6;
+            transform: rotate(-3deg);
+        }
+
+        .investment-card {
+            background: linear-gradient(135deg, var(--signal-black) 0%, #1A1A1A 100%);
+            color: white;
+            transform: rotate(0.2deg);
+            border-left: 4px solid var(--luxe-gold);
+        }
+
+        .price-highlight {
+            font-size: 56px;
+            color: var(--luxe-gold);
+            font-weight: 300;
+            margin: 20px 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .proposal-title {
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--signal-black);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .proposal-title::after {
+            content: '✦';
+            position: absolute;
+            right: -40px;
+            top: -5px;
+            color: var(--luxe-gold);
+            font-size: 28px;
+            transform: rotate(25deg);
+        }
+
+        .client-designation {
+            font-style: italic;
+            color: var(--soft-gray);
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .opportunity-highlight {
+            background: linear-gradient(135deg, var(--luxe-gold), #E6C76B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 28px;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+
+        .sketch-element {
+            position: absolute;
+            font-size: 18px;
+            color: var(--intelligence-pink);
+            opacity: 0.4;
+        }
+
+        .handwritten-note {
+            font-family: 'Caveat', cursive;
+            font-size: 20px;
+            color: var(--signal-black);
+            transform: rotate(-1deg);
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(248, 246, 240, 0.5);
+            border-left: 3px solid var(--intelligence-pink);
+        }
+
+        .value-points {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .value-points li {
+            font-family: 'Inter', sans-serif;
+            margin: 12px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .value-points li::before {
+            content: '♡';
+            position: absolute;
+            left: 0;
+            color: var(--intelligence-pink);
+            font-size: 14px;
+        }
+
+        .timeline-note {
+            background: var(--intelligence-pink);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 25px 25px 25px 5px;
+            margin: 25px 0;
+            position: relative;
+            transform: rotate(0.5deg);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .timeline-note::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-top-color: var(--intelligence-pink);
+        }
+
+        @media (max-width: 768px) {
+            .proposal-layer {
+                padding: 40px;
+                transform: none;
+                margin: 20px 0;
+            }
+            
+            .proposal-title {
+                font-size: 28px;
+            }
+            
+            .price-highlight {
+                font-size: 42px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="proposal-canvas">
+        <div class="sketch-element" style="top: 30px; right: 50px;">☾</div>
+        <div class="sketch-element" style="bottom: 50px; left: 60px;">✧</div>
+        
+        <div class="proposal-layer">
+            <div class="priority-stamp">Executive Priority</div>
+            <h1 class="proposal-title">Strategic Intelligence Proposal</h1>
+            <p class="client-designation">For [Client Company] Executive Team</p>
+            
+            <div class="handwritten-note">
+                Intelligence crafted specifically for your strategic decision-making needs ♡
+            </div>
+            
+            <div class="rouze-watermark">𝓡𝓸𝓾𝔃𝓮</div>
+        </div>
+        
+        <div class="proposal-layer">
+            <div class="priority-stamp">Market Signal</div>
+            <h3 style="font-size: 28px; margin-bottom: 25px; color: #2C2C2C;">Intelligence Opportunity Identified</h3>
+            
+            <p style="font-size: 18px; line-height: 1.7; margin-bottom: 20px;">
+                Our preliminary analysis of your competitive landscape reveals [specific signal that caught our attention].
+            </p>
+            
+            <p class="opportunity-highlight">
+                This represents a strategic window worth an estimated $[X]M in revenue opportunity.
+            </p>
+            
+            <div class="timeline-note">
+                <strong>Time-Sensitive Opportunity:</strong> Market signals suggest 90-day window before competitors recognize this shift.
+            </div>
+        </div>
+        
+        <div class="proposal-layer">
+            <div class="priority-stamp">Methodology</div>
+            <h3 style="font-size: 28px; margin-bottom: 25px; color: #2C2C2C;">Our Artisanal Approach</h3>
+            
+            <p style="font-size: 18px; line-height: 1.7; margin-bottom: 25px;">
+                Unlike automated research services, we hand-curate every signal source for your specific context:
+            </p>
+            
+            <ul class="value-points">
+                <li>Custom signal selection based on your industry dynamics</li>
+                <li>Human expertise interpretation of AI-processed data</li>
+                <li>Executive-ready intelligence briefs designed for strategic decisions</li>
+                <li>Cross-platform validation ensures accuracy and reduces false positives</li>
+                <li>Narrative intelligence that connects signals to business implications</li>
+            </ul>
+            
+            <div class="handwritten-note">
+                "We don't just analyze data - we craft strategic narratives that inform million-dollar decisions"
+            </div>
+        </div>
+        
+        <div class="proposal-layer investment-card">
+            <div class="priority-stamp" style="background: var(--intelligence-pink);">Investment</div>
+            <h3 style="font-size: 28px; margin-bottom: 15px;">Strategic Intelligence Brief</h3>
+            
+            <div class="price-highlight">$1,500</div>
+            
+            <p style="font-size: 18px; opacity: 0.9; margin-bottom: 25px;">
+                Strategic intelligence that informs your next C-level decision
+            </p>
+            
+            <ul class="value-points" style="color: rgba(255,255,255,0.9);">
+                <li>Custom analysis methodology for your specific challenge</li>
+                <li>Executive brief with actionable strategic recommendations</li>
+                <li>5-day delivery timeline for time-sensitive decisions</li>
+                <li>Follow-up consultation to discuss implementation</li>
+            </ul>
+        </div>
+        
+        <div class="proposal-layer">
+            <div class="priority-stamp">Next Steps</div>
+            <h3 style="font-size: 28px; margin-bottom: 25px; color: #2C2C2C;">Ready to Discover Your Market's Secrets?</h3>
+            
+            <p style="font-size: 18px; line-height: 1.7; margin-bottom: 25px;">
+                This proposal is valid for 7 days to maintain the strategic timing advantage we've identified.
+            </p>
+            
+            <div class="timeline-note">
+                <strong>Next Step:</strong> 15-minute discovery call to finalize methodology and timeline
+            </div>
+            
+            <div class="handwritten-note" style="text-align: center; margin-top: 30px;">
+                Thoughtfully crafted for your strategic success ✦
+            </div>
+            
+            <div class="rouze-watermark">𝓡𝓸𝓾𝔃𝓮</div>
+        </div>
+    </div>
+</body>
+</html>

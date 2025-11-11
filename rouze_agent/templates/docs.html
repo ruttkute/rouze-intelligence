@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rouze API Documentation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #000;
+            color: #f8f6f0;
+        }
+        h1 {
+            color: #a855f7;
+            border-bottom: 3px solid #a855f7;
+            padding-bottom: 15px;
+        }
+        h2 { color: #c084fc; margin-top: 50px; }
+        .endpoint {
+            background: #1a1a1a;
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 12px;
+            border-left: 4px solid #a855f7;
+        }
+        code {
+            background: #0a0a0a;
+            color: #a855f7;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        pre {
+            background: #0a0a0a;
+            color: #f8f6f0;
+            padding: 25px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        .method {
+            background: #a855f7;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rouze Intelligence API Documentation</h1>
+    
+    <div class="endpoint">
+        <h2>Authentication</h2>
+        <p>All API requests require an API key:</p>
+        <pre>X-API-Key: your_api_key_here</pre>
+        <p>Demo key: <code>demo_key_123</code></p>
+    </div>
+
+    <div class="endpoint">
+        <h2><span class="method">POST</span> /api/v1/analyze</h2>
+        <p>Analyze raw signals for intelligence</p>
+        
+        <h3>Request:</h3>
+        <pre>curl -X POST http://localhost:8000/api/v1/analyze \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: demo_key_123" \
+  -d '{
+    "signals": [
+      {"text": "Patient experiencing severe headaches", "source": "forum"}
+    ]
+  }'</pre>
+
+        <h3>Response:</h3>
+        <pre>{
+  "status": "success",
+  "analysis": {
+    "sentiment": "negative",
+    "risk_score": 87
+  }
+}</pre>
+    </div>
+
+    <div class="endpoint">
+        <h2><span class="method">GET</span> /api/v1/usage</h2>
+        <p>Check API usage</p>
+        
+        <h3>Request:</h3>
+        <pre>curl http://localhost:8000/api/v1/usage \
+  -H "X-API-Key: demo_key_123"</pre>
+
+        <h3>Response:</h3>
+        <pre>{
+  "tier": "professional",
+  "calls_used": 42,
+  "calls_remaining": 4958
+}</pre>
+    </div>
+</body>
+</html>

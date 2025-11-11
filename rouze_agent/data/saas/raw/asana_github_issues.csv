@@ -1,0 +1,151 @@
+date,product,issue_type,issue_title,upvotes,comments,status,source
+2025-10-06 20:45:03.523321,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2025-10-04 20:45:03.523340,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2025-10-02 20:45:03.523345,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2025-09-30 20:45:03.523348,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2025-09-28 20:45:03.523351,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2025-09-26 20:45:03.523355,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2025-09-24 20:45:03.523358,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2025-09-22 20:45:03.523361,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2025-09-20 20:45:03.523364,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2025-09-18 20:45:03.523368,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github
+2025-09-16 20:45:03.523372,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2025-09-14 20:45:03.523375,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2025-09-12 20:45:03.523378,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2025-09-10 20:45:03.523382,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2025-09-08 20:45:03.523385,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2025-09-06 20:45:03.523388,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2025-09-04 20:45:03.523391,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2025-09-02 20:45:03.523395,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2025-08-31 20:45:03.523398,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2025-08-29 20:45:03.523401,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github
+2025-08-27 20:45:03.523404,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2025-08-25 20:45:03.523407,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2025-08-23 20:45:03.523410,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2025-08-21 20:45:03.523414,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2025-08-19 20:45:03.523424,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2025-08-17 20:45:03.523431,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2025-08-15 20:45:03.523434,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2025-08-13 20:45:03.523438,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2025-08-11 20:45:03.523441,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2025-08-09 20:45:03.523444,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github
+2025-08-07 20:45:03.523448,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2025-08-05 20:45:03.523451,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2025-08-03 20:45:03.523454,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2025-08-01 20:45:03.523458,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2025-07-30 20:45:03.523461,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2025-07-28 20:45:03.523464,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2025-07-26 20:45:03.523468,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2025-07-24 20:45:03.523471,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2025-07-22 20:45:03.523474,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2025-07-20 20:45:03.523477,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github
+2025-07-18 20:45:03.523480,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2025-07-16 20:45:03.523484,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2025-07-14 20:45:03.523487,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2025-07-12 20:45:03.523490,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2025-07-10 20:45:03.523494,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2025-07-08 20:45:03.523497,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2025-07-06 20:45:03.523501,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2025-07-04 20:45:03.523504,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2025-07-02 20:45:03.523507,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2025-06-30 20:45:03.523511,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github
+2025-06-28 20:45:03.523518,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2025-06-26 20:45:03.523521,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2025-06-24 20:45:03.523525,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2025-06-22 20:45:03.523531,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2025-06-20 20:45:03.523535,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2025-06-18 20:45:03.523539,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2025-06-16 20:45:03.523543,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2025-06-14 20:45:03.523547,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2025-06-12 20:45:03.523550,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2025-06-10 20:45:03.523555,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github
+2025-06-08 20:45:03.523557,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2025-06-06 20:45:03.523559,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2025-06-04 20:45:03.523561,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2025-06-02 20:45:03.523567,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2025-05-31 20:45:03.523569,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2025-05-29 20:45:03.523577,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2025-05-27 20:45:03.523580,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2025-05-25 20:45:03.523582,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2025-05-23 20:45:03.523584,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2025-05-21 20:45:03.523586,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github
+2025-05-19 20:45:03.523589,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2025-05-17 20:45:03.523591,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2025-05-15 20:45:03.523593,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2025-05-13 20:45:03.523596,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2025-05-11 20:45:03.523598,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2025-05-09 20:45:03.523600,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2025-05-07 20:45:03.523602,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2025-05-05 20:45:03.523606,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2025-05-03 20:45:03.523608,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2025-05-01 20:45:03.523611,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github
+2025-04-29 20:45:03.523613,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2025-04-27 20:45:03.523615,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2025-04-25 20:45:03.523617,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2025-04-23 20:45:03.523620,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2025-04-21 20:45:03.523622,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2025-04-19 20:45:03.523624,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2025-04-17 20:45:03.523626,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2025-04-15 20:45:03.523628,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2025-04-13 20:45:03.523631,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2025-04-11 20:45:03.523635,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github
+2025-04-09 20:45:03.523638,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2025-04-07 20:45:03.523640,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2025-04-05 20:45:03.523643,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2025-04-03 20:45:03.523645,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2025-04-01 20:45:03.523647,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2025-03-30 20:45:03.523649,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2025-03-28 20:45:03.523652,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2025-03-26 20:45:03.523654,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2025-03-24 20:45:03.523656,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2025-03-22 20:45:03.523658,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github
+2025-03-20 20:45:03.523661,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2025-03-18 20:45:03.523663,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2025-03-16 20:45:03.523668,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2025-03-14 20:45:03.523671,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2025-03-12 20:45:03.523673,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2025-03-10 20:45:03.523676,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2025-03-08 20:45:03.523678,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2025-03-06 20:45:03.523681,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2025-03-04 20:45:03.523683,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2025-03-02 20:45:03.523687,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github
+2025-02-28 20:45:03.523689,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2025-02-26 20:45:03.523692,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2025-02-24 20:45:03.523694,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2025-02-22 20:45:03.523696,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2025-02-20 20:45:03.523698,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2025-02-18 20:45:03.523703,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2025-02-16 20:45:03.523705,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2025-02-14 20:45:03.523708,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2025-02-12 20:45:03.523710,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2025-02-10 20:45:03.523713,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github
+2025-02-08 20:45:03.523715,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2025-02-06 20:45:03.523717,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2025-02-04 20:45:03.523720,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2025-02-02 20:45:03.523722,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2025-01-31 20:45:03.523724,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2025-01-29 20:45:03.523727,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2025-01-27 20:45:03.523729,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2025-01-25 20:45:03.523732,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2025-01-23 20:45:03.523753,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2025-01-21 20:45:03.523757,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github
+2025-01-19 20:45:03.523760,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2025-01-17 20:45:03.523762,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2025-01-15 20:45:03.523765,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2025-01-13 20:45:03.523767,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2025-01-11 20:45:03.523769,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2025-01-09 20:45:03.523771,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2025-01-07 20:45:03.523774,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2025-01-05 20:45:03.523776,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2025-01-03 20:45:03.523781,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2025-01-01 20:45:03.523784,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github
+2024-12-30 20:45:03.523786,Asana,Bug,API timeout with large datasets,15,5,Open,github
+2024-12-28 20:45:03.523791,Asana,Feature Request,Add support for SSO authentication,45,12,Open,github
+2024-12-26 20:45:03.523794,Asana,Enhancement,Export functionality missing for CSV format,23,8,Closed,github
+2024-12-24 20:45:03.523797,Asana,Question,Performance degradation with 1000+ records,67,23,Open,github
+2024-12-22 20:45:03.523799,Asana,Documentation,Mobile app crashes on iOS 17,12,3,In Progress,github
+2024-12-20 20:45:03.523802,Asana,Bug,API timeout with large datasets,89,34,Open,github
+2024-12-18 20:45:03.523804,Asana,Feature Request,Add support for SSO authentication,34,15,Open,github
+2024-12-16 20:45:03.523806,Asana,Enhancement,Export functionality missing for CSV format,56,19,Closed,github
+2024-12-14 20:45:03.523808,Asana,Question,Performance degradation with 1000+ records,28,9,Open,github
+2024-12-12 20:45:03.523811,Asana,Documentation,Mobile app crashes on iOS 17,41,16,In Progress,github

@@ -1,0 +1,23 @@
+storage:
+  sqlite_path: "data/rouze_signals.sqlite"
+  csv_export_dir: "data/processed"
+  json_export_dir: "data/raw"
+
+scrapers:
+  reddit:
+    enabled: true
+    client_id_env: "REDDIT_CLIENT_ID"
+    client_secret_env: "REDDIT_CLIENT_SECRET"
+    user_agent_env: "REDDIT_USER_AGENT"
+    subreddits: [entrepreneur, startups, freelancing, dataisbeautiful]
+    mode: "top_day"
+    limit_per_subreddit: 100
+
+  google_news:
+    enabled: true
+    topics:
+      - "freelance data research"
+      - "market research trends"
+      - "social listening"
+      - "consumer sentiment"
+    max_items_per_topic: 50

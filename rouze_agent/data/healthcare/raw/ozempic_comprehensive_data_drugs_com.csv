@@ -1,0 +1,151 @@
+date,medication,rating,condition,review_text,effectiveness_rating,side_effects_rating,source
+2025-10-06 20:11:08.584965,Ozempic,3,"Diabetes, Type 2",Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2025-09-29 20:11:08.584994,Ozempic,4,Weight Loss,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2025-09-22 20:11:08.584999,Ozempic,2,Diabetes,"Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2025-09-15 20:11:08.585003,Ozempic,5,Obesity,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2025-09-08 20:11:08.585006,Ozempic,1,"Diabetes, Type 2",Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2025-09-01 20:11:08.585009,Ozempic,4,Weight Loss,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2025-08-25 20:11:08.585012,Ozempic,3,Diabetes,Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2025-08-18 20:11:08.585027,Ozempic,5,Obesity,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2025-08-11 20:11:08.585030,Ozempic,2,"Diabetes, Type 2",Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2025-08-04 20:11:08.585033,Ozempic,4,Weight Loss,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com
+2025-07-28 20:11:08.585036,Ozempic,3,Diabetes,Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2025-07-21 20:11:08.585040,Ozempic,4,Obesity,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2025-07-14 20:11:08.585043,Ozempic,2,"Diabetes, Type 2","Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2025-07-07 20:11:08.585046,Ozempic,5,Weight Loss,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2025-06-30 20:11:08.585049,Ozempic,1,Diabetes,Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2025-06-23 20:11:08.585052,Ozempic,4,Obesity,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2025-06-16 20:11:08.585055,Ozempic,3,"Diabetes, Type 2",Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2025-06-09 20:11:08.585071,Ozempic,5,Weight Loss,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2025-06-02 20:11:08.585075,Ozempic,2,Diabetes,Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2025-05-26 20:11:08.585078,Ozempic,4,Obesity,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com
+2025-05-19 20:11:08.585080,Ozempic,3,"Diabetes, Type 2",Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2025-05-12 20:11:08.585083,Ozempic,4,Weight Loss,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2025-05-05 20:11:08.585086,Ozempic,2,Diabetes,"Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2025-04-28 20:11:08.585090,Ozempic,5,Obesity,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2025-04-21 20:11:08.585093,Ozempic,1,"Diabetes, Type 2",Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2025-04-14 20:11:08.585155,Ozempic,4,Weight Loss,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2025-04-07 20:11:08.585159,Ozempic,3,Diabetes,Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2025-03-31 20:11:08.585162,Ozempic,5,Obesity,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2025-03-24 20:11:08.585165,Ozempic,2,"Diabetes, Type 2",Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2025-03-17 20:11:08.585195,Ozempic,4,Weight Loss,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com
+2025-03-10 20:11:08.585198,Ozempic,3,Diabetes,Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2025-03-03 20:11:08.585201,Ozempic,4,Obesity,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2025-02-24 20:11:08.585205,Ozempic,2,"Diabetes, Type 2","Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2025-02-17 20:11:08.585208,Ozempic,5,Weight Loss,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2025-02-10 20:11:08.585210,Ozempic,1,Diabetes,Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2025-02-03 20:11:08.585214,Ozempic,4,Obesity,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2025-01-27 20:11:08.585216,Ozempic,3,"Diabetes, Type 2",Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2025-01-20 20:11:08.585219,Ozempic,5,Weight Loss,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2025-01-13 20:11:08.585223,Ozempic,2,Diabetes,Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2025-01-06 20:11:08.585226,Ozempic,4,Obesity,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com
+2024-12-30 20:11:08.585229,Ozempic,3,"Diabetes, Type 2",Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2024-12-23 20:11:08.585233,Ozempic,4,Weight Loss,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2024-12-16 20:11:08.585237,Ozempic,2,Diabetes,"Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2024-12-09 20:11:08.585240,Ozempic,5,Obesity,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2024-12-02 20:11:08.585243,Ozempic,1,"Diabetes, Type 2",Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2024-11-25 20:11:08.585246,Ozempic,4,Weight Loss,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2024-11-18 20:11:08.585249,Ozempic,3,Diabetes,Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2024-11-11 20:11:08.585253,Ozempic,5,Obesity,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2024-11-04 20:11:08.585255,Ozempic,2,"Diabetes, Type 2",Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2024-10-28 20:11:08.585258,Ozempic,4,Weight Loss,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com
+2024-10-21 20:11:08.585261,Ozempic,3,Diabetes,Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2024-10-14 20:11:08.585264,Ozempic,4,Obesity,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2024-10-07 20:11:08.585267,Ozempic,2,"Diabetes, Type 2","Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2024-09-30 20:11:08.585270,Ozempic,5,Weight Loss,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2024-09-23 20:11:08.585274,Ozempic,1,Diabetes,Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2024-09-16 20:11:08.585277,Ozempic,4,Obesity,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2024-09-09 20:11:08.585280,Ozempic,3,"Diabetes, Type 2",Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2024-09-02 20:11:08.585283,Ozempic,5,Weight Loss,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2024-08-26 20:11:08.585286,Ozempic,2,Diabetes,Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2024-08-19 20:11:08.585289,Ozempic,4,Obesity,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com
+2024-08-12 20:11:08.585292,Ozempic,3,"Diabetes, Type 2",Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2024-08-05 20:11:08.585295,Ozempic,4,Weight Loss,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2024-07-29 20:11:08.585298,Ozempic,2,Diabetes,"Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2024-07-22 20:11:08.585309,Ozempic,5,Obesity,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2024-07-15 20:11:08.585314,Ozempic,1,"Diabetes, Type 2",Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2024-07-08 20:11:08.585317,Ozempic,4,Weight Loss,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2024-07-01 20:11:08.585320,Ozempic,3,Diabetes,Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2024-06-24 20:11:08.585322,Ozempic,5,Obesity,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2024-06-17 20:11:08.585324,Ozempic,2,"Diabetes, Type 2",Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2024-06-10 20:11:08.585326,Ozempic,4,Weight Loss,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com
+2024-06-03 20:11:08.585328,Ozempic,3,Diabetes,Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2024-05-27 20:11:08.585330,Ozempic,4,Obesity,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2024-05-20 20:11:08.585332,Ozempic,2,"Diabetes, Type 2","Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2024-05-13 20:11:08.585334,Ozempic,5,Weight Loss,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2024-05-06 20:11:08.585336,Ozempic,1,Diabetes,Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2024-04-29 20:11:08.585339,Ozempic,4,Obesity,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2024-04-22 20:11:08.585343,Ozempic,3,"Diabetes, Type 2",Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2024-04-15 20:11:08.585347,Ozempic,5,Weight Loss,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2024-04-08 20:11:08.585349,Ozempic,2,Diabetes,Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2024-04-01 20:11:08.585351,Ozempic,4,Obesity,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com
+2024-03-25 20:11:08.585353,Ozempic,3,"Diabetes, Type 2",Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2024-03-18 20:11:08.585355,Ozempic,4,Weight Loss,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2024-03-11 20:11:08.585360,Ozempic,2,Diabetes,"Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2024-03-04 20:11:08.585362,Ozempic,5,Obesity,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2024-02-26 20:11:08.585364,Ozempic,1,"Diabetes, Type 2",Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2024-02-19 20:11:08.585366,Ozempic,4,Weight Loss,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2024-02-12 20:11:08.585368,Ozempic,3,Diabetes,Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2024-02-05 20:11:08.585370,Ozempic,5,Obesity,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2024-01-29 20:11:08.585373,Ozempic,2,"Diabetes, Type 2",Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2024-01-22 20:11:08.585377,Ozempic,4,Weight Loss,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com
+2024-01-15 20:11:08.585379,Ozempic,3,Diabetes,Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2024-01-08 20:11:08.585398,Ozempic,4,Obesity,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2024-01-01 20:11:08.585405,Ozempic,2,"Diabetes, Type 2","Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2023-12-25 20:11:08.585408,Ozempic,5,Weight Loss,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2023-12-18 20:11:08.585410,Ozempic,1,Diabetes,Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2023-12-11 20:11:08.585416,Ozempic,4,Obesity,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2023-12-04 20:11:08.585418,Ozempic,3,"Diabetes, Type 2",Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2023-11-27 20:11:08.585420,Ozempic,5,Weight Loss,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2023-11-20 20:11:08.585422,Ozempic,2,Diabetes,Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2023-11-13 20:11:08.585425,Ozempic,4,Obesity,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com
+2023-11-06 20:11:08.585427,Ozempic,3,"Diabetes, Type 2",Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2023-10-30 20:11:08.585429,Ozempic,4,Weight Loss,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2023-10-23 20:11:08.585433,Ozempic,2,Diabetes,"Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2023-10-16 20:11:08.585435,Ozempic,5,Obesity,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2023-10-09 20:11:08.585437,Ozempic,1,"Diabetes, Type 2",Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2023-10-02 20:11:08.585440,Ozempic,4,Weight Loss,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2023-09-25 20:11:08.585442,Ozempic,3,Diabetes,Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2023-09-18 20:11:08.585444,Ozempic,5,Obesity,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2023-09-11 20:11:08.585446,Ozempic,2,"Diabetes, Type 2",Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2023-09-04 20:11:08.585450,Ozempic,4,Weight Loss,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com
+2023-08-28 20:11:08.585454,Ozempic,3,Diabetes,Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2023-08-21 20:11:08.585457,Ozempic,4,Obesity,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2023-08-14 20:11:08.585460,Ozempic,2,"Diabetes, Type 2","Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2023-08-07 20:11:08.585472,Ozempic,5,Weight Loss,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2023-07-31 20:11:08.585475,Ozempic,1,Diabetes,Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2023-07-24 20:11:08.585481,Ozempic,4,Obesity,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2023-07-17 20:11:08.585485,Ozempic,3,"Diabetes, Type 2",Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2023-07-10 20:11:08.585488,Ozempic,5,Weight Loss,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2023-07-03 20:11:08.585491,Ozempic,2,Diabetes,Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2023-06-26 20:11:08.585495,Ozempic,4,Obesity,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com
+2023-06-19 20:11:08.585498,Ozempic,3,"Diabetes, Type 2",Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2023-06-12 20:11:08.585501,Ozempic,4,Weight Loss,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2023-06-05 20:11:08.585504,Ozempic,2,Diabetes,"Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2023-05-29 20:11:08.585552,Ozempic,5,Obesity,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2023-05-22 20:11:08.585557,Ozempic,1,"Diabetes, Type 2",Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2023-05-15 20:11:08.585561,Ozempic,4,Weight Loss,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2023-05-08 20:11:08.585565,Ozempic,3,Diabetes,Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2023-05-01 20:11:08.585569,Ozempic,5,Obesity,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2023-04-24 20:11:08.585576,Ozempic,2,"Diabetes, Type 2",Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2023-04-17 20:11:08.585581,Ozempic,4,Weight Loss,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com
+2023-04-10 20:11:08.585692,Ozempic,3,Diabetes,Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2023-04-03 20:11:08.585703,Ozempic,4,Obesity,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2023-03-27 20:11:08.585706,Ozempic,2,"Diabetes, Type 2","Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2023-03-20 20:11:08.585768,Ozempic,5,Weight Loss,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2023-03-13 20:11:08.585775,Ozempic,1,Diabetes,Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2023-03-06 20:11:08.585778,Ozempic,4,Obesity,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2023-02-27 20:11:08.585781,Ozempic,3,"Diabetes, Type 2",Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2023-02-20 20:11:08.585784,Ozempic,5,Weight Loss,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2023-02-13 20:11:08.585797,Ozempic,2,Diabetes,Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2023-02-06 20:11:08.585803,Ozempic,4,Obesity,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com
+2023-01-30 20:11:08.585844,Ozempic,3,"Diabetes, Type 2",Nausea was severe for first 2 weeks. Better now but still have occasional stomach upset.,3,4,drugs_com
+2023-01-23 20:11:08.585852,Ozempic,4,Weight Loss,Lost 20 lbs in 3 months. Some headaches but manageable. Blood sugar well controlled.,5,3,drugs_com
+2023-01-16 20:11:08.585856,Ozempic,2,Diabetes,"Terrible side effects. Constant nausea, vomiting, dizziness. Had to stop after 1 month.",1,5,drugs_com
+2023-01-09 20:11:08.585859,Ozempic,5,Obesity,"Working great! Minimal side effects, just some fatigue initially. A1C dropped from 8.5 to 6.2.",5,2,drugs_com
+2023-01-02 20:11:08.585862,Ozempic,1,"Diabetes, Type 2",Stomach problems persist even after 6 months. Considering switching medications.,2,5,drugs_com
+2022-12-26 20:11:08.585865,Ozempic,4,Weight Loss,Effective for weight loss but expensive. Insurance doesn't cover fully.,4,3,drugs_com
+2022-12-19 20:11:08.585868,Ozempic,3,Diabetes,Had to reduce dose due to gastrointestinal issues. Better at 0.5mg vs 1mg.,3,4,drugs_com
+2022-12-12 20:11:08.585871,Ozempic,5,Obesity,No side effects for me. Great results with both weight and blood sugar control.,5,1,drugs_com
+2022-12-05 20:11:08.585907,Ozempic,2,"Diabetes, Type 2",Dizziness when standing up quickly. Doctor says it's blood pressure related.,3,3,drugs_com
+2022-11-28 20:11:08.585927,Ozempic,4,Weight Loss,"Moderate nausea first week, then resolved. Worth it for the benefits.",4,3,drugs_com

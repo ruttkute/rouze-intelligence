@@ -1,0 +1,28 @@
+Example Deliverable
+{{ title }}
+{% if subtitle %}
+{{ subtitle }}
+{% endif %}
+Analyst: {{ analyst }}   ·   Date: {{ date }}
+Executive Summary
+{% if summary_html %}
+{{ summary_html | safe }}
+{% else %}
+This brief summarizes key findings and recommended next actions.
+{% endif %} {% if highlights and highlights|length %}
+Key Highlights
+{% for row in highlights %} {% endfor %}
+Aspect
+Highlights
+{{ row.aspect }}
+{{ row.text }}
+{% endif %}
+So What / Now What
+	•	Prioritize the clearest, highest-impact fix first.
+	•	Ship a small, testable improvement within 7 days.
+	•	Instrument before/after to capture lift.
+{% if body_html %}
+Details
+{{ body_html | safe }}
+{% endif %}
+Designed with taste by Rouze — pink·mauve editorial theme.
