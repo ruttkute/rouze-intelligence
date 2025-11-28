@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Free Competitive Analysis - Rouze Intelligence{% endblock %}
+
+{% block content %}
+<section style="padding: 100px 50px; min-height: 100vh; display: flex; align-items: center;">
+    <div class="container">
+        <div style="max-width: 800px; margin: 0 auto;">
+            
+            <h1>Free Competitive Analysis</h1>
+            <p style="font-size: 18px; margin-bottom: 40px;">
+                See our methodology in action. No credit card required.
+                <br>Results in 24-48 hours. Dashboard access expires in 14 days.
+            </p>
+
+            <div class="divider"></div>
+
+            <!-- MULTI-STEP FORM -->
+            <form id="freeTrialForm" method="POST" action="{{ url_for('submit_free_trial') }}">
+                
+                <!-- STEP 1: Industry Selection -->
+                <div class="form-step" id="step1">
+                    <h3>What industry are you in?</h3>
+                    <div class="grid-2" style="margin-top: 30px;">
+                        <label style="cursor: pointer;">
+                            <input type="radio" name="vertical" value="healthcare" required>
+                            <div class="card" style="padding: 20px; text-align: center;">
+                                <h4>Healthcare</h4>
+                                <p class="small-text">Medical devices, pharma, health tech</p>
+                            </div>
+                        </label>
+                        <label style="cursor: pointer;">
+                            <input type="radio" name="vertical" value="saas" required>
+                            <div class="card" style="padding: 20px; text-align: center;">
+                                <h4>SaaS</h4>
+                                <p class="small-text">B2B software, productivity tools</p>
+                            </div>
+                        </label>
+                        <label style="cursor: pointer;">
+                            <input type="radio" name="vertical" value="ecommerce" required>
+                            <div class="card" style="padding: 20px; text-align: center;">
+                                <h4>E-commerce</h4>
+                                <p class="small-text">Consumer products, DTC brands</p>
+                            </div>
+                        </label>
+                        <label style="cursor: pointer;">
+                            <input type="radio" name="vertical" value="other" required>
+                            <div class="card" style="padding: 20px; text-align: center;">
+                                <h4>Other</h4>
+                                <p class="small-text">Different industry</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Specific Question -->
+                <div class="form-step" style="margin-top: 40px; display: none;" id="step2">
+                    <h3>What specific question do you need answered?</h3>
+                    <textarea name="specific_question" placeholder="Example: What features are customers asking competitors for that we're missing?" style="width: 100%; height: 120px; margin-top: 20px;"></textarea>
+                </div>
+
+                <!-- STEP 3: Data Sources -->
+                <div class="form-step" style="margin-top: 40px; display: none;" id="step3">
+                    <h3>What data sources interest you most?</h3>
+                    <div style="margin-top: 20px;">
+                        <label style="display: block; margin: 15px 0;">
+                            <input type="checkbox" name="sources" value="social"> Social media (Reddit, Twitter, TikTok)
+                        </label>
+                        <label style="display: block; margin: 15px 0;">
+                            <input type="checkbox" name="sources" value="reviews"> Customer reviews (G2, Trustpilot, Amazon)
+                        </label>
+                        <label style="display: block; margin: 15px 0;">
+                            <input type="checkbox" name="sources" value="jobs"> Job postings (LinkedIn, Indeed)
+                        </label>
+                        <label style="display: block; margin: 15px 0;">
+                            <input type="checkbox" name="sources" value="forums"> Industry forums & communities
+                        </label>
+                    </div>
+                </div>
+
+                <!-- STEP 4: Contact Info -->
+                <div class="form-step" style="margin-top: 40px; display: none;" id="step4">
+                    <h3>Where should we send results?</h3>
+                    <input type="text" name="name" placeholder="Your name" style="width: 100%; margin-top: 20px; padding: 12px 16px;">
+                    <input type="email" name="email" placeholder="Email address" style="width: 100%; margin-top: 15px; padding: 12px 16px;" required>
+                    <input type="text" name="company" placeholder="Company name" style="width: 100%; margin-top: 15px; padding: 12px 16px;">
+                </div>
+
+                <!-- SUBMIT -->
+                <div style="margin-top: 40px;">
+                    <button type="submit" class="btn-primary" style="width: 100%; padding: 15px; font-size: 16px;">
+                        Get Free Analysis (48-Hour Delivery)
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<style>
+form input[type="radio"] { display: none; }
+form input[type="checkbox"] { margin-right: 10px; }
+
+label { display: flex; gap: 15px; align-items: center; }
+</style>
+{% endblock %}

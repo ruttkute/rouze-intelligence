@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="margin-top: 70px; min-height: 100vh; padding: 50px; background: linear-gradient(135deg, #0c080d 0%, #1f1823 30%, #2d1b4e 60%, #382b3f 100%);">
+    <div class="container" style="max-width: 600px;">
+        
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h1 style="font-size: 48px; color: #B0A6DF; margin-bottom: 20px; font-weight: 600;">Let's Find Your Tier</h1>
+            <p style="color: #B0A6DF; font-size: 16px; line-height: 1.6;">Answer 6 quick questions. We'll recommend the intelligence tier that fits your decision timeline, budget, and urgency.</p>
+        </div>
+        
+        <form id="tierQuiz" style="background: rgba(82, 66, 92, 0.04); padding: 40px; border-radius: 12px; border: 1px solid rgba(176, 166, 223, 0.15);">
+            
+            <!-- Question 1: Urgency -->
+            <div style="margin-bottom: 40px;">
+                <label style="color: #B0A6DF; font-size: 16px; font-weight: 600; display: block; margin-bottom: 20px;">1. How quickly do you need this intelligence?</label>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="urgency" value="quick" style="margin-right: 10px;"> Urgent (24-48 hours)
+                    </label>
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="urgency" value="strategic" style="margin-right: 10px;"> Soon (5-7 days)
+                    </label>
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="urgency" value="predictive" style="margin-right: 10px;"> Planning (2-3 weeks)
+                    </label>
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="urgency" value="enterprise" style="margin-right: 10px;"> Ongoing (continuous monitoring)
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Question 2: Budget -->
+            <div style="margin-bottom: 40px;">
+                <label style="color: #B0A6DF; font-size: 16px; font-weight: 600; display: block; margin-bottom: 20px;">2. What's your budget range?</label>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="budget" value="quick" style="margin-right: 10px;"> Under $1,000
+                    </label>
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="budget" value="strategic" style="margin-right: 10px;"> $1,000 - $3,000
+                    </label>
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="budget" value="predictive" style="margin-right: 10px;"> $3,000 - $10,000
+                    </label>
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="budget" value="enterprise" style="margin-right: 10px;"> $10,000+/month
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Question 3: Industry -->
+            <div style="margin-bottom: 40px;">
+                <label style="color: #B0A6DF; font-size: 16px; font-weight: 600; display: block; margin-bottom: 20px;">3. What's your industry?</label>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="industry" value="healthcare" style="margin-right: 10px;"> Healthcare
+                    </label>
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="industry" value="saas" style="margin-right: 10px;"> SaaS
+                    </label>
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="industry" value="ecommerce" style="margin-right: 10px;"> E-commerce
+                    </label>
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="industry" value="other" style="margin-right: 10px;"> Other
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Question 4: Decision Type -->
+            <div style="margin-bottom: 40px;">
+                <label style="color: #B0A6DF; font-size: 16px; font-weight: 600; display: block; margin-bottom: 20px;">4. What decision are you making?</label>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="decision" value="quick" style="margin-right: 10px;"> Quick validation / trend check
+                    </label>
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="decision" value="strategic" style="margin-right: 10px;"> Product launch / market entry
+                    </label>
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="decision" value="predictive" style="margin-right: 10px;"> Strategic planning / investment
+                    </label>
+                    <label style="color: #B0A6DF; font-size: 14px; padding: 12px; background: rgba(176, 166, 223, 0.05); border-radius: 8px; cursor: pointer;">
+                        <input type="radio" name="decision" value="enterprise" style="margin-right: 10px;"> Continuous competitive monitoring
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Question 5: Contact Info -->
+            <div style="margin-bottom: 40px;">
+                <label style="color: #B0A6DF; font-size: 16px; font-weight: 600; display: block; margin-bottom: 20px;">5. Your email</label>
+                <input type="email" name="email" placeholder="your@email.com" style="width: 100%; padding: 12px; background: rgba(82, 66, 92, 0.06); border: 1px solid rgba(176, 166, 223, 0.18); border-radius: 8px; color: #B0A6DF; font-size: 14px;" required>
+            </div>
+            
+            <!-- Question 6: Company Name -->
+            <div style="margin-bottom: 40px;">
+                <label style="color: #B0A6DF; font-size: 16px; font-weight: 600; display: block; margin-bottom: 20px;">6. Your company (optional)</label>
+                <input type="text" name="company" placeholder="Your company name" style="width: 100%; padding: 12px; background: rgba(82, 66, 92, 0.06); border: 1px solid rgba(176, 166, 223, 0.18); border-radius: 8px; color: #B0A6DF; font-size: 14px;">
+            </div>
+            
+            <button type="submit" class="btn-primary" style="width: 100%; padding: 16px; font-size: 16px; text-decoration: none; border: none; cursor: pointer;">See Your Recommendation</button>
+        </form>
+        
+        <!-- Recommendation Display (Hidden by Default) -->
+        <div id="recommendation" style="margin-top: 40px; background: rgba(82, 66, 92, 0.04); padding: 40px; border-radius: 12px; border: 1px solid rgba(176, 166, 223, 0.15); display: none;">
+            <h2 style="color: #B0A6DF; font-size: 32px; margin-bottom: 20px; font-weight: 600;">Your Recommended Tier</h2>
+            
+            <div id="tierDetail" style="margin-bottom: 30px;"></div>
+            
+            <div style="text-align: center;">
+                <a href="{{ url_for('index') }}" class="btn-primary" style="text-decoration: none; display: inline-block; padding: 12px 30px; margin-right: 15px;">Learn More About This Tier</a>
+                <a href="{{ url_for('pricing') }}" class="btn-primary" style="text-decoration: none; display: inline-block; padding: 12px 30px; background: rgba(176, 166, 223, 0.08); border: 1px solid rgba(176, 166, 223, 0.3);">See All Pricing</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const tiers = {
+    'quick': {
+        name: 'Quick Intelligence',
+        price: '$300-$800',
+        delivery: '24-48 hours',
+        description: 'Perfect for urgent decisions. You need a quick answer and can\'t wait.',
+        best: 'Trend validation, rapid competitive checks, quick market validation'
+    },
+    'strategic': {
+        name: 'Strategic Intelligence',
+        price: '$800-$2,000',
+        delivery: '5-7 days',
+        description: 'For important decisions. You need comprehensive analysis that you can explain to stakeholders.',
+        best: 'Product launches, market entry, competitive positioning, strategic decisions'
+    },
+    'predictive': {
+        name: 'Predictive Intelligence',
+        price: '$2,000-$5,000',
+        delivery: '10-14 days',
+        description: 'For major strategic decisions. You\'re planning 12-36 months ahead and need to see possible futures.',
+        best: 'Investment decisions, strategic planning, market expansion, scenario planning'
+    },
+    'enterprise': {
+        name: 'Enterprise Partnership',
+        price: '$5,000-$20,000+/month',
+        delivery: 'Ongoing + custom',
+        description: 'Continuous competitive advantage. Intelligence becomes a core strategic function.',
+        best: 'Market dominance, continuous competitive monitoring, strategic advisory'
+    }
+};
+
+document.getElementById('tierQuiz').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const urgency = document.querySelector('input[name="urgency"]:checked')?.value;
+    const budget = document.querySelector('input[name="budget"]:checked')?.value;
+    const decision = document.querySelector('input[name="decision"]:checked')?.value;
+    const email = document.querySelector('input[name="email"]').value;
+    const company = document.querySelector('input[name="company"]').value;
+    
+    // Simple recommendation logic (vote-based)
+    const votes = {};
+    [urgency, budget, decision].forEach(vote => {
+        votes[vote] = (votes[vote] || 0) + 1;
+    });
+    
+    const recommendedTier = Object.keys(votes).reduce((a, b) => votes[a] > votes[b] ? a : b);
+    const tierInfo = tiers[recommendedTier];
+    
+    document.getElementById('tierDetail').innerHTML = `
+        <h3 style="color: #3A8FC3; font-size: 28px; margin-bottom: 15px; font-weight: 600;">${tierInfo.name}</h3>
+        <p style="color: #B0A6DF; font-size: 18px; font-weight: 600; margin-bottom: 5px;">${tierInfo.price}</p>
+        <p style="color: #B0A6DF; font-size: 14px; opacity: 0.8; margin-bottom: 20px;">${tierInfo.delivery}</p>
+        
+        <p style="color: #B0A6DF; font-size: 14px; line-height: 1.8; margin-bottom: 20px;">${tierInfo.description}</p>
+        
+        <p style="color: #B0A6DF; font-size: 14px; margin-bottom: 10px;"><strong>Best for:</strong> ${tierInfo.best}</p>
+        
+        ${email ? `<p style="color: #B0A6DF; font-size: 12px; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(176, 166, 223, 0.15);">We'll send details to: <strong>${email}</strong></p>` : ''}
+    `;
+    
+    document.getElementById('recommendation').style.display = 'block';
+    document.getElementById('tierQuiz').style.display = 'none';
+    window.scrollTo({top: document.getElementById('recommendation').offsetTop - 100, behavior: 'smooth'});
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rouze Services Market Analysis</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: linear-gradient(135deg, rgba(82, 66, 92, 0.95) 0%, rgba(58, 143, 195, 0.1) 100%); min-height: 100vh; font-family: 'Playfair Display', serif; padding: 40px 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: rgba(30, 20, 50, 0.7); border: 1.5px solid rgba(176, 166, 223, 0.2); backdrop-filter: blur(45px); border-radius: 24px; padding: 60px; }
+        h1 { color: #B0A6DF; font-size: 48px; margin-bottom: 20px; letter-spacing: 2px; }
+        .subtitle { color: rgba(176, 166, 223, 0.7); font-size: 18px; margin-bottom: 50px; }
+        .form-section { margin-bottom: 50px; padding-bottom: 40px; border-bottom: 1px solid rgba(176, 166, 223, 0.1); }
+        .form-section:last-child { border-bottom: none; }
+        .section-title { color: #3A8FC3; font-size: 20px; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; }
+        .question { margin-bottom: 30px; }
+        .question label { color: #B0A6DF; font-size: 16px; margin-bottom: 15px; display: block; }
+        input[type="radio"], input[type="checkbox"], select, textarea { margin-right: 10px; margin-bottom: 10px; }
+        .option { margin-bottom: 12px; padding: 10px; border-radius: 8px; transition: all 0.3s ease; }
+        .option:hover { background: rgba(58, 143, 195, 0.1); }
+        .option label { margin-bottom: 0; display: inline; cursor: pointer; }
+        textarea { width: 100%; padding: 12px; background: rgba(176, 166, 223, 0.05); border: 1px solid rgba(176, 166, 223, 0.2); border-radius: 8px; color: #B0A6DF; font-family: 'Playfair Display', serif; font-size: 14px; min-height: 100px; resize: vertical; }
+        select { width: 100%; padding: 12px; background: rgba(176, 166, 223, 0.05); border: 1px solid rgba(176, 166, 223, 0.2); border-radius: 8px; color: #B0A6DF; font-family: 'Playfair Display', serif; font-size: 14px; }
+        .button-group { margin-top: 50px; display: flex; gap: 20px; justify-content: center; }
+        .btn { padding: 14px 40px; font-size: 16px; border-radius: 50px; cursor: pointer; font-family: 'Playfair Display', serif; letter-spacing: 1px; transition: all 0.3s ease; border: none; }
+        .btn-primary { background: linear-gradient(135deg, #3A8FC3 0%, #58a8d8 100%); color: white; border: 1px solid rgba(58, 143, 195, 0.5); }
+        .btn-primary:hover { background: linear-gradient(135deg, #2d7aa8 0%, #3A8FC3 100%); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(58, 143, 195, 0.3); }
+        .btn-secondary { background: rgba(176, 166, 223, 0.1); color: #B0A6DF; border: 1px solid rgba(176, 166, 223, 0.3); }
+        .btn-secondary:hover { background: rgba(176, 166, 223, 0.15); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Market Intelligence Analysis</h1>
+        <p class="subtitle">Help us understand your market research needs</p>
+        <form id="rouze-services-form" method="POST" action="/api/questionnaire/rouze-services">
+            <input type="hidden" name="vertical" value="rouze-services">
+            
+            <div class="form-section">
+                <div class="section-title">Section 1: Your Context</div>
+                <div class="question">
+                    <label>Q1: What industry are you in?</label>
+                    <div class="option"><input type="radio" id="q1_healthcare" name="industry" value="healthcare"> <label for="q1_healthcare">Healthcare / Medical</label></div>
+                    <div class="option"><input type="radio" id="q1_saas" name="industry" value="saas"> <label for="q1_saas">SaaS / Software</label></div>
+                    <div class="option"><input type="radio" id="q1_ecommerce" name="industry" value="ecommerce"> <label for="q1_ecommerce">E-commerce / Retail</label></div>
+                    <div class="option"><input type="radio" id="q1_finance" name="industry" value="finance"> <label for="q1_finance">Financial Services</label></div>
+                    <div class="option"><input type="radio" id="q1_other" name="industry" value="other"> <label for="q1_other">Other</label></div>
+                </div>
+                <div class="question">
+                    <label>Q2: Company stage?</label>
+                    <div class="option"><input type="radio" id="q2_seed" name="company_stage" value="seed"> <label for="q2_seed">Seed (<$1M)</label></div>
+                    <div class="option"><input type="radio" id="q2_growth" name="company_stage" value="growth"> <label for="q2_growth">Growth ($1M-$10M)</label></div>
+                    <div class="option"><input type="radio" id="q2_scale" name="company_stage" value="scale"> <label for="q2_scale">Scale ($10M-$100M)</label></div>
+                    <div class="option"><input type="radio" id="q2_enterprise" name="company_stage" value="enterprise"> <label for="q2_enterprise">Enterprise ($100M+)</label></div>
+                </div>
+                <div class="question">
+                    <label>Q3: Your role?</label>
+                    <div class="option"><input type="radio" id="q3_founder" name="role" value="founder"> <label for="q3_founder">Founder / CEO</label></div>
+                    <div class="option"><input type="radio" id="q3_product" name="role" value="product"> <label for="q3_product">Product / Strategy</label></div>
+                    <div class="option"><input type="radio" id="q3_marketing" name="role" value="marketing"> <label for="q3_marketing">Marketing / Growth</label></div>
+                    <div class="option"><input type="radio" id="q3_investor" name="role" value="investor"> <label for="q3_investor">Investor / Analyst</label></div>
+                </div>
+                <div class="question">
+                    <label>Q4: Annual budget for market research?</label>
+                    <div class="option"><input type="radio" id="q4_none" name="research_budget" value="none"> <label for="q4_none">None</label></div>
+                    <div class="option"><input type="radio" id="q4_under5k" name="research_budget" value="under5k"> <label for="q4_under5k">&lt;$5K/year</label></div>
+                    <div class="option"><input type="radio" id="q4_5k_25k" name="research_budget" value="5k-25k"> <label for="q4_5k_25k">$5K-$25K/year</label></div>
+                    <div class="option"><input type="radio" id="q4_25k_100k" name="research_budget" value="25k-100k"> <label for="q4_25k_100k">$25K-$100K/year</label></div>
+                    <div class="option"><input type="radio" id="q4_100k_plus" name="research_budget" value="100k+"> <label for="q4_100k_plus">$100K+/year</label></div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <div class="section-title">Section 2: Market Research Challenges</div>
+                <div class="question">
+                    <label>Q5: Biggest challenge with current research? (Check all)</label>
+                    <div class="option"><input type="checkbox" id="q5_speed" name="challenges" value="speed"> <label for="q5_speed">Takes too long (weeks/months)</label></div>
+                    <div class="option"><input type="checkbox" id="q5_cost" name="challenges" value="cost"> <label for="q5_cost">Too expensive ($10K-$100K)</label></div>
+                    <div class="option"><input type="checkbox" id="q5_quality" name="challenges" value="quality"> <label for="q5_quality">Poor data quality / methodology</label></div>
+                    <div class="option"><input type="checkbox" id="q5_generic" name="challenges" value="generic"> <label for="q5_generic">Insights too generic</label></div>
+                    <div class="option"><input type="checkbox" id="q5_actionable" name="challenges" value="actionable"> <label for="q5_actionable">Not actionable</label></div>
+                </div>
+                <div class="question">
+                    <label>Q6: What intelligence matters most? (Check all)</label>
+                    <div class="option"><input type="checkbox" id="q6_competitive" name="intelligence_types" value="competitive"> <label for="q6_competitive">Competitive positioning</label></div>
+                    <div class="option"><input type="checkbox" id="q6_customer" name="intelligence_types" value="customer"> <label for="q6_customer">Customer sentiment</label></div>
+                    <div class="option"><input type="checkbox" id="q6_trends" name="intelligence_types" value="trends"> <label for="q6_trends">Market trends</label></div>
+                    <div class="option"><input type="checkbox" id="q6_validation" name="intelligence_types" value="validation"> <label for="q6_validation">Market validation</label></div>
+                    <div class="option"><input type="checkbox" id="q6_positioning" name="intelligence_types" value="positioning"> <label for="q6_positioning">Positioning strategy</label></div>
+                </div>
+                <div class="question">
+                    <label>Q7: How frequently needed?</label>
+                    <div class="option"><input type="radio" id="q7_onetime" name="frequency" value="onetime"> <label for="q7_onetime">One-time (when needed)</label></div>
+                    <div class="option"><input type="radio" id="q7_quarterly" name="frequency" value="quarterly"> <label for="q7_quarterly">Quarterly (4x/year)</label></div>
+                    <div class="option"><input type="radio" id="q7_monthly" name="frequency" value="monthly"> <label for="q7_monthly">Monthly</label></div>
+                    <div class="option"><input type="radio" id="q7_continuous" name="frequency" value="continuous"> <label for="q7_continuous">Continuous (real-time)</label></div>
+                </div>
+                <div class="question">
+                    <label>Q8: Ideal timeline?</label>
+                    <div class="option"><input type="radio" id="q8_urgent" name="timeline" value="urgent"> <label for="q8_urgent">Urgent (24-48 hours)</label></div>
+                    <div class="option"><input type="radio" id="q8_week" name="timeline" value="week"> <label for="q8_week">Short-term (1 week)</label></div>
+                    <div class="option"><input type="radio" id="q8_2weeks" name="timeline" value="2weeks"> <label for="q8_2weeks">Normal (1-2 weeks)</label></div>
+                    <div class="option"><input type="radio" id="q8_month" name="timeline" value="month"> <label for="q8_month">Flexible (1+ months)</label></div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <div class="section-title">Section 3: Current Solutions</div>
+                <div class="question">
+                    <label>Q9: How do you currently research? (Check all)</label>
+                    <div class="option"><input type="checkbox" id="q9_inhouse" name="current_solutions" value="inhouse"> <label for="q9_inhouse">In-house team</label></div>
+                    <div class="option"><input type="checkbox" id="q9_traditional" name="current_solutions" value="traditional"> <label for="q9_traditional">Traditional firms (Gartner, Forrester)</label></div>
+                    <div class="option"><input type="checkbox" id="q9_specialized" name="current_solutions" value="specialized"> <label for="q9_specialized">Specialized tools</label></div>
+                    <div class="option"><input type="checkbox" id="q9_freelance" name="current_solutions" value="freelance"> <label for="q9_freelance">Freelance analysts</label></div>
+                    <div class="option"><input type="checkbox" id="q9_none" name="current_solutions" value="none"> <label for="q9_none">None</label></div>
+                </div>
+                <div class="question">
+                    <label>Q10: What's unsatisfying about current approach?</label>
+                    <textarea name="unsatisfying" placeholder="Describe..."></textarea>
+                </div>
+                <div class="question">
+                    <label>Q11: What would ideal research look like?</label>
+                    <textarea name="ideal_research" placeholder="Describe..."></textarea>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <div class="section-title">Section 4: Decision Criteria</div>
+                <div class="question">
+                    <label>Q12: Most important criteria? (Check top 3)</label>
+                    <div class="option"><input type="checkbox" id="q12_speed" name="decision_criteria" value="speed"> <label for="q12_speed">Speed</label></div>
+                    <div class="option"><input type="checkbox" id="q12_accuracy" name="decision_criteria" value="accuracy"> <label for="q12_accuracy">Accuracy</label></div>
+                    <div class="option"><input type="checkbox" id="q12_cost" name="decision_criteria" value="cost"> <label for="q12_cost">Cost</label></div>
+                    <div class="option"><input type="checkbox" id="q12_specificity" name="decision_criteria" value="specificity"> <label for="q12_specificity">Specificity</label></div>
+                    <div class="option"><input type="checkbox" id="q12_integration" name="decision_criteria" value="integration"> <label for="q12_integration">Integration</label></div>
+                    <div class="option"><input type="checkbox" id="q12_support" name="decision_criteria" value="support"> <label for="q12_support">Support</label></div>
+                </div>
+                <div class="question">
+                    <label>Q13: Reasonable price point?</label>
+                    <div class="option"><input type="radio" id="q13_under500" name="price_point" value="under500"> <label for="q13_under500">&lt;$500</label></div>
+                    <div class="option"><input type="radio" id="q13_500_2k" name="price_point" value="500-2k"> <label for="q13_500_2k">$500-$2K</label></div>
+                    <div class="option"><input type="radio" id="q13_2k_5k" name="price_point" value="2k-5k"> <label for="q13_2k_5k">$2K-$5K</label></div>
+                    <div class="option"><input type="radio" id="q13_5k_20k" name="price_point" value="5k-20k"> <label for="q13_5k_20k">$5K-$20K</label></div>
+                    <div class="option"><input type="radio" id="q13_20k_plus" name="price_point" value="20k+"> <label for="q13_20k_plus">$20K+</label></div>
+                </div>
+                <div class="question">
+                    <label>Q14: Risk of wrong decision?</label>
+                    <textarea name="risk" placeholder="What's at stake..."></textarea>
+                </div>
+                <div class="question">
+                    <label>Q15: Specific market question right now?</label>
+                    <textarea name="specific_question" placeholder="What decision are you trying to make..."></textarea>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">Submit & Get Analysis</button>
+                <button type="reset" class="btn btn-secondary">Clear</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('rouze-services-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch('/api/questionnaire/rouze-services', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = `/checkout/rouze-services/quick-intelligence/${data.price}`;
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

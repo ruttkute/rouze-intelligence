@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enterprise Custom Tier - Rouze</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+            background: linear-gradient(135deg, #2a1f3d 0%, #1a0f2e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: #B0A6DF;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .header p { color: #ccc; font-size: 16px; }
+        
+        .calculator-card {
+            background: rgba(82, 66, 92, 0.08);
+            border: 1.5px solid rgba(176, 166, 223, 0.2);
+            backdrop-filter: blur(45px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #B0A6DF;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            background: rgba(82, 66, 92, 0.04);
+            border: 1.5px solid rgba(176, 166, 223, 0.18);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .form-group select:hover {
+            border: 1.5px solid rgba(176, 166, 223, 0.35);
+        }
+        
+        .price-breakdown {
+            background: rgba(82, 66, 92, 0.04);
+            border: 1.5px solid rgba(176, 166, 223, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            font-size: 14px;
+        }
+        
+        .price-row:last-child { border-bottom: none; }
+        .price-row.total {
+            font-size: 18px;
+            font-weight: 700;
+            color: #3A8FC3;
+            padding: 20px 0;
+            border-top: 2px solid rgba(176, 166, 223, 0.2);
+            border-bottom: none;
+            margin-top: 10px;
+        }
+        
+        .final-price {
+            text-align: center;
+            padding: 30px;
+            background: rgba(58, 143, 195, 0.08);
+            border: 2px solid rgba(58, 143, 195, 0.3);
+            border-radius: 16px;
+            margin: 30px 0;
+        }
+        
+        .final-price-value {
+            font-size: 56px;
+            font-weight: 700;
+            color: #3A8FC3;
+            margin: 15px 0;
+        }
+        
+        .final-price-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #999;
+            letter-spacing: 1px;
+        }
+        
+        .guarantee {
+            background: rgba(82, 66, 92, 0.04);
+            border-left: 4px solid #3A8FC3;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            font-size: 13px;
+            color: #ccc;
+        }
+        
+        .cta-button {
+            width: 100%;
+            padding: 16px;
+            background: rgba(58, 143, 195, 0.12);
+            border: 1px solid rgba(58, 143, 195, 0.4);
+            color: #3A8FC3;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            background: rgba(58, 143, 195, 0.16);
+            border: 1px solid rgba(58, 143, 195, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Build Your Custom Plan</h1>
+            <p>Configure enterprise intelligence tailored to your needs</p>
+        </div>
+        
+        <div class="calculator-card">
+            <form id="enterprise-form">
+                <div class="form-group">
+                    <label>Team Size</label>
+                    <select id="team-size" onchange="calculatePrice()">
+                        <option value="1">1-5 people</option>
+                        <option value="1.5">5-10 people</option>
+                        <option value="2">10-20 people</option>
+                        <option value="2.5">20+ people</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Analysis Frequency</label>
+                    <select id="frequency" onchange="calculatePrice()">
+                        <option value="1">Monthly</option>
+                        <option value="1.5">Weekly</option>
+                        <option value="2.5">Daily</option>
+                        <option value="3">Real-time Alerts</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Data Sources Needed</label>
+                    <select id="sources" onchange="calculatePrice()">
+                        <option value="1">5 sources</option>
+                        <option value="1.3">10 sources</option>
+                        <option value="1.6">15 sources</option>
+                        <option value="2">20+ sources</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Custom Integrations</label>
+                    <select id="integrations" onchange="calculatePrice()">
+                        <option value="0">None</option>
+                        <option value="500">1-2 integrations (+$500)</option>
+                        <option value="1500">3-5 integrations (+$1,500)</option>
+                        <option value="2500">5+ integrations (+$2,500)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Dedicated Analyst</label>
+                    <select id="analyst" onchange="calculatePrice()">
+                        <option value="0">No</option>
+                        <option value="1000">Part-time (+$1,000)</option>
+                        <option value="3000">Full-time (+$3,000)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Contract Length</label>
+                    <select id="contract" onchange="calculatePrice()">
+                        <option value="1">Month-to-Month</option>
+                        <option value="0.9">Annual (-10%)</option>
+                        <option value="0.85">24-Month (-15%)</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        
+        <div class="price-breakdown">
+            <div class="price-row">
+                <span>Base Enterprise Tier</span>
+                <span>$5,000/month</span>
+            </div>
+            <div class="price-row">
+                <span>Team Size Multiplier</span>
+                <span id="team-multiplier">×1.0</span>
+            </div>
+            <div class="price-row">
+                <span>Frequency Multiplier</span>
+                <span id="frequency-multiplier">×1.0</span>
+            </div>
+            <div class="price-row">
+                <span>Sources Multiplier</span>
+                <span id="sources-multiplier">×1.0</span>
+            </div>
+            <div class="price-row">
+                <span>Custom Integrations</span>
+                <span id="integrations-cost">+$0</span>
+            </div>
+            <div class="price-row">
+                <span>Dedicated Analyst</span>
+                <span id="analyst-cost">+$0</span>
+            </div>
+            <div class="price-row">
+                <span>Contract Discount</span>
+                <span id="discount-applied">No discount</span>
+            </div>
+            <div class="price-row total">
+                <span>Monthly Cost</span>
+                <span id="monthly-price">$5,000</span>
+            </div>
+            <div class="price-row total">
+                <span>Annual Cost</span>
+                <span id="annual-price">$60,000</span>
+            </div>
+        </div>
+        
+        <div class="final-price">
+            <div class="final-price-label">Your Custom Enterprise Plan</div>
+            <div class="final-price-value" id="display-price">$5,000</div>
+            <div class="final-price-label">per month (billed annually: $60,000)</div>
+        </div>
+        
+        <div class="guarantee">
+            ✓ <strong>No surprises.</strong> Price is transparent and final. No hidden fees.<br>
+            ✓ <strong>Money-back guarantee.</strong> If we don't deliver value, we refund your investment.<br>
+            ✓ <strong>Flexible terms.</strong> Upgrade, downgrade, or cancel anytime.
+        </div>
+        
+        <button class="cta-button" onclick="proceedToCheckout()">
+            Proceed to Checkout
+        </button>
+    </div>
+    
+    <script>
+        function calculatePrice() {
+            const basePrice = 5000;
+            const teamSize = parseFloat(document.getElementById('team-size').value);
+            const frequency = parseFloat(document.getElementById('frequency').value);
+            const sources = parseFloat(document.getElementById('sources').value);
+            const integrations = parseFloat(document.getElementById('integrations').value);
+            const analyst = parseFloat(document.getElementById('analyst').value);
+            const contract = parseFloat(document.getElementById('contract').value);
+            
+            // Calculate monthly
+            let monthlyPrice = basePrice * teamSize * frequency * sources;
+            monthlyPrice += integrations + analyst;
+            monthlyPrice = Math.round(monthlyPrice * contract);
+            
+            // Calculate annual
+            const annualPrice = monthlyPrice * 12;
+            
+            // Update display
+            document.getElementById('team-multiplier').textContent = `×${teamSize.toFixed(1)}`;
+            document.getElementById('frequency-multiplier').textContent = `×${frequency.toFixed(1)}`;
+            document.getElementById('sources-multiplier').textContent = `×${sources.toFixed(1)}`;
+            document.getElementById('integrations-cost').textContent = `+$${Math.round(integrations)}`;
+            document.getElementById('analyst-cost').textContent = `+$${Math.round(analyst)}`;
+            
+            const discountPercent = Math.round((1 - contract) * 100);
+            document.getElementById('discount-applied').textContent = discountPercent > 0 ? `-${discountPercent}%` : 'No discount';
+            
+            document.getElementById('monthly-price').textContent = `$${monthlyPrice.toLocaleString()}`;
+            document.getElementById('annual-price').textContent = `$${annualPrice.toLocaleString()}`;
+            document.getElementById('display-price').textContent = `$${monthlyPrice.toLocaleString()}`;
+        }
+        
+        function proceedToCheckout() {
+            const monthlyPrice = document.getElementById('monthly-price').textContent;
+            alert(`Proceeding with ${monthlyPrice}/month plan. Checkout coming soon!`);
+            // Later: window.location.href = '/checkout/enterprise';
+        }
+        
+        // Calculate on load
+        calculatePrice();
+    </script>
+</body>
+</html>

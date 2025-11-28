@@ -1,0 +1,8 @@
+REPLACE THIS:
+"No credit card required. Choose Quick, Strategic, or Predictive. Scale up as you grow."
+
+WITH THIS:
+"Complete your questionnaire. Choose your format and tier. See your order summary. Pay securely when ready."
+
+FILE: ~/Desktop/rouze/rouze_web_new/templates/vertical_selector.html
+LOCATION: Inside <div class="final-cta"> section, <p> tag (second paragraph)

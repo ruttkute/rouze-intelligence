@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="questionnaire-container" style="max-width: 700px; margin: 40px auto; padding: 40px;">
+  <h1>Enterprise Partnership - Configure Your Plan</h1>
+  <p style="color: #B0A6DF; margin-bottom: 30px;">Answer 5 questions to calculate your monthly price</p>
+
+  <form method="POST" action="/api/questionnaire/custom">
+    <input type="hidden" name="vertical" value="custom">
+    
+    <!-- Q1: Data Sources -->
+    <fieldset style="border: 1px solid rgba(176, 166, 223, 0.2); border-radius: 12px; padding: 25px; margin: 30px 0; background: rgba(82, 66, 92, 0.04);">
+      <legend style="color: #B0A6DF; font-size: 18px; font-weight: 600; margin-bottom: 15px;">1. Which data sources do you need?</legend>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="radio" name="data_sources" value="standard" required> 
+        <strong>Standard ($0)</strong>: Reddit, Twitter, G2, Amazon, YouTube
+      </label>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="radio" name="data_sources" value="comprehensive"> 
+        <strong>Comprehensive (+$1,500/month)</strong>: Above + LinkedIn, TikTok, Discord, Substack
+      </label>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="radio" name="data_sources" value="custom"> 
+        <strong>Custom Proprietary (+$3,000/month)</strong>: Everything + your custom sources
+      </label>
+    </fieldset>
+
+    <!-- Q2: Analysis Frequency -->
+    <fieldset style="border: 1px solid rgba(176, 166, 223, 0.2); border-radius: 12px; padding: 25px; margin: 30px 0; background: rgba(82, 66, 92, 0.04);">
+      <legend style="color: #B0A6DF; font-size: 18px; font-weight: 600; margin-bottom: 15px;">2. How often do you need analysis updates?</legend>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="radio" name="frequency" value="one_time" required> 
+        <strong>One-time Analysis ($0)</strong>: Single comprehensive report
+      </label>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="radio" name="frequency" value="weekly"> 
+        <strong>Weekly Digest (+$1,000/month)</strong>: Weekly email with top signals
+      </label>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="radio" name="frequency" value="daily"> 
+        <strong>Daily Monitoring (+$2,500/month)</strong>: Daily dashboard updates
+      </label>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="radio" name="frequency" value="realtime"> 
+        <strong>Real-time Alerts (+$4,000/month)</strong>: Instant Slack/email alerts
+      </label>
+    </fieldset>
+
+    <!-- Q3: Team Size -->
+    <fieldset style="border: 1px solid rgba(176, 166, 223, 0.2); border-radius: 12px; padding: 25px; margin: 30px 0; background: rgba(82, 66, 92, 0.04);">
+      <legend style="color: #B0A6DF; font-size: 18px; font-weight: 600; margin-bottom: 15px;">3. How many team members need access?</legend>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="radio" name="team_size" value="small" required> 
+        <strong>1-3 people ($0)</strong>: Personal/small team
+      </label>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="radio" name="team_size" value="medium"> 
+        <strong>4-10 people (+$500/month)</strong>: Department-level access
+      </label>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="radio" name="team_size" value="large"> 
+        <strong>10+ people (+$1,000/month)</strong>: Enterprise-wide access
+      </label>
+    </fieldset>
+
+    <!-- Q4: Custom Features -->
+    <fieldset style="border: 1px solid rgba(176, 166, 223, 0.2); border-radius: 12px; padding: 25px; margin: 30px 0; background: rgba(82, 66, 92, 0.04);">
+      <legend style="color: #B0A6DF; font-size: 18px; font-weight: 600; margin-bottom: 15px;">4. Which custom features do you need? (Check all)</legend>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="checkbox" name="features" value="custom_kpi"> 
+        Custom KPI Dashboard (+$800/month)
+      </label>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="checkbox" name="features" value="api_access"> 
+        API Integration (+$500/month)
+      </label>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="checkbox" name="features" value="white_label"> 
+        White-label Reports (+$1,200/month)
+      </label>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="checkbox" name="features" value="dedicated_analyst"> 
+        Dedicated Analyst (+$2,000/month)
+      </label>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="checkbox" name="features" value="custom_training"> 
+        Team Training Session (+$500/month)
+      </label>
+    </fieldset>
+
+    <!-- Q5: Support Level -->
+    <fieldset style="border: 1px solid rgba(176, 166, 223, 0.2); border-radius: 12px; padding: 25px; margin: 30px 0; background: rgba(82, 66, 92, 0.04);">
+      <legend style="color: #B0A6DF; font-size: 18px; font-weight: 600; margin-bottom: 15px;">5. What support level do you need?</legend>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="radio" name="support" value="email" required> 
+        <strong>Email Support ($0)</strong>: 48-hour response time
+      </label>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="radio" name="support" value="monthly_calls"> 
+        <strong>Monthly Strategy Calls (+$200/month)</strong>: 1 hour monthly
+      </label>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="radio" name="support" value="weekly_calls"> 
+        <strong>Weekly Strategy Calls (+$500/month)</strong>: 1 hour weekly
+      </label>
+      <label style="display: block; margin: 12px 0; cursor: pointer;">
+        <input type="radio" name="support" value="embedded_analyst"> 
+        <strong>Embedded Analyst (+$3,000/month)</strong>: Full-time dedicated analyst
+      </label>
+    </fieldset>
+
+    <button type="submit" style="background: rgba(58, 143, 195, 0.12); border: 1px solid rgba(58, 143, 195, 0.3); color: #3A8FC3; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-size: 16px; width: 100%; margin-top: 20px; font-weight: 600;">Calculate My Monthly Price →</button>
+  </form>
+</div>
+{% endblock %}

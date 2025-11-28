@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Pricing Tiers - Rouze Intelligence{% endblock %}
+
+{% block content %}
+<h2>Pricing Tiers</h2>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0;">
+    <div style="background: rgba(82, 66, 92, 0.04); border: 1.5px solid rgba(176, 166, 223, 0.18); backdrop-filter: blur(45px); border-radius: 20px; padding: 30px;">
+        <h3 style="color: #B0A6DF; margin-bottom: 15px;">Quick Intelligence</h3>
+        <p style="font-size: 24px; color: #3A8FC3; font-weight: 700; margin: 15px 0;">$300-800</p>
+        <p style="color: #7d7d7d; margin: 10px 0;">24-48 hours</p>
+        <button class="btn" onclick="window.location.href='/vertical-selector'" style="width: 100%; margin-top: 20px;">Select This Tier</button>
+    </div>
+    
+    <div style="background: rgba(82, 66, 92, 0.04); border: 1.5px solid rgba(176, 166, 223, 0.18); backdrop-filter: blur(45px); border-radius: 20px; padding: 30px;">
+        <h3 style="color: #B0A6DF; margin-bottom: 15px;">Strategic Intelligence</h3>
+        <p style="font-size: 24px; color: #3A8FC3; font-weight: 700; margin: 15px 0;">$800-2,000</p>
+        <p style="color: #7d7d7d; margin: 10px 0;">5-7 days</p>
+        <button class="btn" onclick="window.location.href='/vertical-selector'" style="width: 100%; margin-top: 20px;">Select This Tier</button>
+    </div>
+    
+    <div style="background: rgba(82, 66, 92, 0.04); border: 1.5px solid rgba(176, 166, 223, 0.18); backdrop-filter: blur(45px); border-radius: 20px; padding: 30px;">
+        <h3 style="color: #B0A6DF; margin-bottom: 15px;">Predictive Intelligence</h3>
+        <p style="font-size: 24px; color: #3A8FC3; font-weight: 700; margin: 15px 0;">$2,000-5,000</p>
+        <p style="color: #7d7d7d; margin: 10px 0;">10-14 days</p>
+        <button class="btn" onclick="window.location.href='/vertical-selector'" style="width: 100%; margin-top: 20px;">Select This Tier</button>
+    </div>
+</div>
+
+<h2>Enterprise Custom Tier</h2>
+<div style="background: rgba(82, 66, 92, 0.04); border: 1.5px solid rgba(176, 166, 223, 0.18); backdrop-filter: blur(45px); border-radius: 20px; padding: 40px; text-align: center;">
+    <h3 style="font-size: 24px; color: #2c2c2c; margin-bottom: 16px;">Continuous Market Intelligence</h3>
+    <p style="color: #7d7d7d; margin-bottom: 30px;">Custom pricing based on your team size, analysis frequency, and data sources needed</p>
+    <button class="btn" onclick="window.location.href='/pricing/enterprise'">Build Your Custom Plan</button>
+</div>
+{% endblock %}

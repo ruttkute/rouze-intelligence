@@ -1,0 +1,18 @@
+CURRENT SETUP:
+- Flask app location: ~/Desktop/rouze/rouze_web_new/app.py
+- CSS location: ~/Desktop/rouze/rouze_web_new/static/css/style.css
+- Templates location: ~/Desktop/rouze/rouze_web_new/templates/
+- Existing routes: [RUN: grep "def " app.py]
+- Existing templates: [RUN: ls templates/]
+
+MISSING COMPONENTS:
+- [ ] Glasmorphic CSS system (no backdrop-filter, no rgba, no glow)
+- [ ] Free trial questionnaire route
+- [ ] Free trial dashboard display
+- [ ] Vertical-specific intake forms
+- [ ] Color palette CSS variables
+
+NEXT ACTION:
+Replace entire static/css/style.css with glasmorphic system
+Create new routes for /free_trial and /intake/<vertical>/
+Create questionnaire branching logic

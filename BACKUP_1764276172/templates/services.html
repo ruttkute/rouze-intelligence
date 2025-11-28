@@ -1,0 +1,305 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<div style="margin-top: 70px; min-height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 50px; background: linear-gradient(135deg, #0c080d 0%, #1f1823 30%, #2d1b4e 60%, #382b3f 100%);">
+    <h1 style="font-size: 56px; font-weight: 600; color: #B0A6DF; margin-bottom: 20px;">Service Tiers</h1>
+    <p style="font-size: 18px; color: #B0A6DF; max-width: 800px; line-height: 1.6;">Choose the intelligence depth calibrated to your decision timeline. Each tier delivers raw signal analysis with increasing sophistication and confidence levels.</p>
+</div>
+
+<!-- TIER DETAILS SECTION -->
+<section style="background: linear-gradient(135deg, #0c080d 0%, #1f1823 30%, #2d1b4e 60%, #382b3f 100%); padding: 80px 50px; position: relative; z-index: 10;">
+    <div class="container">
+        <h2 style="text-align: center; font-size: 48px; color: #B0A6DF; margin-bottom: 80px; font-weight: 600;">Complete Tier Breakdown</h2>
+        
+        <!-- TIER 1: QUICK INTELLIGENCE -->
+        <div style="margin-bottom: 100px; border-bottom: 1px solid rgba(176, 166, 223, 0.15); padding-bottom: 80px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+                <div>
+                    <h2 style="color: #3A8FC3; font-size: 40px; margin-bottom: 10px; font-weight: 600;">Quick Intelligence</h2>
+                    <p style="color: #B0A6DF; font-size: 18px; font-weight: 600; margin-bottom: 5px;">$300-$800</p>
+                    <p style="color: #B0A6DF; font-size: 16px; opacity: 0.8; margin-bottom: 30px;">24-48 hour delivery</p>
+                    
+                    <p style="color: #B0A6DF; font-size: 15px; line-height: 1.8; margin-bottom: 30px;">Perfect for urgent decisions. Surface-level pattern recognition that answers your immediate questions about market shifts, competitor moves, or emerging trends.</p>
+                    
+                    <h3 style="color: #B0A6DF; font-size: 16px; font-weight: 600; margin-bottom: 15px;">Psychology:</h3>
+                    <p style="color: #B0A6DF; font-size: 14px; line-height: 1.6; margin-bottom: 30px;">"I don't have time to wait. I need to know NOW."</p>
+                    <p style="color: #B0A6DF; font-size: 14px; line-height: 1.6;">You're facing decision paralysis. FOMO (fear of missing out) is real. You need the essential signal fast, without waiting weeks.</p>
+                </div>
+                
+                <div>
+                    <h3 style="color: #B0A6DF; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Includes:</h3>
+                    <ul style="color: #B0A6DF; font-size: 14px; line-height: 2.2; margin-left: 20px; margin-bottom: 30px;">
+                        <li>1-page sentiment snapshot</li>
+                        <li>Top 3 emerging signals</li>
+                        <li>Competitor move alerts</li>
+                        <li>Quick yes/no/investigate recommendation</li>
+                        <li>3-5 data sources analyzed</li>
+                        <li>70-80% confidence level</li>
+                    </ul>
+                    
+                    <h3 style="color: #B0A6DF; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Use Cases:</h3>
+                    <div style="background: rgba(82, 66, 92, 0.04); padding: 20px; border-left: 3px solid #3A8FC3; border-radius: 8px; margin-bottom: 30px;">
+                        <p style="color: #B0A6DF; font-size: 13px; margin: 10px 0;"><strong>Healthcare:</strong> "Is there an emerging safety signal I should know about?"</p>
+                        <p style="color: #B0A6DF; font-size: 13px; margin: 10px 0;"><strong>SaaS:</strong> "What are competitors being criticized for?"</p>
+                        <p style="color: #B0A6DF; font-size: 13px; margin: 10px 0;"><strong>E-commerce:</strong> "What's trending now in my category?"</p>
+                    </div>
+                    
+                    <a href="{{ url_for('intake_questionnaire') }}" class="btn-primary" style="text-decoration: none; display: block; text-align: center; padding: 12px 20px;">Select This Tier</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TIER 2: STRATEGIC INTELLIGENCE -->
+        <div style="margin-bottom: 100px; border-bottom: 1px solid rgba(176, 166, 223, 0.15); padding-bottom: 80px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+                <div>
+                    <h2 style="color: #3A8FC3; font-size: 40px; margin-bottom: 10px; font-weight: 600;">Strategic Intelligence</h2>
+                    <p style="color: #B0A6DF; font-size: 18px; font-weight: 600; margin-bottom: 5px;">$800-$2,000</p>
+                    <p style="color: #B0A6DF; font-size: 16px; opacity: 0.8; margin-bottom: 30px;">5-7 day delivery</p>
+                    
+                    <p style="color: #B0A6DF; font-size: 15px; line-height: 1.8; margin-bottom: 30px;">Multi-source cross-validated strategic analysis. For decisions that matter. Product launches, market entry, competitive positioning—you need to understand the market thoroughly before committing resources.</p>
+                    
+                    <h3 style="color: #B0A6DF; font-size: 16px; font-weight: 600; margin-bottom: 15px;">Psychology:</h3>
+                    <p style="color: #B0A6DF; font-size: 14px; line-height: 1.6; margin-bottom: 30px;">"This decision is important. I need to feel confident explaining it to stakeholders."</p>
+                    <p style="color: #B0A6DF; font-size: 14px; line-height: 1.6;">You need to justify decisions to others. You want comprehensive analysis, not just quick snapshots. You're willing to wait a week for insights that give you strategic edge.</p>
+                </div>
+                
+                <div>
+                    <h3 style="color: #B0A6DF; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Includes:</h3>
+                    <ul style="color: #B0A6DF; font-size: 14px; line-height: 2.2; margin-left: 20px; margin-bottom: 30px;">
+                        <li>2-3 page executive brief</li>
+                        <li>Competitive vulnerability matrix</li>
+                        <li>Market opportunity assessment</li>
+                        <li>5-7 actionable recommendations</li>
+                        <li>Risk assessment & confidence intervals</li>
+                        <li>Implementation roadmap (1-3 months)</li>
+                        <li>8-12 sources cross-validated</li>
+                        <li>85-95% confidence level</li>
+                    </ul>
+                    
+                    <h3 style="color: #B0A6DF; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Use Cases:</h3>
+                    <div style="background: rgba(82, 66, 92, 0.04); padding: 20px; border-left: 3px solid #3A8FC3; border-radius: 8px; margin-bottom: 30px;">
+                        <p style="color: #B0A6DF; font-size: 13px; margin: 10px 0;"><strong>Healthcare:</strong> "Should we launch our device in this market segment?"</p>
+                        <p style="color: #B0A6DF; font-size: 13px; margin: 10px 0;"><strong>SaaS:</strong> "How do we differentiate from competitors?"</p>
+                        <p style="color: #B0A6DF; font-size: 13px; margin: 10px 0;"><strong>E-commerce:</strong> "What product category should we launch in?"</p>
+                    </div>
+                    
+                    <a href="{{ url_for('intake_questionnaire') }}" class="btn-primary" style="text-decoration: none; display: block; text-align: center; padding: 12px 20px;">Select This Tier</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TIER 3: PREDICTIVE INTELLIGENCE -->
+        <div style="margin-bottom: 100px; border-bottom: 1px solid rgba(176, 166, 223, 0.15); padding-bottom: 80px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+                <div>
+                    <h2 style="color: #3A8FC3; font-size: 40px; margin-bottom: 10px; font-weight: 600;">Predictive Intelligence</h2>
+                    <p style="color: #B0A6DF; font-size: 18px; font-weight: 600; margin-bottom: 5px;">$2,000-$5,000</p>
+                    <p style="color: #B0A6DF; font-size: 16px; opacity: 0.8; margin-bottom: 30px;">10-14 day delivery</p>
+                    
+                    <p style="color: #B0A6DF; font-size: 15px; line-height: 1.8; margin-bottom: 30px;">Forecasting and scenario modeling for long-term strategic planning. You're making major decisions that will shape your company for 12-36 months. You need to see possible futures and plan accordingly.</p>
+                    
+                    <h3 style="color: #B0A6DF; font-size: 16px; font-weight: 600; margin-bottom: 15px;">Psychology:</h3>
+                    <p style="color: #B0A6DF; font-size: 14px; line-height: 1.6; margin-bottom: 30px;">"I need to see the future and plan for it. What if we enter the market wrong?"</p>
+                    <p style="color: #B0A6DF; font-size: 14px; line-height: 1.6;">You're strategic. You think in quarters and years. You want to understand market trajectories, competitive responses, and scenario planning to make confident bets on your future.</p>
+                </div>
+                
+                <div>
+                    <h3 style="color: #B0A6DF; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Includes:</h3>
+                    <ul style="color: #B0A6DF; font-size: 14px; line-height: 2.2; margin-left: 20px; margin-bottom: 30px;">
+                        <li>Probability forecasting model (12-24 months)</li>
+                        <li>3 scenario plans (optimistic, base, pessimistic)</li>
+                        <li>Risk probability scoring (likelihood vs impact)</li>
+                        <li>Confidence intervals for each forecast</li>
+                        <li>Implementation roadmap (quarterly milestones)</li>
+                        <li>Contingency planning guide</li>
+                        <li>15+ sources with full market coverage</li>
+                        <li>75-85% confidence level for 6-month projections</li>
+                    </ul>
+                    
+                    <h3 style="color: #B0A6DF; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Use Cases:</h3>
+                    <div style="background: rgba(82, 66, 92, 0.04); padding: 20px; border-left: 3px solid #3A8FC3; border-radius: 8px; margin-bottom: 30px;">
+                        <p style="color: #B0A6DF; font-size: 13px; margin: 10px 0;"><strong>Healthcare:</strong> "Will this safety signal become a major regulatory issue? When should we prepare?"</p>
+                        <p style="color: #B0A6DF; font-size: 13px; margin: 10px 0;"><strong>SaaS:</strong> "How will competitors evolve? Where should we invest?"</p>
+                        <p style="color: #B0A6DF; font-size: 13px; margin: 10px 0;"><strong>E-commerce:</strong> "When will this trend peak? Is there a launch window?"</p>
+                    </div>
+                    
+                    <a href="{{ url_for('intake_questionnaire') }}" class="btn-primary" style="text-decoration: none; display: block; text-align: center; padding: 12px 20px;">Select This Tier</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TIER 4: ENTERPRISE PARTNERSHIP -->
+        <div style="padding-bottom: 80px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+                <div>
+                    <h2 style="color: #3A8FC3; font-size: 40px; margin-bottom: 10px; font-weight: 600;">Enterprise Partnership</h2>
+                    <p style="color: #B0A6DF; font-size: 18px; font-weight: 600; margin-bottom: 5px;">$5,000-$20,000+/month</p>
+                    <p style="color: #B0A6DF; font-size: 16px; opacity: 0.8; margin-bottom: 30px;">30-90 day setup + ongoing</p>
+                    
+                    <p style="color: #B0A6DF; font-size: 15px; line-height: 1.8; margin-bottom: 30px;">Continuous competitive advantage. Proprietary intelligence system with dedicated analyst, real-time monitoring, and strategic advisory. Intelligence becomes a core function of your organization.</p>
+                    
+                    <h3 style="color: #B0A6DF; font-size: 16px; font-weight: 600; margin-bottom: 15px;">Psychology:</h3>
+                    <p style="color: #B0A6DF; font-size: 14px; line-height: 1.6; margin-bottom: 30px;">"We need to stay ahead. Intelligence is how we compete."</p>
+                    <p style="color: #B0A6DF; font-size: 14px; line-height: 1.6;">You're not just making one decision—you're building competitive advantage into your operations. You want market leadership, continuous edge, and someone watching the market 24/7.</p>
+                </div>
+                
+                <div>
+                    <h3 style="color: #B0A6DF; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Includes (Setup):</h3>
+                    <ul style="color: #B0A6DF; font-size: 14px; line-height: 2.2; margin-left: 20px; margin-bottom: 30px;">
+                        <li>Custom intelligence methodology</li>
+                        <li>Proprietary intelligence system build</li>
+                        <li>Initial 90-day deep market analysis</li>
+                        <li>Team training & onboarding</li>
+                    </ul>
+                    
+                    <h3 style="color: #B0A6DF; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Includes (Ongoing):</h3>
+                    <ul style="color: #B0A6DF; font-size: 14px; line-height: 2.2; margin-left: 20px; margin-bottom: 30px;">
+                        <li>Weekly signal alerts (urgent moves)</li>
+                        <li>Monthly deep-dive analysis</li>
+                        <li>Quarterly strategy sessions (board-level)</li>
+                        <li>Real-time competitive monitoring dashboard</li>
+                        <li>Dedicated analyst relationship</li>
+                        <li>20+ sources continuously monitored</li>
+                        <li>88-96% confidence level</li>
+                    </ul>
+                    
+                    <h3 style="color: #B0A6DF; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Use Cases:</h3>
+                    <div style="background: rgba(82, 66, 92, 0.04); padding: 20px; border-left: 3px solid #3A8FC3; border-radius: 8px; margin-bottom: 30px;">
+                        <p style="color: #B0A6DF; font-size: 13px; margin: 10px 0;"><strong>Healthcare:</strong> "Stay ahead of regulatory threats. Spot opportunities first."</p>
+                        <p style="color: #B0A6DF; font-size: 13px; margin: 10px 0;"><strong>SaaS:</strong> "Know what customers need before they tell competitors."</p>
+                        <p style="color: #B0A6DF; font-size: 13px; margin: 10px 0;"><strong>E-commerce:</strong> "Identify winning products 6 months before the market."</p>
+                    </div>
+                    
+                    <a href="{{ url_for('intake_questionnaire') }}" class="btn-primary" style="text-decoration: none; display: block; text-align: center; padding: 12px 20px;">Schedule Consultation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMPARISON TABLE SECTION -->
+<section style="background: linear-gradient(135deg, #0c080d 0%, #1f1823 30%, #2d1b4e 60%, #382b3f 100%); padding: 80px 50px; position: relative; z-index: 10;">
+    <div class="container">
+        <h2 style="text-align: center; font-size: 48px; color: #B0A6DF; margin-bottom: 60px; font-weight: 600;">Tier Comparison Matrix</h2>
+        
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; color: #B0A6DF; border-collapse: collapse;">
+                <thead>
+                    <tr style="border-bottom: 2px solid rgba(176, 166, 223, 0.3);">
+                        <th style="text-align: left; padding: 15px; font-weight: 600;">Attribute</th>
+                        <th style="text-align: center; padding: 15px; font-weight: 600;">Quick</th>
+                        <th style="text-align: center; padding: 15px; font-weight: 600;">Strategic</th>
+                        <th style="text-align: center; padding: 15px; font-weight: 600;">Predictive</th>
+                        <th style="text-align: center; padding: 15px; font-weight: 600;">Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid rgba(176, 166, 223, 0.15);">
+                        <td style="padding: 12px 15px;">Delivery Speed</td>
+                        <td style="text-align: center; padding: 12px 15px;">24-48h</td>
+                        <td style="text-align: center; padding: 12px 15px;">5-7 days</td>
+                        <td style="text-align: center; padding: 12px 15px;">10-14 days</td>
+                        <td style="text-align: center; padding: 12px 15px;">30-90d + ongoing</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(176, 166, 223, 0.15);">
+                        <td style="padding: 12px 15px;">Analysis Depth</td>
+                        <td style="text-align: center; padding: 12px 15px;">Surface</td>
+                        <td style="text-align: center; padding: 12px 15px;">Thorough</td>
+                        <td style="text-align: center; padding: 12px 15px;">Very Deep</td>
+                        <td style="text-align: center; padding: 12px 15px;">Proprietary</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(176, 166, 223, 0.15);">
+                        <td style="padding: 12px 15px;">Data Sources</td>
+                        <td style="text-align: center; padding: 12px 15px;">3-5</td>
+                        <td style="text-align: center; padding: 12px 15px;">8-12</td>
+                        <td style="text-align: center; padding: 12px 15px;">15+</td>
+                        <td style="text-align: center; padding: 12px 15px;">20+ continuous</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(176, 166, 223, 0.15);">
+                        <td style="padding: 12px 15px;">Confidence Level</td>
+                        <td style="text-align: center; padding: 12px 15px;">70-80%</td>
+                        <td style="text-align: center; padding: 12px 15px;">85-95%</td>
+                        <td style="text-align: center; padding: 12px 15px;">75-85%</td>
+                        <td style="text-align: center; padding: 12px 15px;">88-96%</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(176, 166, 223, 0.15);">
+                        <td style="padding: 12px 15px;">Deliverable Format</td>
+                        <td style="text-align: center; padding: 12px 15px;">1-page brief</td>
+                        <td style="text-align: center; padding: 12px 15px;">2-3 page brief</td>
+                        <td style="text-align: center; padding: 12px 15px;">Strategic roadmap</td>
+                        <td style="text-align: center; padding: 12px 15px;">Dashboard + reports</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(176, 166, 223, 0.15);">
+                        <td style="padding: 12px 15px;">Support Level</td>
+                        <td style="text-align: center; padding: 12px 15px;">Self-service</td>
+                        <td style="text-align: center; padding: 12px 15px;">Email support</td>
+                        <td style="text-align: center; padding: 12px 15px;">Monthly calls</td>
+                        <td style="text-align: center; padding: 12px 15px;">Weekly + monthly</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px;">Price</td>
+                        <td style="text-align: center; padding: 12px 15px; color: #3A8FC3; font-weight: 600;">$300-800</td>
+                        <td style="text-align: center; padding: 12px 15px; color: #3A8FC3; font-weight: 600;">$800-2K</td>
+                        <td style="text-align: center; padding: 12px 15px; color: #3A8FC3; font-weight: 600;">$2K-5K</td>
+                        <td style="text-align: center; padding: 12px 15px; color: #3A8FC3; font-weight: 600;">$5K-20K+</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- DECISION FRAMEWORK SECTION -->
+<section style="background: linear-gradient(135deg, #0c080d 0%, #1f1823 30%, #2d1b4e 60%, #382b3f 100%); padding: 80px 50px; text-align: center; position: relative; z-index: 10;">
+    <div class="container">
+        <h2 style="font-size: 48px; color: #B0A6DF; margin-bottom: 60px; font-weight: 600;">Which Tier Is Right for You?</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto;">
+            <div style="text-align: left;">
+                <h3 style="color: #3A8FC3; font-size: 20px; margin-bottom: 20px; font-weight: 600;">Choose Quick Intelligence if:</h3>
+                <ul style="color: #B0A6DF; font-size: 14px; line-height: 2; margin-left: 20px;">
+                    <li>Decision is urgent (under 48 hours)</li>
+                    <li>Budget is limited ($500-1000)</li>
+                    <li>You just need a yes/no answer</li>
+                    <li>Validating a quick hypothesis</li>
+                </ul>
+            </div>
+            <div style="text-align: left;">
+                <h3 style="color: #3A8FC3; font-size: 20px; margin-bottom: 20px; font-weight: 600;">Choose Strategic if:</h3>
+                <ul style="color: #B0A6DF; font-size: 14px; line-height: 2; margin-left: 20px;">
+                    <li>Decision is important (launch, entry)</li>
+                    <li>You have 5-7 days</li>
+                    <li>You need executive-ready analysis</li>
+                    <li>Confidence & stakeholder buy-in matter</li>
+                </ul>
+            </div>
+            <div style="text-align: left;">
+                <h3 style="color: #3A8FC3; font-size: 20px; margin-bottom: 20px; font-weight: 600;">Choose Predictive if:</h3>
+                <ul style="color: #B0A6DF; font-size: 14px; line-height: 2; margin-left: 20px;">
+                    <li>Planning 12-36 months ahead</li>
+                    <li>Major strategic decision</li>
+                    <li>Need scenario planning</li>
+                    <li>Investment or market entry decision</li>
+                </ul>
+            </div>
+            <div style="text-align: left;">
+                <h3 style="color: #3A8FC3; font-size: 20px; margin-bottom: 20px; font-weight: 600;">Choose Enterprise if:</h3>
+                <ul style="color: #B0A6DF; font-size: 14px; line-height: 2; margin-left: 20px;">
+                    <li>Continuous competitive monitoring</li>
+                    <li>Intelligence is strategic function</li>
+                    <li>Dedicated analyst relationship</li>
+                    <li>Market dominance is goal</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="margin-top: 60px;">
+            <a href="{{ url_for('intake_questionnaire') }}" class="btn-primary" style="text-decoration: none; display: inline-block; padding: 16px 40px; font-size: 16px;">Answer Our Quiz to Find Your Tier</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

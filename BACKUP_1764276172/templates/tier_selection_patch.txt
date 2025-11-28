@@ -1,0 +1,18 @@
+FIND THIS:
+<button onclick="selectTier('enterprise')">Choose Enterprise Partnership</button>
+
+REPLACE WITH:
+<button onclick="selectTierCustom('enterprise')">Choose Enterprise Partnership</button>
+
+THEN ADD THIS JAVASCRIPT:
+
+<script>
+function selectTierCustom(tier) {
+  if (tier === 'enterprise') {
+    // Route to custom questionnaire instead of checkout
+    window.location.href = `/questionnaire/custom`;
+  } else {
+    selectTier(tier);
+  }
+}
+</script>

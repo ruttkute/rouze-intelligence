@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Rouze Intelligence{% endblock %}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+            background: linear-gradient(135deg, #f5f3f8 0%, #ede7f6 100%);
+            color: #2c2c2c;
+            min-height: 100vh;
+        }
+        
+        nav {
+            background: rgba(82, 66, 92, 0.04);
+            border-bottom: 1.5px solid rgba(176, 166, 223, 0.18);
+            backdrop-filter: blur(45px);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-weight: 500;
+            margin: 0 20px;
+        }
+        
+        nav a:hover { color: #B0A6DF; }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #B0A6DF;
+            letter-spacing: 2px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: #B0A6DF;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #B0A6DF;
+            letter-spacing: 1px;
+            margin: 40px 0 20px 0;
+        }
+        
+        p { color: #7d7d7d; font-size: 16px; line-height: 1.6; margin-bottom: 20px; }
+        
+        .btn {
+            background: rgba(58, 143, 195, 0.12);
+            border: 1px solid rgba(58, 143, 195, 0.4);
+            color: #3A8FC3;
+            padding: 14px 32px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: rgba(58, 143, 195, 0.16);
+            border: 1px solid rgba(58, 143, 195, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="/" style="color: #B0A6DF; text-decoration: none;">ROUZE</a></div>
+        <div>
+            <a href="/">Home</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,279 @@
+{% extends "base.html" %}
+
+{% block title %}Choose Tier - Rouze Intelligence{% endblock %}
+
+{% block extra_css %}
+<style>
+    .tier-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .tier-header {
+        text-align: center;
+        margin: 60px 0 50px 0;
+    }
+    
+    .tier-header h1 {
+        font-size: 48px;
+        margin-bottom: 15px;
+        color: #B0A6DF;
+    }
+    
+    .tier-header .subtitle {
+        font-size: 16px;
+        color: rgba(176, 166, 223, 0.7);
+    }
+    
+    .tiers-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    
+    .tier-card {
+        background: rgba(82, 66, 92, 0.04);
+        border: 1.5px solid rgba(176, 166, 223, 0.18);
+        backdrop-filter: blur(45px);
+        padding: 40px;
+        border-radius: 20px;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .tier-card:hover {
+        background: rgba(82, 66, 92, 0.08);
+        border: 1.5px solid rgba(176, 166, 223, 0.35);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(58, 143, 195, 0.2);
+    }
+    
+    .tier-name {
+        font-size: 24px;
+        color: #B0A6DF;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+    
+    .tier-price-row {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        margin-bottom: 5px;
+    }
+    
+    .tier-price-starting {
+        font-size: 28px;
+        color: #3A8FC3;
+        font-weight: 700;
+    }
+    
+    .tier-price-note {
+        font-size: 12px;
+        color: rgba(176, 166, 223, 0.6);
+        font-style: italic;
+    }
+    
+    .tier-timeline {
+        font-size: 12px;
+        color: rgba(176, 166, 223, 0.6);
+        margin-bottom: 25px;
+    }
+    
+    .tier-description {
+        font-size: 13px;
+        color: rgba(176, 166, 223, 0.85);
+        margin-bottom: 25px;
+        line-height: 1.6;
+    }
+    
+    .tier-features {
+        list-style: none;
+        margin-bottom: 30px;
+        flex-grow: 1;
+    }
+    
+    .tier-features li {
+        font-size: 12px;
+        color: rgba(176, 166, 223, 0.8);
+        margin-bottom: 10px;
+        padding-left: 18px;
+        position: relative;
+    }
+    
+    .tier-features li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #3A8FC3;
+        font-weight: 700;
+    }
+    
+    .tier-button {
+        width: 100%;
+        padding: 14px;
+        background: rgba(58, 143, 195, 0.15);
+        border: 1.5px solid rgba(58, 143, 195, 0.4);
+        color: #3A8FC3;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .tier-button:hover {
+        background: rgba(58, 143, 195, 0.25);
+        border: 1.5px solid rgba(58, 143, 195, 0.6);
+    }
+    
+    .pricing-note {
+        background: rgba(58, 143, 195, 0.08);
+        border: 1px solid rgba(58, 143, 195, 0.2);
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 40px;
+        font-size: 12px;
+        color: rgba(176, 166, 223, 0.8);
+        line-height: 1.6;
+    }
+    
+    .pricing-note strong {
+        color: #B0A6DF;
+    }
+    
+    .selection-nav {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(176, 166, 223, 0.1);
+    }
+    
+    .btn-back {
+        padding: 12px 30px;
+        background: transparent;
+        border: 1.5px solid rgba(176, 166, 223, 0.3);
+        color: #B0A6DF;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-back:hover {
+        border: 1.5px solid rgba(176, 166, 223, 0.6);
+        background: rgba(176, 166, 223, 0.05);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="tier-container">
+    <div class="tier-header">
+        <h1>Choose Your Analysis Tier</h1>
+        <p class="subtitle">More data = deeper insights = better decisions</p>
+    </div>
+    
+    <!-- PRICING EXPLANATION -->
+    <div class="pricing-note">
+        <strong>How pricing works:</strong> Each tier shows a <strong>starting price</strong> based on standard analysis complexity. Final price may vary (±10-15%) depending on signal density, data sources needed, and analysis depth required for your specific market. You'll see the exact total before payment.
+    </div>
+    
+    <div class="tiers-grid">
+        <!-- QUICK INTELLIGENCE -->
+        <div class="tier-card">
+            <h2 class="tier-name">Quick Intelligence</h2>
+            <div class="tier-price-row">
+                <div class="tier-price-starting">$300</div>
+                <div class="tier-price-note">starting price</div>
+            </div>
+            <p class="tier-timeline">24-48 hours</p>
+            <p class="tier-description">Fast answers for urgent decisions</p>
+            <ul class="tier-features">
+                <li>10,000+ raw signals analyzed</li>
+                <li>5-7 data sources</li>
+                <li>3-5 key insights</li>
+                <li>Sentiment analysis</li>
+                <li>Confidence scoring (70-85%)</li>
+            </ul>
+            <button class="tier-button" onclick="selectTier('quick')">Choose Quick Intelligence</button>
+        </div>
+        
+        <!-- STRATEGIC INTELLIGENCE -->
+        <div class="tier-card">
+            <h2 class="tier-name">Strategic Intelligence</h2>
+            <div class="tier-price-row">
+                <div class="tier-price-starting">$800</div>
+                <div class="tier-price-note">starting price</div>
+            </div>
+            <p class="tier-timeline">5-7 days</p>
+            <p class="tier-description">Thorough analysis for major decisions</p>
+            <ul class="tier-features">
+                <li>25,000+ raw signals analyzed</li>
+                <li>8-12 data sources</li>
+                <li>8-10 detailed findings</li>
+                <li>Competitive positioning matrix</li>
+                <li>Confidence scoring (85-92%)</li>
+            </ul>
+            <button class="tier-button" onclick="selectTier('strategic')">Choose Strategic Intelligence</button>
+        </div>
+        
+        <!-- PREDICTIVE INTELLIGENCE -->
+        <div class="tier-card">
+            <h2 class="tier-name">Predictive Intelligence</h2>
+            <div class="tier-price-row">
+                <div class="tier-price-starting">$2,000</div>
+                <div class="tier-price-note">starting price</div>
+            </div>
+            <p class="tier-timeline">10-14 days</p>
+            <p class="tier-description">Forecasting for strategic advantage</p>
+            <ul class="tier-features">
+                <li>50,000+ raw signals analyzed</li>
+                <li>15-20 data sources</li>
+                <li>12-24 month forecasting</li>
+                <li>Scenario modeling (3 plans)</li>
+                <li>Risk probability scoring</li>
+            </ul>
+            <button class="tier-button" onclick="selectTier('predictive')">Choose Predictive Intelligence</button>
+        </div>
+        
+        <!-- ENTERPRISE -->
+        <div class="tier-card">
+            <h2 class="tier-name">Enterprise Partnership</h2>
+            <div class="tier-price-row">
+                <div class="tier-price-starting">Custom</div>
+                <div class="tier-price-note">tailored to your needs</div>
+            </div>
+            <p class="tier-timeline">Ongoing</p>
+            <p class="tier-description">Continuous intelligence advantage</p>
+            <ul class="tier-features">
+                <li>Custom methodology + sources</li>
+                <li>Daily signal monitoring</li>
+                <li>Weekly intelligence briefings</li>
+                <li>Monthly deep-dive reports</li>
+                <li>Dedicated analyst relationship</li>
+            </ul>
+            <button class="tier-button" onclick="selectTier('enterprise')">Choose Enterprise Partnership</button>
+        </div>
+    </div>
+    
+    <div class="selection-nav">
+        <button class="btn-back" onclick="goBack()">Back</button>
+    </div>
+</div>
+
+<script>
+function selectTier(tier) {
+    const vertical = '{{ vertical }}';
+    window.location.href = '/checkout/' + vertical + '/' + tier;
+}
+
+function goBack() {
+    const vertical = '{{ vertical }}';
+    window.location.href = '/upload/' + vertical;
+}
+</script>
+{% endblock %}

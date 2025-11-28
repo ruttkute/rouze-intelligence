@@ -1,0 +1,39 @@
+cat > ~/Desktop/rouze/rouze_web_new/templates/free_trial_confirmation.html << 'HTMLEOF'
+{% extends "base.html" %}
+
+{% block title %}Analysis Submitted - Rouze Intelligence{% endblock %}
+
+{% block content %}
+<section style="padding: 100px 50px; min-height: 100vh; display: flex; align-items: center;">
+    <div class="container" style="max-width: 600px; text-align: center;">
+        
+        <h1>Analysis Submitted</h1>
+        
+        <div class="card" style="margin-top: 40px; padding: 50px;">
+            <h3 style="color: var(--han-blue);">Your dashboard will be ready in 24-48 hours.</h3>
+            
+            <p style="margin-top: 20px; font-size: 18px;">
+                We're analyzing {{ vertical|title }} market signals based on your question.
+            </p>
+            
+            <div class="divider" style="margin: 40px 0;"></div>
+            
+            <p style="margin-top: 20px;">
+                We've sent you an email with your unique dashboard link.
+                <br>Check your inbox or spam folder for: <strong>{{ email }}</strong>
+            </p>
+            
+            <p class="small-text" style="margin-top: 30px;">
+                Dashboard expires in 14 days. Want to keep it?<br>
+                Upgrade to Quick Intelligence ($300-800) for download, email delivery, and 90-day access.
+            </p>
+            
+            <a href="{{ url_for('pricing') }}" class="btn-primary" style="margin-top: 30px; display: inline-block;">
+                See Pricing Options
+            </a>
+        </div>
+        
+    </div>
+</section>
+{% endblock %}
+HTMLEOF

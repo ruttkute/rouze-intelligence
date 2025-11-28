@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="margin-top: 70px; min-height: 100vh; padding: 50px; background: linear-gradient(135deg, #0c080d 0%, #1f1823 30%, #2d1b4e 60%, #382b3f 100%);">
+    <div class="container" style="max-width: 700px;">
+        
+        <h1 style="font-size: 48px; color: #B0A6DF; margin-bottom: 20px; font-weight: 600;">Upload Your Business Data</h1>
+        <p style="color: #B0A6DF; font-size: 16px; line-height: 1.8; margin-bottom: 40px;">Give us access to your real business metrics. We'll analyze them to provide strategic recommendations tailored to your situation.</p>
+        
+        <!-- Upload Form -->
+        <form id="dataUploadForm" enctype="multipart/form-data" style="background: rgba(82, 66, 92, 0.04); padding: 40px; border-radius: 12px; border: 1px solid rgba(176, 166, 223, 0.15);">
+            
+            <!-- Client ID (optional) -->
+            <div style="margin-bottom: 30px;">
+                <label style="color: #B0A6DF; font-size: 16px; font-weight: 600; display: block; margin-bottom: 10px;">Your Company Name (Optional)</label>
+                <input type="text" name="client_id" placeholder="Your company name (used to label your data)" style="width: 100%; padding: 12px; background: rgba(82, 66, 92, 0.06); border: 1px solid rgba(176, 166, 223, 0.18); border-radius: 8px; color: #B0A6DF; font-size: 14px;">
+            </div>
+            
+            <!-- File Upload -->
+            <div style="margin-bottom: 30px;">
+                <label style="color: #B0A6DF; font-size: 16px; font-weight: 600; display: block; margin-bottom: 10px;">Select File</label>
+                <div style="border: 2px dashed rgba(176, 166, 223, 0.3); border-radius: 8px; padding: 40px; text-align: center; cursor: pointer;" id="dropZone">
+                    <input type="file" name="file" id="fileInput" style="display: none;" accept=".csv,.xlsx,.xls,.json,.txt">
+                    <p style="color: #B0A6DF; font-size: 14px; margin: 0;">
+                        <strong>Click to upload</strong> or drag and drop
+                    </p>
+                    <p style="color: rgba(176, 166, 223, 0.6); font-size: 12px; margin: 10px 0 0 0;">
+                        CSV, Excel, JSON, TXT (Max 10MB)
+                    </p>
+                    <p id="fileName" style="color: #3A8FC3; font-size: 13px; margin-top: 10px; display: none;"></p>
+                </div>
+            </div>
+            
+            <!-- Privacy Agreement (CRITICAL) -->
+            <div style="background: rgba(58, 143, 195, 0.05); padding: 30px; border-radius: 8px; border-left: 4px solid #3A8FC3; margin-bottom: 30px;">
+                <h3 style="color: #B0A6DF; font-size: 16px; font-weight: 600; margin-bottom: 15px;">Data Privacy & Security Agreement</h3>
+                
+                <div style="color: #B0A6DF; font-size: 13px; line-height: 1.8; max-height: 200px; overflow-y: auto; margin-bottom: 15px; padding: 15px; background: rgba(255, 255, 255, 0.02); border-radius: 4px;">
+                    
+                    <p><strong>What we do with your data:</strong></p>
+                    <ul style="margin: 10px 0 15px 20px;">
+                        <li>Store encrypted on secure server</li>
+                        <li>Analyze to provide intelligence recommendations</li>
+                        <li>Use only for YOUR analysis (never shared)</li>
+                        <li>Automatically delete after 30 days</li>
+                    </ul>
+                    
+                    <p><strong>Your rights:</strong></p>
+                    <ul style="margin: 10px 0 15px 20px;">
+                        <li>Request deletion anytime (we'll permanently delete)</li>
+                        <li>Know what data we have (access request)</li>
+                        <li>GDPR compliance (if applicable)</li>
+                    </ul>
+                    
+                    <p><strong>Your responsibility:</strong></p>
+                    <ul style="margin: 10px 0 15px 20px;">
+                        <li>Only upload data you have rights to share</li>
+                        <li>Remove any personally identifiable information (PII) first</li>
+                        <li>Don't upload regulated data (healthcare, payment info, SSN) unless anonymized</li>
+                        <li>You remain responsible for your data</li>
+                    </ul>
+                    
+                    <p><strong>Rouze's liability limitation:</strong></p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>We are NOT responsible for data you upload without authorization</li>
+                        <li>We are NOT liable if you violate regulations by uploading restricted data</li>
+                        <li>We ARE responsible for secure storage and encryption</li>
+                    </ul>
+                </div>
+                
+                <label style="color: #B0A6DF; font-size: 14px; display: flex; align-items: flex-start; cursor: pointer;">
+                    <input type="checkbox" name="gdpr_consent" value="false" style="margin-right: 10px; margin-top: 4px;">
+                    <span>I understand the data privacy terms and confirm I have the right to share this data. I am responsible for removing sensitive information before uploading.</span>
+                </label>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="btn-primary" style="width: 100%; padding: 14px; font-size: 16px; border: none; cursor: pointer;">Upload File Securely</button>
+        </form>
+        
+        <!-- Status Messages -->
+        <div id="uploadStatus" style="margin-top: 30px; display: none;"></div>
+    </div>
+</div>
+
+<script>
+// Drag & drop
+const dropZone = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+const fileName = document.getElementById('fileName');
+
+dropZone.addEventListener('click', () => fileInput.click());
+
+dropZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    dropZone.style.borderColor = '#3A8FC3';
+});
+
+dropZone.addEventListener('dragleave', () => {
+    dropZone.style.borderColor = 'rgba(176, 166, 223, 0.3)';
+});
+
+dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    fileInput.files = e.dataTransfer.files;
+    updateFileName();
+});
+
+fileInput.addEventListener('change', updateFileName);
+
+function updateFileName() {
+    if (fileInput.files.length > 0) {
+        fileName.textContent = fileInput.files[0].name;
+        fileName.style.display = 'block';
+    }
+}
+
+// Form submission
+document.getElementById('dataUploadForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const consent = document.querySelector('input[name="gdpr_consent"]').checked;
+    if (!consent) {
+        alert('You must agree to data privacy terms');
+        return;
+    }
+    
+    const formData = new FormData(this);
+    formData.set('gdpr_consent', consent ? 'true' : 'false');
+    
+    try {
+        const response = await fetch('/upload/data', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        
+        const statusDiv = document.getElementById('uploadStatus');
+        if (response.ok) {
+            statusDiv.innerHTML = `
+                <div style="background: rgba(58, 143, 195, 0.1); border: 1px solid #3A8FC3; padding: 20px; border-radius: 8px; color: #3A8FC3;">
+                    <strong>✓ Upload Successful</strong>
+                    <p style="margin: 10px 0 0 0; font-size: 14px;">${result.message}</p>
+                    <p style="margin: 5px 0 0 0; font-size: 13px; opacity: 0.8;">Your data will be analyzed within 24 hours.</p>
+                </div>
+            `;
+        } else {
+            statusDiv.innerHTML = `
+                <div style="background: rgba(230, 164, 164, 0.1); border: 1px solid #E6A4A4; padding: 20px; border-radius: 8px; color: #E6A4A4;">
+                    <strong>✗ Upload Failed</strong>
+                    <p style="margin: 10px 0 0 0; font-size: 14px;">${result.error}</p>
+                </div>
+            `;
+        }
+        statusDiv.style.display = 'block';
+    } catch (error) {
+        alert('Upload error: ' + error);
+    }
+});
+</script>
+
+{% endblock %}

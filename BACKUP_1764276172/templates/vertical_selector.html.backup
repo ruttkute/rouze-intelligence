@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Industry - Rouze Intelligence</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vertical_selector.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="vertical-selector-page">
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-text">ROUZE</span>
+                <span class="logo-accent"></span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/methodology">Methodology</a>
+                <a href="/pricing">Pricing</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="vertical-selector-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">What Industry Are You In?</h1>
+            <p class="hero-subtitle">Each market needs specialized intelligence. Choose your vertical for a tailored analysis.</p>
+        </section>
+
+        <!-- Vertical Cards Section -->
+        <section class="verticals-section">
+            <div class="verticals-grid">
+                
+                <!-- Healthcare Card -->
+                <div class="vertical-card healthcare-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Healthcare</h2>
+                        <span class="card-icon">⚕️</span>
+                    </div>
+                    
+                    <p class="card-description">
+                        Real-time adverse event detection, regulatory risk assessment, and clinical intelligence from forums, reviews, and regulatory databases.
+                    </p>
+                    
+                    <ul class="card-features">
+                        <li>Adverse event monitoring</li>
+                        <li>Regulatory risk scoring</li>
+                        <li>Competitor safety tracking</li>
+                        <li>Clinical trial signals</li>
+                    </ul>
+                    
+                    <button class="cta-button healthcare-btn" onclick="selectVertical('healthcare')">
+                        Select Healthcare
+                    </button>
+                </div>
+
+                <!-- SaaS Card -->
+                <div class="vertical-card saas-card">
+                    <div class="card-header">
+                        <h2 class="card-title">SaaS</h2>
+                        <span class="card-icon">💻</span>
+                    </div>
+                    
+                    <p class="card-description">
+                        Competitive intelligence, feature gap analysis, and customer sentiment tracking from reviews, forums, and product communities.
+                    </p>
+                    
+                    <ul class="card-features">
+                        <li>Competitive positioning</li>
+                        <li>Feature gap analysis</li>
+                        <li>Customer satisfaction trends</li>
+                        <li>Market opportunity scoring</li>
+                    </ul>
+                    
+                    <button class="cta-button saas-btn" onclick="selectVertical('saas')">
+                        Select SaaS
+                    </button>
+                </div>
+
+                <!-- E-commerce Card -->
+                <div class="vertical-card ecommerce-card">
+                    <div class="card-header">
+                        <h2 class="card-title">E-commerce</h2>
+                        <span class="card-icon">🛍️</span>
+                    </div>
+                    
+                    <p class="card-description">
+                        Viral product prediction, market trend validation, and competitor analysis from social media, reviews, and marketplace signals.
+                    </p>
+                    
+                    <ul class="card-features">
+                        <li>Viral trend detection</li>
+                        <li>Market demand validation</li>
+                        <li>Competitor weakness analysis</li>
+                        <li>Geographic opportunity mapping</li>
+                    </ul>
+                    
+                    <button class="cta-button ecommerce-btn" onclick="selectVertical('ecommerce')">
+                        Select E-commerce
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section class="info-section">
+            <p class="info-text">
+                Each vertical has a specialized questionnaire designed to uncover the signals that matter most for your industry. 
+                Your answers determine analysis accuracy and focus.
+            </p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Rouze Intelligence. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function selectVertical(vertical) {
+            console.log(`Selected vertical: ${vertical}`);
+            window.location.href = `/questionnaire/${vertical}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Vertical Selector Page Loaded');
+        });
+    </script>
+</body>
+</html>

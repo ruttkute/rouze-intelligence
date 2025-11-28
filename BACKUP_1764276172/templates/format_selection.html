@@ -1,0 +1,294 @@
+{% extends "base.html" %}
+
+{% block title %}Choose Format - Rouze Intelligence{% endblock %}
+
+{% block extra_css %}
+<style>
+    .format-container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .format-header {
+        text-align: center;
+        margin: 60px 0 50px 0;
+    }
+    
+    .format-header h1 {
+        font-size: 48px;
+        margin-bottom: 15px;
+        color: #B0A6DF;
+    }
+    
+    .format-header .subtitle {
+        font-size: 16px;
+        color: rgba(176, 166, 223, 0.7);
+    }
+    
+    .formats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    
+    .format-card {
+        background: rgba(82, 66, 92, 0.04);
+        border: 1.5px solid rgba(176, 166, 223, 0.18);
+        backdrop-filter: blur(45px);
+        padding: 40px;
+        border-radius: 20px;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .format-card:hover {
+        background: rgba(82, 66, 92, 0.08);
+        border: 1.5px solid rgba(176, 166, 223, 0.35);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(58, 143, 195, 0.2);
+    }
+    
+    .format-card.premium {
+        grid-column: 1 / 2;
+    }
+    
+    .format-card.premium:nth-child(3) {
+        grid-column: 2 / 3;
+    }
+    
+    .format-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(58, 143, 195, 0.15);
+        border: 1px solid rgba(58, 143, 195, 0.3);
+        color: #3A8FC3;
+        padding: 6px 14px;
+        border-radius: 50px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .format-title {
+        font-size: 24px;
+        color: #B0A6DF;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+    
+    .format-price {
+        font-size: 32px;
+        color: #3A8FC3;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+    
+    .format-price-note {
+        font-size: 12px;
+        color: rgba(176, 166, 223, 0.6);
+        margin-bottom: 30px;
+    }
+    
+    .format-features {
+        list-style: none;
+        margin-bottom: 30px;
+    }
+    
+    .format-features li {
+        font-size: 13px;
+        color: rgba(176, 166, 223, 0.85);
+        margin-bottom: 12px;
+        padding-left: 20px;
+        position: relative;
+        line-height: 1.5;
+    }
+    
+    .format-features li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #3A8FC3;
+        font-weight: 700;
+    }
+    
+    .format-button {
+        width: 100%;
+        padding: 14px;
+        background: rgba(58, 143, 195, 0.15);
+        border: 1.5px solid rgba(58, 143, 195, 0.4);
+        color: #3A8FC3;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .format-button:hover {
+        background: rgba(58, 143, 195, 0.25);
+        border: 1.5px solid rgba(58, 143, 195, 0.6);
+    }
+    
+    .note-section {
+        background: rgba(58, 143, 195, 0.05);
+        border: 1px solid rgba(58, 143, 195, 0.2);
+        padding: 20px;
+        border-radius: 12px;
+        font-size: 12px;
+        color: rgba(176, 166, 223, 0.7);
+        text-align: center;
+        margin-top: 40px;
+    }
+    
+    .selection-nav {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(176, 166, 223, 0.1);
+    }
+    
+    .btn-back {
+        padding: 12px 30px;
+        background: transparent;
+        border: 1.5px solid rgba(176, 166, 223, 0.3);
+        color: #B0A6DF;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-back:hover {
+        border: 1.5px solid rgba(176, 166, 223, 0.6);
+        background: rgba(176, 166, 223, 0.05);
+    }
+    
+    @media (max-width: 768px) {
+        .formats-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .format-card.premium {
+            grid-column: 1;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="format-container">
+    <!-- HEADER -->
+    <div class="format-header">
+        <h1>How Do You Want Your Results?</h1>
+        <p class="subtitle">Choose your preferred deliverable format</p>
+    </div>
+    
+    <!-- FORMAT OPTIONS GRID -->
+    <div class="formats-grid">
+        <!-- FORMAT 1: HTML Interactive Report (Default) -->
+        <div class="format-card">
+            <div class="format-badge">Included</div>
+            <h2 class="format-title">HTML Interactive Report</h2>
+            <div class="format-price">Included</div>
+            <p class="format-price-note">No additional cost</p>
+            <ul class="format-features">
+                <li>Live charts and filterable data</li>
+                <li>90-day dashboard access</li>
+                <li>View on any device</li>
+                <li>Share with team members</li>
+                <li>Export individual charts</li>
+                <li>Download full report as PDF</li>
+            </ul>
+            <button class="format-button" onclick="selectFormat('html_interactive')">
+                Select This Format
+            </button>
+        </div>
+        
+        <!-- FORMAT 2: PDF Executive Brief -->
+        <div class="format-card">
+            <div class="format-badge">Included</div>
+            <h2 class="format-title">PDF Executive Brief</h2>
+            <div class="format-price">Included</div>
+            <p class="format-price-note">No additional cost</p>
+            <ul class="format-features">
+                <li>Professional 2-5 page PDF</li>
+                <li>Email delivery included</li>
+                <li>Print-ready formatting</li>
+                <li>Share with stakeholders</li>
+                <li>Archive for future reference</li>
+                <li>Boardroom-ready design</li>
+            </ul>
+            <button class="format-button" onclick="selectFormat('pdf_brief')">
+                Select This Format
+            </button>
+        </div>
+        
+        <!-- FORMAT 3: Interactive Dashboard (+$200) -->
+        <div class="format-card">
+            <div class="format-badge">+$200</div>
+            <h2 class="format-title">Interactive Dashboard</h2>
+            <div class="format-price">+$200</div>
+            <p class="format-price-note">Upgrade from included formats</p>
+            <ul class="format-features">
+                <li>Everything above, PLUS:</li>
+                <li>12-month access (vs 90 days)</li>
+                <li>Daily signal updates</li>
+                <li>Custom alerts and filters</li>
+                <li>Team collaboration (5 users)</li>
+                <li>Real-time data feeds</li>
+            </ul>
+            <button class="format-button" onclick="selectFormat('dashboard')">
+                Add Dashboard (+$200)
+            </button>
+        </div>
+        
+        <!-- FORMAT 4: API Integration (+$500) -->
+        <div class="format-card">
+            <div class="format-badge">+$500</div>
+            <h2 class="format-title">Full API Integration</h2>
+            <div class="format-price">+$500</div>
+            <p class="format-price-note">Upgrade from included formats</p>
+            <ul class="format-features">
+                <li>Everything above, PLUS:</li>
+                <li>JSON API for custom builds</li>
+                <li>Real-time data feeds</li>
+                <li>Webhook automation</li>
+                <li>Historical data export</li>
+                <li>Developer documentation</li>
+            </ul>
+            <button class="format-button" onclick="selectFormat('api_integration')">
+                Add API Integration (+$500)
+            </button>
+        </div>
+    </div>
+    
+    <!-- NOTE -->
+    <div class="note-section">
+        You always get HTML dashboard access and PDF export. These premium options add additional capabilities and extended access.
+    </div>
+    
+    <!-- NAVIGATION -->
+    <div class="selection-nav">
+        <button class="btn-back" onclick="goBack()">Back</button>
+    </div>
+</div>
+
+<script>
+function selectFormat(format) {
+    const vertical = '{{ vertical }}';
+    // Store selection
+    sessionStorage.setItem('selected_format', format);
+    // Route to tier selection
+    window.location.href = `/tier-selection/${vertical}/${format}`;
+}
+
+function goBack() {
+    const vertical = '{{ vertical }}';
+    window.location.href = `/upload/${vertical}`;
+}
+</script>
+{% endblock %}

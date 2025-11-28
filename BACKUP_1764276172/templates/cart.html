@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Cart - Rouze Intelligence{% endblock %}
+{% block content %}
+<h1>Your Cart</h1>
+<p class="subtitle">Review and checkout your intelligence package</p>
+
+<div class="card" style="margin-top: 60px; max-width: 800px;">
+    <div id="cart-empty" style="text-align: center; padding: 60px 0;">
+        <p style="font-size: 18px; color: rgba(176, 166, 223, 0.7); margin-bottom: 30px;">Your cart is currently empty</p>
+        <a href="/pricing" class="glass-button">Browse Services</a>
+    </div>
+    
+    <div id="cart-items" style="display: none;">
+        <div id="items-list"></div>
+        
+        <div style="margin-top: 40px; border-top: 1px solid rgba(176, 166, 223, 0.15); padding-top: 20px;">
+            <div style="display: flex; justify-content: space-between; font-size: 18px; margin-bottom: 20px;">
+                <span>Total:</span>
+                <span id="total-price" style="font-family: 'Playfair Display', serif; font-size: 28px; color: var(--aura-indigo);">$0</span>
+            </div>
+            <button class="glass-button" style="width: 100%; padding: 16px; text-align: center;">Proceed to Checkout</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function loadCart() {
+        const cart = JSON.parse(localStorage.getItem('rouze-cart') || '[]');
+        const emptyDiv = document.getElementById('cart-empty');
+        const itemsDiv = document.getElementById('cart-items');
+        const listDiv = document.getElementById('items-list');
+        
+        if (cart.length === 0) {
+            emptyDiv.style.display = 'block';
+            itemsDiv.style.display = 'none';
+        } else {
+            emptyDiv.style.display = 'none';
+            itemsDiv.style.display = 'block';
+            
+            let total = 0;
+            listDiv.innerHTML = '';
+            
+            cart.forEach((item, index) => {
+                const price = item.price || 0;
+                total += price;
+                
+                listDiv.innerHTML += `
+                    <div style="padding: 20px 0; border-bottom: 1px solid rgba(176, 166, 223, 0.15); display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h3 style="color: var(--aura-indigo); font-family: 'Playfair Display', serif; margin-bottom: 5px;">${item.name || 'Service'}</h3>
+                            <p style="color: rgba(176, 166, 223, 0.6); font-size: 14px;">${item.description || ''}</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="color: var(--aura-indigo); font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 10px;">$${price}</p>
+                            <button onclick="removeFromCart(${index})" class="glass-button" style="padding: 8px 16px; font-size: 12px;">Remove</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('total-price').textContent = '$' + total;
+        }
+    }
+    
+    function removeFromCart(index) {
+        const cart = JSON.parse(localStorage.getItem('rouze-cart') || '[]');
+        cart.splice(index, 1);
+        localStorage.setItem('rouze-cart', JSON.stringify(cart));
+        loadCart();
+    }
+    
+    loadCart();
+</script>
+{% endblock %}

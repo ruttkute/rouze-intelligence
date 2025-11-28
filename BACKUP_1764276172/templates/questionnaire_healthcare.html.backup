@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Questionnaire - Rouze Intelligence</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/questionnaire.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="questionnaire-page">
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-text">ROUZE</span>
+                <span class="logo-accent"></span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="questionnaire-container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 33%"></div>
+        </div>
+        <p class="progress-text">Step 1 of 3 (Questionnaire)</p>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">Healthcare Market Intelligence</h1>
+            <p class="hero-subtitle">Answer these 15 deep questions so we can analyze the exact signals that matter for your situation.</p>
+        </section>
+
+        <!-- Form -->
+        <form id="healthcare-questionnaire-form" class="questionnaire-form">
+            <!-- SECTION 1: CONTEXT & COMPANY (4 Questions) -->
+            <fieldset class="form-section">
+                <legend class="section-title">Section 1: Context & Company (4 questions)</legend>
+                <p class="section-subtitle">Tell us about your healthcare organization and current situation</p>
+
+                <!-- Q1: Company Type -->
+                <div class="form-group">
+                    <label for="company_type" class="form-label">
+                        Q1: What is your healthcare company type?
+                        <span class="required">*</span>
+                    </label>
+                    <select id="company_type" name="company_type" required class="form-input select-input">
+                        <option value="">-- Select --</option>
+                        <option value="medical_device">Medical device manufacturer</option>
+                        <option value="pharmaceutical">Pharmaceutical company</option>
+                        <option value="digital_health">Digital health/health tech</option>
+                        <option value="medical_consulting">Medical consulting firm</option>
+                        <option value="healthcare_provider">Healthcare provider/hospital system</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Q2: Primary Focus -->
+                <div class="form-group">
+                    <label for="primary_focus" class="form-label">
+                        Q2: What is your primary area of focus?
+                        <span class="required">*</span>
+                    </label>
+                    <select id="primary_focus" name="primary_focus" required class="form-input select-input">
+                        <option value="">-- Select --</option>
+                        <option value="cardiology">Cardiology devices</option>
+                        <option value="orthopedic">Orthopedic implants</option>
+                        <option value="surgical">Surgical instruments</option>
+                        <option value="diagnostics">Diagnostics/lab equipment</option>
+                        <option value="digital_health_platform">Digital health platforms</option>
+                        <option value="mental_health">Mental health solutions</option>
+                        <option value="womens_health">Women's health</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Q3: Product Stage -->
+                <div class="form-group">
+                    <label for="product_stage" class="form-label">
+                        Q3: What is your product stage?
+                        <span class="required">*</span>
+                    </label>
+                    <select id="product_stage" name="product_stage" required class="form-input select-input">
+                        <option value="">-- Select --</option>
+                        <option value="pre_clinical">Pre-clinical research</option>
+                        <option value="clinical_trials">Clinical trials</option>
+                        <option value="fda_approval">FDA approval process</option>
+                        <option value="recently_approved">Recently approved (within 2 years)</option>
+                        <option value="established">Established product (2-5 years on market)</option>
+                        <option value="mature">Mature product (5+ years, established market)</option>
+                    </select>
+                </div>
+
+                <!-- Q4: Revenue Range -->
+                <div class="form-group">
+                    <label for="revenue_range" class="form-label">
+                        Q4: What is your approximate annual revenue range?
+                        <span class="required">*</span>
+                    </label>
+                    <select id="revenue_range" name="revenue_range" required class="form-input select-input">
+                        <option value="">-- Select --</option>
+                        <option value="pre_revenue">Pre-revenue (development stage)</option>
+                        <option value="under_1m">Less than $1M</option>
+                        <option value="1m_10m">$1M - $10M</option>
+                        <option value="10m_50m">$10M - $50M</option>
+                        <option value="50m_200m">$50M - $200M</option>
+                        <option value="over_200m">$200M+</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <!-- SECTION 2: REGULATORY & SAFETY INTELLIGENCE (5 Questions) -->
+            <fieldset class="form-section">
+                <legend class="section-title">Section 2: Regulatory & Safety Intelligence (5 questions)</legend>
+                <p class="section-subtitle">What regulatory and safety risks are you tracking?</p>
+
+                <!-- Q5: Regulatory Risks (Checkboxes) -->
+                <div class="form-group">
+                    <label class="form-label">
+                        Q5: What regulatory risks concern you most right now?
+                        <span class="required">*</span>
+                    </label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_concerns" value="emerging_safety" required>
+                            Emerging safety signals in the market
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_concerns" value="fda_delays">
+                            FDA approval delays or rejections
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_concerns" value="competitor_recalls">
+                            Competitor adverse event recalls
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_concerns" value="policy_changes">
+                            Regulatory policy changes
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_concerns" value="international_compliance">
+                            International market compliance
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_concerns" value="post_market">
+                            Post-market surveillance requirements
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_concerns" value="liability">
+                            Liability and insurance issues
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_concerns" value="clinical_trials">
+                            Clinical trial enrollment challenges
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q6: Safety Concerns (Text) -->
+                <div class="form-group">
+                    <label for="safety_concerns" class="form-label">
+                        Q6: Are there specific safety concerns you're monitoring for your product?
+                        <span class="optional">(optional)</span>
+                    </label>
+                    <textarea id="safety_concerns" name="safety_concerns" class="form-input textarea-input" rows="4" placeholder="Example: Unexpected bleeding complications in patients >65"></textarea>
+                </div>
+
+                <!-- Q7: Competitor Safety (Select) -->
+                <div class="form-group">
+                    <label for="competitor_safety" class="form-label">
+                        Q7: Do you have competitors whose safety problems could affect your market?
+                        <span class="required">*</span>
+                    </label>
+                    <select id="competitor_safety" name="competitor_safety" required class="form-input select-input">
+                        <option value="">-- Select --</option>
+                        <option value="yes_specific">Yes - specific competitors</option>
+                        <option value="unclear">Unclear - need competitive safety monitoring</option>
+                        <option value="no">No - market is relatively safe</option>
+                        <option value="unknown">Don't know</option>
+                    </select>
+                </div>
+
+                <!-- Q8: Regulatory Bodies (Checkboxes) -->
+                <div class="form-group">
+                    <label class="form-label">
+                        Q8: What regulatory bodies do you need to watch?
+                        <span class="required">*</span>
+                    </label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_bodies" value="fda" required>
+                            FDA (US)
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_bodies" value="ema">
+                            EMA (Europe)
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_bodies" value="health_canada">
+                            Health Canada
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_bodies" value="pmda">
+                            PMDA (Japan)
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_bodies" value="cfda">
+                            CFDA (China)
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_bodies" value="other">
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q9: Timeline (Select) -->
+                <div class="form-group">
+                    <label for="timeline" class="form-label">
+                        Q9: What is your timeline for regulatory decisions you're watching?
+                        <span class="required">*</span>
+                    </label>
+                    <select id="timeline" name="timeline" required class="form-input select-input">
+                        <option value="">-- Select --</option>
+                        <option value="urgent">Urgent (within 3 months)</option>
+                        <option value="near_term">Near-term (3-6 months)</option>
+                        <option value="medium_term">Medium-term (6-12 months)</option>
+                        <option value="long_term">Long-term (12+ months)</option>
+                        <option value="ongoing">Ongoing monitoring (no deadline)</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <!-- SECTION 3: MARKET & ADOPTION INTELLIGENCE (3 Questions) -->
+            <fieldset class="form-section">
+                <legend class="section-title">Section 3: Market & Adoption Intelligence (3 questions)</legend>
+                <p class="section-subtitle">Understanding your market and customer adoption</p>
+
+                <!-- Q10: Customer Type (Checkboxes) -->
+                <div class="form-group">
+                    <label class="form-label">
+                        Q10: What is your customer type?
+                        <span class="required">*</span>
+                    </label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="customer_type" value="providers" required>
+                            Healthcare providers (hospitals, clinics)
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="customer_type" value="patients">
+                            Individual patients/consumers
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="customer_type" value="payers">
+                            Insurance companies/payers
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="customer_type" value="distributors">
+                            Healthcare distributors
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="customer_type" value="other_companies">
+                            Other healthcare companies
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q11: Market Concerns (Checkboxes) -->
+                <div class="form-group">
+                    <label class="form-label">
+                        Q11: Are you concerned about:
+                        <span class="required">*</span>
+                    </label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="adoption_rates" required>
+                            Customer adoption rates (are they buying?)
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="feature_requests">
+                            Feature requests/unmet needs
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="pricing">
+                            Pricing sensitivity
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="switching">
+                            Competitive switching
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="segment_growth">
+                            Market segment growth/decline
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="expansion">
+                            Geographic expansion potential
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q12: Competitive Threat (Text) -->
+                <div class="form-group">
+                    <label for="competitive_threat" class="form-label">
+                        Q12: What would be the biggest competitive threat to your market position?
+                        <span class="optional">(optional)</span>
+                    </label>
+                    <textarea id="competitive_threat" name="competitive_threat" class="form-input textarea-input" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+            <!-- SECTION 4: ANALYSIS SPECIFICITY (3 Questions) -->
+            <fieldset class="form-section">
+                <legend class="section-title">Section 4: Analysis Specificity (3 questions)</legend>
+                <p class="section-subtitle">What signals matter most for your decision?</p>
+
+                <!-- Q13: Signal Interests (Checkboxes) -->
+                <div class="form-group">
+                    <label class="form-label">
+                        Q13: What specific market signals interest you most? (Select top 3)
+                        <span class="required">*</span>
+                    </label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="forum_discussions" required>
+                            Patient/doctor forum discussions about your product
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="adverse_events">
+                            Adverse event reports and patterns
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="competitor_launches">
+                            Competitor product launches and pivots
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="provider_adoption">
+                            Healthcare provider adoption trends
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="reimbursement">
+                            Insurance reimbursement discussions
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="regulatory_indicators">
+                            Regulatory decision indicators
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="clinical_trials">
+                            Clinical trial enrollment signals
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="market_share">
+                            Market share shift signals
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q14: Companies to Monitor (Text) -->
+                <div class="form-group">
+                    <label for="companies_monitor" class="form-label">
+                        Q14: Do you want us to monitor specific companies?
+                        <span class="optional">(optional - list up to 5)</span>
+                    </label>
+                    <textarea id="companies_monitor" name="companies_monitor" class="form-input textarea-input" rows="3" placeholder="Competitor company names (one per line)"></textarea>
+                </div>
+
+                <!-- Q15: Business Decision (Select) -->
+                <div class="form-group">
+                    <label for="business_decision" class="form-label">
+                        Q15: What decision are you trying to make with this analysis?
+                        <span class="required">*</span>
+                    </label>
+                    <select id="business_decision" name="business_decision" required class="form-input select-input">
+                        <option value="">-- Select --</option>
+                        <option value="launch">Launch decision (should we enter this market?)</option>
+                        <option value="safety_monitoring">Safety monitoring (are emerging issues appearing?)</option>
+                        <option value="pricing_strategy">Pricing strategy (what should we charge?)</option>
+                        <option value="market_expansion">Market expansion (new geography or patient segment?)</option>
+                        <option value="competitive_defense">Competitive defense (how do we respond to competitors?)</option>
+                        <option value="investment">Investment decision (should we fund this product?)</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <!-- Submit Section -->
+            <div class="form-actions">
+                <button type="submit" class="btn-primary btn-large">
+                    Submit Questionnaire
+                </button>
+                <p class="form-help-text">
+                    After submission, you'll choose your deliverable format and complete checkout.
+                </p>
+            </div>
+        </form>
+    </div>
+
+    <!-- Loading Modal (shown during submission) -->
+    <div id="loading-modal" class="loading-modal hidden">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Analyzing your responses...</p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('healthcare-questionnaire-form');
+        const loadingModal = document.getElementById('loading-modal');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Show loading modal
+            loadingModal.classList.remove('hidden');
+
+            // Collect form data
+            const formData = new FormData(form);
+            const data = {
+                company_type: formData.get('company_type'),
+                primary_focus: formData.get('primary_focus'),
+                product_stage: formData.get('product_stage'),
+                revenue_range: formData.get('revenue_range'),
+                regulatory_concerns: formData.getAll('regulatory_concerns'),
+                safety_concerns: formData.get('safety_concerns'),
+                competitor_safety: formData.get('competitor_safety'),
+                regulatory_bodies: formData.getAll('regulatory_bodies'),
+                timeline: formData.get('timeline'),
+                customer_type: formData.getAll('customer_type'),
+                market_concerns: formData.getAll('market_concerns'),
+                competitive_threat: formData.get('competitive_threat'),
+                signal_interests: formData.getAll('signal_interests'),
+                companies_monitor: formData.get('companies_monitor'),
+                business_decision: formData.get('business_decision')
+            };
+
+            try {
+                const response = await fetch('/api/questionnaire/healthcare', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Redirect to format selection
+                    window.location.href = result.redirect;
+                } else {
+                    alert('Error submitting questionnaire: ' + result.error);
+                    loadingModal.classList.add('hidden');
+                }
+            } catch (error) {
+                alert('Error submitting questionnaire: ' + error.message);
+                loadingModal.classList.add('hidden');
+            }
+        });
+
+        // Validation: Require at least 3 signal interests
+        document.getElementById('healthcare-questionnaire-form').addEventListener('submit', function(e) {
+            const signalInterests = document.querySelectorAll('input[name="signal_interests"]:checked');
+            if (signalInterests.length < 3) {
+                e.preventDefault();
+                alert('Please select at least 3 signal interests');
+            }
+        });
+    </script>
+</body>
+</html>
