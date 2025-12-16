@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - ROUZE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION */
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            margin: -20px -20px 40px -20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #B0A6DF;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #B0A6DF;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: rgba(176, 166, 223, 0.8);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* QUICK NAV */
+        .quick-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .quick-nav a {
+            padding: 10px 20px;
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 50px;
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .quick-nav a:hover {
+            background: rgba(58, 143, 195, 0.15);
+            border-color: rgba(58, 143, 195, 0.3);
+            color: #B0A6DF;
+        }
+
+        /* FAQ CATEGORY */
+        .faq-category {
+            margin-bottom: 50px;
+        }
+
+        .category-header {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .category-header .label {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #3A8FC3;
+            margin-bottom: 8px;
+        }
+
+        .category-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #B0A6DF;
+        }
+
+        /* FAQ ITEM */
+        .faq-item {
+            background: rgba(82, 66, 92, 0.1);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background: rgba(82, 66, 92, 0.15);
+            border-color: rgba(176, 166, 223, 0.18);
+        }
+
+        .faq-question {
+            padding: 22px 28px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .faq-question h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #B0A6DF;
+            line-height: 1.4;
+        }
+
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            border-radius: 50%;
+            background: rgba(58, 143, 195, 0.15);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-toggle::before {
+            content: '+';
+            font-size: 16px;
+            font-weight: 400;
+            color: #3A8FC3;
+            line-height: 1;
+        }
+
+        .faq-item.active .faq-toggle {
+            background: #3A8FC3;
+            border-color: #3A8FC3;
+        }
+
+        .faq-item.active .faq-toggle::before {
+            content: '-';
+            color: white;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 28px 24px 28px;
+        }
+
+        .faq-answer-content p {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.8);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .faq-answer-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-answer-content a {
+            color: #3A8FC3;
+            text-decoration: none;
+        }
+
+        .faq-answer-content a:hover {
+            text-decoration: underline;
+        }
+
+        .faq-answer-content ul {
+            list-style: none;
+            margin: 12px 0;
+        }
+
+        .faq-answer-content ul li {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.8);
+            line-height: 1.6;
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .faq-answer-content ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 5px;
+            height: 5px;
+            background: #3A8FC3;
+            border-radius: 50%;
+        }
+
+        /* VERTICAL BADGE IN FAQ */
+        .vertical-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            background: rgba(58, 143, 195, 0.12);
+            border: 1px solid rgba(58, 143, 195, 0.25);
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            color: #3A8FC3;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            text-align: center;
+            padding: 50px 40px;
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.12);
+            border-radius: 16px;
+            margin-top: 20px;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            font-size: 15px;
+            color: rgba(176, 166, 223, 0.75);
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #3A8FC3;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #4da3d4;
+            transform: translateY(-2px);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 1px solid rgba(176, 166, 223, 0.3);
+            color: #B0A6DF;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(176, 166, 223, 0.1);
+            border-color: rgba(176, 166, 223, 0.5);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 16px 20px;
+                margin: -20px -20px 30px -20px;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                font-size: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .quick-nav {
+                gap: 8px;
+            }
+
+            .quick-nav a {
+                padding: 8px 14px;
+                font-size: 12px;
+            }
+
+            .category-header h2 {
+                font-size: 24px;
+            }
+
+            .faq-question {
+                padding: 18px 20px;
+            }
+
+            .faq-question h3 {
+                font-size: 15px;
+            }
+
+            .faq-answer-content {
+                padding: 0 20px 20px 20px;
+            }
+
+            .cta-section {
+                padding: 40px 24px;
+            }
+
+            .cta-section h2 {
+                font-size: 24px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <a href="/" class="logo">ROUZE</a>
+        <div class="nav-links">
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/case-studies">Case Studies</a>
+            <a href="/security">Security</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Frequently Asked Questions</h1>
+            <p>Everything you need to know about ROUZE intelligence services. Can't find your answer? Contact us directly.</p>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="quick-nav">
+            <a href="#analysis">About the Analysis</a>
+            <a href="#pricing">Pricing & Guarantees</a>
+            <a href="#security">Data & Security</a>
+            <a href="#verticals">Vertical-Specific</a>
+        </div>
+
+        <!-- CATEGORY 1: About the Analysis -->
+        <div class="faq-category" id="analysis">
+            <div class="category-header">
+                <p class="label">Category 1</p>
+                <h2>About the Analysis</h2>
+            </div>
+
+            <div class="faq-item active">
+                <div class="faq-question">
+                    <h3>How do I know the signals are accurate?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Every signal we present includes its original source, date collected, platform, and engagement metrics (upvotes, comments, retweets). We only present findings when we see patterns across 2+ independent sources.</p>
+                        <p>Our cross-validation process means a signal from Reddit must be corroborated by similar signals from G2, Twitter, or other platforms before it becomes a finding. Average confidence across all analyses is 85-92%.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What if my competitors aren't on Reddit or G2?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>We monitor 15-20 sources per vertical. If your competitors have customers, those customers are talking somewhere - app reviews, industry forums, Twitter, LinkedIn, YouTube, Trustpilot, or vertical-specific platforms.</p>
+                        <p>Part of our questionnaire process identifies where your specific market congregates. We then focus signal collection on those channels, not just the obvious ones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How is this different from traditional market research?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Traditional research asks people what they think (surveys, focus groups). ROUZE listens to what people are already saying when they don't know they're being observed.</p>
+                        <p>The difference matters because:</p>
+                        <ul>
+                            <li>Unfiltered signals are more honest than survey responses</li>
+                            <li>We analyze 10,000-50,000 signals vs 100-500 survey responses</li>
+                            <li>Delivery in 24-48 hours vs 3-6 months</li>
+                            <li>Cost is 5-10x lower than traditional research firms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How long until I get results?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Timeline depends on your chosen tier:</p>
+                        <ul>
+                            <li>Quick Intelligence: 24-48 hours</li>
+                            <li>Strategic Intelligence: 5-7 days</li>
+                            <li>Predictive Intelligence: 10-14 days</li>
+                        </ul>
+                        <p>You'll receive an early preview after 12-24 hours showing preliminary findings so you know we're on the right track.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What deliverables do I receive?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>All tiers include:</p>
+                        <ul>
+                            <li>Interactive dashboard with all findings (90-120 day access)</li>
+                            <li>PDF executive brief (downloadable, shareable)</li>
+                            <li>CSV export of raw signals for your own analysis</li>
+                            <li>Ranked recommendations with confidence scores</li>
+                        </ul>
+                        <p>Strategic and Predictive tiers add PowerPoint presentations, strategy calls, and extended dashboard access. See our <a href="/pricing">pricing page</a> for complete tier comparisons.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 2: Pricing & Guarantees -->
+        <div class="faq-category" id="pricing">
+            <div class="category-header">
+                <p class="label">Category 2</p>
+                <h2>Pricing & Guarantees</h2>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What if I'm not satisfied with the analysis?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>We offer unlimited revisions until you're satisfied. If the analysis is incomplete (missing promised deliverables, insufficient signal volume, or doesn't address your core question), we'll either fix it or refund in full.</p>
+                        <p>We've never had to issue a refund because we work with you until it's right. Our reputation depends on delivering intelligence you can actually use.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I see a sample report before buying?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Yes. Visit our <a href="/case-studies">case studies page</a> for three detailed examples (Healthcare, SaaS, E-commerce). Each shows the challenge, analysis process, findings, and outcomes.</p>
+                        <p>Data is anonymized but the structure, depth, and deliverable format are identical to what you'll receive. You can evaluate the quality before committing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you offer discounts for multiple analyses?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Yes. Volume pricing is available:</p>
+                        <ul>
+                            <li>3+ analyses: 15% discount</li>
+                            <li>10+ analyses annually: 25% discount</li>
+                            <li>Enterprise partnerships: Custom pricing</li>
+                        </ul>
+                        <p>Contact us at <a href="mailto:pricing@rouze.io">pricing@rouze.io</a> to discuss volume arrangements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What payment methods do you accept?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>We accept all major credit cards (Visa, Mastercard, American Express) and ACH bank transfers for US clients. Enterprise clients can arrange invoicing with NET-30 terms.</p>
+                        <p>All payments are processed securely through Stripe. We never store your payment information on our servers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 3: Data & Security -->
+        <div class="faq-category" id="security">
+            <div class="category-header">
+                <p class="label">Category 3</p>
+                <h2>Data & Security</h2>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What happens to my uploaded data?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Your data is encrypted with TLS 1.3 during transmission and AES-256 at rest. Only your dedicated analyst can access it. We auto-delete after your chosen retention period (7, 14, or 30 days).</p>
+                        <p>We're SOC2, GDPR, CCPA, and HIPAA compliant. Full details are available on our <a href="/security">security page</a>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you share or sell my data?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Never. Your data is used only for your analysis. We don't aggregate, anonymize for other clients, or sell to third parties. Period.</p>
+                        <p>Your competitive intelligence remains yours alone. We operate under strict NDAs and your data is never used for benchmarking, training, or any purpose other than your specific project.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I request early deletion of my data?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Yes. You can request immediate deletion at any time before the automatic retention period expires. Deletion is permanent and completed within 24 hours of request.</p>
+                        <p>Use your dashboard or contact <a href="mailto:security@rouze.io">security@rouze.io</a> to request deletion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 4: Vertical-Specific -->
+        <div class="faq-category" id="verticals">
+            <div class="category-header">
+                <p class="label">Category 4</p>
+                <h2>Vertical-Specific Questions</h2>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3><span class="vertical-tag">Healthcare</span>How do you monitor FDA signals?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>We track multiple FDA-related signal sources:</p>
+                        <ul>
+                            <li>FDA.gov announcements and Warning Letters</li>
+                            <li>510(k) clearance timelines and decisions</li>
+                            <li>MAUDE adverse event database patterns</li>
+                            <li>FDA advisory committee meeting discussions</li>
+                            <li>Industry forums (r/medical_devices, MedTech forums)</li>
+                            <li>Clinical trial registries and outcome discussions</li>
+                            <li>Regulatory consultant discussions on LinkedIn</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3><span class="vertical-tag">SaaS</span>How accurate are G2 reviews as market signals?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>G2 reviews are one of 12+ sources we monitor for SaaS markets. We cross-validate G2 signals with Reddit, Twitter, Product Hunt, Capterra, support forums, and app store reviews.</p>
+                        <p>A pattern must appear in 2+ independent sources before we include it in findings. This prevents over-reliance on any single platform and filters out fake or incentivized reviews.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3><span class="vertical-tag">E-commerce</span>How do you identify viral products before they peak?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>We monitor acceleration patterns across multiple platforms:</p>
+                        <ul>
+                            <li>TikTok hashtag growth rates and velocity</li>
+                            <li>YouTube video upload frequency for product category</li>
+                            <li>Reddit discussion velocity and sentiment shifts</li>
+                            <li>Amazon search rank changes and review accumulation</li>
+                            <li>Google Trends trajectory patterns</li>
+                        </ul>
+                        <p>Viral products show characteristic acceleration patterns 30-60 days before mainstream awareness. We also detect saturation signals (price compression, complaint increases) that indicate peak or decline.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3><span class="vertical-tag">FinTech</span>How do you assess trust signals for financial products?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Trust signals for FinTech appear across multiple sources:</p>
+                        <ul>
+                            <li>App store review sentiment (iOS, Google Play)</li>
+                            <li>Reddit personal finance discussions (r/personalfinance, r/investing)</li>
+                            <li>Twitter complaint patterns and response times</li>
+                            <li>Better Business Bureau filings and resolutions</li>
+                            <li>CFPB complaint database patterns</li>
+                            <li>Trustpilot and review platform trends</li>
+                        </ul>
+                        <p>We analyze language patterns specifically around security concerns, fraud reports, customer service responsiveness, and fee transparency.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3><span class="vertical-tag">Real Estate</span>How local can you get with neighborhood analysis?</h3>
+                    <span class="faq-toggle"></span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>We can analyze down to zip code level. Our location-specific sources include:</p>
+                        <ul>
+                            <li>Reddit city-specific subreddits (r/Austin, r/Miami, etc.)</li>
+                            <li>Zillow and Redfin neighborhood reviews</li>
+                            <li>City-Data forum discussions</li>
+                            <li>Nextdoor neighborhood conversations</li>
+                            <li>Crime statistics and trend data</li>
+                            <li>School rating changes (GreatSchools, Niche)</li>
+                            <li>Transit access and infrastructure announcements</li>
+                        </ul>
+                        <p>Example: "East Austin 78702" receives completely different analysis than "West Austin 78746" because the signal profiles, demographics, and market dynamics are distinct.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Still Have Questions?</h2>
+            <p>Our team is available to discuss your specific situation and answer questions about how ROUZE can help with your market intelligence needs.</p>
+            <div class="cta-buttons">
+                <a href="/vertical-selector" class="cta-button">Start Your Analysis</a>
+                <a href="mailto:support@rouze.io" class="cta-button secondary">Contact Support</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // FAQ Accordion Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items in the same category
+                const category = item.closest('.faq-category');
+                category.querySelectorAll('.faq-item').forEach(faqItem => {
+                    faqItem.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for quick nav
+        document.querySelectorAll('.quick-nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

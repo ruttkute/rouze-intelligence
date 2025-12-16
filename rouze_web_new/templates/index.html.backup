@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROUZE - Market Intelligence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #1a0033 0%, #2d1b4e 50%, #0f3a5a 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #B0A6DF;
+            min-height: 100vh;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+        nav a {
+            color: #B0A6DF;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s ease;
+        }
+        nav a:hover {
+            color: #3A8FC3;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .subtitle {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #3A8FC3;
+            color: white;
+            padding: 16px 48px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s ease;
+            font-size: 16px;
+        }
+        .cta-button:hover {
+            background: rgba(58, 143, 195, 0.9);
+            transform: translateY(-2px);
+        }
+        .pricing-section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+        .pricing-card {
+            background: rgba(82, 66, 92, 0.2);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 12px;
+            padding: 40px;
+            backdrop-filter: blur(45px);
+            transition: 0.3s ease;
+        }
+        .pricing-card:hover {
+            background: rgba(82, 66, 92, 0.4);
+            border-color: rgba(58, 143, 195, 0.5);
+        }
+        .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #3A8FC3;
+            margin: 16px 0;
+        }
+        .timeline {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            nav { flex-direction: column; gap: 20px; }
+            nav ul { flex-direction: column; gap: 16px; }
+            .hero { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">ROUZE</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/methodology">Methodology</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>Transform Raw Signals Into Strategic Advantage</h1>
+        <p class="subtitle">Market intelligence in 24-48 hours. Not 3-6 months. Not surveys. Real customer conversations.</p>
+        <a href="/vertical-selector" class="cta-button">Start Free Analysis</a>
+    </div>
+
+    <div class="pricing-section">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 36px; text-align: center; margin-bottom: 10px;">Pricing</h2>
+        <p style="text-align: center; opacity: 0.7; margin-bottom: 40px;">Three tiers. One mission: Give you market truth.</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 style="font-family: 'Playfair Display', serif;">Quick Intelligence</h3>
+                <div class="price">$300-800</div>
+                <div class="timeline">24-48 hours</div>
+                <p style="font-size: 14px; opacity: 0.8;">Fast market validation. Perfect for launch decisions.</p>
+                <a href="/vertical-selector" class="cta-button" style="display: inline-block; margin-top: 20px; font-size: 14px; padding: 12px 32px;">Choose</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3 style="font-family: 'Playfair Display', serif;">Strategic Intelligence</h3>
+                <div class="price">$800-2,000</div>
+                <div class="timeline">5-7 days</div>
+                <p style="font-size: 14px; opacity: 0.8;">Deep analysis. Competitive positioning. Market strategy.</p>
+                <a href="/vertical-selector" class="cta-button" style="display: inline-block; margin-top: 20px; font-size: 14px; padding: 12px 32px;">Choose</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3 style="font-family: 'Playfair Display', serif;">Predictive Intelligence</h3>
+                <div class="price">$2,000-5,000</div>
+                <div class="timeline">10-14 days</div>
+                <p style="font-size: 14px; opacity: 0.8;">Forecasting. Scenario planning. Risk assessment.</p>
+                <a href="/vertical-selector" class="cta-button" style="display: inline-block; margin-top: 20px; font-size: 14px; padding: 12px 32px;">Choose</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

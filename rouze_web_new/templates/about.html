@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - ROUZE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION */
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            margin: -20px -20px 40px -20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #B0A6DF;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            margin-bottom: 70px;
+            padding-top: 20px;
+        }
+
+        .hero-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #3A8FC3;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #B0A6DF;
+            line-height: 1.15;
+        }
+
+        .hero .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-style: italic;
+            color: rgba(176, 166, 223, 0.7);
+            line-height: 1.5;
+        }
+
+        /* ESSAY CONTENT */
+        .essay {
+            margin-bottom: 70px;
+        }
+
+        .essay-section {
+            margin-bottom: 50px;
+        }
+
+        .essay-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .essay-section p {
+            font-size: 16px;
+            color: rgba(176, 166, 223, 0.85);
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+
+        .essay-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .essay-section strong {
+            color: #B0A6DF;
+            font-weight: 600;
+        }
+
+        .essay-section em {
+            font-style: italic;
+            color: rgba(176, 166, 223, 0.9);
+        }
+
+        /* PULL QUOTE */
+        .pull-quote {
+            margin: 40px 0;
+            padding: 32px 40px;
+            background: rgba(82, 66, 92, 0.15);
+            border-left: 3px solid #3A8FC3;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .pull-quote p {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-style: italic;
+            color: rgba(176, 166, 223, 0.9);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* PRINCIPLES LIST */
+        .principles-list {
+            margin: 30px 0;
+        }
+
+        .principle-item {
+            padding: 24px 28px;
+            background: rgba(82, 66, 92, 0.1);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 10px;
+            margin-bottom: 16px;
+        }
+
+        .principle-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .principle-item h3::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #3A8FC3;
+            border-radius: 50%;
+        }
+
+        .principle-item p {
+            font-size: 15px;
+            color: rgba(176, 166, 223, 0.75);
+            line-height: 1.7;
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+
+        /* BULLET LIST */
+        .essay-list {
+            margin: 24px 0;
+            padding-left: 24px;
+        }
+
+        .essay-list li {
+            font-size: 16px;
+            color: rgba(176, 166, 223, 0.85);
+            line-height: 1.8;
+            margin-bottom: 12px;
+            position: relative;
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .essay-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: #3A8FC3;
+            border-radius: 50%;
+        }
+
+        /* AUDIENCE SECTION */
+        .audience-section {
+            background: rgba(82, 66, 92, 0.12);
+            border: 1px solid rgba(176, 166, 223, 0.12);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+
+        .audience-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .audience-card {
+            padding: 20px 24px;
+            background: rgba(26, 13, 46, 0.3);
+            border-radius: 10px;
+        }
+
+        .audience-card.positive {
+            border-left: 3px solid #4ade80;
+        }
+
+        .audience-card.negative {
+            border-left: 3px solid rgba(176, 166, 223, 0.3);
+        }
+
+        .audience-card h4 {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .audience-card.positive h4 {
+            color: #4ade80;
+        }
+
+        .audience-card.negative h4 {
+            color: rgba(176, 166, 223, 0.5);
+        }
+
+        .audience-card ul {
+            list-style: none;
+        }
+
+        .audience-card ul li {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.75);
+            line-height: 1.6;
+            margin-bottom: 10px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .audience-card.positive ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 5px;
+            height: 5px;
+            background: #4ade80;
+            border-radius: 50%;
+        }
+
+        .audience-card.negative ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 5px;
+            height: 5px;
+            background: rgba(176, 166, 223, 0.3);
+            border-radius: 50%;
+        }
+
+        /* FOUNDER SIGNATURE */
+        .founder-signature {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+            text-align: center;
+        }
+
+        .founder-signature .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 6px;
+        }
+
+        .founder-signature .title {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.6);
+            margin-bottom: 24px;
+        }
+
+        .founder-signature .closing-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-style: italic;
+            color: rgba(176, 166, 223, 0.7);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* THE BET SECTION */
+        .bet-section {
+            background: rgba(58, 143, 195, 0.08);
+            border: 1px solid rgba(58, 143, 195, 0.15);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+
+        .bet-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 24px;
+        }
+
+        .bet-section p {
+            font-size: 16px;
+            color: rgba(176, 166, 223, 0.85);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .bet-list {
+            margin: 24px 0 0 0;
+        }
+
+        .bet-list li {
+            font-size: 16px;
+            color: rgba(176, 166, 223, 0.85);
+            line-height: 1.8;
+            margin-bottom: 12px;
+            padding-left: 28px;
+            position: relative;
+            list-style: none;
+        }
+
+        .bet-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 16px;
+            height: 2px;
+            background: #3A8FC3;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            text-align: center;
+            padding: 50px 40px;
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.12);
+            border-radius: 16px;
+            margin-top: 60px;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: rgba(176, 166, 223, 0.75);
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #3A8FC3;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #4da3d4;
+            transform: translateY(-2px);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 16px 20px;
+                margin: -20px -20px 30px -20px;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                font-size: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .subtitle {
+                font-size: 17px;
+            }
+
+            .essay-section h2 {
+                font-size: 24px;
+            }
+
+            .essay-section p {
+                font-size: 15px;
+            }
+
+            .pull-quote {
+                padding: 24px;
+                margin: 30px 0;
+            }
+
+            .pull-quote p {
+                font-size: 18px;
+            }
+
+            .audience-section {
+                padding: 28px 20px;
+            }
+
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bet-section {
+                padding: 28px 20px;
+            }
+
+            .cta-section {
+                padding: 40px 24px;
+            }
+
+            .cta-section h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <a href="/" class="logo">ROUZE</a>
+        <div class="nav-links">
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/case-studies">Case Studies</a>
+            <a href="/security">Security</a>
+            <a href="/about" class="active">About</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <p class="hero-label">The Philosophy Behind ROUZE</p>
+            <h1>The Problem With Asking</h1>
+            <p class="subtitle">Why listening to what people already say beats asking what they think</p>
+        </div>
+
+        <!-- Essay Content -->
+        <div class="essay">
+            <!-- Section 1 -->
+            <div class="essay-section">
+                <p>There's a peculiar phenomenon in market research: the moment you ask someone what they want, they lie to you.</p>
+                <p>Not maliciously. Not intentionally. But they lie nonetheless.</p>
+                <p>Ask a customer if they'd pay $50 for your product, and they'll say yes. Watch what they actually do, and they'll balk at $30. Ask a patient if they're worried about a drug's side effects, and they'll give you the answer they think you want to hear. Check what they're searching at 2 AM, and you'll see their real concerns.</p>
+                <p>Surveys don't capture truth. They capture <em>performance</em> - the version of themselves people present when they know they're being watched.</p>
+                <p>This is the fundamental epistemological crisis of market intelligence: <strong>the act of asking changes the answer.</strong></p>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="essay-section">
+                <h2>Listening vs. Asking</h2>
+                <p>ROUZE exists because I got tired of watching companies make million-dollar decisions based on what people <em>said</em> they wanted, only to discover what people <em>actually</em> wanted six months too late.</p>
+                <p>Traditional market research operates on a simple premise: if you want to know what people think, ask them. Run a survey. Conduct focus groups. Send questionnaires.</p>
+                <p>But here's what I learned: people don't know what they think until they think it. And they don't think it when you're asking. They think it when they're:</p>
+                <ul class="essay-list">
+                    <li>Complaining on Reddit at midnight about your competitor's pricing</li>
+                    <li>Leaving a 1-star review because a feature is missing</li>
+                    <li>Discussing trade-offs with strangers in online forums</li>
+                    <li>Warning others about problems they've encountered</li>
+                </ul>
+                <p>These moments - unfiltered, unsolicited, unperformed - contain more truth than any survey ever could.</p>
+            </div>
+
+            <div class="pull-quote">
+                <p>The market is always signaling. Most companies just aren't listening.</p>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="essay-section">
+                <h2>The Signal Is Already There</h2>
+                <p>The data you need already exists. Your customers are already talking. Your market is already signaling.</p>
+                <p>The problem isn't <em>finding</em> the signal. It's:</p>
+                <ul class="essay-list">
+                    <li>Knowing where to look (Reddit vs LinkedIn vs G2 vs patient forums)</li>
+                    <li>Separating signal from noise (10,000 mentions into 50 patterns into 5 insights)</li>
+                    <li>Understanding what it <em>means</em> for your specific situation</li>
+                </ul>
+                <p>Most companies miss this intelligence completely. They wait for quarterly reports. They commission expensive research. They discover trends when it's too late to capitalize.</p>
+                <p>Meanwhile, the early signals - the weak but telling indicators - were available six months earlier. They just weren't listening.</p>
+            </div>
+
+            <!-- Section 4: Principles -->
+            <div class="essay-section">
+                <h2>Why ROUZE</h2>
+                <p>I built ROUZE on three philosophical principles:</p>
+                
+                <div class="principles-list">
+                    <div class="principle-item">
+                        <h3>Revealed Preference Over Stated Preference</h3>
+                        <p>What people <em>do</em> tells you more than what they <em>say</em>. Watch behavior, not declarations.</p>
+                    </div>
+                    <div class="principle-item">
+                        <h3>Unfiltered Over Filtered</h3>
+                        <p>The most valuable insights come from moments when people don't know they're being observed. Reddit arguments reveal more than focus groups. G2 reviews reveal more than NPS surveys.</p>
+                    </div>
+                    <div class="principle-item">
+                        <h3>Speed Over Perfection</h3>
+                        <p>A good decision <em>today</em> beats a perfect decision <em>six months from now</em>. Markets move. Competitors launch. Windows close. The value of intelligence decays rapidly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="essay-section">
+                <h2>The Alternative Approach</h2>
+                <p>ROUZE doesn't ask your customers what they think.</p>
+                <p>We listen to what they're already saying - on Reddit, in app reviews, on Twitter, in forums, in complaints, in praise, in heated debates at 11 PM when they're frustrated with your competitor.</p>
+                <p>We don't survey 500 people and extrapolate.</p>
+                <p>We analyze 50,000 signals and look for patterns.</p>
+                <p>We don't claim 95% confidence based on statistical models.</p>
+                <p>We show you the <em>actual quotes</em>, the <em>actual sources</em>, the <em>actual evidence</em> - and let you judge for yourself.</p>
+            </div>
+
+            <!-- Audience Section -->
+            <div class="audience-section">
+                <h2>Who This Is For</h2>
+                <div class="audience-grid">
+                    <div class="audience-card positive">
+                        <h4>ROUZE IS FOR PEOPLE WHO</h4>
+                        <ul>
+                            <li>Trust their judgment but want better data to judge with</li>
+                            <li>Value <em>understanding</em> over <em>certainty</em></li>
+                            <li>Prefer 85% confidence today over 95% confidence six months from now</li>
+                            <li>Want to see the work, not just the conclusion</li>
+                            <li>Believe markets signal before they move</li>
+                        </ul>
+                    </div>
+                    <div class="audience-card negative">
+                        <h4>ROUZE IS NOT FOR PEOPLE WHO</h4>
+                        <ul>
+                            <li>Need a brand-name stamp of approval</li>
+                            <li>Want someone else to make their decisions</li>
+                            <li>Prefer comprehensive reports over actionable intelligence</li>
+                            <li>Value process over outcomes</li>
+                            <li>Have six months to wait for answers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Bet Section -->
+            <div class="bet-section">
+                <h2>The Bet We're Making</h2>
+                <p>We're betting that in an age where everyone is talking online, listening beats asking.</p>
+                <ul class="bet-list">
+                    <li>We're betting that 10,000 unfiltered signals reveal more than 100 carefully curated survey responses.</li>
+                    <li>We're betting that speed and transparency matter more than brand recognition.</li>
+                    <li>We're betting that you're smart enough to evaluate evidence for yourself - you just need someone to collect it, validate it, and translate it.</li>
+                    <li>We're betting that the future of market intelligence isn't surveys and focus groups.</li>
+                </ul>
+                <p>It's signals.</p>
+            </div>
+
+            <!-- Founder Signature -->
+            <div class="founder-signature">
+                <p class="name">Arune</p>
+                <p class="title">Founder, ROUZE Intelligence</p>
+                <p class="closing-quote">"The market is always signaling. Most companies just aren't listening."</p>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Ready to Start Listening?</h2>
+            <p>Choose your market vertical and answer our deep questionnaire. We'll show you what your market is already telling you.</p>
+            <a href="/vertical-selector" class="cta-button">Start Your Analysis</a>
+        </div>
+    </div>
+</body>
+</html>

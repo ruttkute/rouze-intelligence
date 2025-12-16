@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Before You Begin - ROUZE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 540px;
+            width: 100%;
+        }
+
+        /* LOGO */
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        /* MAIN CARD */
+        .main-card {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 20px;
+            padding: 36px;
+        }
+
+        /* HEADER */
+        .card-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(58, 143, 195, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .card-icon svg {
+            width: 28px;
+            height: 28px;
+            color: #3A8FC3;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 8px;
+        }
+
+        .card-subtitle {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.6);
+        }
+
+        /* SUMMARY BOX */
+        .summary-box {
+            background: rgba(26, 13, 46, 0.5);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .summary-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(176, 166, 223, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .summary-list {
+            list-style: none;
+        }
+
+        .summary-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.8);
+        }
+
+        .summary-icon {
+            width: 18px;
+            height: 18px;
+            background: rgba(58, 143, 195, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .summary-icon svg {
+            width: 10px;
+            height: 10px;
+            color: #3A8FC3;
+        }
+
+        /* SINGLE CHECKBOX */
+        .agreement-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 18px;
+            background: rgba(76, 175, 80, 0.05);
+            border: 1px solid rgba(76, 175, 80, 0.15);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 20px;
+        }
+
+        .agreement-checkbox:hover {
+            border-color: rgba(76, 175, 80, 0.3);
+            background: rgba(76, 175, 80, 0.08);
+        }
+
+        .agreement-checkbox.checked {
+            border-color: rgba(76, 175, 80, 0.5);
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .checkbox-box {
+            width: 24px;
+            height: 24px;
+            border: 2px solid rgba(176, 166, 223, 0.3);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .agreement-checkbox.checked .checkbox-box {
+            background: #4CAF50;
+            border-color: #4CAF50;
+        }
+
+        .checkbox-box svg {
+            width: 14px;
+            height: 14px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .agreement-checkbox.checked .checkbox-box svg {
+            opacity: 1;
+        }
+
+        .checkbox-text {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.9);
+            line-height: 1.5;
+        }
+
+        .checkbox-text a {
+            color: #3A8FC3;
+            text-decoration: none;
+        }
+
+        .checkbox-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* BUTTONS */
+        .btn-continue {
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, #3A8FC3 0%, #2d7eb3 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .btn-continue.enabled {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .btn-continue.enabled:hover {
+            box-shadow: 0 4px 20px rgba(58, 143, 195, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER LINKS */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .footer-links a {
+            color: rgba(176, 166, 223, 0.5);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #3A8FC3;
+        }
+
+        /* EXPAND LINK */
+        .expand-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: rgba(176, 166, 223, 0.5);
+            font-size: 13px;
+            text-decoration: none;
+            margin-top: 16px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .expand-link:hover {
+            color: #3A8FC3;
+        }
+
+        .expand-link svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.2s ease;
+        }
+
+        .expand-link.expanded svg {
+            transform: rotate(180deg);
+        }
+
+        /* FULL TERMS (HIDDEN) */
+        .full-terms {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(26, 13, 46, 0.5);
+            border-radius: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .full-terms.visible {
+            display: block;
+        }
+
+        .full-terms h4 {
+            font-size: 14px;
+            color: #B0A6DF;
+            margin: 16px 0 8px;
+        }
+
+        .full-terms h4:first-child {
+            margin-top: 0;
+        }
+
+        .full-terms p, .full-terms li {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.7);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .full-terms ul {
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+
+        /* SCROLLBAR */
+        .full-terms::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .full-terms::-webkit-scrollbar-track {
+            background: rgba(176, 166, 223, 0.1);
+            border-radius: 3px;
+        }
+
+        .full-terms::-webkit-scrollbar-thumb {
+            background: rgba(176, 166, 223, 0.3);
+            border-radius: 3px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 16px;
+            }
+
+            .main-card {
+                padding: 24px;
+            }
+
+            .card-title {
+                font-size: 20px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">ROUZE</div>
+
+        <div class="main-card">
+            <!-- HEADER -->
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <h1 class="card-title">Before You Begin</h1>
+                <p class="card-subtitle">Quick confirmation about our service</p>
+            </div>
+
+            <!-- SUMMARY -->
+            <div class="summary-box">
+                <div class="summary-title">What you should know</div>
+                <ul class="summary-list">
+                    <li class="summary-item">
+                        <span class="summary-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                        <span>We provide market intelligence to inform your decisions</span>
+                    </li>
+                    <li class="summary-item">
+                        <span class="summary-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                        <span>This is research data, not legal or financial advice</span>
+                    </li>
+                    <li class="summary-item">
+                        <span class="summary-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                        <span>You make the final decisions for your business</span>
+                    </li>
+                    <li class="summary-item">
+                        <span class="summary-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                        <span>Not satisfied? We'll revise until you are</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- SINGLE CHECKBOX -->
+            <div class="agreement-checkbox" onclick="toggleAgreement(this)">
+                <div class="checkbox-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="checkbox-text">
+                    I understand this is market intelligence for informational purposes, and I agree to the <a href="/terms" target="_blank" onclick="event.stopPropagation()">Terms</a> and <a href="/privacy" target="_blank" onclick="event.stopPropagation()">Privacy Policy</a>.
+                </span>
+            </div>
+
+            <!-- CONTINUE BUTTON -->
+            <button class="btn-continue" id="continueBtn" onclick="continueToCheckout()">
+                Continue to Checkout
+            </button>
+
+            <!-- EXPAND FULL TERMS -->
+            <a class="expand-link" onclick="toggleFullTerms(this)">
+                <span>Read full agreement details</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </a>
+
+            <!-- FULL TERMS (COLLAPSIBLE) -->
+            <div class="full-terms" id="fullTerms">
+                <h4>Nature of Services</h4>
+                <p>ROUZE provides market intelligence analysis based on publicly available information. Our analysis represents professional interpretation of market signals and should be considered informational only.</p>
+
+                <h4>Not Professional Advice</h4>
+                <p>Our deliverables do NOT constitute:</p>
+                <ul>
+                    <li>Legal advice or legal opinions</li>
+                    <li>Financial or investment advice</li>
+                    <li>Medical or regulatory compliance advice</li>
+                    <li>Tax or accounting advice</li>
+                </ul>
+                <p>Consult licensed professionals before making important decisions.</p>
+
+                <h4>No Guaranteed Outcomes</h4>
+                <p>We do not guarantee accuracy, completeness, or specific business outcomes. Markets are unpredictable, and our analysis represents our best professional interpretation based on available data.</p>
+
+                <h4>Your Responsibility</h4>
+                <p>You accept responsibility for business decisions you make, including those informed by our analysis. Use our insights as one input among many in your decision-making process.</p>
+
+                <h4>Limitation of Liability</h4>
+                <p>Our liability is limited to the fees you paid for services. We are not liable for indirect, consequential, or punitive damages.</p>
+
+                <h4>Dispute Resolution</h4>
+                <p>Disputes will be resolved through binding arbitration under Delaware law. Class action lawsuits are waived.</p>
+
+                <h4>Satisfaction Guarantee</h4>
+                <p>If your analysis doesn't meet expectations, we'll revise it at no additional cost until you're satisfied. Revisions must be requested within 14 days of delivery.</p>
+            </div>
+
+            <!-- FOOTER LINKS -->
+            <div class="footer-links">
+                <a href="/terms" target="_blank">Terms of Service</a>
+                <a href="/privacy" target="_blank">Privacy Policy</a>
+                <a href="mailto:ruttkute@gmail.com">Questions?</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isAgreed = false;
+
+        function toggleAgreement(element) {
+            element.classList.toggle('checked');
+            isAgreed = element.classList.contains('checked');
+            
+            const btn = document.getElementById('continueBtn');
+            if (isAgreed) {
+                btn.classList.add('enabled');
+            } else {
+                btn.classList.remove('enabled');
+            }
+        }
+
+        function toggleFullTerms(element) {
+            element.classList.toggle('expanded');
+            document.getElementById('fullTerms').classList.toggle('visible');
+        }
+
+        function continueToCheckout() {
+            if (!isAgreed) return;
+
+            // Store agreement acceptance with legal acknowledgments
+            const agreementData = {
+                accepted: true,
+                date: new Date().toISOString(),
+                ip: 'captured-server-side',
+                acknowledgments: [
+                    'Services are informational market intelligence only',
+                    'Not legal, financial, investment, or professional advice',
+                    'No guarantees of accuracy or business outcomes',
+                    'Client accepts responsibility for all business decisions',
+                    'Liability limited to fees paid for services',
+                    'Disputes resolved by binding arbitration',
+                    'Class action rights waived',
+                    'Agreed to Terms of Service',
+                    'Agreed to Privacy Policy'
+                ]
+            };
+
+            sessionStorage.setItem('agreementAccepted', 'true');
+            sessionStorage.setItem('agreementData', JSON.stringify(agreementData));
+
+            // Get URL params and redirect
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('project_id') || '';
+            const tier = urlParams.get('tier') || '';
+            const total = urlParams.get('total') || '';
+
+            window.location.href = `checkout.html?project_id=${projectId}&tier=${tier}&total=${total}`;
+        }
+    </script>
+</body>
+</html>

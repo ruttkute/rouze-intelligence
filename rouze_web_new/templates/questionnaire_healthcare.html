@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Questionnaire - ROUZE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION */
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            margin: -20px -20px 40px -20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #B0A6DF;
+        }
+
+        /* PROGRESS BAR */
+        .progress-container {
+            margin-bottom: 40px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .progress-title {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.7);
+        }
+
+        .progress-step {
+            font-size: 14px;
+            color: #3A8FC3;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: rgba(176, 166, 223, 0.15);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3A8FC3, #5BA3D1);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .vertical-badge {
+            display: inline-block;
+            background: rgba(58, 143, 195, 0.15);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            color: #3A8FC3;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #B0A6DF;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: rgba(176, 166, 223, 0.75);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* FORM SECTIONS */
+        .form-section {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .section-number {
+            width: 40px;
+            height: 40px;
+            background: rgba(58, 143, 195, 0.2);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: #3A8FC3;
+        }
+
+        .section-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 4px;
+        }
+
+        .section-info p {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.6);
+        }
+
+        /* QUESTIONS */
+        .question {
+            margin-bottom: 28px;
+        }
+
+        .question:last-child {
+            margin-bottom: 0;
+        }
+
+        .question-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .question-number {
+            font-size: 12px;
+            color: #3A8FC3;
+            font-weight: 600;
+            background: rgba(58, 143, 195, 0.1);
+            padding: 4px 10px;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+
+        .question-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #B0A6DF;
+            line-height: 1.4;
+        }
+
+        .question-label .required {
+            color: #e57373;
+            margin-left: 4px;
+        }
+
+        .helper-text {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.55);
+            margin-bottom: 14px;
+            line-height: 1.5;
+            padding-left: 0;
+        }
+
+        /* INPUT STYLES */
+        select,
+        textarea,
+        input[type="text"] {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(26, 13, 46, 0.5);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 10px;
+            color: #B0A6DF;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        select:focus,
+        textarea:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #3A8FC3;
+            background: rgba(26, 13, 46, 0.7);
+            box-shadow: 0 0 0 3px rgba(58, 143, 195, 0.15);
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23B0A6DF' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+
+        select option {
+            background: #1a0d2e;
+            color: #B0A6DF;
+            padding: 12px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* CHECKBOX GROUP */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            background: rgba(26, 13, 46, 0.4);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            border-color: rgba(58, 143, 195, 0.4);
+            background: rgba(26, 13, 46, 0.6);
+        }
+
+        .checkbox-item.selected {
+            border-color: #3A8FC3;
+            background: rgba(58, 143, 195, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkbox-custom {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border: 2px solid rgba(176, 166, 223, 0.3);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            margin-top: 1px;
+        }
+
+        .checkbox-item.selected .checkbox-custom {
+            background: #3A8FC3;
+            border-color: #3A8FC3;
+        }
+
+        .checkbox-custom::after {
+            content: '';
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .checkbox-item.selected .checkbox-custom::after {
+            opacity: 1;
+        }
+
+        .checkbox-label {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.85);
+            line-height: 1.4;
+        }
+
+        /* RADIO GROUP */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            background: rgba(26, 13, 46, 0.4);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-item:hover {
+            border-color: rgba(58, 143, 195, 0.4);
+            background: rgba(26, 13, 46, 0.6);
+        }
+
+        .radio-item.selected {
+            border-color: #3A8FC3;
+            background: rgba(58, 143, 195, 0.1);
+        }
+
+        .radio-item input[type="radio"] {
+            display: none;
+        }
+
+        .radio-custom {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border: 2px solid rgba(176, 166, 223, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            margin-top: 1px;
+        }
+
+        .radio-item.selected .radio-custom {
+            border-color: #3A8FC3;
+        }
+
+        .radio-custom::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #3A8FC3;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .radio-item.selected .radio-custom::after {
+            opacity: 1;
+        }
+
+        .radio-label {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.85);
+            line-height: 1.4;
+        }
+
+        /* CONDITIONAL FIELD */
+        .conditional-field {
+            margin-top: 12px;
+            padding-left: 32px;
+            display: none;
+        }
+
+        .conditional-field.visible {
+            display: block;
+        }
+
+        .conditional-field input {
+            width: 100%;
+        }
+
+        /* COMPETITOR INPUTS */
+        .competitor-inputs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .competitor-inputs input {
+            width: 100%;
+        }
+
+        /* SUBMIT SECTION */
+        .submit-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .submit-note {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.6);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .submit-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 48px;
+            background: linear-gradient(135deg, #3A8FC3 0%, #2d7eb3 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(58, 143, 195, 0.3);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(58, 143, 195, 0.4);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        .submit-button .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .submit-button:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        /* BACK LINK */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 32px;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #B0A6DF;
+        }
+
+        /* VALIDATION */
+        .error-message {
+            color: #e57373;
+            font-size: 13px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .question.error select,
+        .question.error textarea,
+        .question.error input[type="text"] {
+            border-color: #e57373;
+        }
+
+        .question.error .error-message {
+            display: block;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-links {
+                gap: 24px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .form-section {
+                padding: 24px 20px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .competitor-inputs {
+                grid-template-columns: 1fr;
+            }
+
+            .submit-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="nav-bar">
+        <a href="/" class="logo">ROUZE</a>
+        <div class="nav-links">
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/case-studies">Case Studies</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- BACK LINK -->
+        <a href="/vertical-selector" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Vertical Selection
+        </a>
+
+        <!-- PROGRESS BAR -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <span class="progress-title">Questionnaire Progress</span>
+                <span class="progress-step">Step 1 of 3: Answer Questions</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 33%"></div>
+            </div>
+        </div>
+
+        <!-- HERO -->
+        <div class="hero">
+            <div class="vertical-badge">Healthcare Vertical</div>
+            <h1>Healthcare Market Intelligence</h1>
+            <p>15 questions to customize your analysis. The more detail you provide, the more actionable your insights will be.</p>
+        </div>
+
+        <!-- QUESTIONNAIRE FORM -->
+        <form id="healthcareForm">
+
+            <!-- SECTION 1: Company & Context -->
+            <div class="form-section">
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <div class="section-info">
+                        <h2>Company and Context</h2>
+                        <p>Help us understand your business and current situation</p>
+                    </div>
+                </div>
+
+                <!-- Q1: Company Type -->
+                <div class="question" data-question="1">
+                    <div class="question-header">
+                        <span class="question-number">Q1</span>
+                        <label class="question-label">What is your healthcare company type?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">This determines which signal sources and regulatory frameworks are most relevant to your analysis.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="company_type" value="medical_device" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Medical device manufacturer</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="company_type" value="pharmaceutical">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Pharmaceutical company</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="company_type" value="digital_health">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Digital health / health tech</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="company_type" value="consulting">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Medical consulting firm</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="company_type" value="provider">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Healthcare provider / hospital system</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="company_type" value="biotech">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Biotech / life sciences</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="company_type" value="other">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Other</span>
+                        </label>
+                    </div>
+                    <div class="conditional-field" id="company_type_other">
+                        <input type="text" name="company_type_other" placeholder="Please specify your company type">
+                    </div>
+                    <p class="error-message">Please select your company type</p>
+                </div>
+
+                <!-- Q2: Primary Focus -->
+                <div class="question" data-question="2">
+                    <div class="question-header">
+                        <span class="question-number">Q2</span>
+                        <label class="question-label">What is your primary area of focus?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Helps us identify the specific market signals and competitors most relevant to your space.</p>
+                    <select name="primary_focus" required>
+                        <option value="">Select your primary focus area</option>
+                        <option value="cardiology">Cardiology devices</option>
+                        <option value="orthopedic">Orthopedic implants</option>
+                        <option value="surgical">Surgical instruments</option>
+                        <option value="diagnostics">Diagnostics / lab equipment</option>
+                        <option value="digital_platforms">Digital health platforms</option>
+                        <option value="mental_health">Mental health solutions</option>
+                        <option value="womens_health">Women's health</option>
+                        <option value="oncology">Oncology</option>
+                        <option value="neurology">Neurology / neurotech</option>
+                        <option value="diabetes">Diabetes management</option>
+                        <option value="respiratory">Respiratory care</option>
+                        <option value="imaging">Medical imaging</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <p class="error-message">Please select your primary focus area</p>
+                </div>
+
+                <!-- Q3: Product Stage -->
+                <div class="question" data-question="3">
+                    <div class="question-header">
+                        <span class="question-number">Q3</span>
+                        <label class="question-label">What is your product stage?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Different stages require monitoring different signals. Pre-clinical watches competitor trials; post-market watches adverse events.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="product_stage" value="preclinical" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Pre-clinical research</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="product_stage" value="clinical_trials">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Clinical trials</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="product_stage" value="fda_approval">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">FDA approval process</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="product_stage" value="recently_approved">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Recently approved (within 2 years)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="product_stage" value="established">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Established product (2-5 years on market)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="product_stage" value="mature">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Mature product (5+ years, established market)</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select your product stage</p>
+                </div>
+
+                <!-- Q4: Revenue Range -->
+                <div class="question" data-question="4">
+                    <div class="question-header">
+                        <span class="question-number">Q4</span>
+                        <label class="question-label">What is your approximate annual revenue range?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Revenue size indicates market opportunity, competitive intensity, and regulatory scrutiny level.</p>
+                    <select name="revenue_range" required>
+                        <option value="">Select your revenue range</option>
+                        <option value="prerevenue">Pre-revenue (development stage)</option>
+                        <option value="under1m">Less than $1M</option>
+                        <option value="1m_10m">$1M - $10M</option>
+                        <option value="10m_50m">$10M - $50M</option>
+                        <option value="50m_200m">$50M - $200M</option>
+                        <option value="over200m">$200M+</option>
+                    </select>
+                    <p class="error-message">Please select your revenue range</p>
+                </div>
+            </div>
+
+            <!-- SECTION 2: Regulatory & Safety Intelligence -->
+            <div class="form-section">
+                <div class="section-header">
+                    <div class="section-number">2</div>
+                    <div class="section-info">
+                        <h2>Regulatory and Safety Intelligence</h2>
+                        <p>Critical for healthcare markets with long regulatory timelines</p>
+                    </div>
+                </div>
+
+                <!-- Q5: Regulatory Risks -->
+                <div class="question" data-question="5">
+                    <div class="question-header">
+                        <span class="question-number">Q5</span>
+                        <label class="question-label">What regulatory risks concern you most right now?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Select all that apply. Each concern requires monitoring different signal sources.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_risks" value="safety_signals">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Emerging safety signals in the market</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_risks" value="fda_delays">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">FDA approval delays or rejections</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_risks" value="competitor_recalls">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Competitor adverse event recalls</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_risks" value="policy_changes">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Regulatory policy changes</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_risks" value="international">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">International market compliance</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_risks" value="post_market">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Post-market surveillance requirements</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_risks" value="liability">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Liability and insurance issues</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_risks" value="trial_enrollment">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Clinical trial enrollment challenges</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select at least one regulatory concern</p>
+                </div>
+
+                <!-- Q6: Safety Concerns -->
+                <div class="question" data-question="6">
+                    <div class="question-header">
+                        <span class="question-number">Q6</span>
+                        <label class="question-label">Are there specific safety concerns you're monitoring for your product?</label>
+                    </div>
+                    <p class="helper-text">Describe exact concerns. Example: "Unexpected bleeding complications in patients over 65"</p>
+                    <textarea name="safety_concerns" placeholder="Describe specific safety concerns you want us to monitor..."></textarea>
+                </div>
+
+                <!-- Q7: Competitor Safety -->
+                <div class="question" data-question="7">
+                    <div class="question-header">
+                        <span class="question-number">Q7</span>
+                        <label class="question-label">Do you have competitors whose safety problems could affect your market?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">If a major competitor faces regulatory penalties or recalls, it creates market opportunities or threats for you.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="competitor_safety" value="yes_specific" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Yes - we're monitoring specific competitors</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="competitor_safety" value="unclear">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Unclear - need competitive safety monitoring</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="competitor_safety" value="no">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">No - our market segment faces minimal safety risk</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="competitor_safety" value="dont_know">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Don't know yet</span>
+                        </label>
+                    </div>
+                    <div class="conditional-field" id="competitor_safety_names">
+                        <input type="text" name="competitor_safety_names" placeholder="Which competitors are you monitoring?">
+                    </div>
+                    <p class="error-message">Please select an option</p>
+                </div>
+
+                <!-- Q8: Regulatory Bodies -->
+                <div class="question" data-question="8">
+                    <div class="question-header">
+                        <span class="question-number">Q8</span>
+                        <label class="question-label">What regulatory bodies do you need to watch?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Select all that apply. Each regulator has different signal patterns and announcement timelines.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_bodies" value="fda">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">FDA (United States)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_bodies" value="ema">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">EMA (Europe)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_bodies" value="health_canada">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Health Canada</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_bodies" value="pmda">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">PMDA (Japan)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_bodies" value="nmpa">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">NMPA (China)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_bodies" value="tga">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">TGA (Australia)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_bodies" value="mhra">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">MHRA (UK)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="regulatory_bodies" value="other">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Other international regulators</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select at least one regulatory body</p>
+                </div>
+
+                <!-- Q9: Regulatory Timeline -->
+                <div class="question" data-question="9">
+                    <div class="question-header">
+                        <span class="question-number">Q9</span>
+                        <label class="question-label">What is your timeline for regulatory decisions you're watching?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Timeline affects data freshness requirements. Urgent decisions need daily monitoring; long-term uses trend data.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="regulatory_timeline" value="urgent" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Urgent (decision expected within 3 months)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="regulatory_timeline" value="near_term">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Near-term (3-6 months)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="regulatory_timeline" value="medium_term">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Medium-term (6-12 months)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="regulatory_timeline" value="long_term">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Long-term (12+ months)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="regulatory_timeline" value="ongoing">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Ongoing monitoring (no specific deadline)</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select a timeline</p>
+                </div>
+            </div>
+
+            <!-- SECTION 3: Market & Adoption Intelligence -->
+            <div class="form-section">
+                <div class="section-header">
+                    <div class="section-number">3</div>
+                    <div class="section-info">
+                        <h2>Market and Adoption Intelligence</h2>
+                        <p>Understanding customer behavior and competitive dynamics</p>
+                    </div>
+                </div>
+
+                <!-- Q10: Customer Type -->
+                <div class="question" data-question="10">
+                    <div class="question-header">
+                        <span class="question-number">Q10</span>
+                        <label class="question-label">What is your customer type?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Select all that apply. Different customers discuss on different platforms.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="customer_type" value="providers">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Healthcare providers (hospitals, clinics)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="customer_type" value="patients">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Individual patients / consumers</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="customer_type" value="payers">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Insurance companies / payers</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="customer_type" value="distributors">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Healthcare distributors</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="customer_type" value="pharma">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Pharmaceutical companies</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="customer_type" value="research">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Research institutions</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select at least one customer type</p>
+                </div>
+
+                <!-- Q11: Market Concerns -->
+                <div class="question" data-question="11">
+                    <div class="question-header">
+                        <span class="question-number">Q11</span>
+                        <label class="question-label">What market dynamics are you most concerned about?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Select all that apply. These shape the focus of your market intelligence analysis.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="adoption">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Customer adoption rates</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="feature_requests">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Feature requests / unmet needs</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="pricing">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Pricing sensitivity</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="switching">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Competitive switching behavior</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="segment_growth">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Market segment growth / decline</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="reimbursement">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Reimbursement and payer dynamics</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="geographic">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Geographic expansion potential</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="consolidation">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Market consolidation / M&A activity</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select at least one market concern</p>
+                </div>
+
+                <!-- Q12: Competitive Threat -->
+                <div class="question" data-question="12">
+                    <div class="question-header">
+                        <span class="question-number">Q12</span>
+                        <label class="question-label">What would be the biggest competitive threat to your market position?</label>
+                    </div>
+                    <p class="helper-text">Describe specific scenarios. Example: "A major device company launching a lower-cost alternative" or "Regulatory changes favoring a competing technology"</p>
+                    <textarea name="competitive_threat" placeholder="Describe the competitive threat you're most worried about..."></textarea>
+                </div>
+            </div>
+
+            <!-- SECTION 4: Analysis Specificity -->
+            <div class="form-section">
+                <div class="section-header">
+                    <div class="section-number">4</div>
+                    <div class="section-info">
+                        <h2>Analysis Specificity</h2>
+                        <p>Help us deliver exactly the intelligence you need</p>
+                    </div>
+                </div>
+
+                <!-- Q13: Signal Interests -->
+                <div class="question" data-question="13">
+                    <div class="question-header">
+                        <span class="question-number">Q13</span>
+                        <label class="question-label">What market signals interest you most?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Select 3-5 signals. These become your primary intelligence focus areas.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="adverse_events">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Adverse event reports and safety signals</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="clinical_trials">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Clinical trial results and progress</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="regulatory_approvals">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Regulatory approvals and clearances</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="competitor_launches">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Competitor product launches</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="provider_sentiment">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Healthcare provider sentiment</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="patient_outcomes">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Patient outcome discussions</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="pricing_reimbursement">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Pricing and reimbursement changes</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="technology_trends">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Technology and innovation trends</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="policy_changes">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Healthcare policy changes</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="signal_interests" value="ma_activity">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">M&A and partnership activity</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select 3-5 signal types</p>
+                </div>
+
+                <!-- Q14: Companies to Monitor -->
+                <div class="question" data-question="14">
+                    <div class="question-header">
+                        <span class="question-number">Q14</span>
+                        <label class="question-label">What companies should we monitor?</label>
+                    </div>
+                    <p class="helper-text">List up to 5 competitors or companies whose moves matter to your strategy. Leave blank for broad market intelligence.</p>
+                    <div class="competitor-inputs">
+                        <input type="text" name="company_1" placeholder="Company 1">
+                        <input type="text" name="company_2" placeholder="Company 2">
+                        <input type="text" name="company_3" placeholder="Company 3">
+                        <input type="text" name="company_4" placeholder="Company 4">
+                        <input type="text" name="company_5" placeholder="Company 5">
+                    </div>
+                </div>
+
+                <!-- Q15: Business Decision -->
+                <div class="question" data-question="15">
+                    <div class="question-header">
+                        <span class="question-number">Q15</span>
+                        <label class="question-label">What is the key business decision you're trying to make?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">This is the core question we'll answer. Everything else supports this decision.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="launch" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Should we launch this product? (market demand validation)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="competitive_position">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">How vulnerable is our competitive position? (threat assessment)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="features">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">What features should we prioritize? (product strategy)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="regulatory">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">How do we navigate regulatory changes? (compliance strategy)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="pricing">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">What pricing would maximize adoption? (pricing strategy)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="expansion">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Should we enter this market or geography? (expansion decision)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="investment">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Is this opportunity worth the investment? (investment decision)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="other">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Other decision</span>
+                        </label>
+                    </div>
+                    <div class="conditional-field" id="business_decision_other">
+                        <textarea name="business_decision_other" placeholder="Describe your key business decision..."></textarea>
+                    </div>
+                    <p class="error-message">Please select your key business decision</p>
+                </div>
+            </div>
+
+            <!-- SUBMIT SECTION -->
+            <div class="submit-section">
+                <p class="submit-note">
+                    After submitting, you can optionally upload supporting data and choose your preferred deliverable format.
+                </p>
+                <button type="submit" class="submit-button">
+                    Continue to Data Upload
+                    <span class="arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Toggle selected state for radio items
+        document.querySelectorAll('.radio-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const name = this.querySelector('input[type="radio"]').name;
+                document.querySelectorAll(`input[name="${name}"]`).forEach(input => {
+                    input.closest('.radio-item').classList.remove('selected');
+                });
+                this.classList.add('selected');
+                this.querySelector('input[type="radio"]').checked = true;
+
+                // Handle conditional fields
+                if (name === 'company_type') {
+                    const otherField = document.getElementById('company_type_other');
+                    if (this.querySelector('input').value === 'other') {
+                        otherField.classList.add('visible');
+                    } else {
+                        otherField.classList.remove('visible');
+                    }
+                }
+
+                if (name === 'competitor_safety') {
+                    const namesField = document.getElementById('competitor_safety_names');
+                    if (this.querySelector('input').value === 'yes_specific') {
+                        namesField.classList.add('visible');
+                    } else {
+                        namesField.classList.remove('visible');
+                    }
+                }
+
+                if (name === 'business_decision') {
+                    const otherField = document.getElementById('business_decision_other');
+                    if (this.querySelector('input').value === 'other') {
+                        otherField.classList.add('visible');
+                    } else {
+                        otherField.classList.remove('visible');
+                    }
+                }
+            });
+        });
+
+        // Toggle selected state for checkbox items
+        document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                this.closest('.checkbox-item').classList.toggle('selected', this.checked);
+            });
+        });
+
+        // Form validation and submission
+        document.getElementById('healthcareForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            
+            // Clear previous errors
+            document.querySelectorAll('.question.error').forEach(q => q.classList.remove('error'));
+            
+            // Validate required radio buttons
+            const requiredRadios = ['company_type', 'product_stage', 'competitor_safety', 'regulatory_timeline', 'business_decision'];
+            requiredRadios.forEach(name => {
+                if (!document.querySelector(`input[name="${name}"]:checked`)) {
+                    const question = document.querySelector(`input[name="${name}"]`).closest('.question');
+                    question.classList.add('error');
+                    isValid = false;
+                }
+            });
+            
+            // Validate required selects
+            const requiredSelects = ['primary_focus', 'revenue_range'];
+            requiredSelects.forEach(name => {
+                const select = document.querySelector(`select[name="${name}"]`);
+                if (!select.value) {
+                    select.closest('.question').classList.add('error');
+                    isValid = false;
+                }
+            });
+            
+            // Validate required checkboxes (at least one selected)
+            const requiredCheckboxGroups = ['regulatory_risks', 'regulatory_bodies', 'customer_type', 'market_concerns'];
+            requiredCheckboxGroups.forEach(name => {
+                if (!document.querySelector(`input[name="${name}"]:checked`)) {
+                    const question = document.querySelector(`input[name="${name}"]`).closest('.question');
+                    question.classList.add('error');
+                    isValid = false;
+                }
+            });
+            
+            // Validate signal interests (3-5 required)
+            const signalChecked = document.querySelectorAll('input[name="signal_interests"]:checked').length;
+            if (signalChecked < 3 || signalChecked > 5) {
+                document.querySelector('input[name="signal_interests"]').closest('.question').classList.add('error');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Collect form data
+                const formData = new FormData(this);
+                const data = {};
+                formData.forEach((value, key) => {
+                    if (data[key]) {
+                        if (Array.isArray(data[key])) {
+                            data[key].push(value);
+                        } else {
+                            data[key] = [data[key], value];
+                        }
+                    } else {
+                        data[key] = value;
+                    }
+                });
+                
+                // Generate project ID
+                const projectId = 'HC-' + Date.now().toString(36).toUpperCase();
+                
+                // Store in session storage for next step
+                sessionStorage.setItem('questionnaireData', JSON.stringify({
+                    vertical: 'healthcare',
+                    projectId: projectId,
+                    responses: data,
+                    timestamp: new Date().toISOString()
+                }));
+                
+                // Redirect to data upload page
+                window.location.href = '/upload?project_id=' + projectId;
+            } else {
+                // Scroll to first error
+                const firstError = document.querySelector('.question.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
+
+        // Update progress bar as user scrolls through sections
+        const sections = document.querySelectorAll('.form-section');
+        const progressFill = document.querySelector('.progress-fill');
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            
+            // Base progress is 33% (step 1 of 3), add scroll progress within questionnaire
+            const progress = 33 + (scrollPercent * 0.2);
+            progressFill.style.width = Math.min(progress, 50) + '%';
+        });
+    </script>
+</body>
+</html>

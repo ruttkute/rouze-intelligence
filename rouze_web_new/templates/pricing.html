@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - ROUZE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* NAVIGATION */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #B0A6DF;
+        }
+
+        .nav-cta {
+            padding: 10px 24px;
+            background: #3A8FC3;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: #4da3d4;
+            transform: translateY(-2px);
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+
+        .page-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(58, 143, 195, 0.1);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            border-radius: 50px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #3A8FC3;
+            margin-bottom: 24px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #B0A6DF;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: rgba(176, 166, 223, 0.75);
+            line-height: 1.6;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* SECTION STYLES */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background: rgba(82, 66, 92, 0.05);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #3A8FC3;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: rgba(176, 166, 223, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ROI CALCULATOR */
+        .roi-calculator {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 16px;
+            padding: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .roi-calculator h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #B0A6DF;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .roi-subtitle {
+            text-align: center;
+            font-size: 15px;
+            color: rgba(176, 166, 223, 0.6);
+            margin-bottom: 40px;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .calculator-inputs label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(176, 166, 223, 0.8);
+            margin-bottom: 8px;
+        }
+
+        .calculator-inputs select {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(82, 66, 92, 0.3);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 8px;
+            color: #B0A6DF;
+            font-size: 14px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23B0A6DF' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+        }
+
+        .calculator-inputs select:focus {
+            outline: none;
+            border-color: #3A8FC3;
+        }
+
+        .calculator-results {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .result-card {
+            background: rgba(58, 143, 195, 0.1);
+            border: 1px solid rgba(58, 143, 195, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .result-label {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.6);
+            margin-bottom: 12px;
+        }
+
+        .result-savings {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #4ade80;
+            margin-bottom: 8px;
+        }
+
+        .result-roi {
+            font-size: 24px;
+            font-weight: 600;
+            color: #3A8FC3;
+            margin-bottom: 4px;
+        }
+
+        .result-payback {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.6);
+        }
+
+        .result-context {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.5);
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* PRICING TIERS */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 16px;
+            padding: 40px 30px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(58, 143, 195, 0.3);
+        }
+
+        .pricing-card.featured {
+            border-color: #3A8FC3;
+            background: rgba(58, 143, 195, 0.08);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 6px 16px;
+            background: #3A8FC3;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .pricing-tier-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 8px;
+        }
+
+        .pricing-timeline {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .pricing-amount {
+            margin-bottom: 24px;
+        }
+
+        .pricing-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #3A8FC3;
+        }
+
+        .pricing-price-note {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.5);
+        }
+
+        .pricing-description {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.7);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            min-height: 66px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .pricing-features li {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.75);
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .pricing-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 12px;
+            height: 12px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%234ade80'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+            background-size: contain;
+        }
+
+        .pricing-cta {
+            display: block;
+            width: 100%;
+            padding: 14px 24px;
+            background: rgba(58, 143, 195, 0.15);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            border-radius: 8px;
+            color: #B0A6DF;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-cta:hover {
+            background: #3A8FC3;
+            color: white;
+            border-color: #3A8FC3;
+        }
+
+        .pricing-card.featured .pricing-cta {
+            background: #3A8FC3;
+            color: white;
+            border-color: #3A8FC3;
+        }
+
+        .pricing-card.featured .pricing-cta:hover {
+            background: #4da3d4;
+        }
+
+        /* VALUE BREAKDOWN */
+        .value-breakdown {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .value-breakdown-title {
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #3A8FC3;
+            margin-bottom: 12px;
+        }
+
+        .value-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.5);
+            padding: 4px 0;
+        }
+
+        .value-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(176, 166, 223, 0.8);
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .value-savings {
+            color: #4ade80;
+        }
+
+        /* CUSTOM TIER BUILDER */
+        .custom-builder {
+            background: rgba(82, 66, 92, 0.1);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 16px;
+            padding: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .custom-builder-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .custom-builder-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+        }
+
+        .custom-builder-header p {
+            font-size: 15px;
+            color: rgba(176, 166, 223, 0.6);
+        }
+
+        .builder-grid {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 40px;
+        }
+
+        .builder-options {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .builder-category {
+            margin-bottom: 24px;
+        }
+
+        .builder-category-title {
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #3A8FC3;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .builder-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .builder-option:hover {
+            border-color: rgba(58, 143, 195, 0.3);
+        }
+
+        .builder-option.selected {
+            border-color: #3A8FC3;
+            background: rgba(58, 143, 195, 0.1);
+        }
+
+        .builder-option-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .builder-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(176, 166, 223, 0.3);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .builder-option.selected .builder-checkbox {
+            background: #3A8FC3;
+            border-color: #3A8FC3;
+        }
+
+        .builder-checkbox svg {
+            width: 12px;
+            height: 12px;
+            stroke: white;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .builder-option.selected .builder-checkbox svg {
+            opacity: 1;
+        }
+
+        .builder-option-info h4 {
+            font-size: 14px;
+            font-weight: 500;
+            color: #B0A6DF;
+            margin-bottom: 2px;
+        }
+
+        .builder-option-info p {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.5);
+        }
+
+        .builder-option-price {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3A8FC3;
+            white-space: nowrap;
+        }
+
+        .builder-summary {
+            background: rgba(82, 66, 92, 0.2);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 12px;
+            padding: 30px;
+            position: sticky;
+            top: 120px;
+        }
+
+        .builder-summary h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .summary-items {
+            margin-bottom: 20px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.7);
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.05);
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+
+        .summary-empty {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.4);
+            font-style: italic;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .summary-totals {
+            padding-top: 20px;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .summary-total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .summary-total-label {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.6);
+        }
+
+        .summary-total-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #B0A6DF;
+        }
+
+        .summary-grand-total {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 16px;
+            margin-top: 12px;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .summary-grand-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #B0A6DF;
+        }
+
+        .summary-grand-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #3A8FC3;
+        }
+
+        .summary-grand-note {
+            font-size: 11px;
+            color: rgba(176, 166, 223, 0.4);
+            text-align: right;
+        }
+
+        .builder-cta {
+            display: block;
+            width: 100%;
+            padding: 16px 24px;
+            background: #3A8FC3;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .builder-cta:hover {
+            background: #4da3d4;
+            transform: translateY(-2px);
+        }
+
+        .builder-cta:disabled {
+            background: rgba(58, 143, 195, 0.3);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* FAQ PREVIEW */
+        .faq-preview {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(82, 66, 92, 0.1);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 12px;
+            padding: 24px 30px;
+            margin-bottom: 16px;
+        }
+
+        .faq-item h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.7);
+            line-height: 1.6;
+        }
+
+        .faq-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .faq-link a {
+            color: #3A8FC3;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .faq-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: rgba(58, 143, 195, 0.05);
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: rgba(176, 166, 223, 0.7);
+            margin-bottom: 32px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #3A8FC3;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #4da3d4;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(58, 143, 195, 0.3);
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 60px 40px 40px;
+            background: rgba(10, 3, 20, 0.5);
+            border-top: 1px solid rgba(176, 166, 223, 0.08);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-brand .logo {
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.5);
+            line-height: 1.6;
+            max-width: 280px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 20px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.5);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: #B0A6DF;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(176, 166, 223, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.4);
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-badge {
+            padding: 6px 12px;
+            background: rgba(82, 66, 92, 0.2);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 4px;
+            font-size: 10px;
+            color: rgba(176, 166, 223, 0.5);
+            letter-spacing: 0.5px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1100px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+
+            .calculator-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .builder-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .builder-summary {
+                position: static;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                font-size: 12px;
+            }
+
+            .page-header {
+                padding: 50px 20px 40px;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .roi-calculator,
+            .custom-builder {
+                padding: 30px 20px;
+            }
+
+            .pricing-card {
+                padding: 30px 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="/" class="logo">ROUZE</a>
+        <div class="nav-links">
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing" class="active">Pricing</a>
+            <a href="/case-studies">Case Studies</a>
+            <a href="/security">Security</a>
+            <a href="/about">About</a>
+        </div>
+        <a href="/vertical-selector" class="nav-cta">Start Analysis</a>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <span class="page-badge">Transparent Pricing</span>
+        <h1>Intelligence Priced for Impact</h1>
+        <p>One wrong decision costs more than a year of ROUZE intelligence. Choose the depth that matches your stakes.</p>
+    </header>
+
+    <!-- ROI Calculator Section -->
+    <section class="section">
+        <div class="container">
+            <div class="roi-calculator">
+                <h2>Calculate Your ROI</h2>
+                <p class="roi-subtitle">How much is one wrong decision costing you?</p>
+
+                <div class="calculator-grid">
+                    <div class="calculator-inputs">
+                        <label for="revenue">What's your annual revenue?</label>
+                        <select id="revenue">
+                            <option value="1000000">$1M</option>
+                            <option value="5000000">$5M</option>
+                            <option value="10000000" selected>$10M</option>
+                            <option value="25000000">$25M</option>
+                            <option value="50000000">$50M</option>
+                            <option value="100000000">$100M+</option>
+                        </select>
+
+                        <label for="decision-value">What's at stake in this decision?</label>
+                        <select id="decision-value">
+                            <option value="50000">$50K - Quick validation</option>
+                            <option value="100000">$100K - Product launch</option>
+                            <option value="250000">$250K - Market expansion</option>
+                            <option value="500000" selected>$500K - New market entry</option>
+                            <option value="1000000">$1M - Major investment</option>
+                            <option value="5000000">$5M - Strategic pivot</option>
+                        </select>
+
+                        <label for="tier">Recommended analysis tier:</label>
+                        <select id="tier">
+                            <option value="750">Quick Intelligence - $750</option>
+                            <option value="1500" selected>Strategic Intelligence - $1,500</option>
+                            <option value="3500">Predictive Intelligence - $3,500</option>
+                        </select>
+                    </div>
+
+                    <div class="calculator-results">
+                        <div class="result-card">
+                            <p class="result-label">If analysis prevents one wrong decision:</p>
+                            <p class="result-savings" id="savings-display">You save: $500,000</p>
+                            <p class="result-roi" id="roi-display">ROI: 33,233%</p>
+                            <p class="result-payback">Payback: Same day</p>
+                        </div>
+                        <p class="result-context">Most clients report preventing 2-3 costly mistakes per analysis. Your actual ROI is likely higher.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Tiers Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">One-Time Analysis</p>
+                <h2 class="section-title">Choose Your Depth</h2>
+                <p class="section-subtitle">Each tier includes full vertical-specific questionnaire and dedicated analysis</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Quick Intelligence -->
+                <div class="pricing-card">
+                    <h3 class="pricing-tier-name">Quick Intelligence</h3>
+                    <p class="pricing-timeline">Delivery: 24-48 hours</p>
+                    <div class="pricing-amount">
+                        <span class="pricing-price">$750</span>
+                        <p class="pricing-price-note">one-time</p>
+                    </div>
+                    <p class="pricing-description">Fast validation for time-sensitive decisions. Get directional insights when speed matters most.</p>
+                    <ul class="pricing-features">
+                        <li>10,000+ signals collected</li>
+                        <li>5-7 platform coverage</li>
+                        <li>3-5 ranked insights</li>
+                        <li>72-78% confidence scoring</li>
+                        <li>90-day dashboard access</li>
+                        <li>PDF executive brief</li>
+                        <li>CSV data export</li>
+                    </ul>
+                    <a href="/vertical-selector" class="pricing-cta">Start Quick Analysis</a>
+                    <div class="value-breakdown">
+                        <p class="value-breakdown-title">Value Breakdown</p>
+                        <div class="value-item"><span>10K signals @ $0.05</span><span>$500</span></div>
+                        <div class="value-item"><span>Sentiment analysis</span><span>$150</span></div>
+                        <div class="value-item"><span>Pattern recognition</span><span>$200</span></div>
+                        <div class="value-item"><span>Analyst review (4h)</span><span>$400</span></div>
+                        <div class="value-item"><span>Dashboard + exports</span><span>$250</span></div>
+                        <div class="value-total">
+                            <span>Total Value</span>
+                            <span>$1,500</span>
+                        </div>
+                        <div class="value-item value-savings"><span>You Pay</span><span>$750 (50% off)</span></div>
+                    </div>
+                </div>
+
+                <!-- Strategic Intelligence -->
+                <div class="pricing-card featured">
+                    <h3 class="pricing-tier-name">Strategic Intelligence</h3>
+                    <p class="pricing-timeline">Delivery: 5-7 days</p>
+                    <div class="pricing-amount">
+                        <span class="pricing-price">$1,500</span>
+                        <p class="pricing-price-note">one-time</p>
+                    </div>
+                    <p class="pricing-description">Deep analysis for major decisions. Cross-validated insights with strategic recommendations.</p>
+                    <ul class="pricing-features">
+                        <li>25,000+ signals collected</li>
+                        <li>10-12 platform coverage</li>
+                        <li>8-10 detailed insights</li>
+                        <li>82-88% confidence scoring</li>
+                        <li>Multi-source cross-validation</li>
+                        <li>Competitive positioning matrix</li>
+                        <li>4 strategic recommendations</li>
+                        <li>30-min strategy call</li>
+                        <li>PowerPoint presentation</li>
+                        <li>2 revision rounds</li>
+                    </ul>
+                    <a href="/vertical-selector" class="pricing-cta">Start Strategic Analysis</a>
+                    <div class="value-breakdown">
+                        <p class="value-breakdown-title">Value Breakdown</p>
+                        <div class="value-item"><span>25K signals @ $0.06</span><span>$1,500</span></div>
+                        <div class="value-item"><span>Cross-validation</span><span>$500</span></div>
+                        <div class="value-item"><span>Competitive matrix</span><span>$300</span></div>
+                        <div class="value-item"><span>Analyst review (8h)</span><span>$800</span></div>
+                        <div class="value-item"><span>Strategy call</span><span>$200</span></div>
+                        <div class="value-item"><span>Deliverables + revisions</span><span>$600</span></div>
+                        <div class="value-total">
+                            <span>Total Value</span>
+                            <span>$3,900</span>
+                        </div>
+                        <div class="value-item value-savings"><span>You Pay</span><span>$1,500 (62% off)</span></div>
+                    </div>
+                </div>
+
+                <!-- Predictive Intelligence -->
+                <div class="pricing-card">
+                    <h3 class="pricing-tier-name">Predictive Intelligence</h3>
+                    <p class="pricing-timeline">Delivery: 10-14 days</p>
+                    <div class="pricing-amount">
+                        <span class="pricing-price">$3,500</span>
+                        <p class="pricing-price-note">one-time</p>
+                    </div>
+                    <p class="pricing-description">Comprehensive forecasting for critical decisions. Scenario planning and risk assessment included.</p>
+                    <ul class="pricing-features">
+                        <li>50,000+ signals collected</li>
+                        <li>15-20 platform coverage</li>
+                        <li>10-15 detailed insights</li>
+                        <li>88-92% confidence scoring</li>
+                        <li>12-24 month historical analysis</li>
+                        <li>Forecasting models</li>
+                        <li>3 scenario plans</li>
+                        <li>Risk probability scoring</li>
+                        <li>Two 60-min strategy sessions</li>
+                        <li>20-page strategic brief</li>
+                        <li>Unlimited revisions</li>
+                    </ul>
+                    <a href="/vertical-selector" class="pricing-cta">Start Predictive Analysis</a>
+                    <div class="value-breakdown">
+                        <p class="value-breakdown-title">Value Breakdown</p>
+                        <div class="value-item"><span>50K signals @ $0.07</span><span>$3,500</span></div>
+                        <div class="value-item"><span>Historical analysis</span><span>$1,000</span></div>
+                        <div class="value-item"><span>Forecasting models</span><span>$1,200</span></div>
+                        <div class="value-item"><span>Scenario planning</span><span>$900</span></div>
+                        <div class="value-item"><span>Analyst review (16h)</span><span>$1,600</span></div>
+                        <div class="value-item"><span>Strategy sessions + deliverables</span><span>$1,200</span></div>
+                        <div class="value-total">
+                            <span>Total Value</span>
+                            <span>$9,400</span>
+                        </div>
+                        <div class="value-item value-savings"><span>You Pay</span><span>$3,500 (63% off)</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Ongoing Intelligence Builder -->
+    <section class="section">
+        <div class="container">
+            <div class="custom-builder">
+                <div class="custom-builder-header">
+                    <h2>Build Your Ongoing Intelligence</h2>
+                    <p>Select the components you need. Price updates as you build your package.</p>
+                </div>
+
+                <div class="builder-grid">
+                    <div class="builder-options">
+                        <!-- Setup Options -->
+                        <div class="builder-category">
+                            <p class="builder-category-title">Setup (One-Time)</p>
+                            
+                            <div class="builder-option" data-type="setup" data-price="3000" data-name="Base Setup">
+                                <div class="builder-option-left">
+                                    <div class="builder-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="builder-option-info">
+                                        <h4>Base Setup</h4>
+                                        <p>Custom methodology, baseline analysis, KPI framework</p>
+                                    </div>
+                                </div>
+                                <span class="builder-option-price">$3,000</span>
+                            </div>
+
+                            <div class="builder-option" data-type="setup" data-price="2000" data-name="Dashboard Customization">
+                                <div class="builder-option-left">
+                                    <div class="builder-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="builder-option-info">
+                                        <h4>Dashboard Customization</h4>
+                                        <p>25+ custom metrics, branded interface</p>
+                                    </div>
+                                </div>
+                                <span class="builder-option-price">$2,000</span>
+                            </div>
+
+                            <div class="builder-option" data-type="setup" data-price="1500" data-name="Team Training">
+                                <div class="builder-option-left">
+                                    <div class="builder-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="builder-option-info">
+                                        <h4>Team Training</h4>
+                                        <p>2-hour session on interpreting signals</p>
+                                    </div>
+                                </div>
+                                <span class="builder-option-price">$1,500</span>
+                            </div>
+                        </div>
+
+                        <!-- Monthly Options -->
+                        <div class="builder-category">
+                            <p class="builder-category-title">Monthly Services</p>
+                            
+                            <div class="builder-option" data-type="monthly" data-price="800" data-name="Weekly Signal Briefs">
+                                <div class="builder-option-left">
+                                    <div class="builder-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="builder-option-info">
+                                        <h4>Weekly Signal Briefs</h4>
+                                        <p>Top 5-7 emerging signals delivered weekly</p>
+                                    </div>
+                                </div>
+                                <span class="builder-option-price">$800/mo</span>
+                            </div>
+
+                            <div class="builder-option" data-type="monthly" data-price="500" data-name="Daily Alert Monitoring">
+                                <div class="builder-option-left">
+                                    <div class="builder-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="builder-option-info">
+                                        <h4>Daily Alert Monitoring</h4>
+                                        <p>Urgent signals trigger immediate notification</p>
+                                    </div>
+                                </div>
+                                <span class="builder-option-price">$500/mo</span>
+                            </div>
+
+                            <div class="builder-option" data-type="monthly" data-price="2000" data-name="Monthly Deep-Dive">
+                                <div class="builder-option-left">
+                                    <div class="builder-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="builder-option-info">
+                                        <h4>Monthly Deep-Dive Analysis</h4>
+                                        <p>20-30 page analysis of emerging opportunity/threat</p>
+                                    </div>
+                                </div>
+                                <span class="builder-option-price">$2,000/mo</span>
+                            </div>
+
+                            <div class="builder-option" data-type="monthly" data-price="1200" data-name="Real-Time Dashboard">
+                                <div class="builder-option-left">
+                                    <div class="builder-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="builder-option-info">
+                                        <h4>Real-Time Dashboard</h4>
+                                        <p>Live dashboard updated daily, 25+ metrics</p>
+                                    </div>
+                                </div>
+                                <span class="builder-option-price">$1,200/mo</span>
+                            </div>
+
+                            <div class="builder-option" data-type="monthly" data-price="3000" data-name="Dedicated Analyst">
+                                <div class="builder-option-left">
+                                    <div class="builder-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="builder-option-info">
+                                        <h4>Dedicated Analyst</h4>
+                                        <p>Same analyst relationship, built-in context</p>
+                                    </div>
+                                </div>
+                                <span class="builder-option-price">$3,000/mo</span>
+                            </div>
+
+                            <div class="builder-option" data-type="monthly" data-price="600" data-name="API Access">
+                                <div class="builder-option-left">
+                                    <div class="builder-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="builder-option-info">
+                                        <h4>API Access</h4>
+                                        <p>JSON API + webhooks for internal tools</p>
+                                    </div>
+                                </div>
+                                <span class="builder-option-price">$600/mo</span>
+                            </div>
+                        </div>
+
+                        <!-- Quarterly Options -->
+                        <div class="builder-category">
+                            <p class="builder-category-title">Quarterly Services</p>
+                            
+                            <div class="builder-option" data-type="quarterly" data-price="1500" data-name="Strategy Session">
+                                <div class="builder-option-left">
+                                    <div class="builder-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="builder-option-info">
+                                        <h4>Quarterly Strategy Session</h4>
+                                        <p>2-3 hour working session with your team</p>
+                                    </div>
+                                </div>
+                                <span class="builder-option-price">$1,500/qtr</span>
+                            </div>
+
+                            <div class="builder-option" data-type="quarterly" data-price="2000" data-name="Scenario Update">
+                                <div class="builder-option-left">
+                                    <div class="builder-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="builder-option-info">
+                                        <h4>Quarterly Scenario Update</h4>
+                                        <p>Refresh forecasts and risk assessments</p>
+                                    </div>
+                                </div>
+                                <span class="builder-option-price">$2,000/qtr</span>
+                            </div>
+                        </div>
+
+                        <!-- Add-Ons -->
+                        <div class="builder-category">
+                            <p class="builder-category-title">Add-Ons (Per Seat/Month)</p>
+                            
+                            <div class="builder-option" data-type="addon" data-price="150" data-name="Additional Team Seat">
+                                <div class="builder-option-left">
+                                    <div class="builder-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
+                                    </div>
+                                    <div class="builder-option-info">
+                                        <h4>Additional Team Seat</h4>
+                                        <p>Dashboard access for additional team member</p>
+                                    </div>
+                                </div>
+                                <span class="builder-option-price">$150/seat/mo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="builder-summary">
+                        <h3>Your Package</h3>
+                        <div class="summary-items" id="summary-items">
+                            <p class="summary-empty">Select components to build your package</p>
+                        </div>
+                        <div class="summary-totals">
+                            <div class="summary-total-row">
+                                <span class="summary-total-label">Setup (one-time)</span>
+                                <span class="summary-total-value" id="setup-total">$0</span>
+                            </div>
+                            <div class="summary-total-row">
+                                <span class="summary-total-label">Monthly</span>
+                                <span class="summary-total-value" id="monthly-total">$0/mo</span>
+                            </div>
+                            <div class="summary-total-row">
+                                <span class="summary-total-label">Quarterly</span>
+                                <span class="summary-total-value" id="quarterly-total">$0/qtr</span>
+                            </div>
+                            <div class="summary-grand-total">
+                                <div>
+                                    <span class="summary-grand-label">First Month Total</span>
+                                </div>
+                                <div>
+                                    <span class="summary-grand-value" id="grand-total">$0</span>
+                                    <p class="summary-grand-note">then monthly rate ongoing</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="builder-cta" id="builder-cta" disabled>Select Components to Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Preview -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Questions</p>
+                <h2 class="section-title">Common Pricing Questions</h2>
+            </div>
+
+            <div class="faq-preview">
+                <div class="faq-item">
+                    <h3>What if I need changes to my analysis?</h3>
+                    <p>Quick Intelligence includes no revisions (speed focus). Strategic includes 2 rounds. Predictive includes unlimited revisions. We work with you until you're satisfied with the depth you purchased.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I upgrade my tier after starting?</h3>
+                    <p>Yes. Pay the difference between tiers and we'll extend the analysis. For example, upgrade from Quick ($750) to Strategic ($1,500) by paying $750 more.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you offer volume discounts?</h3>
+                    <p>Yes. 15% off for 3+ analyses annually. 25% off for 10+ analyses. Contact us for enterprise agreements.</p>
+                </div>
+            </div>
+
+            <div class="faq-link">
+                <a href="/faq">View all frequently asked questions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start?</h2>
+            <p>Choose your vertical and answer the questionnaire. No payment required until you see your analysis scope.</p>
+            <a href="/vertical-selector" class="cta-button">Choose Your Vertical</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="logo">ROUZE</a>
+                <p>Market intelligence that moves faster than markets. Transform unfiltered signals into strategic decisions.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="/vertical-selector">Start Analysis</a>
+                <a href="/methodology">Methodology</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/case-studies">Case Studies</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="/about">About</a>
+                <a href="/security">Security</a>
+                <a href="/faq">FAQ</a>
+                <a href="mailto:rouzeresearch@gmail.com">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="/terms">Terms of Service</a>
+                <a href="/privacy">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2025 ROUZE Intelligence. All rights reserved.</p>
+            <div class="footer-badges">
+                <span class="footer-badge">SOC2 Compliant</span>
+                <span class="footer-badge">GDPR Ready</span>
+                <span class="footer-badge">HIPAA Compliant</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ROI Calculator
+        function calculateROI() {
+            const decisionValue = parseInt(document.getElementById('decision-value').value);
+            const tierCost = parseInt(document.getElementById('tier').value);
+            
+            const savings = decisionValue;
+            const roi = Math.round((savings - tierCost) / tierCost * 100);
+            
+            document.getElementById('savings-display').textContent = 'You save: $' + savings.toLocaleString();
+            document.getElementById('roi-display').textContent = 'ROI: ' + roi.toLocaleString() + '%';
+        }
+
+        document.getElementById('revenue').addEventListener('change', calculateROI);
+        document.getElementById('decision-value').addEventListener('change', calculateROI);
+        document.getElementById('tier').addEventListener('change', calculateROI);
+
+        // Custom Builder
+        const selectedItems = {
+            setup: [],
+            monthly: [],
+            quarterly: [],
+            addon: []
+        };
+
+        document.querySelectorAll('.builder-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const type = this.dataset.type;
+                const price = parseInt(this.dataset.price);
+                const name = this.dataset.name;
+                
+                if (this.classList.contains('selected')) {
+                    this.classList.remove('selected');
+                    selectedItems[type] = selectedItems[type].filter(item => item.name !== name);
+                } else {
+                    this.classList.add('selected');
+                    selectedItems[type].push({ name, price, type });
+                }
+                
+                updateSummary();
+            });
+        });
+
+        function updateSummary() {
+            const summaryItems = document.getElementById('summary-items');
+            const allItems = [...selectedItems.setup, ...selectedItems.monthly, ...selectedItems.quarterly, ...selectedItems.addon];
+            
+            if (allItems.length === 0) {
+                summaryItems.innerHTML = '<p class="summary-empty">Select components to build your package</p>';
+                document.getElementById('setup-total').textContent = '$0';
+                document.getElementById('monthly-total').textContent = '$0/mo';
+                document.getElementById('quarterly-total').textContent = '$0/qtr';
+                document.getElementById('grand-total').textContent = '$0';
+                document.getElementById('builder-cta').disabled = true;
+                document.getElementById('builder-cta').textContent = 'Select Components to Continue';
+                return;
+            }
+            
+            let html = '';
+            allItems.forEach(item => {
+                let priceLabel = '';
+                if (item.type === 'setup') priceLabel = '$' + item.price.toLocaleString();
+                else if (item.type === 'monthly' || item.type === 'addon') priceLabel = '$' + item.price.toLocaleString() + '/mo';
+                else if (item.type === 'quarterly') priceLabel = '$' + item.price.toLocaleString() + '/qtr';
+                
+                html += '<div class="summary-item"><span>' + item.name + '</span><span>' + priceLabel + '</span></div>';
+            });
+            summaryItems.innerHTML = html;
+            
+            const setupTotal = selectedItems.setup.reduce((sum, item) => sum + item.price, 0);
+            const monthlyTotal = selectedItems.monthly.reduce((sum, item) => sum + item.price, 0) + 
+                                 selectedItems.addon.reduce((sum, item) => sum + item.price, 0);
+            const quarterlyTotal = selectedItems.quarterly.reduce((sum, item) => sum + item.price, 0);
+            
+            // First month = setup + first month + first quarter prorated
+            const firstMonthTotal = setupTotal + monthlyTotal + Math.round(quarterlyTotal / 3);
+            
+            document.getElementById('setup-total').textContent = '$' + setupTotal.toLocaleString();
+            document.getElementById('monthly-total').textContent = '$' + monthlyTotal.toLocaleString() + '/mo';
+            document.getElementById('quarterly-total').textContent = '$' + quarterlyTotal.toLocaleString() + '/qtr';
+            document.getElementById('grand-total').textContent = '$' + firstMonthTotal.toLocaleString();
+            
+            document.getElementById('builder-cta').disabled = false;
+            document.getElementById('builder-cta').textContent = 'Start Package - $' + firstMonthTotal.toLocaleString();
+        }
+
+        document.getElementById('builder-cta').addEventListener('click', function() {
+            if (!this.disabled) {
+                window.location.href = '/vertical-selector?package=custom';
+            }
+        });
+    </script>
+</body>
+</html>

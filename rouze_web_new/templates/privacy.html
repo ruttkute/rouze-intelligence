@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - ROUZE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.6);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #B0A6DF;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(176, 166, 223, 0.6);
+        }
+
+        .last-updated {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 8px 16px;
+            background: rgba(58, 143, 195, 0.1);
+            border: 1px solid rgba(58, 143, 195, 0.2);
+            border-radius: 20px;
+            font-size: 13px;
+            color: #3A8FC3;
+        }
+
+        /* MAIN CONTENT */
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* SUMMARY BOX */
+        .summary-box {
+            background: rgba(58, 143, 195, 0.1);
+            border: 1px solid rgba(58, 143, 195, 0.2);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 48px;
+        }
+
+        .summary-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #3A8FC3;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .summary-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .summary-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(76, 175, 80, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .summary-icon svg {
+            width: 12px;
+            height: 12px;
+            color: #4CAF50;
+        }
+
+        .summary-text {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.8);
+        }
+
+        /* TABLE OF CONTENTS */
+        .toc {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 48px;
+        }
+
+        .toc-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 16px;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 24px;
+        }
+
+        .toc-list a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(176, 166, 223, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 6px 0;
+            transition: color 0.2s ease;
+        }
+
+        .toc-list a:hover {
+            color: #3A8FC3;
+        }
+
+        .toc-number {
+            color: #3A8FC3;
+            font-weight: 600;
+            min-width: 24px;
+        }
+
+        /* SECTIONS */
+        .legal-section {
+            margin-bottom: 48px;
+        }
+
+        .section-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: rgba(58, 143, 195, 0.15);
+            color: #3A8FC3;
+            border-radius: 8px;
+            text-align: center;
+            line-height: 32px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-right: 12px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-content {
+            color: rgba(176, 166, 223, 0.8);
+            font-size: 15px;
+        }
+
+        .section-content p {
+            margin-bottom: 16px;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-content ul,
+        .section-content ol {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        .section-content li {
+            margin-bottom: 10px;
+        }
+
+        .section-content strong {
+            color: #B0A6DF;
+        }
+
+        .section-content a {
+            color: #3A8FC3;
+            text-decoration: none;
+        }
+
+        .section-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* SUBSECTIONS */
+        .subsection {
+            margin-top: 24px;
+            padding-left: 20px;
+            border-left: 2px solid rgba(58, 143, 195, 0.2);
+        }
+
+        .subsection-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+        }
+
+        /* DATA TABLE */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 12px 16px;
+            background: rgba(58, 143, 195, 0.1);
+            color: #B0A6DF;
+            font-weight: 600;
+            border: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .data-table td {
+            padding: 12px 16px;
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            color: rgba(176, 166, 223, 0.8);
+        }
+
+        .data-table tr:hover td {
+            background: rgba(58, 143, 195, 0.05);
+        }
+
+        /* HIGHLIGHT BOX */
+        .highlight-box {
+            background: rgba(58, 143, 195, 0.1);
+            border: 1px solid rgba(58, 143, 195, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box.gdpr {
+            background: rgba(76, 175, 80, 0.1);
+            border-color: rgba(76, 175, 80, 0.2);
+        }
+
+        .highlight-box.ccpa {
+            background: rgba(255, 152, 0, 0.1);
+            border-color: rgba(255, 152, 0, 0.2);
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+
+        .highlight-title {
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* RIGHTS LIST */
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .right-item {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .right-title {
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .right-desc {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.6);
+        }
+
+        /* CONTACT BOX */
+        .contact-box {
+            background: rgba(82, 66, 92, 0.2);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .contact-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            color: rgba(176, 166, 223, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #3A8FC3;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        .footer {
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #B0A6DF;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.4);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 12px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 20px 40px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .toc-list,
+            .summary-grid,
+            .rights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .data-table {
+                font-size: 12px;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 8px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="nav-bar">
+        <a href="/" class="logo">ROUZE</a>
+        <div class="nav-links">
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/case-studies">Case Studies</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1 class="hero-title">Privacy Policy</h1>
+        <p class="hero-subtitle">How we collect, use, and protect your information</p>
+        <span class="last-updated">Last Updated: December 1, 2025</span>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-container">
+        <!-- SUMMARY BOX -->
+        <div class="summary-box">
+            <h2 class="summary-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                Privacy at a Glance
+            </h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="summary-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <span class="summary-text">We only collect data necessary to provide our services</span>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <span class="summary-text">Your data is encrypted in transit and at rest</span>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <span class="summary-text">We never sell your personal information</span>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <span class="summary-text">Client data is auto-deleted after 30 days</span>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <span class="summary-text">You can request data deletion at any time</span>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <span class="summary-text">GDPR and CCPA compliant practices</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="toc">
+            <h2 class="toc-title">Table of Contents</h2>
+            <ol class="toc-list">
+                <li><a href="#introduction"><span class="toc-number">1.</span> Introduction</a></li>
+                <li><a href="#collection"><span class="toc-number">2.</span> Information We Collect</a></li>
+                <li><a href="#use"><span class="toc-number">3.</span> How We Use Information</a></li>
+                <li><a href="#sharing"><span class="toc-number">4.</span> Information Sharing</a></li>
+                <li><a href="#security"><span class="toc-number">5.</span> Data Security</a></li>
+                <li><a href="#retention"><span class="toc-number">6.</span> Data Retention</a></li>
+                <li><a href="#rights"><span class="toc-number">7.</span> Your Rights</a></li>
+                <li><a href="#gdpr"><span class="toc-number">8.</span> GDPR Compliance</a></li>
+                <li><a href="#ccpa"><span class="toc-number">9.</span> CCPA Compliance</a></li>
+                <li><a href="#cookies"><span class="toc-number">10.</span> Cookies & Tracking</a></li>
+                <li><a href="#children"><span class="toc-number">11.</span> Children's Privacy</a></li>
+                <li><a href="#changes"><span class="toc-number">12.</span> Policy Changes</a></li>
+                <li><a href="#contact"><span class="toc-number">13.</span> Contact Us</a></li>
+            </ol>
+        </div>
+
+        <!-- SECTION 1 -->
+        <section class="legal-section" id="introduction">
+            <h2 class="section-title">
+                <span class="section-number">1</span>
+                Introduction
+            </h2>
+            <div class="section-content">
+                <p>ROUZE, LLC ("ROUZE," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our market intelligence services ("Services").</p>
+                <p>By using our Services, you consent to the data practices described in this policy. If you do not agree with these practices, please do not use our Services.</p>
+                <p>This policy applies to information collected through our website (rouze.io), our dashboard platform, and any related services or communications.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 2 -->
+        <section class="legal-section" id="collection">
+            <h2 class="section-title">
+                <span class="section-number">2</span>
+                Information We Collect
+            </h2>
+            <div class="section-content">
+                <div class="subsection">
+                    <h4 class="subsection-title">2.1 Information You Provide</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Data Type</th>
+                                <th>Examples</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Account Information</strong></td>
+                                <td>Name, email, company, job title</td>
+                                <td>Account creation, communication</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Payment Information</strong></td>
+                                <td>Credit card details, billing address</td>
+                                <td>Payment processing (via Stripe)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Questionnaire Responses</strong></td>
+                                <td>Market focus, competitors, goals</td>
+                                <td>Customizing your analysis</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Uploaded Files</strong></td>
+                                <td>Customer feedback, data files</td>
+                                <td>Enhancing analysis accuracy</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Communications</strong></td>
+                                <td>Emails, support requests</td>
+                                <td>Customer support, service improvement</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">2.2 Information Collected Automatically</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Data Type</th>
+                                <th>Examples</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Device Information</strong></td>
+                                <td>Browser type, operating system</td>
+                                <td>Service optimization</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Usage Data</strong></td>
+                                <td>Pages viewed, features used</td>
+                                <td>Service improvement</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Log Data</strong></td>
+                                <td>IP address, access times</td>
+                                <td>Security, troubleshooting</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">2.3 Information We Do NOT Collect</h4>
+                    <ul>
+                        <li>Social Security numbers or government IDs</li>
+                        <li>Health or medical information (unless part of healthcare vertical analysis)</li>
+                        <li>Biometric data</li>
+                        <li>Information about children under 18</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 -->
+        <section class="legal-section" id="use">
+            <h2 class="section-title">
+                <span class="section-number">3</span>
+                How We Use Your Information
+            </h2>
+            <div class="section-content">
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li><strong>Provide Services:</strong> Conduct market analysis, generate insights, and deliver reports</li>
+                    <li><strong>Process Payments:</strong> Complete transactions and send related information</li>
+                    <li><strong>Communicate:</strong> Send analysis updates, respond to inquiries, provide support</li>
+                    <li><strong>Improve Services:</strong> Analyze usage patterns to enhance our methodologies</li>
+                    <li><strong>Security:</strong> Detect, prevent, and address technical issues or fraud</li>
+                    <li><strong>Legal Compliance:</strong> Comply with applicable laws and regulations</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p><strong>We do NOT use your information to:</strong></p>
+                    <ul style="margin-top: 12px; margin-bottom: 0;">
+                        <li>Sell your personal data to third parties</li>
+                        <li>Send unsolicited marketing without consent</li>
+                        <li>Make automated decisions that significantly affect you</li>
+                        <li>Profile you for advertising purposes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4 -->
+        <section class="legal-section" id="sharing">
+            <h2 class="section-title">
+                <span class="section-number">4</span>
+                Information Sharing & Disclosure
+            </h2>
+            <div class="section-content">
+                <p>We do not sell, trade, or rent your personal information. We may share information only in these circumstances:</p>
+                
+                <div class="subsection">
+                    <h4 class="subsection-title">4.1 Service Providers</h4>
+                    <p>We work with trusted third parties who assist in operating our services:</p>
+                    <ul>
+                        <li><strong>Stripe:</strong> Payment processing (they handle card data directly)</li>
+                        <li><strong>Cloud Hosting:</strong> Secure data storage and processing</li>
+                        <li><strong>Analytics:</strong> Understanding service usage (anonymized data only)</li>
+                    </ul>
+                    <p>All service providers are contractually obligated to protect your data and use it only for specified purposes.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">4.2 Legal Requirements</h4>
+                    <p>We may disclose information if required by law, court order, or government request, or if we believe disclosure is necessary to protect rights, safety, or property.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">4.3 Business Transfers</h4>
+                    <p>If ROUZE is involved in a merger, acquisition, or sale of assets, your information may be transferred. We will provide notice before your information becomes subject to a different privacy policy.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">4.4 Aggregated Data</h4>
+                    <p>We may share aggregated, anonymized data that cannot identify you for research, benchmarking, or marketing purposes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5 -->
+        <section class="legal-section" id="security">
+            <h2 class="section-title">
+                <span class="section-number">5</span>
+                Data Security
+            </h2>
+            <div class="section-content">
+                <p>We implement robust security measures to protect your information:</p>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Security Measure</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Encryption in Transit</strong></td>
+                            <td>TLS 1.3 encryption for all data transmission</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Encryption at Rest</strong></td>
+                            <td>AES-256 encryption for stored data</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Access Controls</strong></td>
+                            <td>Role-based access limited to necessary personnel</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Secure Infrastructure</strong></td>
+                            <td>SOC 2 compliant hosting environment</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Regular Audits</strong></td>
+                            <td>Periodic security assessments and updates</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>While we use commercially reasonable measures to protect your data, no method of transmission or storage is 100% secure. We cannot guarantee absolute security but will notify you promptly of any breach affecting your data.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 6 -->
+        <section class="legal-section" id="retention">
+            <h2 class="section-title">
+                <span class="section-number">6</span>
+                Data Retention
+            </h2>
+            <div class="section-content">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Data Type</th>
+                            <th>Retention Period</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Account Information</strong></td>
+                            <td>Until account deletion</td>
+                            <td>Service access</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Uploaded Client Data</strong></td>
+                            <td>30 days after analysis</td>
+                            <td>Auto-deleted for security</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Analysis Results</strong></td>
+                            <td>Per dashboard access period</td>
+                            <td>Client access to deliverables</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Payment Records</strong></td>
+                            <td>7 years</td>
+                            <td>Legal/tax requirements</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Communication Logs</strong></td>
+                            <td>2 years</td>
+                            <td>Support reference</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>You may request earlier deletion of your data (except where retention is legally required) by contacting us.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 7 -->
+        <section class="legal-section" id="rights">
+            <h2 class="section-title">
+                <span class="section-number">7</span>
+                Your Rights
+            </h2>
+            <div class="section-content">
+                <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+                
+                <div class="rights-grid">
+                    <div class="right-item">
+                        <div class="right-title">Right to Access</div>
+                        <div class="right-desc">Request a copy of the personal data we hold about you</div>
+                    </div>
+                    <div class="right-item">
+                        <div class="right-title">Right to Rectification</div>
+                        <div class="right-desc">Request correction of inaccurate or incomplete data</div>
+                    </div>
+                    <div class="right-item">
+                        <div class="right-title">Right to Erasure</div>
+                        <div class="right-desc">Request deletion of your personal data</div>
+                    </div>
+                    <div class="right-item">
+                        <div class="right-title">Right to Portability</div>
+                        <div class="right-desc">Receive your data in a structured, common format</div>
+                    </div>
+                    <div class="right-item">
+                        <div class="right-title">Right to Object</div>
+                        <div class="right-desc">Object to processing of your personal data</div>
+                    </div>
+                    <div class="right-item">
+                        <div class="right-title">Right to Restrict</div>
+                        <div class="right-desc">Request limitation of processing in certain cases</div>
+                    </div>
+                </div>
+
+                <p>To exercise any of these rights, please contact us at <a href="mailto:ruttkute@gmail.com">ruttkute@gmail.com</a>. We will respond within 30 days.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 8 -->
+        <section class="legal-section" id="gdpr">
+            <h2 class="section-title">
+                <span class="section-number">8</span>
+                GDPR Compliance (EU/EEA Users)
+            </h2>
+            <div class="section-content">
+                <div class="highlight-box gdpr">
+                    <p class="highlight-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+                        GDPR Rights
+                    </p>
+                    <p>If you are located in the European Union or European Economic Area, you have additional rights under the General Data Protection Regulation (GDPR).</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">8.1 Legal Basis for Processing</h4>
+                    <p>We process your data based on:</p>
+                    <ul>
+                        <li><strong>Contract Performance:</strong> To provide Services you've purchased</li>
+                        <li><strong>Legitimate Interest:</strong> To improve our services and security</li>
+                        <li><strong>Consent:</strong> For marketing communications (where applicable)</li>
+                        <li><strong>Legal Obligation:</strong> To comply with applicable laws</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">8.2 International Transfers</h4>
+                    <p>Your data may be transferred to and processed in the United States. We ensure appropriate safeguards through Standard Contractual Clauses approved by the European Commission.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">8.3 Data Protection Officer</h4>
+                    <p>For GDPR-related inquiries, contact: <a href="mailto:ruttkute@gmail.com">ruttkute@gmail.com</a></p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">8.4 Supervisory Authority</h4>
+                    <p>You have the right to lodge a complaint with your local data protection authority if you believe we have violated your privacy rights.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9 -->
+        <section class="legal-section" id="ccpa">
+            <h2 class="section-title">
+                <span class="section-number">9</span>
+                CCPA Compliance (California Residents)
+            </h2>
+            <div class="section-content">
+                <div class="highlight-box ccpa">
+                    <p class="highlight-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF9800" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+                        California Consumer Privacy Act
+                    </p>
+                    <p>If you are a California resident, you have specific rights under the California Consumer Privacy Act (CCPA).</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">9.1 Your CCPA Rights</h4>
+                    <ul>
+                        <li><strong>Right to Know:</strong> What personal information we collect, use, and share</li>
+                        <li><strong>Right to Delete:</strong> Request deletion of your personal information</li>
+                        <li><strong>Right to Opt-Out:</strong> Opt out of sale of personal information (we do not sell your data)</li>
+                        <li><strong>Right to Non-Discrimination:</strong> Equal service regardless of privacy choices</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">9.2 Categories of Information</h4>
+                    <p>In the past 12 months, we have collected the following categories of personal information:</p>
+                    <ul>
+                        <li>Identifiers (name, email, IP address)</li>
+                        <li>Commercial information (purchase history)</li>
+                        <li>Internet activity (usage data, log files)</li>
+                        <li>Professional information (company, job title)</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">9.3 Do Not Sell My Personal Information</h4>
+                    <p>ROUZE does not sell personal information to third parties. We have not sold personal information in the past 12 months.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">9.4 Exercising Your Rights</h4>
+                    <p>California residents may exercise their rights by contacting us at <a href="mailto:ruttkute@gmail.com">ruttkute@gmail.com</a>. We will verify your identity before processing requests.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 10 -->
+        <section class="legal-section" id="cookies">
+            <h2 class="section-title">
+                <span class="section-number">10</span>
+                Cookies & Tracking Technologies
+            </h2>
+            <div class="section-content">
+                <p>We use cookies and similar technologies to enhance your experience:</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Cookie Type</th>
+                            <th>Purpose</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Essential</strong></td>
+                            <td>Site functionality, authentication</td>
+                            <td>Session / 1 year</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Analytics</strong></td>
+                            <td>Understanding usage patterns</td>
+                            <td>Up to 2 years</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Preferences</strong></td>
+                            <td>Remembering your settings</td>
+                            <td>1 year</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">10.1 Managing Cookies</h4>
+                    <p>You can control cookies through your browser settings. Disabling cookies may affect site functionality. Most browsers allow you to:</p>
+                    <ul>
+                        <li>View what cookies are stored</li>
+                        <li>Delete individual or all cookies</li>
+                        <li>Block third-party cookies</li>
+                        <li>Block all cookies from specific sites</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">10.2 Do Not Track</h4>
+                    <p>We honor Do Not Track (DNT) signals from your browser. When DNT is enabled, we limit tracking to essential functionality only.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 11 -->
+        <section class="legal-section" id="children">
+            <h2 class="section-title">
+                <span class="section-number">11</span>
+                Children's Privacy
+            </h2>
+            <div class="section-content">
+                <p>Our Services are not intended for individuals under 18 years of age. We do not knowingly collect personal information from children under 18.</p>
+                <p>If we become aware that we have collected personal information from a child under 18, we will take steps to delete such information promptly. If you believe we may have collected information from a child, please contact us immediately.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 12 -->
+        <section class="legal-section" id="changes">
+            <h2 class="section-title">
+                <span class="section-number">12</span>
+                Changes to This Policy
+            </h2>
+            <div class="section-content">
+                <p>We may update this Privacy Policy from time to time. When we make changes:</p>
+                <ul>
+                    <li>We will update the "Last Updated" date at the top of this page</li>
+                    <li>For material changes, we will notify you via email or prominent website notice</li>
+                    <li>We encourage you to review this policy periodically</li>
+                </ul>
+                <p>Your continued use of our Services after changes become effective constitutes acceptance of the updated policy.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 13 -->
+        <section class="legal-section" id="contact">
+            <h2 class="section-title">
+                <span class="section-number">13</span>
+                Contact Us
+            </h2>
+            <div class="section-content">
+                <p>If you have questions about this Privacy Policy or our data practices, please contact us:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:ruttkute@gmail.com">ruttkute@gmail.com</a></li>
+                </ul>
+                <p>We will respond to all privacy-related inquiries within 30 days.</p>
+            </div>
+        </section>
+
+        <!-- CONTACT BOX -->
+        <div class="contact-box">
+            <h3>Questions About Your Privacy?</h3>
+            <p>We're committed to transparency. Contact us with any questions about how we handle your data.</p>
+            <a href="mailto:ruttkute@gmail.com" class="contact-email">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                ruttkute@gmail.com
+            </a>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/terms">Terms of Service</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/security">Security</a>
+            <a href="/faq">FAQ</a>
+            <a href="mailto:ruttkute@gmail.com">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2025 ROUZE, LLC. All rights reserved.</p>
+    </footer>
+</body>
+</html>

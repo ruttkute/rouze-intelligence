@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Upload - ROUZE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            margin: -20px -20px 40px -20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #B0A6DF;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: rgba(176, 166, 223, 0.8);
+            line-height: 1.6;
+        }
+
+        /* SECTION */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            padding-bottom: 16px;
+        }
+
+        .section-description {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.75);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        /* TRUST SYMBOLS - GLOWING DESIGN */
+        .trust-symbols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .trust-symbol {
+            text-align: center;
+            padding: 24px;
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(58, 143, 195, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .trust-symbol:hover {
+            background: rgba(82, 66, 92, 0.25);
+            border-color: rgba(58, 143, 195, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .symbol-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(58, 143, 195, 0.3);
+                opacity: 0.8;
+            }
+            50% {
+                text-shadow: 0 0 25px rgba(58, 143, 195, 0.6);
+                opacity: 1;
+            }
+        }
+
+        .symbol-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 8px;
+        }
+
+        .symbol-text {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.7);
+            line-height: 1.5;
+        }
+
+        /* COMPLIANCE BADGES */
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: rgba(176, 166, 223, 0.08);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .badge-checkmark {
+            color: #3A8FC3;
+            font-weight: 700;
+        }
+
+        /* UPLOAD CATEGORIES */
+        .upload-category {
+            margin-bottom: 40px;
+            padding: 24px;
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .upload-category:hover {
+            background: rgba(82, 66, 92, 0.25);
+            border-color: rgba(176, 166, 223, 0.25);
+        }
+
+        .category-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 8px;
+        }
+
+        .category-description {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.65);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .category-why {
+            font-size: 12px;
+            color: rgba(58, 143, 195, 0.8);
+            font-style: italic;
+            margin-bottom: 16px;
+            padding: 8px 12px;
+            background: rgba(58, 143, 195, 0.05);
+            border-left: 2px solid rgba(58, 143, 195, 0.3);
+        }
+
+        .file-input-wrapper {
+            position: relative;
+        }
+
+        .file-input-label {
+            display: block;
+            padding: 16px;
+            background: rgba(58, 143, 195, 0.08);
+            border: 2px dashed rgba(58, 143, 195, 0.3);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            color: #3A8FC3;
+        }
+
+        .file-input-label:hover {
+            background: rgba(58, 143, 195, 0.12);
+            border-color: rgba(58, 143, 195, 0.5);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .file-name {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.6);
+            margin-top: 8px;
+        }
+
+        /* RETENTION SELECTOR */
+        .retention-section {
+            margin-bottom: 40px;
+        }
+
+        .retention-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 16px;
+        }
+
+        .retention-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .retention-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .retention-option:hover {
+            background: rgba(82, 66, 92, 0.25);
+            border-color: rgba(176, 166, 223, 0.25);
+        }
+
+        .retention-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #3A8FC3;
+            cursor: pointer;
+        }
+
+        .retention-label {
+            flex: 1;
+            font-size: 14px;
+            color: #B0A6DF;
+            cursor: pointer;
+        }
+
+        .retention-sub {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.6);
+        }
+
+        /* AGREEMENT */
+        .agreement {
+            margin-bottom: 40px;
+            padding: 24px;
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 12px;
+        }
+
+        .agreement-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 16px;
+        }
+
+        .agreement-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .agreement-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .agreement-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: #3A8FC3;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .agreement-label {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.8);
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .agreement-label a {
+            color: #3A8FC3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .agreement-label a:hover {
+            color: #B0A6DF;
+        }
+
+        /* BUTTONS */
+        .form-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        button {
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #3A8FC3;
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: rgba(58, 143, 195, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: rgba(176, 166, 223, 0.1);
+            color: #B0A6DF;
+            border: 1px solid rgba(176, 166, 223, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(176, 166, 223, 0.15);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .trust-symbols {
+                grid-template-columns: 1fr;
+            }
+
+            .badges {
+                flex-direction: column;
+            }
+
+            .badge {
+                width: 100%;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="logo">ROUZE</div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Enhance Your Analysis</h1>
+            <p>Upload your business data for more targeted insights. Optional but recommended. Your data is secure, encrypted, and never shared.</p>
+        </div>
+
+        <!-- SECURITY SECTION -->
+        <div class="section">
+            <h2 class="section-title">Your Data is Secure</h2>
+            
+            <div class="trust-symbols">
+                <div class="trust-symbol">
+                    <div class="symbol-icon">🔒</div>
+                    <div class="symbol-title">Encrypted Transmission</div>
+                    <div class="symbol-text">TLS 1.3 encryption. No interception possible. Same security as banks.</div>
+                </div>
+                <div class="trust-symbol">
+                    <div class="symbol-icon">🔐</div>
+                    <div class="symbol-title">Encrypted at Rest</div>
+                    <div class="symbol-text">AES-256 encryption. Only your account can access your files.</div>
+                </div>
+                <div class="trust-symbol">
+                    <div class="symbol-icon">⏰</div>
+                    <div class="symbol-title">Auto-Deletion</div>
+                    <div class="symbol-text">Your files automatically deleted on the date you choose (7-30 days).</div>
+                </div>
+            </div>
+
+            <div class="badges">
+                <div class="badge"><span class="badge-checkmark">✓</span> SOC2 Type II Certified</div>
+                <div class="badge"><span class="badge-checkmark">✓</span> GDPR Compliant</div>
+                <div class="badge"><span class="badge-checkmark">✓</span> CCPA Compliant</div>
+                <div class="badge"><span class="badge-checkmark">✓</span> HIPAA Eligible</div>
+            </div>
+        </div>
+
+        <!-- UPLOAD CATEGORIES -->
+        <div class="section">
+            <h2 class="section-title">Upload Your Data (Optional)</h2>
+            <p class="section-description">Market signals are powerful on their own. Your context makes analysis 10x more relevant. Choose any or all of these categories.</p>
+
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="hidden" name="project_id" id="projectId" value="">
+
+                <!-- Category 1: Financial Data -->
+                <div class="upload-category">
+                    <div class="category-title">Company Financial Data</div>
+                    <div class="category-description">Revenue, growth rate, customer acquisition cost, lifetime value, market share estimates</div>
+                    <div class="category-why">Why this helps: We can benchmark your metrics against market signals and identify performance gaps</div>
+                    <div class="file-input-wrapper">
+                        <label for="financial" class="file-input-label">Click to upload or drag and drop (CSV, Excel, PDF - max 10MB)</label>
+                        <input type="file" id="financial" name="financial_file" accept=".csv,.xlsx,.xls,.pdf" onchange="updateFileName('financial')">
+                        <div class="file-name" id="financial-name"></div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Customer Feedback -->
+                <div class="upload-category">
+                    <div class="category-title">Customer Feedback Database</div>
+                    <div class="category-description">Email feedback, surveys, interviews, support tickets, feature requests, NPS scores</div>
+                    <div class="category-why">Why this helps: We can compare your customer sentiment with market signals to identify what matters most</div>
+                    <div class="file-input-wrapper">
+                        <label for="feedback" class="file-input-label">Click to upload or drag and drop (CSV, TXT, PDF - max 10MB)</label>
+                        <input type="file" id="feedback" name="feedback_file" accept=".csv,.txt,.pdf" onchange="updateFileName('feedback')">
+                        <div class="file-name" id="feedback-name"></div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Competitive Research -->
+                <div class="upload-category">
+                    <div class="category-title">Competitive Research</div>
+                    <div class="category-description">Existing competitive analysis, pricing intelligence, market reports, feature comparisons</div>
+                    <div class="category-why">Why this helps: We can validate or update your competitive positioning with fresh market signals</div>
+                    <div class="file-input-wrapper">
+                        <label for="competitive" class="file-input-label">Click to upload or drag and drop (PDF, TXT - max 10MB)</label>
+                        <input type="file" id="competitive" name="competitive_file" accept=".pdf,.txt" onchange="updateFileName('competitive')">
+                        <div class="file-name" id="competitive-name"></div>
+                    </div>
+                </div>
+
+                <!-- Category 4: Business Assumptions -->
+                <div class="upload-category">
+                    <div class="category-title">Business Assumptions</div>
+                    <div class="category-description">Market position beliefs, competitive advantages you think you have, target customer profiles, product roadmap</div>
+                    <div class="category-why">Why this helps: We can validate your assumptions against market reality and identify blind spots</div>
+                    <div class="file-input-wrapper">
+                        <label for="assumptions" class="file-input-label">Click to upload or drag and drop (PDF, TXT - max 10MB)</label>
+                        <input type="file" id="assumptions" name="assumptions_file" accept=".pdf,.txt" onchange="updateFileName('assumptions')">
+                        <div class="file-name" id="assumptions-name"></div>
+                    </div>
+                </div>
+
+                <!-- RETENTION SELECTOR -->
+                <div class="retention-section">
+                    <div class="retention-title">How Long Should We Keep Your Files?</div>
+                    
+                    <div class="retention-options">
+                        <div class="retention-option">
+                            <input type="radio" id="retention-after" name="retention_days" value="0" checked>
+                            <label for="retention-after" class="retention-label">
+                                Delete after analysis
+                                <div class="retention-sub">Most secure. Files deleted immediately after analysis.</div>
+                            </label>
+                        </div>
+                        <div class="retention-option">
+                            <input type="radio" id="retention-7" name="retention_days" value="7">
+                            <label for="retention-7" class="retention-label">
+                                Keep for 7 days
+                                <div class="retention-sub">Allows you to verify analysis. Auto-deleted after 7 days.</div>
+                            </label>
+                        </div>
+                        <div class="retention-option">
+                            <input type="radio" id="retention-14" name="retention_days" value="14">
+                            <label for="retention-14" class="retention-label">
+                                Keep for 14 days
+                                <div class="retention-sub">Two weeks of reference. Auto-deleted after 14 days.</div>
+                            </label>
+                        </div>
+                        <div class="retention-option">
+                            <input type="radio" id="retention-30" name="retention_days" value="30">
+                            <label for="retention-30" class="retention-label">
+                                Keep for 30 days
+                                <div class="retention-sub">Full month of access. Auto-deleted after 30 days.</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DATA USAGE AGREEMENT -->
+                <div class="agreement">
+                    <div class="agreement-title">Data Usage Agreement</div>
+                    
+                    <div class="agreement-items">
+                        <div class="agreement-item">
+                            <input type="checkbox" id="agree1" name="agreement" value="agree1" required>
+                            <label for="agree1" class="agreement-label">
+                                I confirm that I have the right to share this data
+                            </label>
+                        </div>
+                        <div class="agreement-item">
+                            <input type="checkbox" id="agree2" name="agreement" value="agree2" required>
+                            <label for="agree2" class="agreement-label">
+                                I understand my data will be encrypted during transmission and storage
+                            </label>
+                        </div>
+                        <div class="agreement-item">
+                            <input type="checkbox" id="agree3" name="agreement" value="agree3" required>
+                            <label for="agree3" class="agreement-label">
+                                I understand my files will be auto-deleted on my chosen date
+                            </label>
+                        </div>
+                        <div class="agreement-item">
+                            <input type="checkbox" id="agree4" name="agreement" value="agree4" required>
+                            <label for="agree4" class="agreement-label">
+                                I understand this data will only be used for my analysis and will never be shared with third parties
+                            </label>
+                        </div>
+                        <div class="agreement-item">
+                            <input type="checkbox" id="agree5" name="agreement" value="agree5" required>
+                            <label for="agree5" class="agreement-label">
+                                I have read and agree to the <a href="/privacy" target="_blank">Privacy Policy</a> and <a href="/security" target="_blank">Security Documentation</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BUTTONS -->
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="skipUpload()">Skip Upload, Continue</button>
+                    <button type="submit" class="btn-primary" id="submitBtn">Upload & Continue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // GET PROJECT ID FROM URL
+        const projectId = window.location.pathname.split('/').pop();
+        document.getElementById('projectId').value = projectId;
+
+        function updateFileName(category) {
+            const input = document.getElementById(category);
+            const fileNameDiv = document.getElementById(category + '-name');
+            if (input.files && input.files[0]) {
+                fileNameDiv.textContent = 'Selected: ' + input.files[0].name;
+            }
+        }
+
+        function skipUpload() {
+            // Skip upload and go directly to format selection
+            window.location.href = `/format-selection/${projectId}`;
+        }
+
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validate agreements
+            const allAgreed = document.querySelectorAll('input[name="agreement"]:checked').length === 5;
+            if (!allAgreed) {
+                alert('Please confirm all agreements before continuing');
+                return;
+            }
+
+            // Create FormData with files
+            const formData = new FormData();
+            formData.append('project_id', projectId);
+            formData.append('retention_days', document.querySelector('input[name="retention_days"]:checked').value);
+
+            // Add files if selected
+            if (document.getElementById('financial').files.length > 0) {
+                formData.append('financial_file', document.getElementById('financial').files[0]);
+            }
+            if (document.getElementById('feedback').files.length > 0) {
+                formData.append('feedback_file', document.getElementById('feedback').files[0]);
+            }
+            if (document.getElementById('competitive').files.length > 0) {
+                formData.append('competitive_file', document.getElementById('competitive').files[0]);
+            }
+            if (document.getElementById('assumptions').files.length > 0) {
+                formData.append('assumptions_file', document.getElementById('assumptions').files[0]);
+            }
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Uploading...';
+
+            fetch(`/api/upload/${projectId}`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.status === 'success') {
+                    window.location.href = `/format-selection/${projectId}`;
+                } else {
+                    alert('Upload error: ' + (result.error || 'Please try again'));
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Upload & Continue';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Upload failed. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Upload & Continue';
+            });
+        });
+    </script>
+</body>
+</html>

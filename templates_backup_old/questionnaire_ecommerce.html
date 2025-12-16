@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Market Intelligence Questionnaire - ROUZE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .questionnaire-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            margin: -20px -20px 40px -20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #B0A6DF;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            color: #B0A6DF;
+        }
+
+        .form-header p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(176, 166, 223, 0.8);
+            margin-bottom: 30px;
+        }
+
+        .progress-container {
+            margin-bottom: 40px;
+        }
+
+        .progress-label {
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #3A8FC3;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: rgba(176, 166, 223, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #3A8FC3;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .form-section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #B0A6DF;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+            padding-top: 30px;
+            margin-top: 30px;
+            margin-bottom: 24px;
+        }
+
+        .section-description {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.75);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .question-group {
+            margin-bottom: 36px;
+        }
+
+        .question-number {
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #3A8FC3;
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .helper-text {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.65);
+            font-style: italic;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        select,
+        input[type="text"],
+        textarea {
+            width: 100%;
+            background: rgba(82, 66, 92, 0.3);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 16px;
+            color: #B0A6DF;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+        }
+
+        select:focus,
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            background: rgba(82, 66, 92, 0.5);
+            border: 1px solid rgba(58, 143, 195, 0.5);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .options-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: #3A8FC3;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .option-label {
+            font-size: 16px;
+            color: #B0A6DF;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .error-message {
+            font-size: 12px;
+            color: rgba(220, 100, 100, 0.9);
+            background: rgba(220, 100, 100, 0.05);
+            border: 1px solid rgba(220, 100, 100, 0.3);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        button {
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            background: #3A8FC3;
+            color: white;
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            background: rgba(58, 143, 195, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .btn-back {
+            background: rgba(176, 166, 223, 0.1);
+            color: #B0A6DF;
+            border: 1px solid rgba(176, 166, 223, 0.2);
+        }
+
+        .btn-back:hover {
+            background: rgba(176, 166, 223, 0.15);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 16px 20px;
+                margin: -20px -20px 30px -20px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                font-size: 12px;
+            }
+
+            .form-header h1 {
+                font-size: 32px;
+            }
+
+            .section-header {
+                font-size: 20px;
+            }
+
+            .question-text {
+                font-size: 16px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="logo">ROUZE</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing">Pricing</a>
+        </div>
+    </div>
+
+    <div class="questionnaire-container">
+        <div class="form-header">
+            <h1>E-commerce Market Intelligence</h1>
+            <p>Deep questionnaire for product validation. 14 targeted questions. ~8 minutes.</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-label">PROGRESS</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div style="font-size: 12px; color: rgba(176, 166, 223, 0.6); margin-top: 8px;">
+                <span id="progressText">0 of 14 questions</span>
+            </div>
+        </div>
+
+        <form id="ecommerceForm" method="POST" action="/api/questionnaire">
+            <input type="hidden" name="vertical" value="ecommerce">
+
+            <!-- SECTION 1: PRODUCT & PLATFORM -->
+            <div class="form-section">
+                <h2 class="section-header">Your Product & Business Model</h2>
+                <p class="section-description">
+                    Understanding your product type, category, and sales channels helps us identify which market signals 
+                    are most relevant to your opportunity validation.
+                </p>
+
+                <!-- Q1: What do you sell -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 1 OF 14</div>
+                    <div class="question-text">What do you sell?</div>
+                    <div class="helper-text">Your business model determines customer segments, market dynamics, and relevant platforms.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q1_physical" name="q1_product_type" value="Physical products (own inventory)" required>
+                            <label for="q1_physical" class="option-label">Physical products (own inventory, handle fulfillment)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_digital" name="q1_product_type" value="Digital products">
+                            <label for="q1_digital" class="option-label">Digital products (downloads, software, courses)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_marketplace" name="q1_product_type" value="Marketplace reseller">
+                            <label for="q1_marketplace" class="option-label">Marketplace reseller (Etsy, Amazon, eBay seller)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_dropshipping" name="q1_product_type" value="Dropshipping">
+                            <label for="q1_dropshipping" class="option-label">Dropshipping (supplier handles fulfillment)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_services" name="q1_product_type" value="Services">
+                            <label for="q1_services" class="option-label">Services (consulting, done-for-you)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_subscription" name="q1_product_type" value="Subscription boxes">
+                            <label for="q1_subscription" class="option-label">Subscription boxes (recurring shipments)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q1_error"></div>
+                </div>
+
+                <!-- Q2: Product category -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 2 OF 14</div>
+                    <div class="question-text">What product category?</div>
+                    <div class="helper-text">Category determines your competitive landscape and customer demographics.</div>
+                    
+                    <select name="q2_category" id="q2_category" required>
+                        <option value="">-- Select a category --</option>
+                        <option value="Apparel & fashion">Apparel & fashion</option>
+                        <option value="Home & furniture">Home & furniture</option>
+                        <option value="Beauty & personal care">Beauty & personal care</option>
+                        <option value="Electronics & gadgets">Electronics & gadgets</option>
+                        <option value="Sports & outdoors">Sports & outdoors</option>
+                        <option value="Toys & games">Toys & games</option>
+                        <option value="Health & wellness">Health & wellness</option>
+                        <option value="Pet products">Pet products</option>
+                        <option value="Sustainable/eco products">Sustainable/eco products</option>
+                        <option value="Art & crafts">Art & crafts</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <div class="error-message" id="q2_error"></div>
+                </div>
+
+                <!-- Q3: Where you sell -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 3 OF 14</div>
+                    <div class="question-text">Where do you primarily sell?</div>
+                    <div class="helper-text">Channels determine where customers discuss your product and find alternatives.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" id="q3_shopify" name="q3_channels" value="Shopify store" required>
+                            <label for="q3_shopify" class="option-label">Shopify store (own website)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q3_amazon" name="q3_channels" value="Amazon">
+                            <label for="q3_amazon" class="option-label">Amazon (Fulfillment by Amazon)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q3_etsy" name="q3_channels" value="Etsy">
+                            <label for="q3_etsy" class="option-label">Etsy</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q3_ebay" name="q3_channels" value="eBay">
+                            <label for="q3_ebay" class="option-label">eBay</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q3_tiktok" name="q3_channels" value="TikTok Shop">
+                            <label for="q3_tiktok" class="option-label">TikTok Shop</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q3_social" name="q3_channels" value="Social media">
+                            <label for="q3_social" class="option-label">Social media (Instagram, Facebook, Pinterest)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q3_own_website" name="q3_channels" value="Own website">
+                            <label for="q3_own_website" class="option-label">Own website (WooCommerce, custom)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q3_wholesale" name="q3_channels" value="Wholesale/B2B">
+                            <label for="q3_wholesale" class="option-label">Wholesale/B2B (selling to retailers)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q3_error"></div>
+                </div>
+
+                <!-- Q4: Sales volume -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 4 OF 14</div>
+                    <div class="question-text">What is your annual sales volume?</div>
+                    <div class="helper-text">Sales volume indicates market traction and competitive positioning.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q4_prelaunch" name="q4_sales" value="Pre-launch (no sales yet)" required>
+                            <label for="q4_prelaunch" class="option-label">Pre-launch (no sales yet, testing market)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_under10k" name="q4_sales" value="Less than $10K">
+                            <label for="q4_under10k" class="option-label">Less than $10K (early testing)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_10k_100k" name="q4_sales" value="$10K - $100K">
+                            <label for="q4_10k_100k" class="option-label">$10K - $100K (early traction)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_100k_500k" name="q4_sales" value="$100K - $500K">
+                            <label for="q4_100k_500k" class="option-label">$100K - $500K (growing)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_500k_1m" name="q4_sales" value="$500K - $1M">
+                            <label for="q4_500k_1m" class="option-label">$500K - $1M (scaling)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_1m_5m" name="q4_sales" value="$1M - $5M">
+                            <label for="q4_1m_5m" class="option-label">$1M - $5M (established)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_over5m" name="q4_sales" value="$5M+">
+                            <label for="q4_over5m" class="option-label">$5M+ (successful business)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q4_error"></div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: MARKET OPPORTUNITY & COMPETITION -->
+            <div class="form-section">
+                <h2 class="section-header">Market Opportunity & Competition</h2>
+                <p class="section-description">
+                    Understanding your specific product opportunity and competitive landscape reveals market 
+                    signals that indicate demand, saturation, and entry timing.
+                </p>
+
+                <!-- Q5: Specific product -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 5 OF 14</div>
+                    <div class="question-text">What specific product opportunity are you exploring?</div>
+                    <div class="helper-text">Be very specific. Example: "Sustainable bamboo phone cases for Gen-Z" is better than "phone accessories"</div>
+                    
+                    <textarea name="q5_product" placeholder="Describe your exact product/niche as specifically as possible..." required></textarea>
+                    <div class="error-message" id="q5_error"></div>
+                </div>
+
+                <!-- Q6: Market saturation -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 6 OF 14</div>
+                    <div class="question-text">How saturated is your market currently?</div>
+                    <div class="helper-text">Based on your research and observations of the competitive landscape.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q6_blue_ocean" name="q6_saturation" value="Blue ocean (almost no competitors)" required>
+                            <label for="q6_blue_ocean" class="option-label">Blue ocean (almost no competitors, untapped niche)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q6_emerging" name="q6_saturation" value="Emerging">
+                            <label for="q6_emerging" class="option-label">Emerging (few competitors, growing market)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q6_growing" name="q6_saturation" value="Growing">
+                            <label for="q6_growing" class="option-label">Growing (many competitors, explosive demand)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q6_mature" name="q6_saturation" value="Mature">
+                            <label for="q6_mature" class="option-label">Mature (many established competitors)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q6_oversaturated" name="q6_saturation" value="Oversaturated">
+                            <label for="q6_oversaturated" class="option-label">Oversaturated (extremely competitive, low margins)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q6_unsure" name="q6_saturation" value="Unsure">
+                            <label for="q6_unsure" class="option-label">Unsure (need market intelligence)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q6_error"></div>
+                </div>
+
+                <!-- Q7: Competitor products -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 7 OF 14</div>
+                    <div class="question-text">What are your top 3-5 competitor products?</div>
+                    <div class="helper-text">List specific competitor products/companies you're losing to or concerned about.</div>
+                    
+                    <textarea name="q7_competitors" placeholder="Competitor 1, Competitor 2, Competitor 3..." required></textarea>
+                    <div class="error-message" id="q7_error"></div>
+                </div>
+
+                <!-- Q8: Customer complaints -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 8 OF 14</div>
+                    <div class="question-text">What are customers complaining about in existing solutions?</div>
+                    <div class="helper-text">Optional but valuable. What problems aren't being solved well? This reveals your differentiation opportunity.</div>
+                    
+                    <textarea name="q8_complaints" placeholder="What pain points exist in the market?..."></textarea>
+                    <div class="error-message" id="q8_error"></div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: DEMAND & TREND VALIDATION -->
+            <div class="form-section">
+                <h2 class="section-header">Demand & Trend Validation</h2>
+                <p class="section-description">
+                    Market signals show whether demand is real, growing, and worth your investment. 
+                    This section identifies which signals prove market viability.
+                </p>
+
+                <!-- Q9: Proof signals -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 9 OF 14</div>
+                    <div class="question-text">What signals would prove this market is worth entering?</div>
+                    <div class="helper-text">Check all that apply. These become your validation criteria.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" id="q9_social_interest" name="q9_proof_signals" value="Rising social media interest" required>
+                            <label for="q9_social_interest" class="option-label">Rising social media interest (#hashtag growth, creator mentions)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q9_search" name="q9_proof_signals" value="Increasing search volume">
+                            <label for="q9_search" class="option-label">Increasing search volume (Google Trends growth)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q9_influencers" name="q9_proof_signals" value="Influencer mentions">
+                            <label for="q9_influencers" class="option-label">Influencer mentions and reviews</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q9_tiktok" name="q9_proof_signals" value="TikTok/YouTube creators">
+                            <label for="q9_tiktok" class="option-label">TikTok/YouTube creators testing the product</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q9_reddit" name="q9_proof_signals" value="Reddit discussions">
+                            <label for="q9_reddit" class="option-label">Reddit discussions (authentic demand signals)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q9_bestsellers" name="q9_proof_signals" value="Amazon/Etsy bestsellers">
+                            <label for="q9_bestsellers" class="option-label">Amazon/Etsy bestseller status (sales momentum)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q9_reviews" name="q9_proof_signals" value="Review sentiment">
+                            <label for="q9_reviews" class="option-label">Positive review sentiment (customer satisfaction)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q9_segments" name="q9_proof_signals" value="New customer segments">
+                            <label for="q9_segments" class="option-label">New customer segments discovering the category</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q9_error"></div>
+                </div>
+
+                <!-- Q10: Validation types -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 10 OF 14</div>
+                    <div class="question-text">What market validation are you interested in?</div>
+                    <div class="helper-text">Check all. This determines which analysis approaches are most relevant.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" id="q10_demand" name="q10_validation" value="Market demand validation" required>
+                            <label for="q10_demand" class="option-label">Market demand validation (is demand real?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q10_viral" name="q10_validation" value="Viral potential scoring">
+                            <label for="q10_viral" class="option-label">Viral potential scoring (will this trend?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q10_demographics" name="q10_validation" value="Demographic targeting">
+                            <label for="q10_demographics" class="option-label">Demographic targeting (who buys this?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q10_pricing" name="q10_validation" value="Price optimization">
+                            <label for="q10_pricing" class="option-label">Price point optimization (what should it cost?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q10_weakness" name="q10_validation" value="Competitor weakness">
+                            <label for="q10_weakness" class="option-label">Competitor weakness analysis (what can we do better?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q10_seasonal" name="q10_validation" value="Seasonal timing">
+                            <label for="q10_seasonal" class="option-label">Seasonal timing (when is demand highest?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q10_saturation" name="q10_validation" value="Marketplace saturation">
+                            <label for="q10_saturation" class="option-label">Marketplace saturation analysis (room for new entrant?)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q10_error"></div>
+                </div>
+
+                <!-- Q11: Decision timeframe -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 11 OF 14</div>
+                    <div class="question-text">What is your timeframe for this decision?</div>
+                    <div class="helper-text">Timeline affects how recent our market signals need to be.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q11_urgent" name="q11_timeframe" value="Urgent (launch within 30 days)" required>
+                            <label for="q11_urgent" class="option-label">Urgent (launch within 30 days)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q11_nearterm" name="q11_timeframe" value="Near-term (3 months)">
+                            <label for="q11_nearterm" class="option-label">Near-term (3 months)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q11_mediumterm" name="q11_timeframe" value="Medium-term (6 months)">
+                            <label for="q11_mediumterm" class="option-label">Medium-term (6 months)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q11_longterm" name="q11_timeframe" value="Long-term (12+ months)">
+                            <label for="q11_longterm" class="option-label">Long-term (12+ months)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q11_ongoing" name="q11_timeframe" value="Ongoing monitoring">
+                            <label for="q11_ongoing" class="option-label">Ongoing monitoring (want to track category over time)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q11_error"></div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: ANALYSIS SPECIFICITY -->
+            <div class="form-section">
+                <h2 class="section-header">Analysis Focus & Signal Sources</h2>
+                <p class="section-description">
+                    E-commerce trends live in specific places. Identifying where YOUR market congregates 
+                    helps us focus on the signals that matter most to your decision.
+                </p>
+
+                <!-- Q12: Data sources -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 12 OF 14</div>
+                    <div class="question-text">Which data sources interest you most?</div>
+                    <div class="helper-text">Check your top 5. E-commerce intelligence comes from these specific sources.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_amazon" name="q12_sources" value="Amazon reviews" required>
+                            <label for="q12_amazon" class="option-label">Amazon reviews (competitor product sentiment)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_tiktok" name="q12_sources" value="TikTok trends">
+                            <label for="q12_tiktok" class="option-label">TikTok trends (#hashtag analysis, creator mentions)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_reddit" name="q12_sources" value="Reddit discussions">
+                            <label for="q12_reddit" class="option-label">Reddit discussions (r/ecommerce, niche communities)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_etsy" name="q12_sources" value="Etsy data">
+                            <label for="q12_etsy" class="option-label">Etsy search/bestseller data (marketplace trends)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_youtube" name="q12_sources" value="YouTube reviews">
+                            <label for="q12_youtube" class="option-label">YouTube product reviews and unboxings</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_google" name="q12_sources" value="Google Trends">
+                            <label for="q12_google" class="option-label">Google Trends and search volume</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_instagram" name="q12_sources" value="Instagram/Pinterest">
+                            <label for="q12_instagram" class="option-label">Instagram/Pinterest aesthetic trends</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_influencers" name="q12_sources" value="Influencer mentions">
+                            <label for="q12_influencers" class="option-label">Influencer mentions and collaborations</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_blogs" name="q12_sources" value="Industry blogs">
+                            <label for="q12_blogs" class="option-label">Industry blogs and trend reports</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q12_error"></div>
+                </div>
+
+                <!-- Q13: Ideal customer -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 13 OF 14</div>
+                    <div class="question-text">Describe your ideal customer</div>
+                    <div class="helper-text">Age, income, lifestyle, values, pain points. Example: Gen-Z women, $25-40K income, eco-conscious, willing to pay premium.</div>
+                    
+                    <textarea name="q13_customer" placeholder="Describe your target customer profile..." required></textarea>
+                    <div class="error-message" id="q13_error"></div>
+                </div>
+
+                <!-- Q14: Win criteria -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 14 OF 14</div>
+                    <div class="question-text">What would be a WIN for you with this analysis?</div>
+                    <div class="helper-text">What would convince you to launch or pivot?</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q14_proof" name="q14_win" value="Proof demand is real" required>
+                            <label for="q14_proof" class="option-label">Proof that demand is real and measurable</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q14_segment" name="q14_win" value="Identify underserved segment">
+                            <label for="q14_segment" class="option-label">Identify an underserved customer segment</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q14_window" name="q14_win" value="Market entry window">
+                            <label for="q14_window" class="option-label">Clear market entry window (before saturation)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q14_viral" name="q14_win" value="Viral potential score">
+                            <label for="q14_viral" class="option-label">Viral potential score (can this trend?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q14_gap" name="q14_win" value="Competitor gap analysis">
+                            <label for="q14_gap" class="option-label">Competitor gap analysis (specific advantage we can own)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q14_pricing" name="q14_win" value="Pricing strategy confidence">
+                            <label for="q14_pricing" class="option-label">Pricing strategy confidence (know what to charge)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q14_error"></div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn-back" onclick="window.history.back()">Back</button>
+                <button type="submit" class="btn-submit" id="submitBtn">Continue to Data Upload</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('ecommerceForm');
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        const submitBtn = document.getElementById('submitBtn');
+        const totalQuestions = 14;
+
+        function updateProgress() {
+            let answeredCount = 0;
+
+            if (document.querySelector('input[name="q1_product_type"]:checked')) answeredCount++;
+            if (document.querySelector('select[name="q2_category"]').value) answeredCount++;
+            if (document.querySelector('input[name="q3_channels"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q4_sales"]:checked')) answeredCount++;
+            if (document.querySelector('textarea[name="q5_product"]').value.trim()) answeredCount++;
+            if (document.querySelector('input[name="q6_saturation"]:checked')) answeredCount++;
+            if (document.querySelector('textarea[name="q7_competitors"]').value.trim()) answeredCount++;
+            if (document.querySelector('input[name="q9_proof_signals"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q10_validation"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q11_timeframe"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q12_sources"]:checked')) answeredCount++;
+            if (document.querySelector('textarea[name="q13_customer"]').value.trim()) answeredCount++;
+            if (document.querySelector('input[name="q14_win"]:checked')) answeredCount++;
+
+            const progress = (answeredCount / totalQuestions) * 100;
+            progressFill.style.width = progress + '%';
+            progressText.textContent = `${answeredCount} of ${totalQuestions} questions`;
+        }
+
+        form.addEventListener('change', updateProgress);
+        document.querySelectorAll('textarea').forEach(ta => ta.addEventListener('input', updateProgress));
+
+        function validateForm() {
+            let isValid = true;
+
+            if (!document.querySelector('input[name="q1_product_type"]:checked')) {
+                document.getElementById('q1_error').textContent = 'Please select a product type';
+                document.getElementById('q1_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('select[name="q2_category"]').value) {
+                document.getElementById('q2_error').textContent = 'Please select a category';
+                document.getElementById('q2_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q3_channels"]:checked')) {
+                document.getElementById('q3_error').textContent = 'Please select at least one channel';
+                document.getElementById('q3_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q4_sales"]:checked')) {
+                document.getElementById('q4_error').textContent = 'Please select a sales volume';
+                document.getElementById('q4_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('textarea[name="q5_product"]').value.trim()) {
+                document.getElementById('q5_error').textContent = 'Please describe your product';
+                document.getElementById('q5_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q6_saturation"]:checked')) {
+                document.getElementById('q6_error').textContent = 'Please assess market saturation';
+                document.getElementById('q6_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('textarea[name="q7_competitors"]').value.trim()) {
+                document.getElementById('q7_error').textContent = 'Please list competitor products';
+                document.getElementById('q7_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q9_proof_signals"]:checked')) {
+                document.getElementById('q9_error').textContent = 'Please select at least one proof signal';
+                document.getElementById('q9_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q10_validation"]:checked')) {
+                document.getElementById('q10_error').textContent = 'Please select validation types';
+                document.getElementById('q10_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q11_timeframe"]:checked')) {
+                document.getElementById('q11_error').textContent = 'Please select a timeframe';
+                document.getElementById('q11_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q12_sources"]:checked')) {
+                document.getElementById('q12_error').textContent = 'Please select data sources';
+                document.getElementById('q12_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('textarea[name="q13_customer"]').value.trim()) {
+                document.getElementById('q13_error').textContent = 'Please describe your ideal customer';
+                document.getElementById('q13_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q14_win"]:checked')) {
+                document.getElementById('q14_error').textContent = 'Please select win criteria';
+                document.getElementById('q14_error').classList.add('show');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            document.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
+
+            if (!validateForm()) {
+                return;
+            }
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            const checkboxGroups = ['q3_channels', 'q9_proof_signals', 'q10_validation', 'q12_sources'];
+            checkboxGroups.forEach(group => {
+                const checked = document.querySelectorAll(`input[name="${group}"]:checked`);
+                data[group] = Array.from(checked).map(el => el.value);
+            });
+
+            console.log('Form Data:', data);
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            fetch('/api/questionnaire', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.project_id) {
+                    window.location.href = `/data-upload/${result.project_id}`;
+                } else {
+                    alert('Error: ' + (result.error || 'Something went wrong'));
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Continue to Data Upload';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error submitting questionnaire. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Continue to Data Upload';
+            });
+        });
+
+        updateProgress();
+    </script>
+</body>
+</html>

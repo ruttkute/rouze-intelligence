@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodology - ROUZE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* NAVIGATION */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #B0A6DF;
+        }
+
+        .nav-cta {
+            padding: 10px 24px;
+            background: #3A8FC3;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: #4da3d4;
+            transform: translateY(-2px);
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+
+        .page-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(58, 143, 195, 0.1);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            border-radius: 50px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #3A8FC3;
+            margin-bottom: 24px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #B0A6DF;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: rgba(176, 166, 223, 0.75);
+            line-height: 1.6;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* SECTION STYLES */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background: rgba(82, 66, 92, 0.05);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #3A8FC3;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: rgba(176, 166, 223, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* PHILOSOPHY SECTION */
+        .philosophy-card {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 16px;
+            padding: 50px;
+            margin-bottom: 40px;
+        }
+
+        .philosophy-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 24px;
+        }
+
+        .philosophy-card p {
+            font-size: 16px;
+            color: rgba(176, 166, 223, 0.8);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .philosophy-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .philosophy-card em {
+            color: #3A8FC3;
+            font-style: normal;
+        }
+
+        /* PRINCIPLES GRID */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .principle-card {
+            background: rgba(82, 66, 92, 0.1);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .principle-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(58, 143, 195, 0.15);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            border-radius: 50%;
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #3A8FC3;
+            margin-bottom: 16px;
+        }
+
+        .principle-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+        }
+
+        .principle-card p {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.7);
+            line-height: 1.6;
+        }
+
+        /* PROCESS FLOW */
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            position: relative;
+        }
+
+        .process-flow::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 12.5%;
+            right: 12.5%;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(58, 143, 195, 0.3), rgba(58, 143, 195, 0.5), rgba(58, 143, 195, 0.3));
+            z-index: 0;
+        }
+
+        .process-step {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: #3A8FC3;
+            border-radius: 50%;
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .process-step h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.65);
+            line-height: 1.5;
+        }
+
+        /* DATA SOURCES */
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .source-category {
+            background: rgba(82, 66, 92, 0.1);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .source-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .source-list {
+            list-style: none;
+        }
+
+        .source-list li {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.75);
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.05);
+        }
+
+        .source-list li:last-child {
+            border-bottom: none;
+        }
+
+        .source-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 6px;
+            height: 6px;
+            background: #3A8FC3;
+            border-radius: 50%;
+        }
+
+        /* VALIDATION SECTION */
+        .validation-card {
+            background: rgba(82, 66, 92, 0.1);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 16px;
+            padding: 50px;
+        }
+
+        .validation-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .validation-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(58, 143, 195, 0.15);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .validation-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: #3A8FC3;
+        }
+
+        .validation-header-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+        }
+
+        .validation-header-text p {
+            font-size: 15px;
+            color: rgba(176, 166, 223, 0.7);
+            line-height: 1.6;
+        }
+
+        .validation-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .validation-step {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.08);
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+        .validation-step h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3A8FC3;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .validation-step p {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.7);
+            line-height: 1.5;
+        }
+
+        /* COMPARISON TABLE */
+        .comparison-table {
+            background: rgba(82, 66, 92, 0.1);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 20px 24px;
+            text-align: left;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.08);
+        }
+
+        .comparison-table th {
+            background: rgba(82, 66, 92, 0.2);
+            font-size: 14px;
+            font-weight: 600;
+            color: #B0A6DF;
+        }
+
+        .comparison-table th:first-child {
+            width: 30%;
+        }
+
+        .comparison-table th.rouze-col {
+            background: rgba(58, 143, 195, 0.15);
+            color: #3A8FC3;
+        }
+
+        .comparison-table td {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.75);
+        }
+
+        .comparison-table td.metric-name {
+            font-weight: 500;
+            color: #B0A6DF;
+        }
+
+        .comparison-table td.rouze-advantage {
+            color: #4ade80;
+            font-weight: 500;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* CONFIDENCE SECTION */
+        .confidence-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .confidence-card {
+            background: rgba(82, 66, 92, 0.1);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .confidence-score {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #3A8FC3;
+            margin-bottom: 8px;
+        }
+
+        .confidence-label {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.6);
+            margin-bottom: 16px;
+        }
+
+        .confidence-desc {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.7);
+            line-height: 1.5;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: rgba(58, 143, 195, 0.05);
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: rgba(176, 166, 223, 0.7);
+            margin-bottom: 32px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #3A8FC3;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #4da3d4;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(58, 143, 195, 0.3);
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 60px 40px 40px;
+            background: rgba(10, 3, 20, 0.5);
+            border-top: 1px solid rgba(176, 166, 223, 0.08);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-brand .logo {
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.5);
+            line-height: 1.6;
+            max-width: 280px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 20px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.5);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: #B0A6DF;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(176, 166, 223, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.4);
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-badge {
+            padding: 6px 12px;
+            background: rgba(82, 66, 92, 0.2);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 4px;
+            font-size: 10px;
+            color: rgba(176, 166, 223, 0.5);
+            letter-spacing: 0.5px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1100px) {
+            .principles-grid,
+            .validation-steps,
+            .confidence-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-flow {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-flow::before {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                font-size: 12px;
+            }
+
+            .page-header {
+                padding: 50px 20px 40px;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .philosophy-card {
+                padding: 30px 24px;
+            }
+
+            .philosophy-card h2 {
+                font-size: 22px;
+            }
+
+            .process-flow {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .sources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .validation-card {
+                padding: 30px 20px;
+            }
+
+            .validation-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 14px 12px;
+                font-size: 12px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="/" class="logo">ROUZE</a>
+        <div class="nav-links">
+            <a href="/methodology" class="active">Methodology</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/case-studies">Case Studies</a>
+            <a href="/security">Security</a>
+            <a href="/about">About</a>
+        </div>
+        <a href="/vertical-selector" class="nav-cta">Start Analysis</a>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <span class="page-badge">Our Approach</span>
+        <h1>Listening Beats Asking</h1>
+        <p>Traditional research asks what people think. ROUZE listens to what they're already saying when they don't know they're being observed.</p>
+    </header>
+
+    <!-- Philosophy Section -->
+    <section class="section">
+        <div class="container">
+            <div class="philosophy-card">
+                <h2>The Problem With Asking</h2>
+                <p>There's a peculiar phenomenon in market research: <em>the moment you ask someone what they want, they lie to you.</em> Not maliciously. Not intentionally. But they lie nonetheless.</p>
+                <p>Ask a customer if they'd pay $50 for your product, and they'll say yes. Watch what they actually do, and they'll balk at $30. Ask a patient if they're worried about a drug's side effects, and they'll give you the answer they think you want to hear. Check what they're Googling at 2 AM, and you'll see their real concerns.</p>
+                <p>Surveys don't capture truth. They capture <em>performance</em>-the version of themselves people present when they know they're being watched. This is the fundamental epistemological crisis of market intelligence: <em>the act of asking changes the answer.</em></p>
+            </div>
+
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <span class="principle-number">1</span>
+                    <h3>Revealed Preference</h3>
+                    <p>What people do tells you more than what they say. Watch behavior, not declarations. Actions under real conditions reveal true preferences.</p>
+                </div>
+                <div class="principle-card">
+                    <span class="principle-number">2</span>
+                    <h3>Unfiltered Signals</h3>
+                    <p>The most valuable insights come from moments when people don't know they're being observed. Reddit arguments reveal more than focus groups.</p>
+                </div>
+                <div class="principle-card">
+                    <span class="principle-number">3</span>
+                    <h3>Speed Over Perfection</h3>
+                    <p>A good decision today beats a perfect decision six months from now. Markets move. Competitors launch. Windows close.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Process</p>
+                <h2 class="section-title">How We Collect Intelligence</h2>
+                <p class="section-subtitle">From your question to actionable insights in four steps</p>
+            </div>
+
+            <div class="process-flow">
+                <div class="process-step">
+                    <span class="process-step-number">1</span>
+                    <h3>Deep Questionnaire</h3>
+                    <p>13-16 market-specific questions extract your exact situation, competitors, and decision context</p>
+                </div>
+                <div class="process-step">
+                    <span class="process-step-number">2</span>
+                    <h3>Signal Collection</h3>
+                    <p>10,000-50,000+ signals gathered from 15-20 platforms tailored to your vertical</p>
+                </div>
+                <div class="process-step">
+                    <span class="process-step-number">3</span>
+                    <h3>Cross-Validation</h3>
+                    <p>Patterns must appear in 2+ independent sources before inclusion in findings</p>
+                </div>
+                <div class="process-step">
+                    <span class="process-step-number">4</span>
+                    <h3>Strategic Analysis</h3>
+                    <p>Ranked insights with confidence scores, evidence, and actionable recommendations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Sources Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Signal Sources</p>
+                <h2 class="section-title">Where We Listen</h2>
+                <p class="section-subtitle">15-20 platforms per vertical, customized to your market</p>
+            </div>
+
+            <div class="sources-grid">
+                <div class="source-category">
+                    <h3>Community Platforms</h3>
+                    <ul class="source-list">
+                        <li>Reddit (vertical-specific subreddits)</li>
+                        <li>Discord servers and communities</li>
+                        <li>Industry-specific forums</li>
+                        <li>Slack communities</li>
+                        <li>LinkedIn groups and discussions</li>
+                    </ul>
+                </div>
+                <div class="source-category">
+                    <h3>Review Platforms</h3>
+                    <ul class="source-list">
+                        <li>G2 and Capterra (SaaS)</li>
+                        <li>Amazon reviews (E-commerce)</li>
+                        <li>App Store and Google Play</li>
+                        <li>Trustpilot and BBB</li>
+                        <li>Glassdoor and industry ratings</li>
+                    </ul>
+                </div>
+                <div class="source-category">
+                    <h3>Social Platforms</h3>
+                    <ul class="source-list">
+                        <li>Twitter/X conversations</li>
+                        <li>TikTok trends and comments</li>
+                        <li>YouTube reviews and tutorials</li>
+                        <li>Product Hunt discussions</li>
+                        <li>Hacker News threads</li>
+                    </ul>
+                </div>
+                <div class="source-category">
+                    <h3>Vertical-Specific Sources</h3>
+                    <ul class="source-list">
+                        <li>FDA forums, MAUDE database (Healthcare)</li>
+                        <li>Zillow, City-Data (Real Estate)</li>
+                        <li>CFPB complaints (FinTech)</li>
+                        <li>SEC filings, analyst coverage</li>
+                        <li>Patent filings, regulatory announcements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Validation Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="validation-card">
+                <div class="validation-header">
+                    <div class="validation-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+                    </div>
+                    <div class="validation-header-text">
+                        <h3>Cross-Validation Methodology</h3>
+                        <p>We don't present isolated opinions as market truth. Every pattern in our analysis must be validated across multiple independent sources before inclusion.</p>
+                    </div>
+                </div>
+
+                <div class="validation-steps">
+                    <div class="validation-step">
+                        <h4>Source Independence</h4>
+                        <p>Signals must appear in 2+ platforms with no cross-contamination. A Reddit thread and a G2 review count. Two Reddit posts don't.</p>
+                    </div>
+                    <div class="validation-step">
+                        <h4>Temporal Validation</h4>
+                        <p>Patterns must persist over time, not spike-and-disappear. We weight recency but require sustained signal presence.</p>
+                    </div>
+                    <div class="validation-step">
+                        <h4>Engagement Weighting</h4>
+                        <p>High-engagement signals (many upvotes, comments, shares) receive higher weight than isolated mentions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confidence Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Transparency</p>
+                <h2 class="section-title">Confidence Scoring</h2>
+                <p class="section-subtitle">Every finding includes explicit confidence levels with methodology</p>
+            </div>
+
+            <div class="confidence-grid">
+                <div class="confidence-card">
+                    <div class="confidence-score">72-78%</div>
+                    <div class="confidence-label">Quick Intelligence</div>
+                    <p class="confidence-desc">Based on 10,000+ signals from 5-7 sources. Sufficient for directional decisions and rapid validation.</p>
+                </div>
+                <div class="confidence-card">
+                    <div class="confidence-score">82-88%</div>
+                    <div class="confidence-label">Strategic Intelligence</div>
+                    <p class="confidence-desc">Based on 25,000+ signals from 10-12 sources with full cross-validation. Suitable for major decisions.</p>
+                </div>
+                <div class="confidence-card">
+                    <div class="confidence-score">88-92%</div>
+                    <div class="confidence-label">Predictive Intelligence</div>
+                    <p class="confidence-desc">Based on 50,000+ signals from 15-20 sources with historical analysis. For critical strategic decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Comparison</p>
+                <h2 class="section-title">ROUZE vs Traditional Research</h2>
+                <p class="section-subtitle">Why listening beats asking</p>
+            </div>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Traditional Research</th>
+                            <th class="rouze-col">ROUZE Intelligence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="metric-name">Data Collection</td>
+                            <td>Surveys, focus groups (asking)</td>
+                            <td class="rouze-advantage">Passive signal monitoring (listening)</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Response Bias</td>
+                            <td>High (performance mode)</td>
+                            <td class="rouze-advantage">Low (unobserved behavior)</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Timeline</td>
+                            <td>3-6 months</td>
+                            <td class="rouze-advantage">24 hours - 14 days</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Sample Size</td>
+                            <td>100-500 responses</td>
+                            <td class="rouze-advantage">10,000-50,000+ signals</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Cost</td>
+                            <td>$15,000-$50,000+</td>
+                            <td class="rouze-advantage">$750-$3,500</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Raw Data Access</td>
+                            <td>Proprietary, hidden</td>
+                            <td class="rouze-advantage">Full transparency, exportable</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Update Frequency</td>
+                            <td>Annual or quarterly</td>
+                            <td class="rouze-advantage">On-demand, real-time</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to See What Your Market Is Actually Saying?</h2>
+            <p>Start with a vertical-specific questionnaire. Get intelligence in 24 hours to 14 days.</p>
+            <a href="/vertical-selector" class="cta-button">Choose Your Vertical</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="logo">ROUZE</a>
+                <p>Market intelligence that moves faster than markets. Transform unfiltered signals into strategic decisions.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="/vertical-selector">Start Analysis</a>
+                <a href="/methodology">Methodology</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/case-studies">Case Studies</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="/about">About</a>
+                <a href="/security">Security</a>
+                <a href="/faq">FAQ</a>
+                <a href="mailto:rouzeresearch@gmail.com">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="/terms">Terms of Service</a>
+                <a href="/privacy">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2025 ROUZE Intelligence. All rights reserved.</p>
+            <div class="footer-badges">
+                <span class="footer-badge">SOC2 Compliant</span>
+                <span class="footer-badge">GDPR Ready</span>
+                <span class="footer-badge">HIPAA Compliant</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

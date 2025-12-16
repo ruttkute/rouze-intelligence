@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies - ROUZE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION */
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            margin: -20px -20px 40px -20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #B0A6DF;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #B0A6DF;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: rgba(176, 166, 223, 0.8);
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* SUMMARY STATS */
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 12px;
+            padding: 28px 20px;
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #3A8FC3;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .label {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.7);
+            line-height: 1.4;
+        }
+
+        /* CASE STUDY CARDS */
+        .case-study {
+            background: rgba(82, 66, 92, 0.12);
+            border: 1px solid rgba(176, 166, 223, 0.12);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .case-study:hover {
+            background: rgba(82, 66, 92, 0.18);
+            border-color: rgba(176, 166, 223, 0.2);
+        }
+
+        .case-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .case-header-left {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .vertical-badge {
+            display: inline-block;
+            padding: 5px 14px;
+            background: rgba(58, 143, 195, 0.12);
+            border: 1px solid rgba(58, 143, 195, 0.25);
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #3A8FC3;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .case-study h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #B0A6DF;
+            line-height: 1.3;
+        }
+
+        .roi-badge {
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.25);
+            border-radius: 12px;
+            padding: 16px 24px;
+            text-align: center;
+        }
+
+        .roi-badge .roi-label {
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(74, 222, 128, 0.8);
+            margin-bottom: 4px;
+        }
+
+        .roi-badge .roi-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #4ade80;
+        }
+
+        /* CASE SECTIONS */
+        .case-sections {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        .case-section {
+            padding: 20px;
+            background: rgba(26, 13, 46, 0.3);
+            border-radius: 10px;
+        }
+
+        .case-section h3 {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #3A8FC3;
+            margin-bottom: 12px;
+        }
+
+        .case-section p {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.85);
+            line-height: 1.65;
+        }
+
+        .case-section ul {
+            list-style: none;
+        }
+
+        .case-section ul li {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.8);
+            line-height: 1.5;
+            margin-bottom: 8px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .case-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 5px;
+            height: 5px;
+            background: #3A8FC3;
+            border-radius: 50%;
+        }
+
+        /* OUTCOME HIGHLIGHT */
+        .outcome-highlight {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .outcome-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            background: rgba(58, 143, 195, 0.1);
+            border-radius: 6px;
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.9);
+        }
+
+        .outcome-item .outcome-label {
+            color: rgba(176, 166, 223, 0.6);
+        }
+
+        .outcome-item .outcome-value {
+            font-weight: 600;
+            color: #B0A6DF;
+        }
+
+        /* QUOTE */
+        .case-quote {
+            padding: 24px 28px;
+            background: rgba(82, 66, 92, 0.2);
+            border-left: 3px solid #3A8FC3;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .case-quote p {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-style: italic;
+            color: rgba(176, 166, 223, 0.9);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .case-quote .attribution {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: 13px;
+            font-style: normal;
+            color: rgba(176, 166, 223, 0.6);
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            text-align: center;
+            padding: 50px 40px;
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.12);
+            border-radius: 16px;
+            margin-top: 60px;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: rgba(176, 166, 223, 0.75);
+            margin-bottom: 28px;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #3A8FC3;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #4da3d4;
+            transform: translateY(-2px);
+        }
+
+        /* METHODOLOGY NOTE */
+        .methodology-note {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(82, 66, 92, 0.08);
+            border: 1px solid rgba(176, 166, 223, 0.08);
+            border-radius: 12px;
+        }
+
+        .methodology-note .label {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #3A8FC3;
+            margin-bottom: 12px;
+        }
+
+        .methodology-note p {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.7);
+            line-height: 1.6;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .methodology-note a {
+            color: #3A8FC3;
+            text-decoration: none;
+        }
+
+        .methodology-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .case-sections {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-stats {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 16px 20px;
+                margin: -20px -20px 30px -20px;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                font-size: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .case-study {
+                padding: 28px 20px;
+            }
+
+            .case-study h2 {
+                font-size: 22px;
+            }
+
+            .case-header {
+                flex-direction: column;
+            }
+
+            .roi-badge {
+                align-self: flex-start;
+            }
+
+            .outcome-highlight {
+                flex-direction: column;
+            }
+
+            .cta-section {
+                padding: 40px 24px;
+            }
+
+            .cta-section h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <a href="/" class="logo">ROUZE</a>
+        <div class="nav-links">
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/case-studies" class="active">Case Studies</a>
+            <a href="/security">Security</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Client Success Stories</h1>
+            <p>Real outcomes from real companies. Names and identifying details anonymized. ROI calculations verified by clients.</p>
+        </div>
+
+        <!-- Summary Stats -->
+        <div class="summary-stats">
+            <div class="stat-card">
+                <div class="number">$13.4M</div>
+                <div class="label">Total Client Savings<br>(across 3 case studies)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">55,000+</div>
+                <div class="label">Signals Analyzed<br>(combined)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">96,000%</div>
+                <div class="label">Average ROI<br>(per engagement)</div>
+            </div>
+        </div>
+
+        <!-- Case Study 1: Healthcare -->
+        <div class="case-study">
+            <div class="case-header">
+                <div class="case-header-left">
+                    <span class="vertical-badge">Healthcare</span>
+                    <h2>Medical Device Company Avoids $3M Recall Loss</h2>
+                </div>
+                <div class="roi-badge">
+                    <div class="roi-label">ROI</div>
+                    <div class="roi-value">200,000%</div>
+                </div>
+            </div>
+
+            <div class="case-sections">
+                <div class="case-section">
+                    <h3>Challenge</h3>
+                    <p>Mid-market medical device manufacturer ($45M revenue) was planning Q2 launch of cardiac monitoring device. Growing concerns about shifting FDA guidance and recent competitor recalls created uncertainty about timing.</p>
+                </div>
+                <div class="case-section">
+                    <h3>Analysis</h3>
+                    <ul>
+                        <li>12,000 signals from FDA forums, Reddit r/medical_devices, Twitter, clinical discussions</li>
+                        <li>Cross-validated safety concerns across 3+ independent sources</li>
+                        <li>Identified pattern: 3 similar devices recalled in 90 days</li>
+                        <li>Detected FDA guidance shift toward stricter Class II oversight</li>
+                    </ul>
+                </div>
+                <div class="case-section">
+                    <h3>Outcome</h3>
+                    <p>Delayed launch 4 months to incorporate additional safety testing. Avoided recall that would have cost $3M+ in inventory, legal fees, and brand damage.</p>
+                    <div class="outcome-highlight">
+                        <div class="outcome-item">
+                            <span class="outcome-label">Cost:</span>
+                            <span class="outcome-value">$1,500</span>
+                        </div>
+                        <div class="outcome-item">
+                            <span class="outcome-label">Saved:</span>
+                            <span class="outcome-value">$3,000,000</span>
+                        </div>
+                        <div class="outcome-item">
+                            <span class="outcome-label">Timeline:</span>
+                            <span class="outcome-value">7 days</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-quote">
+                <p>"ROUZE detected the safety pattern 4 months before it became industry-wide news. We would have launched right into a recall."</p>
+                <span class="attribution">VP Product, Medical Device Company</span>
+            </div>
+        </div>
+
+        <!-- Case Study 2: SaaS -->
+        <div class="case-study">
+            <div class="case-header">
+                <div class="case-header-left">
+                    <span class="vertical-badge">SaaS</span>
+                    <h2>Project Management SaaS Gains 300 Customers in 90 Days</h2>
+                </div>
+                <div class="roi-badge">
+                    <div class="roi-label">ROI</div>
+                    <div class="roi-value">30,000%</div>
+                </div>
+            </div>
+
+            <div class="case-sections">
+                <div class="case-section">
+                    <h3>Challenge</h3>
+                    <p>Project management SaaS ($8M ARR) losing customers to competitors. Engineering resources were limited. Leadership was unsure which features to prioritize to stop churn and attract new customers.</p>
+                </div>
+                <div class="case-section">
+                    <h3>Analysis</h3>
+                    <ul>
+                        <li>25,000 signals from G2, Reddit, Twitter, Product Hunt, Capterra</li>
+                        <li>Identified #1 feature request: time tracking integration</li>
+                        <li>Validated across 47 customer complaints about competitors</li>
+                        <li>Discovered competitors charging $20/user extra for this feature</li>
+                    </ul>
+                </div>
+                <div class="case-section">
+                    <h3>Outcome</h3>
+                    <p>Built time tracking feature and bundled it for free. Gained 300 new customers in 90 days, adding $450K ARR. Churn reduced by 15%.</p>
+                    <div class="outcome-highlight">
+                        <div class="outcome-item">
+                            <span class="outcome-label">Cost:</span>
+                            <span class="outcome-value">$1,500</span>
+                        </div>
+                        <div class="outcome-item">
+                            <span class="outcome-label">Revenue:</span>
+                            <span class="outcome-value">$450K ARR</span>
+                        </div>
+                        <div class="outcome-item">
+                            <span class="outcome-label">Timeline:</span>
+                            <span class="outcome-value">5 days</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-quote">
+                <p>"We were building the wrong features. ROUZE showed us what customers actually wanted, backed by 25,000 data points."</p>
+                <span class="attribution">Founder, Project Management SaaS</span>
+            </div>
+        </div>
+
+        <!-- Case Study 3: E-commerce -->
+        <div class="case-study">
+            <div class="case-header">
+                <div class="case-header-left">
+                    <span class="vertical-badge">E-commerce</span>
+                    <h2>DTC Brand Pivots to Adjacent Niche, Avoids $250K Loss</h2>
+                </div>
+                <div class="roi-badge">
+                    <div class="roi-label">ROI</div>
+                    <div class="roi-value">57,000%</div>
+                </div>
+            </div>
+
+            <div class="case-sections">
+                <div class="case-section">
+                    <h3>Challenge</h3>
+                    <p>DTC sustainable products brand planning launch of eco-friendly phone cases. $250K inventory investment at stake. TikTok trends made the market appear hot, but founder wanted validation before committing.</p>
+                </div>
+                <div class="case-section">
+                    <h3>Analysis</h3>
+                    <ul>
+                        <li>18,000 signals from TikTok, Amazon, Reddit, YouTube reviews</li>
+                        <li>Detected 40+ competitors launched in previous 6 months</li>
+                        <li>Amazon reviews showed price compression ($18 to $9 average)</li>
+                        <li>Identified adjacent niche: sustainable laptop sleeves (undersupplied)</li>
+                    </ul>
+                </div>
+                <div class="case-section">
+                    <h3>Outcome</h3>
+                    <p>Pivoted to laptop sleeves instead of phone cases. Avoided oversaturated market. Sold out initial inventory in 30 days, generating $180K revenue.</p>
+                    <div class="outcome-highlight">
+                        <div class="outcome-item">
+                            <span class="outcome-label">Cost:</span>
+                            <span class="outcome-value">$750</span>
+                        </div>
+                        <div class="outcome-item">
+                            <span class="outcome-label">Saved:</span>
+                            <span class="outcome-value">$250K</span>
+                        </div>
+                        <div class="outcome-item">
+                            <span class="outcome-label">Timeline:</span>
+                            <span class="outcome-value">48 hours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-quote">
+                <p>"TikTok made it look like a gold rush. ROUZE showed us it was already over. Saved us from a $250K mistake."</p>
+                <span class="attribution">Founder, Sustainable DTC Brand</span>
+            </div>
+        </div>
+
+        <!-- Methodology Note -->
+        <div class="methodology-note">
+            <p class="label">About These Results</p>
+            <p>All case studies represent real client engagements with outcomes verified by the clients. Company names and identifying details have been anonymized. ROI calculations are based on client-reported savings and verified costs. Your results will depend on your specific market, timing, and how you act on the intelligence. <a href="/methodology">Learn more about our methodology.</a></p>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Your Analysis Could Look Like This</h2>
+            <p>Each engagement is tailored to your specific market, competitors, and decision. Results delivered in 24 hours to 14 days depending on complexity.</p>
+            <a href="/vertical-selector" class="cta-button">Start Your Analysis</a>
+        </div>
+    </div>
+</body>
+</html>

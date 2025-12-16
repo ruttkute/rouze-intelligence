@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}ROUZE Intelligence - Market Intelligence{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+<h1>ROUZE Intelligence</h1>
+<p class="tagline">Raw Signals → Real Insights → Real Revenue</p>
+<p>Transform raw signals from social media, forums, and reviews into strategic business insights. Get market intelligence in 5-7 days at 90% lower cost than traditional research firms.</p>
+<button class="btn" onclick="window.location.href='/vertical-selector'">Start Free Analysis</button>
+</section>
+
+<section class="section" style="margin-top: 60px;">
+<h2>Specialized Intelligence for Your Market</h2>
+<div class="grid">
+<div class="card">
+<h3>Healthcare</h3>
+<p>Adverse event detection, regulatory risk assessment, clinical trial insights, market adoption tracking</p>
+<button class="btn" onclick="window.location.href='/vertical-selector'" style="width: 100%;">Explore</button>
+</div>
+<div class="card">
+<h3>SaaS</h3>
+<p>Competitive intelligence, feature gap analysis, customer sentiment tracking, market positioning</p>
+<button class="btn" onclick="window.location.href='/vertical-selector'" style="width: 100%;">Explore</button>
+</div>
+<div class="card">
+<h3>E-commerce</h3>
+<p>Viral product prediction, market trend validation, competitor analysis, demand forecasting</p>
+<button class="btn" onclick="window.location.href='/vertical-selector'" style="width: 100%;">Explore</button>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Why Intelligence Leaders Choose Rouze</h2>
+<div class="trust-grid">
+<div class="trust-card">
+<div style="font-size: 14px; color: #7d7d7d; text-transform: uppercase; margin-bottom: 10px;">Signals Analyzed</div>
+<div class="num">25,000+</div>
+<p style="color: #7d7d7d; font-size: 12px; margin-top: 10px;">Per analysis from 8-12 sources</p>
+</div>
+<div class="trust-card">
+<div style="font-size: 14px; color: #7d7d7d; text-transform: uppercase; margin-bottom: 10px;">Confidence Level</div>
+<div class="num">85-92%</div>
+<p style="color: #7d7d7d; font-size: 12px; margin-top: 10px;">Cross-validated across sources</p>
+</div>
+<div class="trust-card">
+<div style="font-size: 14px; color: #7d7d7d; text-transform: uppercase; margin-bottom: 10px;">Delivery Speed</div>
+<div class="num">5-7 Days</div>
+<p style="color: #7d7d7d; font-size: 12px; margin-top: 10px;">vs 3-6 months traditional</p>
+</div>
+<div class="trust-card">
+<div style="font-size: 14px; color: #7d7d7d; text-transform: uppercase; margin-bottom: 10px;">Cost Reduction</div>
+<div class="num">90%</div>
+<p style="color: #7d7d7d; font-size: 12px; margin-top: 10px;">vs traditional research firms</p>
+</div>
+</div>
+</section>
+
+<style>
+.hero {
+    text-align: center;
+    padding: 100px 40px;
+}
+
+.hero h1 {
+    font-size: 64px;
+}
+
+.hero p {
+    color: #666;
+    font-size: 16px;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.section {
+    padding: 80px 40px;
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.trust-card {
+    background: rgba(82, 66, 92, 0.04);
+    border: 1.5px solid rgba(176, 166, 223, 0.18);
+    backdrop-filter: blur(45px);
+    -webkit-backdrop-filter: blur(45px);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+}
+
+.trust-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #3A8FC3;
+    font-weight: 700;
+}
+</style>
+
+{% endblock %}

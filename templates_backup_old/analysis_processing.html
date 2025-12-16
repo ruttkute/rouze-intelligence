@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Processing - ROUZE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+            margin-bottom: 60px;
+        }
+
+        .header {
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #B0A6DF;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: rgba(176, 166, 223, 0.8);
+            line-height: 1.6;
+        }
+
+        /* STATUS CARD */
+        .status-card {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .status-indicator {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            background: rgba(58, 143, 195, 0.15);
+            border: 2px solid rgba(58, 143, 195, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(58, 143, 195, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 20px rgba(58, 143, 195, 0);
+            }
+        }
+
+        .status-icon {
+            font-size: 40px;
+        }
+
+        .status-message {
+            font-size: 18px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+        }
+
+        .status-detail {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.7);
+            margin-bottom: 30px;
+        }
+
+        /* PROGRESS BAR */
+        .progress-container {
+            margin-bottom: 30px;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: rgba(176, 166, 223, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3A8FC3 0%, #B0A6DF 100%);
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .progress-text {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* COUNTDOWN TIMER */
+        .timer-section {
+            padding: 24px;
+            background: rgba(58, 143, 195, 0.05);
+            border: 1px solid rgba(58, 143, 195, 0.2);
+            border-radius: 12px;
+        }
+
+        .timer-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #3A8FC3;
+            margin-bottom: 8px;
+        }
+
+        .timer-display {
+            font-size: 28px;
+            font-weight: 700;
+            color: #B0A6DF;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+
+        .timer-note {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.6);
+            margin-top: 8px;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            margin-top: 40px;
+        }
+
+        .preview-button {
+            display: none;
+            padding: 14px 40px;
+            background: #3A8FC3;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 16px;
+        }
+
+        .preview-button:hover {
+            background: rgba(58, 143, 195, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .results-button {
+            display: none;
+            padding: 14px 40px;
+            background: #3A8FC3;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .results-button:hover {
+            background: rgba(58, 143, 195, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .results-button.show {
+            display: block;
+        }
+
+        /* MESSAGES */
+        .message {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.7);
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(58, 143, 195, 0.1);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            color: #3A8FC3;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 24px;
+                margin-bottom: 40px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .status-card {
+                padding: 30px;
+            }
+
+            .status-indicator {
+                width: 60px;
+                height: 60px;
+            }
+
+            .status-icon {
+                font-size: 30px;
+            }
+
+            .timer-display {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">ROUZE</div>
+
+        <div class="header">
+            <h1>Analysis in Progress</h1>
+            <p>We're collecting market signals and analyzing your opportunity. This typically takes 24-48 hours.</p>
+        </div>
+
+        <div class="status-card">
+            <div class="status-indicator">
+                <div class="status-icon" id="statusIcon">↻</div>
+            </div>
+
+            <div class="status-message" id="statusMessage">Collecting signals...</div>
+            <div class="status-detail" id="statusDetail">
+                Finding relevant market conversations across 15+ platforms
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">Processing: 0%</div>
+            </div>
+
+            <div class="timer-section">
+                <div class="timer-label">Estimated Completion</div>
+                <div class="timer-display" id="timer">48:00:00</div>
+                <div class="timer-note">Check back anytime to see progress</div>
+            </div>
+
+            <div class="message">
+                Your analysis includes 25,000+ raw signals, cross-validated patterns, 
+                competitive benchmarking, and strategic recommendations—all delivered 
+                in 48 hours instead of the months traditional research requires.
+            </div>
+
+            <button class="preview-button" id="previewBtn" onclick="goToPreview()">
+                View Preliminary Results
+            </button>
+
+            <div class="success-message" id="successMessage">
+                Analysis Complete! Your results are ready to view.
+            </div>
+
+            <button class="results-button" id="resultsBtn" onclick="goToResults()">
+                View Your Results
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // GET PROJECT ID
+        const projectId = window.location.pathname.split('/').pop();
+        let analysisComplete = false;
+
+        // COUNTDOWN TIMER
+        function updateTimer() {
+            const timerEl = document.getElementById('timer');
+            const now = new Date();
+            const completionTime = new Date(now.getTime() + (48 * 60 * 60 * 1000)); // 48 hours from now
+
+            function tick() {
+                const remaining = completionTime - new Date();
+                if (remaining <= 0) {
+                    timerEl.textContent = '0:00:00';
+                    return;
+                }
+
+                const hours = Math.floor(remaining / (1000 * 60 * 60));
+                const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+                timerEl.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+
+            tick();
+            setInterval(tick, 1000);
+        }
+
+        // STATUS MESSAGES
+        const statuses = [
+            {
+                message: 'Collecting signals...',
+                detail: 'Finding relevant market conversations across 15+ platforms',
+                progress: 25,
+                icon: '↻'
+            },
+            {
+                message: 'Analyzing patterns...',
+                detail: 'Cross-validating signals and identifying meaningful trends',
+                progress: 50,
+                icon: '◆'
+            },
+            {
+                message: 'Generating insights...',
+                detail: 'Creating recommendations and building visualizations',
+                progress: 75,
+                icon: '◇'
+            },
+            {
+                message: 'Finalizing analysis...',
+                detail: 'Preparing your complete intelligence package',
+                progress: 90,
+                icon: '✓'
+            }
+        ];
+
+        let currentStatusIndex = 0;
+
+        function updateStatus() {
+            const status = statuses[currentStatusIndex];
+            document.getElementById('statusMessage').textContent = status.message;
+            document.getElementById('statusDetail').textContent = status.detail;
+            document.getElementById('progressFill').style.width = status.progress + '%';
+            document.getElementById('progressText').textContent = `Processing: ${status.progress}%`;
+            document.getElementById('statusIcon').textContent = status.icon;
+
+            if (currentStatusIndex < statuses.length - 1) {
+                currentStatusIndex++;
+                setTimeout(updateStatus, 12000); // Update every 12 seconds
+            } else {
+                // Check analysis status from backend
+                setTimeout(pollAnalysisStatus, 5000);
+            }
+        }
+
+        // POLL BACKEND FOR ANALYSIS STATUS
+        function pollAnalysisStatus() {
+            fetch(`/api/analysis/${projectId}/status`)
+                .then(r => r.json())
+                .then(data => {
+                    if (data.status === 'complete') {
+                        showComplete();
+                    } else if (data.status === 'analyzing') {
+                        document.getElementById('progressFill').style.width = '95%';
+                        document.getElementById('progressText').textContent = `Processing: 95%`;
+                        
+                        if (data.early_preview_available) {
+                            document.getElementById('previewBtn').style.display = 'block';
+                        }
+                        
+                        setTimeout(pollAnalysisStatus, 10000); // Poll every 10 seconds
+                    }
+                })
+                .catch(error => {
+                    console.error('Status check failed:', error);
+                    setTimeout(pollAnalysisStatus, 15000); // Retry after 15 seconds
+                });
+        }
+
+        function showComplete() {
+            analysisComplete = true;
+            
+            document.getElementById('statusIcon').textContent = '✓';
+            document.getElementById('statusMessage').textContent = 'Analysis Complete!';
+            document.getElementById('statusDetail').textContent = 'Your market intelligence is ready';
+            document.getElementById('progressFill').style.width = '100%';
+            document.getElementById('progressText').textContent = 'Processing: 100%';
+            document.getElementById('previewBtn').style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+            document.getElementById('resultsBtn').classList.add('show');
+        }
+
+        function goToPreview() {
+            window.location.href = `/dashboard/${projectId}?mode=preliminary`;
+        }
+
+        function goToResults() {
+            window.location.href = `/dashboard/${projectId}`;
+        }
+
+        // START
+        updateTimer();
+        updateStatus();
+    </script>
+</body>
+</html>

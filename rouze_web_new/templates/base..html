@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROUZE - Strategic Intelligence from Unfiltered Market Data</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ================================================================
+           COMPLETE CSS STYLESHEET - ROUZE v7
+           ================================================================ */
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Background & Body */
+        body {
+            background-color: #0f0520;
+            background-image: 
+                radial-gradient(circle at 75% 20%, rgba(58, 143, 195, 0.02) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(176, 166, 223, 0.015) 0%, transparent 35%),
+                radial-gradient(circle at 15% 15%, rgba(200, 140, 180, 0.01) 0%, transparent 30%),
+                linear-gradient(135deg, #0f0520 0%, #1a0d2e 25%, #2a1f3d 50%, #1f1530 75%, #0d0818 100%);
+            
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #B0A6DF;
+            line-height: 1.6;
+        }
+
+        /* Starfield layer */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 10px 10px, #B0A6DF, rgba(176, 166, 223, 0)),
+                radial-gradient(1px 1px at 50px 50px, #fff, rgba(255, 255, 255, 0)),
+                radial-gradient(1px 1px at 100px 100px, #3A8FC3, rgba(58, 143, 195, 0)),
+                radial-gradient(1px 1px at 150px 200px, #B0A6DF, rgba(176, 166, 223, 0)),
+                radial-gradient(1px 1px at 250px 150px, #fff, rgba(255, 255, 255, 0));
+            
+            background-size: 400% 400%, 500% 500%, 600% 600%, 700% 700%, 450% 450%;
+            background-position: 0 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: #B0A6DF;
+            letter-spacing: 1.2px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-shadow: 0 0 12px rgba(176, 166, 223, 0.12);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            font-weight: 700;
+            color: #B0A6DF;
+            letter-spacing: 0.8px;
+            line-height: 1.25;
+            margin-bottom: 16px;
+            text-shadow: 0 0 10px rgba(176, 166, 223, 0.1);
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #B0A6DF;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            text-shadow: 0 0 8px rgba(176, 166, 223, 0.08);
+        }
+
+        p {
+            font-size: 16px;
+            color: #B0A6DF;
+            line-height: 1.6;
+            letter-spacing: 0.3px;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #B0A6DF;
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #B0A6DF;
+            line-height: 1.7;
+            opacity: 0.75;
+            margin-bottom: 20px;
+        }
+
+        .small-text, label {
+            font-size: 14px;
+            color: #B0A6DF;
+            letter-spacing: 0.2px;
+            font-weight: 400;
+            opacity: 0.85;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            background: rgba(26, 13, 46, 0.05);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.05);
+            backdrop-filter: blur(60px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #B0A6DF;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px rgba(176, 166, 223, 0.08);
+        }
+
+        .logo:hover {
+            letter-spacing: 3px;
+            text-shadow: 0 0 12px rgba(176, 166, 223, 0.15);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 0;
+        }
+
+        nav a {
+            color: #B0A6DF;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+            margin: 0 25px;
+            border-bottom: 1px solid rgba(176, 166, 223, 0);
+            text-decoration: none;
+            position: relative;
+        }
+
+        nav a:hover {
+            border-bottom: 1px solid rgba(176, 166, 223, 0.4);
+            text-shadow: 0 0 8px rgba(176, 166, 223, 0.15);
+        }
+
+        nav .nav-cta {
+            background: rgba(58, 143, 195, 0.12);
+            border: 1px solid rgba(58, 143, 195, 0.25);
+            color: #B0A6DF;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(58, 143, 195, 0.08);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav .nav-cta:hover {
+            background: rgba(58, 143, 195, 0.2);
+            border-color: rgba(58, 143, 195, 0.45);
+            box-shadow: 
+                0 0 20px rgba(58, 143, 195, 0.3),
+                0 0 40px rgba(176, 166, 223, 0.15),
+                inset 0 0 12px rgba(58, 143, 195, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
+        .hero .description {
+            font-size: 16px;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .metric-card {
+            background: rgba(82, 66, 92, 0.08);
+            border: 1.5px solid rgba(176, 166, 223, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(60px);
+            text-align: center;
+            box-shadow: 0 0 15px rgba(176, 166, 223, 0.06), inset 0 0 20px rgba(255, 255, 255, 0.02);
+        }
+
+        .metric-card:hover {
+            background: rgba(82, 66, 92, 0.12);
+            border-color: rgba(58, 143, 195, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 
+                0 0 35px rgba(58, 143, 195, 0.3),
+                0 0 60px rgba(176, 166, 223, 0.2),
+                inset 0 0 25px rgba(176, 166, 223, 0.08);
+        }
+
+        .metric-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(176, 166, 223, 0.1);
+        }
+
+        .metric-label {
+            font-size: 13px;
+            color: #B0A6DF;
+            letter-spacing: 0.3px;
+            opacity: 0.7;
+            text-transform: uppercase;
+        }
+
+        /* Buttons */
+        button, .btn, a.btn {
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: rgba(58, 143, 195, 0.12);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            color: #B0A6DF;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 12px rgba(58, 143, 195, 0.1);
+        }
+
+        .btn-primary:hover {
+            background: rgba(58, 143, 195, 0.2);
+            border-color: rgba(58, 143, 195, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 0 25px rgba(58, 143, 195, 0.35),
+                0 0 45px rgba(176, 166, 223, 0.2),
+                inset 0 0 15px rgba(58, 143, 195, 0.12);
+        }
+
+        .btn-secondary {
+            background: rgba(82, 66, 92, 0.08);
+            border: 1.5px solid rgba(176, 166, 223, 0.15);
+            color: #B0A6DF;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 10px rgba(176, 166, 223, 0.08);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(82, 66, 92, 0.14);
+            border-color: rgba(176, 166, 223, 0.35);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 0 30px rgba(176, 166, 223, 0.25),
+                inset 0 0 15px rgba(176, 166, 223, 0.1);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(82, 66, 92, 0.08);
+            border: 1.5px solid rgba(176, 166, 223, 0.08);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(60px);
+            box-shadow: 0 0 15px rgba(176, 166, 223, 0.06), inset 0 0 25px rgba(255, 255, 255, 0.02);
+        }
+
+        .card:hover {
+            background: rgba(82, 66, 92, 0.12);
+            border-color: rgba(58, 143, 195, 0.25);
+            transform: translateY(-8px);
+            box-shadow: 
+                0 0 45px rgba(58, 143, 195, 0.3),
+                0 0 80px rgba(176, 166, 223, 0.25),
+                inset 0 0 30px rgba(176, 166, 223, 0.1);
+        }
+
+        .card h3 {
+            text-shadow: 0 0 8px rgba(176, 166, 223, 0.08);
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .card li {
+            font-size: 14px;
+            color: #B0A6DF;
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+            opacity: 0.8;
+        }
+
+        .card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3A8FC3;
+            font-weight: bold;
+            opacity: 0.6;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Form Elements */
+        input, textarea, select {
+            background: rgba(82, 66, 92, 0.06);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            color: #B0A6DF;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+            width: 100%;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(176, 166, 223, 0.5);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            background: rgba(82, 66, 92, 0.1);
+            border-color: rgba(58, 143, 195, 0.35);
+            outline: none;
+            box-shadow: 
+                0 0 15px rgba(58, 143, 195, 0.2),
+                inset 0 0 10px rgba(58, 143, 195, 0.08);
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #B0A6DF;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        section.light-bg {
+            background: rgba(82, 66, 92, 0.04);
+            border-top: 1px solid rgba(176, 166, 223, 0.05);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.05);
+        }
+
+        /* Links */
+        a {
+            color: #B0A6DF;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.3);
+        }
+
+        a:hover {
+            border-bottom-color: rgba(176, 166, 223, 0.8);
+            text-shadow: 0 0 8px rgba(176, 166, 223, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(26, 13, 46, 0.05);
+            border-top: 1px solid rgba(176, 166, 223, 0.05);
+            backdrop-filter: blur(30px);
+            padding: 40px;
+            text-align: center;
+            color: #B0A6DF;
+            position: relative;
+            z-index: 10;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 14px;
+            opacity: 0.75;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            nav {
+                padding: 0 24px;
+            }
+            
+            .hero {
+                padding: 60px 24px;
+            }
+            
+            .hero h1 {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                padding: 0 16px;
+                height: 60px;
+            }
+            
+            nav a {
+                margin: 0 8px;
+                font-size: 12px;
+            }
+            
+            .hero {
+                padding: 40px 16px;
+                margin-top: 60px;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .card {
+                padding: 30px;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 40px;
+            }
+            
+            h2 {
+                font-size: 32px;
+            }
+            
+            section {
+                padding: 40px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            nav a {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">ROUZE</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">Solutions</a></li>
+            <li><a href="/pricing">Intelligence</a></li>
+            <li><a href="/contact">Resources</a></li>
+        </ul>
+        <a href="/vertical-selector" class="nav-cta">Start Analysis</a>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Insights</h1>
+            <p class="subtitle">Strategic intelligence from unfiltered market data.</p>
+            <p class="subtitle">5-7 day delivery. Premium analysis at accessible pricing.</p>
+            <p class="description">
+                Transform raw signals from social media, forums, and reviews into actionable market intelligence. 
+                Get 3-6 month competitive advantage in 5 days, not months.
+            </p>
+
+            <!-- Key Metrics -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">25,000+</div>
+                    <div class="metric-label">Signals Analyzed</div>
+                    <p class="small-text" style="margin-top: 8px; opacity: 0.6; font-size: 12px;">
+                        From 8-12 independent sources
+                    </p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">85-92%</div>
+                    <div class="metric-label">Confidence Level</div>
+                    <p class="small-text" style="margin-top: 8px; opacity: 0.6; font-size: 12px;">
+                        Cross-validated patterns
+                    </p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">5-7</div>
+                    <div class="metric-label">Day Delivery</div>
+                    <p class="small-text" style="margin-top: 8px; opacity: 0.6; font-size: 12px;">
+                        Complete market analysis
+                    </p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">Enterprise</div>
+                    <div class="metric-label">Security Grade</div>
+                    <p class="small-text" style="margin-top: 8px; opacity: 0.6; font-size: 12px;">
+                        SOC2, GDPR, HIPAA compliant
+                    </p>
+                </div>
+            </div>
+
+            <!-- Primary CTAs -->
+            <div class="cta-group">
+                <a href="/vertical-selector" class="btn btn-primary">Start Free Analysis</a>
+                <a href="/pricing" class="btn btn-secondary">Explore Pricing</a>
+            </div>
+        </section>
+
+        <!-- Trust Section -->
+        <section class="light-bg">
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: 32px; margin-bottom: 30px;">Zero Risk to Try:</h2>
+                <p class="description" style="font-size: 18px; opacity: 0.75;">
+                    Free Micro Intelligence analysis. Money-back guarantee. Revenue-share option available 
+                    (pay only if we find value).
+                </p>
+            </div>
+        </section>
+
+        <!-- Vertical Solutions -->
+        <section>
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h2 style="text-align: center; margin-bottom: 50px;">Specialized Intelligence by Vertical</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>Healthcare</h3>
+                        <p style="margin: 15px 0; opacity: 0.75;">
+                            Adverse event detection, regulatory risk assessment, clinical trial insights
+                        </p>
+                        <ul>
+                            <li>Safety signal monitoring</li>
+                            <li>Regulatory intelligence</li>
+                            <li>Market adoption tracking</li>
+                        </ul>
+                        <a href="/questionnaire/healthcare" class="btn btn-primary" style="margin-top: 20px;">
+                            Analyze Healthcare Market
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <h3>SaaS</h3>
+                        <p style="margin: 15px 0; opacity: 0.75;">
+                            Competitive intelligence, feature gap analysis, customer sentiment tracking
+                        </p>
+                        <ul>
+                            <li>Competitor feature tracking</li>
+                            <li>Customer sentiment analysis</li>
+                            <li>Market positioning insights</li>
+                        </ul>
+                        <a href="/questionnaire/saas" class="btn btn-primary" style="margin-top: 20px;">
+                            Analyze SaaS Market
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <h3>E-commerce</h3>
+                        <p style="margin: 15px 0; opacity: 0.75;">
+                            Viral product prediction, market trend validation, competitor analysis
+                        </p>
+                        <ul>
+                            <li>Trend identification</li>
+                            <li>Viral potential scoring</li>
+                            <li>Market saturation analysis</li>
+                        </ul>
+                        <a href="/questionnaire/ecommerce" class="btn btn-primary" style="margin-top: 20px;">
+                            Analyze E-commerce Market
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Tiers -->
+        <section class="light-bg">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h2 style="text-align: center; margin-bottom: 50px;">Intelligence Tiers</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 style="margin-bottom: 10px;">Quick Intelligence</h3>
+                        <div style="font-size: 24px; font-weight: 700; color: #B0A6DF; margin: 15px 0;">
+                            $300-800
+                        </div>
+                        <p class="small-text" style="opacity: 0.7; margin-bottom: 20px;">24-48 hours</p>
+                        <ul>
+                            <li>10,000+ signals analyzed</li>
+                            <li>3-5 key insights</li>
+                            <li>Interactive dashboard</li>
+                            <li>Email support</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="margin-bottom: 10px;">Strategic Intelligence</h3>
+                        <div style="font-size: 24px; font-weight: 700; color: #B0A6DF; margin: 15px 0;">
+                            $800-2,000
+                        </div>
+                        <p class="small-text" style="opacity: 0.7; margin-bottom: 20px;">5-7 days</p>
+                        <ul>
+                            <li>25,000+ signals analyzed</li>
+                            <li>8-10 detailed findings</li>
+                            <li>Dashboard + slide deck</li>
+                            <li>Strategy sessions</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="margin-bottom: 10px;">Predictive Intelligence</h3>
+                        <div style="font-size: 24px; font-weight: 700; color: #B0A6DF; margin: 15px 0;">
+                            $2,000-5,000
+                        </div>
+                        <p class="small-text" style="opacity: 0.7; margin-bottom: 20px;">10-14 days</p>
+                        <ul>
+                            <li>50,000+ signals analyzed</li>
+                            <li>12-24 month forecasting</li>
+                            <li>Scenario planning</li>
+                            <li>Dedicated analyst</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section style="text-align: center;">
+            <h2 style="margin-bottom: 30px;">Ready to See Market Intelligence in Action?</h2>
+            <p class="description" style="font-size: 18px; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Get started with a free micro-intelligence analysis. No credit card needed.
+                See exactly what you'll get before committing.
+            </p>
+            <a href="/vertical-selector" class="btn btn-primary" style="padding: 16px 50px; font-size: 16px;">
+                Start Free Analysis
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p style="margin-bottom: 20px;">
+            <strong style="font-weight: 600;">ROUZE Intelligence</strong> 
+            Transform raw signals into strategic advantage
+        </p>
+        <p style="opacity: 0.6; font-size: 12px;">
+            <a href="/methodology">Methodology</a> • 
+            <a href="/security">Security</a> • 
+            <a href="/privacy">Privacy</a> • 
+            <a href="/contact">Contact</a>
+        </p>
+        <p style="opacity: 0.5; font-size: 11px; margin-top: 20px;">
+            SOC2 Type II Certified • GDPR Compliant • HIPAA Eligible
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,168 @@
+from flask import Flask, render_template, request, redirect, jsonify
+from datetime import datetime
+import uuid
+import os
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'rouze_secret_key_2025'
+
+@app.route('/questionnaire/rouze-services', methods=['GET'])
+def questionnaire_rouze_services():
+    return render_template('questionnaire_rouze_services.html')
+
+@app.route('/api/questionnaire/rouze-services', methods=['POST'])
+def api_questionnaire_rouze_services():
+    from datetime import datetime
+    import uuid
+    
+    data = request.form
+    project_id = str(uuid.uuid4())[:8]
+    
+    session['questionnaire_response'] = {
+        'project_id': project_id,
+        'vertical': 'rouze-services',
+        'timestamp': datetime.now().isoformat(),
+        'responses': {k: (request.form.getlist(k) if len(request.form.getlist(k)) > 1 else v) for k, v in data.items()}
+    }
+    
+    session['selected_tier'] = 'quick-intelligence'
+    session['selected_vertical'] = 'rouze-services'
+    price = 500
+    
+    return jsonify({'success': True, 'project_id': project_id, 'price': price})
+
+# HEALTHCARE QUESTIONNAIRE
+@app.route('/questionnaire/healthcare', methods=['GET'])
+def questionnaire_healthcare():
+    return render_template('questionnaire_healthcare.html')
+
+@app.route('/api/questionnaire/healthcare', methods=['POST'])
+def api_questionnaire_healthcare():
+    from datetime import datetime
+    import uuid
+    data = request.form
+    project_id = str(uuid.uuid4())[:8]
+    # Store in database or file
+    return redirect(f'/pricing/healthcare?project_id={project_id}')
+
+# SAAS QUESTIONNAIRE
+@app.route('/questionnaire/saas', methods=['GET'])
+def questionnaire_saas():
+    return render_template('questionnaire_saas.html')
+
+@app.route('/api/questionnaire/saas', methods=['POST'])
+def api_questionnaire_saas():
+    from datetime import datetime
+    import uuid
+    data = request.form
+    project_id = str(uuid.uuid4())[:8]
+    return redirect(f'/pricing/saas?project_id={project_id}')
+
+# E-COMMERCE QUESTIONNAIRE
+@app.route('/questionnaire/ecommerce', methods=['GET'])
+def questionnaire_ecommerce():
+    return render_template('questionnaire_ecommerce.html')
+
+@app.route('/api/questionnaire/ecommerce', methods=['POST'])
+def api_questionnaire_ecommerce():
+    from datetime import datetime
+    import uuid
+    data = request.form
+    project_id = str(uuid.uuid4())[:8]
+    return redirect(f'/pricing/ecommerce?project_id={project_id}')
+
+# HEALTHCARE PRICING
+@app.route('/pricing/healthcare', methods=['GET'])
+def pricing_healthcare():
+    return render_template('pricing_healthcare.html')
+
+# SAAS PRICING
+@app.route('/pricing/saas', methods=['GET'])
+def pricing_saas():
+    return render_template('pricing_saas.html')
+
+# E-COMMERCE PRICING
+@app.route('/pricing/ecommerce', methods=['GET'])
+def pricing_ecommerce():
+    return render_template('pricing_ecommerce.html')
+
+# ENTERPRISE DYNAMIC PRICING
+@app.route('/pricing/enterprise', methods=['GET'])
+def pricing_enterprise():
+    return render_template('pricing_enterprise.html')
+
+# VERTICAL SELECTOR
+@app.route('/vertical-selector', methods=['GET'])
+def vertical_selector():
+    return render_template('vertical_selector.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True, host='127.0.0.1', port=5000)
+
+# HOME PAGE
+@app.route('/', methods=['GET'])
+@app.route('/home', methods=['GET'])
+def home():
+    return render_template('index.html')
+
+# METHODOLOGY PAGE
+@app.route('/methodology', methods=['GET'])
+def methodology():
+    return render_template('methodology.html')
+
+# PRICING PAGE (overview)
+@app.route('/pricing', methods=['GET'])
+def pricing():
+    return render_template('pricing.html')
+
+# ABOUT PAGE
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template('about.html')
+
+# DATA UPLOAD PAGE
+@app.route('/upload', methods=['GET'])
+def upload():
+    return render_template('upload_data_form.html')
+
+# FORMAT SELECTION PAGE
+@app.route('/format-selection', methods=['GET'])
+def format_selection():
+    return render_template('format_selection.html')
+
+
+# POST handlers for form submissions
+@app.route('/api/questionnaire/healthcare', methods=['POST'])
+def api_questionnaire_healthcare_submit():
+    data = request.form
+    project_id = str(uuid.uuid4())[:8]
+    return redirect(f'/upload?vertical=healthcare&project_id={project_id}')
+
+@app.route('/api/questionnaire/saas', methods=['POST'])
+def api_questionnaire_saas_submit():
+    data = request.form
+    project_id = str(uuid.uuid4())[:8]
+    return redirect(f'/upload?vertical=saas&project_id={project_id}')
+
+@app.route('/api/questionnaire/ecommerce', methods=['POST'])
+def api_questionnaire_ecommerce_submit():
+    data = request.form
+    project_id = str(uuid.uuid4())[:8]
+    return redirect(f'/upload?vertical=ecommerce&project_id={project_id}')
+
+@app.route('/api/upload', methods=['POST'])
+def api_upload_submit():
+    data = request.form
+    vertical = request.args.get('vertical', 'healthcare')
+    project_id = request.args.get('project_id', str(uuid.uuid4())[:8])
+    return redirect(f'/format-selection?vertical={vertical}&project_id={project_id}')
+
+@app.route('/api/format-selection', methods=['POST'])
+def api_format_selection_submit():
+    data = request.form
+    vertical = request.args.get('vertical', 'healthcare')
+    project_id = request.args.get('project_id', str(uuid.uuid4())[:8])
+    format_type = request.form.get('format', 'html')
+    return redirect(f'/pricing/{vertical}?project_id={project_id}&format={format_type}')
+

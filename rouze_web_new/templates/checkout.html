@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - ROUZE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION */
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            margin: -20px -20px 40px -20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #B0A6DF;
+        }
+
+        /* BACK LINK */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 32px;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #B0A6DF;
+        }
+
+        /* PROJECT ID */
+        .project-id {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .project-id-label {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.5);
+            margin-bottom: 4px;
+        }
+
+        .project-id-value {
+            font-family: 'SF Mono', 'Monaco', monospace;
+            font-size: 14px;
+            color: #3A8FC3;
+            background: rgba(58, 143, 195, 0.1);
+            padding: 6px 12px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #B0A6DF;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: rgba(176, 166, 223, 0.75);
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* CHECKOUT LAYOUT */
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* FORM SECTION */
+        .form-section {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .form-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(176, 166, 223, 0.8);
+            margin-bottom: 8px;
+        }
+
+        .form-label .required {
+            color: #e57373;
+            margin-left: 2px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(26, 13, 46, 0.6);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 10px;
+            color: #B0A6DF;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #3A8FC3;
+            background: rgba(26, 13, 46, 0.8);
+        }
+
+        .form-input::placeholder {
+            color: rgba(176, 166, 223, 0.4);
+        }
+
+        .form-input.error {
+            border-color: #e57373;
+        }
+
+        .form-error {
+            font-size: 12px;
+            color: #e57373;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .form-error.visible {
+            display: block;
+        }
+
+        /* PAYMENT SECTION */
+        .payment-section {
+            margin-top: 32px;
+        }
+
+        .stripe-element {
+            padding: 16px;
+            background: rgba(26, 13, 46, 0.6);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 10px;
+            min-height: 50px;
+        }
+
+        .stripe-placeholder {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(176, 166, 223, 0.5);
+            font-size: 14px;
+        }
+
+        .stripe-placeholder svg {
+            color: #3A8FC3;
+        }
+
+        .card-row {
+            display: grid;
+            grid-template-columns: 1fr 100px 100px;
+            gap: 12px;
+        }
+
+        /* TERMS */
+        .terms-section {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .terms-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .terms-checkbox input {
+            display: none;
+        }
+
+        .terms-check {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border: 2px solid rgba(176, 166, 223, 0.3);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            margin-top: 2px;
+        }
+
+        .terms-checkbox input:checked + .terms-check {
+            background: #3A8FC3;
+            border-color: #3A8FC3;
+        }
+
+        .terms-check::after {
+            content: '';
+            width: 5px;
+            height: 9px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .terms-checkbox input:checked + .terms-check::after {
+            opacity: 1;
+        }
+
+        .terms-text {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.7);
+            line-height: 1.5;
+        }
+
+        .terms-text a {
+            color: #3A8FC3;
+            text-decoration: none;
+        }
+
+        .terms-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* ORDER SUMMARY SIDEBAR */
+        .order-summary {
+            background: rgba(82, 66, 92, 0.2);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 16px;
+            padding: 28px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .summary-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .summary-tier {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.08);
+        }
+
+        .summary-tier-info h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 4px;
+        }
+
+        .summary-tier-info p {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.5);
+        }
+
+        .summary-tier-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #3A8FC3;
+        }
+
+        .summary-addons {
+            padding: 12px 0;
+        }
+
+        .summary-addon-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .summary-addon-item span:first-child {
+            color: rgba(176, 166, 223, 0.7);
+        }
+
+        .summary-addon-item span:last-child {
+            color: #B0A6DF;
+            font-weight: 500;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            margin-top: 16px;
+            border-top: 2px solid rgba(176, 166, 223, 0.15);
+        }
+
+        .summary-total-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #B0A6DF;
+        }
+
+        .summary-total-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #3A8FC3;
+        }
+
+        /* SECURITY BADGES */
+        .security-badges {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .security-badge-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .security-badge-row svg {
+            width: 16px;
+            height: 16px;
+            color: #4CAF50;
+        }
+
+        .security-badge-row span {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.6);
+        }
+
+        .payment-logos {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(176, 166, 223, 0.08);
+        }
+
+        .payment-logo {
+            height: 24px;
+            opacity: 0.6;
+            filter: grayscale(100%);
+        }
+
+        .powered-by {
+            font-size: 11px;
+            color: rgba(176, 166, 223, 0.4);
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* SUBMIT BUTTON */
+        .submit-section {
+            margin-top: 32px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 18px 32px;
+            background: linear-gradient(135deg, #3A8FC3 0%, #2d7eb3 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 24px rgba(58, 143, 195, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 32px rgba(58, 143, 195, 0.45);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .submit-button .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+
+        .submit-button.loading .spinner {
+            display: block;
+        }
+
+        .submit-button.loading .button-text {
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* GUARANTEE */
+        .guarantee-section {
+            margin-top: 24px;
+            padding: 20px;
+            background: rgba(76, 175, 80, 0.08);
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .guarantee-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background: rgba(76, 175, 80, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4CAF50;
+        }
+
+        .guarantee-content h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 4px;
+        }
+
+        .guarantee-content p {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.6);
+            line-height: 1.5;
+        }
+
+        /* SUCCESS MODAL */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 3, 20, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a0d2e 0%, #2a1f3d 100%);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 20px;
+            padding: 48px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(76, 175, 80, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: #4CAF50;
+        }
+
+        .modal-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+        }
+
+        .modal-content p {
+            font-size: 15px;
+            color: rgba(176, 166, 223, 0.7);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .modal-project-id {
+            background: rgba(58, 143, 195, 0.1);
+            border: 1px solid rgba(58, 143, 195, 0.2);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        .modal-project-id-label {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.5);
+            margin-bottom: 4px;
+        }
+
+        .modal-project-id-value {
+            font-family: 'SF Mono', 'Monaco', monospace;
+            font-size: 18px;
+            color: #3A8FC3;
+            font-weight: 600;
+        }
+
+        .modal-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #3A8FC3 0%, #2d7eb3 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .modal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(58, 143, 195, 0.4);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .order-summary {
+                position: static;
+                order: -1;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .card-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-links {
+                gap: 24px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .form-section,
+            .order-summary {
+                padding: 24px 20px;
+            }
+
+            .modal-content {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="nav-bar">
+        <a href="/" class="logo">ROUZE</a>
+        <div class="nav-links">
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/case-studies">Case Studies</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- BACK LINK -->
+        <a href="javascript:history.back()" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Package Selection
+        </a>
+
+        <!-- PROJECT ID -->
+        <div class="project-id">
+            <div class="project-id-label">Project ID</div>
+            <div class="project-id-value" id="projectIdDisplay">Loading...</div>
+        </div>
+
+        <!-- HERO -->
+        <div class="hero">
+            <h1>Complete Your Order</h1>
+            <p>Enter your details below to start your market intelligence analysis.</p>
+        </div>
+
+        <!-- CHECKOUT GRID -->
+        <div class="checkout-grid">
+            <!-- FORM SECTION -->
+            <div class="form-column">
+                <form id="checkoutForm">
+                    <!-- CONTACT INFO -->
+                    <div class="form-section">
+                        <h2 class="form-section-title">Contact Information</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">First Name <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="firstName" name="firstName" placeholder="John" required>
+                                <div class="form-error" id="firstNameError">Please enter your first name</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Last Name <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="lastName" name="lastName" placeholder="Smith" required>
+                                <div class="form-error" id="lastNameError">Please enter your last name</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email Address <span class="required">*</span></label>
+                            <input type="email" class="form-input" id="email" name="email" placeholder="john@company.com" required>
+                            <div class="form-error" id="emailError">Please enter a valid email address</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Company Name</label>
+                            <input type="text" class="form-input" id="company" name="company" placeholder="Acme Inc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-input" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                        </div>
+                    </div>
+
+                    <!-- PAYMENT INFO -->
+                    <div class="form-section payment-section">
+                        <h2 class="form-section-title">Payment Details</h2>
+
+                        <div class="form-group">
+                            <label class="form-label">Cardholder Name <span class="required">*</span></label>
+                            <input type="text" class="form-input" id="cardName" name="cardName" placeholder="John Smith" required>
+                            <div class="form-error" id="cardNameError">Please enter the cardholder name</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Card Number <span class="required">*</span></label>
+                            <input type="text" class="form-input" id="cardNumber" name="cardNumber" placeholder="4242 4242 4242 4242" maxlength="19" required>
+                            <div class="form-error" id="cardNumberError">Please enter a valid card number</div>
+                        </div>
+
+                        <div class="card-row">
+                            <div class="form-group">
+                                <label class="form-label">Expiry Date <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="cardExpiry" name="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+                                <div class="form-error" id="cardExpiryError">Enter valid expiry</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">CVC <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="cardCvc" name="cardCvc" placeholder="123" maxlength="4" required>
+                                <div class="form-error" id="cardCvcError">Enter CVC</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">ZIP/Postal <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="cardZip" name="cardZip" placeholder="12345" required>
+                                <div class="form-error" id="cardZipError">Enter ZIP</div>
+                            </div>
+                        </div>
+
+                        <!-- TERMS -->
+                        <div class="terms-section">
+                            <label class="terms-checkbox">
+                                <input type="checkbox" id="termsAccept" name="termsAccept" required>
+                                <span class="terms-check"></span>
+                                <span class="terms-text">
+                                    I agree to the <a href="/terms" target="_blank">Terms</a> and <a href="/privacy" target="_blank">Privacy Policy</a>, and understand this is market intelligence for informational purposes only.
+                                </span>
+                            </label>
+                            <div class="form-error" id="termsError" style="margin-left: 32px;">Please accept to continue</div>
+                        </div>
+
+                        <!-- SUBMIT -->
+                        <div class="submit-section">
+                            <button type="submit" class="submit-button" id="submitButton">
+                                <span class="spinner"></span>
+                                <span class="button-text">Pay <span id="buttonPrice">$1,500</span></span>
+                            </button>
+                        </div>
+
+                        <!-- GUARANTEE -->
+                        <div class="guarantee-section">
+                            <div class="guarantee-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="guarantee-content">
+                                <h4>Satisfaction Guarantee</h4>
+                                <p>If your analysis doesn't meet expectations, we'll revise it at no additional cost until you're satisfied.</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- ORDER SUMMARY SIDEBAR -->
+            <div class="order-summary">
+                <h2 class="summary-title">Order Summary</h2>
+
+                <div class="summary-tier">
+                    <div class="summary-tier-info">
+                        <h3 id="summaryTierName">Strategic Intelligence</h3>
+                        <p id="summaryTierTimeline">Delivery in 5-7 days</p>
+                    </div>
+                    <div class="summary-tier-price" id="summaryTierPrice">$1,500</div>
+                </div>
+
+                <div class="summary-addons" id="summaryAddons">
+                    <!-- Addons will be inserted here -->
+                </div>
+
+                <div class="summary-total">
+                    <span class="summary-total-label">Total</span>
+                    <span class="summary-total-price" id="summaryTotal">$1,500</span>
+                </div>
+
+                <!-- SECURITY BADGES -->
+                <div class="security-badges">
+                    <div class="security-badge-row">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        <span>256-bit SSL Encryption</span>
+                    </div>
+                    <div class="security-badge-row">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span>PCI DSS Compliant</span>
+                    </div>
+                    <div class="security-badge-row">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span>SOC 2 Type II Certified</span>
+                    </div>
+                    <div class="security-badge-row">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span>GDPR & CCPA Compliant</span>
+                    </div>
+
+                    <div class="payment-logos">
+                        <svg height="24" viewBox="0 0 50 20" fill="#B0A6DF" opacity="0.5">
+                            <text x="0" y="15" font-size="12" font-weight="600">VISA</text>
+                        </svg>
+                        <svg height="24" viewBox="0 0 70 20" fill="#B0A6DF" opacity="0.5">
+                            <text x="0" y="15" font-size="10" font-weight="600">Mastercard</text>
+                        </svg>
+                        <svg height="24" viewBox="0 0 50 20" fill="#B0A6DF" opacity="0.5">
+                            <text x="0" y="15" font-size="10" font-weight="600">AMEX</text>
+                        </svg>
+                    </div>
+
+                    <div class="powered-by">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        Secured by Stripe
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUCCESS MODAL -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"/>
+                </svg>
+            </div>
+            <h2>Payment Successful!</h2>
+            <p>Your analysis has been initiated. You'll receive a confirmation email shortly with access to track your project progress.</p>
+            <div class="modal-project-id">
+                <div class="modal-project-id-label">Your Project ID</div>
+                <div class="modal-project-id-value" id="modalProjectId">SAAS-1234567890</div>
+            </div>
+            <a href="/dashboard" class="modal-button" id="viewDashboardBtn">
+                View Dashboard
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('project_id') || 'UNKNOWN';
+        
+        // Display project ID
+        document.getElementById('projectIdDisplay').textContent = projectId;
+        document.getElementById('modalProjectId').textContent = projectId;
+
+        // Get checkout data from session storage
+        const checkoutData = JSON.parse(sessionStorage.getItem('checkoutData') || '{}');
+
+        // Tier timelines
+        const tierTimelines = {
+            1: '24-48 hours',
+            2: '5-7 days',
+            3: '10-14 days'
+        };
+
+        // Populate order summary
+        function populateSummary() {
+            if (checkoutData.tierName) {
+                document.getElementById('summaryTierName').textContent = checkoutData.tierName;
+                document.getElementById('summaryTierTimeline').textContent = 'Delivery in ' + (tierTimelines[checkoutData.tier] || '5-7 days');
+                document.getElementById('summaryTierPrice').textContent = '$' + (checkoutData.tierPrice || 1500).toLocaleString();
+            }
+
+            // Addons
+            const addonsContainer = document.getElementById('summaryAddons');
+            if (checkoutData.addons && checkoutData.addons.length > 0) {
+                let addonsHtml = '';
+                checkoutData.addons.forEach(addon => {
+                    addonsHtml += `
+                        <div class="summary-addon-item">
+                            <span>${addon.name}</span>
+                            <span>+$${addon.price}</span>
+                        </div>
+                    `;
+                });
+                addonsContainer.innerHTML = addonsHtml;
+            } else {
+                addonsContainer.style.display = 'none';
+            }
+
+            // Total
+            const total = checkoutData.total || 1500;
+            document.getElementById('summaryTotal').textContent = '$' + total.toLocaleString();
+            document.getElementById('buttonPrice').textContent = '$' + total.toLocaleString();
+        }
+
+        populateSummary();
+
+        // Card number formatting
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '').replace(/\D/g, '');
+            let formatted = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formatted;
+        });
+
+        // Expiry date formatting
+        document.getElementById('cardExpiry').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // CVC - numbers only
+        document.getElementById('cardCvc').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+
+        // Form validation
+        function validateForm() {
+            let isValid = true;
+            
+            // Reset errors
+            document.querySelectorAll('.form-error').forEach(el => el.classList.remove('visible'));
+            document.querySelectorAll('.form-input').forEach(el => el.classList.remove('error'));
+
+            // Required fields
+            const requiredFields = ['firstName', 'lastName', 'email', 'cardName', 'cardNumber', 'cardExpiry', 'cardCvc', 'cardZip'];
+            
+            requiredFields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!input.value.trim()) {
+                    input.classList.add('error');
+                    document.getElementById(field + 'Error').classList.add('visible');
+                    isValid = false;
+                }
+            });
+
+            // Email validation
+            const email = document.getElementById('email');
+            if (email.value && !email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                email.classList.add('error');
+                document.getElementById('emailError').classList.add('visible');
+                isValid = false;
+            }
+
+            // Card number validation (basic)
+            const cardNumber = document.getElementById('cardNumber');
+            if (cardNumber.value.replace(/\s/g, '').length < 15) {
+                cardNumber.classList.add('error');
+                document.getElementById('cardNumberError').classList.add('visible');
+                isValid = false;
+            }
+
+            // Terms acceptance
+            const terms = document.getElementById('termsAccept');
+            if (!terms.checked) {
+                document.getElementById('termsError').classList.add('visible');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // Form submission
+        document.getElementById('checkoutForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                return;
+            }
+
+            const submitButton = document.getElementById('submitButton');
+            submitButton.disabled = true;
+            submitButton.classList.add('loading');
+
+            // Simulate payment processing
+            await new Promise(resolve => setTimeout(resolve, 2000));
+
+            // Store order data
+            const orderData = {
+                projectId: projectId,
+                customer: {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    company: document.getElementById('company').value,
+                    phone: document.getElementById('phone').value
+                },
+                tier: checkoutData.tier,
+                tierName: checkoutData.tierName,
+                addons: checkoutData.addons,
+                total: checkoutData.total,
+                paidAt: new Date().toISOString()
+            };
+            
+            sessionStorage.setItem('orderData', JSON.stringify(orderData));
+
+            // Show success modal
+            document.getElementById('successModal').classList.add('active');
+            
+            // Update dashboard link
+            document.getElementById('viewDashboardBtn').href = '/dashboard?project_id=' + projectId;
+        });
+
+        // Close modal on background click
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                // Don't close - force user to click button
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Questionnaire - ROUZE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION */
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            margin: -20px -20px 40px -20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #B0A6DF;
+        }
+
+        /* PROGRESS BAR */
+        .progress-container {
+            margin-bottom: 40px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .progress-title {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.7);
+        }
+
+        .progress-step {
+            font-size: 14px;
+            color: #3A8FC3;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: rgba(176, 166, 223, 0.15);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3A8FC3, #5BA3D1);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .vertical-badge {
+            display: inline-block;
+            background: rgba(58, 143, 195, 0.15);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            color: #3A8FC3;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #B0A6DF;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: rgba(176, 166, 223, 0.75);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* FORM SECTIONS */
+        .form-section {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .section-number {
+            width: 40px;
+            height: 40px;
+            background: rgba(58, 143, 195, 0.2);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: #3A8FC3;
+        }
+
+        .section-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 4px;
+        }
+
+        .section-info p {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.6);
+        }
+
+        /* QUESTIONS */
+        .question {
+            margin-bottom: 28px;
+        }
+
+        .question:last-child {
+            margin-bottom: 0;
+        }
+
+        .question-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .question-number {
+            font-size: 12px;
+            color: #3A8FC3;
+            font-weight: 600;
+            background: rgba(58, 143, 195, 0.1);
+            padding: 4px 10px;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+
+        .question-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #B0A6DF;
+            line-height: 1.4;
+        }
+
+        .question-label .required {
+            color: #e57373;
+            margin-left: 4px;
+        }
+
+        .helper-text {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.55);
+            margin-bottom: 14px;
+            line-height: 1.5;
+            padding-left: 0;
+        }
+
+        /* INPUT STYLES */
+        select,
+        textarea,
+        input[type="text"] {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(26, 13, 46, 0.5);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 10px;
+            color: #B0A6DF;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        select:focus,
+        textarea:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #3A8FC3;
+            background: rgba(26, 13, 46, 0.7);
+            box-shadow: 0 0 0 3px rgba(58, 143, 195, 0.15);
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23B0A6DF' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+
+        select option {
+            background: #1a0d2e;
+            color: #B0A6DF;
+            padding: 12px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* CHECKBOX GROUP */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            background: rgba(26, 13, 46, 0.4);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            border-color: rgba(58, 143, 195, 0.4);
+            background: rgba(26, 13, 46, 0.6);
+        }
+
+        .checkbox-item.selected {
+            border-color: #3A8FC3;
+            background: rgba(58, 143, 195, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkbox-custom {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border: 2px solid rgba(176, 166, 223, 0.3);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            margin-top: 1px;
+        }
+
+        .checkbox-item.selected .checkbox-custom {
+            background: #3A8FC3;
+            border-color: #3A8FC3;
+        }
+
+        .checkbox-custom::after {
+            content: '';
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .checkbox-item.selected .checkbox-custom::after {
+            opacity: 1;
+        }
+
+        .checkbox-label {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.85);
+            line-height: 1.4;
+        }
+
+        /* RADIO GROUP */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            background: rgba(26, 13, 46, 0.4);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-item:hover {
+            border-color: rgba(58, 143, 195, 0.4);
+            background: rgba(26, 13, 46, 0.6);
+        }
+
+        .radio-item.selected {
+            border-color: #3A8FC3;
+            background: rgba(58, 143, 195, 0.1);
+        }
+
+        .radio-item input[type="radio"] {
+            display: none;
+        }
+
+        .radio-custom {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border: 2px solid rgba(176, 166, 223, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            margin-top: 1px;
+        }
+
+        .radio-item.selected .radio-custom {
+            border-color: #3A8FC3;
+        }
+
+        .radio-custom::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #3A8FC3;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .radio-item.selected .radio-custom::after {
+            opacity: 1;
+        }
+
+        .radio-label {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.85);
+            line-height: 1.4;
+        }
+
+        /* CONDITIONAL FIELD */
+        .conditional-field {
+            margin-top: 12px;
+            padding-left: 32px;
+            display: none;
+        }
+
+        .conditional-field.visible {
+            display: block;
+        }
+
+        .conditional-field input,
+        .conditional-field textarea {
+            width: 100%;
+        }
+
+        /* COMPETITOR INPUTS */
+        .competitor-inputs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .competitor-inputs input {
+            width: 100%;
+        }
+
+        /* SUBMIT SECTION */
+        .submit-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .submit-note {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.6);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .submit-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 48px;
+            background: linear-gradient(135deg, #3A8FC3 0%, #2d7eb3 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(58, 143, 195, 0.3);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(58, 143, 195, 0.4);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        .submit-button .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .submit-button:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        /* BACK LINK */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 32px;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #B0A6DF;
+        }
+
+        /* VALIDATION */
+        .error-message {
+            color: #e57373;
+            font-size: 13px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .question.error select,
+        .question.error textarea,
+        .question.error input[type="text"] {
+            border-color: #e57373;
+        }
+
+        .question.error .error-message {
+            display: block;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-links {
+                gap: 24px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .form-section {
+                padding: 24px 20px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .competitor-inputs {
+                grid-template-columns: 1fr;
+            }
+
+            .submit-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="nav-bar">
+        <a href="/" class="logo">ROUZE</a>
+        <div class="nav-links">
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/case-studies">Case Studies</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- BACK LINK -->
+        <a href="/vertical-selector" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Vertical Selection
+        </a>
+
+        <!-- PROGRESS BAR -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <span class="progress-title">Questionnaire Progress</span>
+                <span class="progress-step">Step 1 of 3: Answer Questions</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 33%"></div>
+            </div>
+        </div>
+
+        <!-- HERO -->
+        <div class="hero">
+            <div class="vertical-badge">Real Estate / PropTech Vertical</div>
+            <h1>Real Estate Market Intelligence</h1>
+            <p>16 questions to customize your analysis. The more detail you provide, the more actionable your insights will be.</p>
+        </div>
+
+        <!-- QUESTIONNAIRE FORM -->
+        <form id="realestateForm">
+
+            <!-- SECTION 1: Business and Focus -->
+            <div class="form-section">
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <div class="section-info">
+                        <h2>Business and Focus</h2>
+                        <p>Help us understand your real estate business and target markets</p>
+                    </div>
+                </div>
+
+                <!-- Q1: Business Type -->
+                <div class="question" data-question="1">
+                    <div class="question-header">
+                        <span class="question-number">Q1</span>
+                        <label class="question-label">What is your primary real estate business type?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Business type determines which signals and markets are most relevant.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="residential_developer" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Residential developer</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="commercial_developer">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Commercial developer</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="residential_investor">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Real estate investor (residential)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="commercial_investor">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Real estate investor (commercial)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="proptech">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">PropTech / real estate software</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="brokerage">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Brokerage / agency</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="property_management">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Property management</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="reit">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">REIT / fund</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="other">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Other</span>
+                        </label>
+                    </div>
+                    <div class="conditional-field" id="business_type_other">
+                        <input type="text" name="business_type_other" placeholder="Please specify your business type">
+                    </div>
+                    <p class="error-message">Please select your business type</p>
+                </div>
+
+                <!-- Q2: Geographic Focus -->
+                <div class="question" data-question="2">
+                    <div class="question-header">
+                        <span class="question-number">Q2</span>
+                        <label class="question-label">What is your geographic focus?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Geography determines location-specific signal sources.</p>
+                    <select name="geographic_focus" required>
+                        <option value="">Select your geographic focus</option>
+                        <option value="single_metro">Single metro area</option>
+                        <option value="regional">Regional (multiple metros, one state)</option>
+                        <option value="multi_state">Multi-state</option>
+                        <option value="national">National</option>
+                        <option value="international">International</option>
+                    </select>
+                    <p class="error-message">Please select your geographic focus</p>
+                </div>
+
+                <!-- Q3: Property Types -->
+                <div class="question" data-question="3">
+                    <div class="question-header">
+                        <span class="question-number">Q3</span>
+                        <label class="question-label">What property types do you focus on?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Property types determine relevant market signals.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="property_types" value="single_family">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Single-family residential</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="property_types" value="multi_family">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Multi-family residential</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="property_types" value="condos">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Condos / townhomes</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="property_types" value="office">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Office</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="property_types" value="retail">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Retail</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="property_types" value="industrial">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Industrial / warehouse</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="property_types" value="mixed_use">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Mixed-use</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="property_types" value="land">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Land / development sites</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="property_types" value="senior_living">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Senior living / healthcare</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="property_types" value="student_housing">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Student housing</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select at least one property type</p>
+                </div>
+
+                <!-- Q4: Project/Portfolio Size -->
+                <div class="question" data-question="4">
+                    <div class="question-header">
+                        <span class="question-number">Q4</span>
+                        <label class="question-label">What is your typical project or portfolio size?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Size indicates market segment and competitive dynamics.</p>
+                    <select name="portfolio_size" required>
+                        <option value="">Select your typical size</option>
+                        <option value="under1m">Under $1M</option>
+                        <option value="1m_10m">$1M - $10M</option>
+                        <option value="10m_50m">$10M - $50M</option>
+                        <option value="50m_250m">$50M - $250M</option>
+                        <option value="over250m">$250M+</option>
+                    </select>
+                    <p class="error-message">Please select your project/portfolio size</p>
+                </div>
+            </div>
+
+            <!-- SECTION 2: Location and Timing Intelligence -->
+            <div class="form-section">
+                <div class="section-header">
+                    <div class="section-number">2</div>
+                    <div class="section-info">
+                        <h2>Location and Timing Intelligence</h2>
+                        <p>Understanding the location and timing factors that drive your decisions</p>
+                    </div>
+                </div>
+
+                <!-- Q5: Location Factors -->
+                <div class="question" data-question="5">
+                    <div class="question-header">
+                        <span class="question-number">Q5</span>
+                        <label class="question-label">What location factors matter most to your decisions?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Location factors shape which signals we prioritize.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="location_factors" value="population">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Population growth / decline</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="location_factors" value="employment">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Employment trends</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="location_factors" value="income">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Income levels and changes</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="location_factors" value="crime">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Crime trends</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="location_factors" value="schools">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">School quality changes</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="location_factors" value="infrastructure">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Infrastructure development</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="location_factors" value="zoning">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Zoning changes</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="location_factors" value="gentrification">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Gentrification patterns</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="location_factors" value="climate">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Climate / environmental factors</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select at least one location factor</p>
+                </div>
+
+                <!-- Q6: Timing Signals -->
+                <div class="question" data-question="6">
+                    <div class="question-header">
+                        <span class="question-number">Q6</span>
+                        <label class="question-label">What timing signals do you need to track?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Timing signals affect buy/sell/hold decisions.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="timing_signals" value="interest_rates">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Interest rate movements</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="timing_signals" value="construction_costs">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Construction cost trends</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="timing_signals" value="permits">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Permit activity levels</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="timing_signals" value="inventory">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Inventory levels</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="timing_signals" value="days_on_market">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Days on market trends</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="timing_signals" value="price_sqft">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Price per square foot trends</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="timing_signals" value="cap_rates">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Cap rate movements</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="timing_signals" value="rental_rates">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Rental rate trends</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select at least one timing signal</p>
+                </div>
+
+                <!-- Q7: Investment/Development Horizon -->
+                <div class="question" data-question="7">
+                    <div class="question-header">
+                        <span class="question-number">Q7</span>
+                        <label class="question-label">What is your typical investment/development horizon?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Horizon affects which long-term vs short-term signals matter.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="investment_horizon" value="short_term" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Short-term (under 2 years)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="investment_horizon" value="medium_term">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Medium-term (2-5 years)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="investment_horizon" value="long_term">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Long-term (5-10 years)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="investment_horizon" value="very_long_term">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Very long-term (10+ years)</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select your investment horizon</p>
+                </div>
+
+                <!-- Q8: Specific Markets/Locations -->
+                <div class="question" data-question="8">
+                    <div class="question-header">
+                        <span class="question-number">Q8</span>
+                        <label class="question-label">Are there specific markets or locations you're analyzing?</label>
+                    </div>
+                    <p class="helper-text">List specific cities, neighborhoods, or regions. Example: "Austin TX suburbs, specifically Round Rock and Cedar Park"</p>
+                    <textarea name="specific_markets" placeholder="Describe specific markets or locations you're analyzing..."></textarea>
+                </div>
+            </div>
+
+            <!-- SECTION 3: Market and Competitive Intelligence -->
+            <div class="form-section">
+                <div class="section-header">
+                    <div class="section-number">3</div>
+                    <div class="section-info">
+                        <h2>Market and Competitive Intelligence</h2>
+                        <p>Understanding your market concerns and competitive landscape</p>
+                    </div>
+                </div>
+
+                <!-- Q9: Market Signal Concerns -->
+                <div class="question" data-question="9">
+                    <div class="question-header">
+                        <span class="question-number">Q9</span>
+                        <label class="question-label">What market signals concern you most right now?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Current concerns shape analysis priorities.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="bubble">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Market peak / bubble concerns</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="interest_rates">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Rising interest rates impact</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="construction_costs">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Construction cost inflation</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="labor">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Labor availability</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="supply_chain">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Supply chain delays</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="regulatory">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Regulatory changes</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="oversupply">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Oversupply in target markets</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_concerns" value="demand_softening">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Demand softening signals</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select at least one market concern</p>
+                </div>
+
+                <!-- Q10: Competitors/Market Players -->
+                <div class="question" data-question="10">
+                    <div class="question-header">
+                        <span class="question-number">Q10</span>
+                        <label class="question-label">Who are your main competitors or market players to watch?</label>
+                    </div>
+                    <p class="helper-text">List up to 5 competitors, developers, or investors in your markets.</p>
+                    <div class="competitor-inputs">
+                        <input type="text" name="competitor_1" placeholder="Competitor 1">
+                        <input type="text" name="competitor_2" placeholder="Competitor 2">
+                        <input type="text" name="competitor_3" placeholder="Competitor 3">
+                        <input type="text" name="competitor_4" placeholder="Competitor 4">
+                        <input type="text" name="competitor_5" placeholder="Competitor 5">
+                    </div>
+                </div>
+
+                <!-- Q11: Current Data Sources -->
+                <div class="question" data-question="11">
+                    <div class="question-header">
+                        <span class="question-number">Q11</span>
+                        <label class="question-label">What data sources do you currently rely on?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Understanding current sources helps us identify gaps.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="data_sources" value="zillow_redfin">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Zillow / Redfin / Realtor.com</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="data_sources" value="costar">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">CoStar / LoopNet</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="data_sources" value="mls">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">MLS data</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="data_sources" value="census">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Census data</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="data_sources" value="permits">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Local permit offices</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="data_sources" value="broker_reports">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Broker reports</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="data_sources" value="news">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">News / media</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="data_sources" value="social_media">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Social media / Reddit</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select at least one data source</p>
+                </div>
+
+                <!-- Q12: Early Warning Signals -->
+                <div class="question" data-question="12">
+                    <div class="question-header">
+                        <span class="question-number">Q12</span>
+                        <label class="question-label">What early warning signals would be most valuable?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Select 2-4 early signals. These become alert priorities.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="early_warning" value="listing_volume">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Sudden listing volume increases</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="early_warning" value="price_reductions">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Price reduction patterns</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="early_warning" value="days_on_market">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Days on market spikes</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="early_warning" value="permit_slowdowns">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Permit application slowdowns</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="early_warning" value="employment">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Employment announcements (layoffs/hires)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="early_warning" value="migration">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Migration pattern shifts</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="early_warning" value="sentiment">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Sentiment shifts in local forums</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="early_warning" value="vacancy">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Rental vacancy increases</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select 2-4 early warning signals</p>
+                </div>
+            </div>
+
+            <!-- SECTION 4: Strategic Focus -->
+            <div class="form-section">
+                <div class="section-header">
+                    <div class="section-number">4</div>
+                    <div class="section-info">
+                        <h2>Strategic Focus</h2>
+                        <p>Defining your strategic priorities and key business decisions</p>
+                    </div>
+                </div>
+
+                <!-- Q13: Strategic Priority -->
+                <div class="question" data-question="13">
+                    <div class="question-header">
+                        <span class="question-number">Q13</span>
+                        <label class="question-label">What is your current strategic priority?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Priority shapes which market signals we weight most heavily.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="strategic_priority" value="acquisition" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Identifying new acquisition targets</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="strategic_priority" value="market_entry">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Timing market entry</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="strategic_priority" value="market_exit">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Timing market exit</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="strategic_priority" value="positioning">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Competitive positioning in current markets</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="strategic_priority" value="risk_assessment">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Risk assessment for existing portfolio</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="strategic_priority" value="expansion">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">New market expansion evaluation</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="strategic_priority" value="pipeline">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Development pipeline planning</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select your strategic priority</p>
+                </div>
+
+                <!-- Q14: Decision Timeline -->
+                <div class="question" data-question="14">
+                    <div class="question-header">
+                        <span class="question-number">Q14</span>
+                        <label class="question-label">What is your decision timeline?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Timeline affects signal freshness requirements.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="decision_timeline" value="immediate" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Immediate (active deal evaluation)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="decision_timeline" value="near_term">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Near-term (next 3 months)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="decision_timeline" value="medium_term">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Medium-term (3-12 months)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="decision_timeline" value="long_term">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Long-term planning (12+ months)</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select your decision timeline</p>
+                </div>
+
+                <!-- Q15: Market Signals -->
+                <div class="question" data-question="15">
+                    <div class="question-header">
+                        <span class="question-number">Q15</span>
+                        <label class="question-label">What market signals interest you most?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Select 3-5 signals. These become your primary intelligence focus areas.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_signals" value="price_trends">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Price trends by neighborhood</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_signals" value="rental_yield">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Rental yield changes</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_signals" value="development_pipeline">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Development pipeline activity</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_signals" value="demographics">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Demographic shifts</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_signals" value="employment">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Employment announcements</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_signals" value="infrastructure">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Infrastructure projects</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_signals" value="zoning">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Zoning and policy changes</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_signals" value="investor_sentiment">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Investor sentiment</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_signals" value="mortgage">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Mortgage activity levels</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="market_signals" value="construction">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Construction starts/completions</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select 3-5 market signals</p>
+                </div>
+
+                <!-- Q16: Business Decision -->
+                <div class="question" data-question="16">
+                    <div class="question-header">
+                        <span class="question-number">Q16</span>
+                        <label class="question-label">What is the key business decision you're trying to make?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">This is the core question we'll answer. Everything else supports this decision.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="market_entry" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Should we invest in this market? (market entry)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="buy_timing">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Is now the right time to buy? (timing)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="sell_timing">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Is now the right time to sell? (exit timing)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="location">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Where should we focus development? (location)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="property_type">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">What property type should we target? (strategy)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="risk">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">How is our portfolio positioned? (risk assessment)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="other">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Other decision</span>
+                        </label>
+                    </div>
+                    <div class="conditional-field" id="business_decision_other">
+                        <textarea name="business_decision_other" placeholder="Describe your key business decision..."></textarea>
+                    </div>
+                    <p class="error-message">Please select your key business decision</p>
+                </div>
+            </div>
+
+            <!-- SUBMIT SECTION -->
+            <div class="submit-section">
+                <p class="submit-note">
+                    After submitting, you can optionally upload supporting data and choose your preferred deliverable format.
+                </p>
+                <button type="submit" class="submit-button">
+                    Continue to Data Upload
+                    <span class="arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Toggle selected state for radio items
+        document.querySelectorAll('.radio-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const name = this.querySelector('input[type="radio"]').name;
+                document.querySelectorAll(`input[name="${name}"]`).forEach(input => {
+                    input.closest('.radio-item').classList.remove('selected');
+                });
+                this.classList.add('selected');
+                this.querySelector('input[type="radio"]').checked = true;
+
+                // Handle conditional fields
+                if (name === 'business_type') {
+                    const otherField = document.getElementById('business_type_other');
+                    if (this.querySelector('input').value === 'other') {
+                        otherField.classList.add('visible');
+                    } else {
+                        otherField.classList.remove('visible');
+                    }
+                }
+
+                if (name === 'business_decision') {
+                    const otherField = document.getElementById('business_decision_other');
+                    if (this.querySelector('input').value === 'other') {
+                        otherField.classList.add('visible');
+                    } else {
+                        otherField.classList.remove('visible');
+                    }
+                }
+            });
+        });
+
+        // Toggle selected state for checkbox items
+        document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                this.closest('.checkbox-item').classList.toggle('selected', this.checked);
+            });
+        });
+
+        // Form validation and submission
+        document.getElementById('realestateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            
+            // Clear previous errors
+            document.querySelectorAll('.question.error').forEach(q => q.classList.remove('error'));
+            
+            // Validate required radio buttons
+            const requiredRadios = ['business_type', 'investment_horizon', 'strategic_priority', 'decision_timeline', 'business_decision'];
+            requiredRadios.forEach(name => {
+                if (!document.querySelector(`input[name="${name}"]:checked`)) {
+                    const question = document.querySelector(`input[name="${name}"]`).closest('.question');
+                    question.classList.add('error');
+                    isValid = false;
+                }
+            });
+            
+            // Validate required selects
+            const requiredSelects = ['geographic_focus', 'portfolio_size'];
+            requiredSelects.forEach(name => {
+                const select = document.querySelector(`select[name="${name}"]`);
+                if (!select.value) {
+                    select.closest('.question').classList.add('error');
+                    isValid = false;
+                }
+            });
+            
+            // Validate required checkboxes (at least one selected)
+            const requiredCheckboxGroups = ['property_types', 'location_factors', 'timing_signals', 'market_concerns', 'data_sources'];
+            requiredCheckboxGroups.forEach(name => {
+                if (!document.querySelector(`input[name="${name}"]:checked`)) {
+                    const question = document.querySelector(`input[name="${name}"]`).closest('.question');
+                    question.classList.add('error');
+                    isValid = false;
+                }
+            });
+            
+            // Validate early warning signals (2-4 required)
+            const earlyWarningChecked = document.querySelectorAll('input[name="early_warning"]:checked').length;
+            if (earlyWarningChecked < 2 || earlyWarningChecked > 4) {
+                document.querySelector('input[name="early_warning"]').closest('.question').classList.add('error');
+                isValid = false;
+            }
+            
+            // Validate market signals (3-5 required)
+            const signalChecked = document.querySelectorAll('input[name="market_signals"]:checked').length;
+            if (signalChecked < 3 || signalChecked > 5) {
+                document.querySelector('input[name="market_signals"]').closest('.question').classList.add('error');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Collect form data
+                const formData = new FormData(this);
+                const data = {};
+                formData.forEach((value, key) => {
+                    if (data[key]) {
+                        if (Array.isArray(data[key])) {
+                            data[key].push(value);
+                        } else {
+                            data[key] = [data[key], value];
+                        }
+                    } else {
+                        data[key] = value;
+                    }
+                });
+                
+                // Generate project ID
+                const projectId = 'RE-' + Date.now().toString(36).toUpperCase();
+                
+                // Store in session storage for next step
+                sessionStorage.setItem('questionnaireData', JSON.stringify({
+                    vertical: 'realestate',
+                    projectId: projectId,
+                    responses: data,
+                    timestamp: new Date().toISOString()
+                }));
+                
+                // Redirect to data upload page
+                window.location.href = '/upload?project_id=' + projectId;
+            } else {
+                // Scroll to first error
+                const firstError = document.querySelector('.question.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
+
+        // Update progress bar as user scrolls through sections
+        const sections = document.querySelectorAll('.form-section');
+        const progressFill = document.querySelector('.progress-fill');
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            
+            // Base progress is 33% (step 1 of 3), add scroll progress within questionnaire
+            const progress = 33 + (scrollPercent * 0.2);
+            progressFill.style.width = Math.min(progress, 50) + '%';
+        });
+    </script>
+</body>
+</html>

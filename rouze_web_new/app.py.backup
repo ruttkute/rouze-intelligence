@@ -1,0 +1,41 @@
+from flask import Flask, render_template, redirect, session
+import os
+from datetime import timedelta
+
+# Initialize Flask app
+app = Flask(
+    __name__,
+    template_folder='templates',
+    static_folder='static',
+    static_url_path='/static'
+)
+
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-key-change-in-production')
+
+# Import all routes
+from app.routes.vertical_selector import *
+
+# Existing routes (home, about, etc.)
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/methodology')
+def methodology():
+    return render_template('methodology.html')
+
+@app.route('/pricing')
+def pricing():
+    return render_template('pricing.html')
+
+@app.route('/free-trial')
+def free_trial():
+    return render_template('free_trial.html')
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)

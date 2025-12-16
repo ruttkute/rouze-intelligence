@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Questionnaire - ROUZE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION */
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            margin: -20px -20px 40px -20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #B0A6DF;
+        }
+
+        /* PROGRESS BAR */
+        .progress-container {
+            margin-bottom: 40px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .progress-title {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.7);
+        }
+
+        .progress-step {
+            font-size: 14px;
+            color: #3A8FC3;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: rgba(176, 166, 223, 0.15);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3A8FC3, #5BA3D1);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .vertical-badge {
+            display: inline-block;
+            background: rgba(58, 143, 195, 0.15);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            color: #3A8FC3;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #B0A6DF;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: rgba(176, 166, 223, 0.75);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* FORM SECTIONS */
+        .form-section {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .section-number {
+            width: 40px;
+            height: 40px;
+            background: rgba(58, 143, 195, 0.2);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: #3A8FC3;
+        }
+
+        .section-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 4px;
+        }
+
+        .section-info p {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.6);
+        }
+
+        /* QUESTIONS */
+        .question {
+            margin-bottom: 28px;
+        }
+
+        .question:last-child {
+            margin-bottom: 0;
+        }
+
+        .question-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .question-number {
+            font-size: 12px;
+            color: #3A8FC3;
+            font-weight: 600;
+            background: rgba(58, 143, 195, 0.1);
+            padding: 4px 10px;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+
+        .question-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #B0A6DF;
+            line-height: 1.4;
+        }
+
+        .question-label .required {
+            color: #e57373;
+            margin-left: 4px;
+        }
+
+        .helper-text {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.55);
+            margin-bottom: 14px;
+            line-height: 1.5;
+            padding-left: 0;
+        }
+
+        /* INPUT STYLES */
+        select,
+        textarea,
+        input[type="text"] {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(26, 13, 46, 0.5);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 10px;
+            color: #B0A6DF;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        select:focus,
+        textarea:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #3A8FC3;
+            background: rgba(26, 13, 46, 0.7);
+            box-shadow: 0 0 0 3px rgba(58, 143, 195, 0.15);
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23B0A6DF' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+
+        select option {
+            background: #1a0d2e;
+            color: #B0A6DF;
+            padding: 12px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* CHECKBOX GROUP */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            background: rgba(26, 13, 46, 0.4);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            border-color: rgba(58, 143, 195, 0.4);
+            background: rgba(26, 13, 46, 0.6);
+        }
+
+        .checkbox-item.selected {
+            border-color: #3A8FC3;
+            background: rgba(58, 143, 195, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkbox-custom {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border: 2px solid rgba(176, 166, 223, 0.3);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            margin-top: 1px;
+        }
+
+        .checkbox-item.selected .checkbox-custom {
+            background: #3A8FC3;
+            border-color: #3A8FC3;
+        }
+
+        .checkbox-custom::after {
+            content: '';
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .checkbox-item.selected .checkbox-custom::after {
+            opacity: 1;
+        }
+
+        .checkbox-label {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.85);
+            line-height: 1.4;
+        }
+
+        /* RADIO GROUP */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            background: rgba(26, 13, 46, 0.4);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-item:hover {
+            border-color: rgba(58, 143, 195, 0.4);
+            background: rgba(26, 13, 46, 0.6);
+        }
+
+        .radio-item.selected {
+            border-color: #3A8FC3;
+            background: rgba(58, 143, 195, 0.1);
+        }
+
+        .radio-item input[type="radio"] {
+            display: none;
+        }
+
+        .radio-custom {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border: 2px solid rgba(176, 166, 223, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            margin-top: 1px;
+        }
+
+        .radio-item.selected .radio-custom {
+            border-color: #3A8FC3;
+        }
+
+        .radio-custom::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #3A8FC3;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .radio-item.selected .radio-custom::after {
+            opacity: 1;
+        }
+
+        .radio-label {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.85);
+            line-height: 1.4;
+        }
+
+        /* CONDITIONAL FIELD */
+        .conditional-field {
+            margin-top: 12px;
+            padding-left: 32px;
+            display: none;
+        }
+
+        .conditional-field.visible {
+            display: block;
+        }
+
+        .conditional-field input,
+        .conditional-field textarea {
+            width: 100%;
+        }
+
+        /* COMPETITOR INPUTS */
+        .competitor-inputs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .competitor-inputs input {
+            width: 100%;
+        }
+
+        /* SUBMIT SECTION */
+        .submit-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .submit-note {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.6);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .submit-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 48px;
+            background: linear-gradient(135deg, #3A8FC3 0%, #2d7eb3 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(58, 143, 195, 0.3);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(58, 143, 195, 0.4);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        .submit-button .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .submit-button:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        /* BACK LINK */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 32px;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #B0A6DF;
+        }
+
+        /* VALIDATION */
+        .error-message {
+            color: #e57373;
+            font-size: 13px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .question.error select,
+        .question.error textarea,
+        .question.error input[type="text"] {
+            border-color: #e57373;
+        }
+
+        .question.error .error-message {
+            display: block;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-links {
+                gap: 24px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .form-section {
+                padding: 24px 20px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .competitor-inputs {
+                grid-template-columns: 1fr;
+            }
+
+            .submit-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="nav-bar">
+        <a href="/" class="logo">ROUZE</a>
+        <div class="nav-links">
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/case-studies">Case Studies</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- BACK LINK -->
+        <a href="/vertical-selector" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Vertical Selection
+        </a>
+
+        <!-- PROGRESS BAR -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <span class="progress-title">Questionnaire Progress</span>
+                <span class="progress-step">Step 1 of 3: Answer Questions</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 33%"></div>
+            </div>
+        </div>
+
+        <!-- HERO -->
+        <div class="hero">
+            <div class="vertical-badge">E-Commerce Vertical</div>
+            <h1>E-Commerce Market Intelligence</h1>
+            <p>14 questions to customize your analysis. The more detail you provide, the more actionable your insights will be.</p>
+        </div>
+
+        <!-- QUESTIONNAIRE FORM -->
+        <form id="ecommerceForm">
+
+            <!-- SECTION 1: Business and Product -->
+            <div class="form-section">
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <div class="section-info">
+                        <h2>Business and Product</h2>
+                        <p>Help us understand your e-commerce business model and category</p>
+                    </div>
+                </div>
+
+                <!-- Q1: Business Type -->
+                <div class="question" data-question="1">
+                    <div class="question-header">
+                        <span class="question-number">Q1</span>
+                        <label class="question-label">What type of e-commerce business are you?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Business model determines which signals and platforms are most relevant.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="dtc" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">DTC brand (own products, own site)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="amazon_first">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Amazon-first seller</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="multi_marketplace">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Multi-marketplace seller</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="dropshipper">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Dropshipper / reseller</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="subscription">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Subscription box / recurring</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="wholesale">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Wholesale / B2B e-commerce</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_type" value="other">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Other</span>
+                        </label>
+                    </div>
+                    <div class="conditional-field" id="business_type_other">
+                        <input type="text" name="business_type_other" placeholder="Please specify your business type">
+                    </div>
+                    <p class="error-message">Please select your business type</p>
+                </div>
+
+                <!-- Q2: Product Category -->
+                <div class="question" data-question="2">
+                    <div class="question-header">
+                        <span class="question-number">Q2</span>
+                        <label class="question-label">What product category do you operate in?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Category determines trend sources and competitive dynamics.</p>
+                    <select name="product_category" required>
+                        <option value="">Select your product category</option>
+                        <option value="beauty">Beauty / skincare</option>
+                        <option value="fashion">Fashion / apparel</option>
+                        <option value="health">Health / supplements</option>
+                        <option value="home">Home / kitchen</option>
+                        <option value="electronics">Electronics / gadgets</option>
+                        <option value="pet">Pet products</option>
+                        <option value="baby">Baby / kids</option>
+                        <option value="food">Food / beverage</option>
+                        <option value="fitness">Fitness / outdoor</option>
+                        <option value="jewelry">Jewelry / accessories</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <p class="error-message">Please select your product category</p>
+                </div>
+
+                <!-- Q3: Annual Revenue -->
+                <div class="question" data-question="3">
+                    <div class="question-header">
+                        <span class="question-number">Q3</span>
+                        <label class="question-label">What is your approximate annual revenue?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Revenue stage affects competitive position and growth signal interpretation.</p>
+                    <select name="annual_revenue" required>
+                        <option value="">Select your revenue range</option>
+                        <option value="under100k">Under $100K</option>
+                        <option value="100k_500k">$100K - $500K</option>
+                        <option value="500k_2m">$500K - $2M</option>
+                        <option value="2m_10m">$2M - $10M</option>
+                        <option value="10m_50m">$10M - $50M</option>
+                        <option value="over50m">$50M+</option>
+                    </select>
+                    <p class="error-message">Please select your revenue range</p>
+                </div>
+
+                <!-- Q4: Sales Channels -->
+                <div class="question" data-question="4">
+                    <div class="question-header">
+                        <span class="question-number">Q4</span>
+                        <label class="question-label">What are your primary sales channels?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Channels determine where to monitor customer signals.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sales_channels" value="own_website">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Own website (Shopify, WooCommerce, etc.)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sales_channels" value="amazon">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Amazon</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sales_channels" value="walmart">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Walmart Marketplace</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sales_channels" value="ebay">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">eBay</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sales_channels" value="etsy">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Etsy</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sales_channels" value="tiktok_shop">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">TikTok Shop</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sales_channels" value="instagram">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Instagram Shopping</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sales_channels" value="retail">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Retail / wholesale</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="sales_channels" value="other_marketplaces">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Other marketplaces</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select at least one sales channel</p>
+                </div>
+            </div>
+
+            <!-- SECTION 2: Market and Trend Intelligence -->
+            <div class="form-section">
+                <div class="section-header">
+                    <div class="section-number">2</div>
+                    <div class="section-info">
+                        <h2>Market and Trend Intelligence</h2>
+                        <p>Understanding your market position and trend dynamics</p>
+                    </div>
+                </div>
+
+                <!-- Q5: Market Position -->
+                <div class="question" data-question="5">
+                    <div class="question-header">
+                        <span class="question-number">Q5</span>
+                        <label class="question-label">What is your current market position?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Position affects what competitive signals matter most.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="market_position" value="category_leader" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Category leader (top 5 in niche)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="market_position" value="established">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Established brand (recognized, not dominant)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="market_position" value="growing">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Growing brand (gaining traction)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="market_position" value="new_entrant">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">New entrant (under 2 years)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="market_position" value="testing">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Testing / validation phase</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select your market position</p>
+                </div>
+
+                <!-- Q6: Discovery Channels -->
+                <div class="question" data-question="6">
+                    <div class="question-header">
+                        <span class="question-number">Q6</span>
+                        <label class="question-label">Where do your customers discover products?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Discovery channels become primary signal sources for trend analysis.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="discovery_channels" value="tiktok">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">TikTok</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="discovery_channels" value="instagram">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Instagram</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="discovery_channels" value="youtube">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">YouTube</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="discovery_channels" value="pinterest">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Pinterest</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="discovery_channels" value="google">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Google Search</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="discovery_channels" value="amazon_search">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Amazon Search</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="discovery_channels" value="influencer">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Influencer content</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="discovery_channels" value="word_of_mouth">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Word of mouth / reviews</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="discovery_channels" value="facebook">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Facebook</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="discovery_channels" value="reddit">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Reddit</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select at least one discovery channel</p>
+                </div>
+
+                <!-- Q7: Trend Signals -->
+                <div class="question" data-question="7">
+                    <div class="question-header">
+                        <span class="question-number">Q7</span>
+                        <label class="question-label">What trend signals matter most to your business?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Select 2-4 trend types. These shape your market intelligence focus.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="trend_signals" value="viral">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Viral product trends (TikTok made me buy it)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="trend_signals" value="seasonal">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Seasonal demand patterns</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="trend_signals" value="competitor_pricing">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Competitor pricing moves</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="trend_signals" value="new_entrants">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">New entrant activity</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="trend_signals" value="supply_chain">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Supply chain signals</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="trend_signals" value="influencer">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Influencer adoption patterns</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="trend_signals" value="amazon_bsr">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Amazon BSR movements</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="trend_signals" value="review_sentiment">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Review sentiment shifts</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select 2-4 trend signals</p>
+                </div>
+
+                <!-- Q8: Biggest Market Concern -->
+                <div class="question" data-question="8">
+                    <div class="question-header">
+                        <span class="question-number">Q8</span>
+                        <label class="question-label">What is your biggest market concern right now?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Primary concern determines analysis weighting.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="market_concern" value="saturation" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Market saturation (too many competitors)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="market_concern" value="ad_costs">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Rising ad costs / CAC</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="market_concern" value="supply_chain">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Supply chain reliability</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="market_concern" value="trend_timing">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Trend timing (catching vs chasing)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="market_concern" value="price_competition">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Price competition / margin pressure</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="market_concern" value="platform_dependency">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Platform dependency risk</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="market_concern" value="counterfeits">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Counterfeit / knockoff products</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select your biggest market concern</p>
+                </div>
+            </div>
+
+            <!-- SECTION 3: Competitive Intelligence -->
+            <div class="form-section">
+                <div class="section-header">
+                    <div class="section-number">3</div>
+                    <div class="section-info">
+                        <h2>Competitive Intelligence</h2>
+                        <p>Understanding your competitive landscape and market velocity</p>
+                    </div>
+                </div>
+
+                <!-- Q9: Main Competitors -->
+                <div class="question" data-question="9">
+                    <div class="question-header">
+                        <span class="question-number">Q9</span>
+                        <label class="question-label">Who are your main competitors?</label>
+                    </div>
+                    <p class="helper-text">List up to 5 competitors or brands you watch. Leave blank for category-wide analysis.</p>
+                    <div class="competitor-inputs">
+                        <input type="text" name="competitor_1" placeholder="Competitor 1">
+                        <input type="text" name="competitor_2" placeholder="Competitor 2">
+                        <input type="text" name="competitor_3" placeholder="Competitor 3">
+                        <input type="text" name="competitor_4" placeholder="Competitor 4">
+                        <input type="text" name="competitor_5" placeholder="Competitor 5">
+                    </div>
+                </div>
+
+                <!-- Q10: Competitive Signals -->
+                <div class="question" data-question="10">
+                    <div class="question-header">
+                        <span class="question-number">Q10</span>
+                        <label class="question-label">What competitive signals do you need to track?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">These become your competitive intelligence focus areas.</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="competitive_signals" value="pricing">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Competitor pricing changes</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="competitive_signals" value="new_products">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">New product launches</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="competitive_signals" value="ad_creative">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Ad creative and messaging</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="competitive_signals" value="reviews">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Review volume and sentiment</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="competitive_signals" value="inventory">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Inventory / stock status</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="competitive_signals" value="promotions">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Promotion patterns</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="competitive_signals" value="influencer">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Influencer partnerships</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="competitive_signals" value="amazon_listings">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-label">Amazon listing changes</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select at least one competitive signal</p>
+                </div>
+
+                <!-- Q11: Market Velocity -->
+                <div class="question" data-question="11">
+                    <div class="question-header">
+                        <span class="question-number">Q11</span>
+                        <label class="question-label">How quickly does your market move?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Market velocity affects signal freshness requirements.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="market_velocity" value="very_fast" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Very fast (trends last weeks)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="market_velocity" value="fast">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Fast (trends last 1-3 months)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="market_velocity" value="moderate">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Moderate (trends last 3-6 months)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="market_velocity" value="slow">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Slow (trends last 6+ months)</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select your market velocity</p>
+                </div>
+            </div>
+
+            <!-- SECTION 4: Strategic Focus -->
+            <div class="form-section">
+                <div class="section-header">
+                    <div class="section-number">4</div>
+                    <div class="section-info">
+                        <h2>Strategic Focus</h2>
+                        <p>Defining your growth strategy and key business decisions</p>
+                    </div>
+                </div>
+
+                <!-- Q12: Growth Strategy -->
+                <div class="question" data-question="12">
+                    <div class="question-header">
+                        <span class="question-number">Q12</span>
+                        <label class="question-label">What is your primary growth strategy?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Strategy shapes which signals matter for your decisions.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="growth_strategy" value="new_products" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Launch new products</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="growth_strategy" value="new_channels">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Expand to new channels</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="growth_strategy" value="market_share">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Increase market share in current category</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="growth_strategy" value="new_geographies">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Expand to new geographies</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="growth_strategy" value="upmarket">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Move upmarket (premium positioning)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="growth_strategy" value="diversify">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Diversify product line</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="growth_strategy" value="exit">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Acquisition / exit preparation</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select your growth strategy</p>
+                </div>
+
+                <!-- Q13: Decision Timeline -->
+                <div class="question" data-question="13">
+                    <div class="question-header">
+                        <span class="question-number">Q13</span>
+                        <label class="question-label">What decision timeline are you working with?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">Timeline affects how we weight immediate vs long-term signals.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="decision_timeline" value="immediate" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Immediate (next 30 days)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="decision_timeline" value="near_term">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Near-term (1-3 months)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="decision_timeline" value="medium_term">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Medium-term (3-6 months)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="decision_timeline" value="long_term">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Long-term (6+ months)</span>
+                        </label>
+                    </div>
+                    <p class="error-message">Please select your decision timeline</p>
+                </div>
+
+                <!-- Q14: Business Decision -->
+                <div class="question" data-question="14">
+                    <div class="question-header">
+                        <span class="question-number">Q14</span>
+                        <label class="question-label">What is the key business decision you're trying to make?<span class="required">*</span></label>
+                    </div>
+                    <p class="helper-text">This is the core question we'll answer. Everything else supports this decision.</p>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="launch" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Should we launch this product? (demand validation)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="saturation">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Is this market saturated? (entry timing)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="pricing">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">How should we price against competitors? (pricing)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="channel">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Which channel should we prioritize? (channel strategy)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="timing">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">When should we enter this trend? (timing)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="market_direction">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Is our category growing or declining? (market direction)</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="business_decision" value="other">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Other decision</span>
+                        </label>
+                    </div>
+                    <div class="conditional-field" id="business_decision_other">
+                        <textarea name="business_decision_other" placeholder="Describe your key business decision..."></textarea>
+                    </div>
+                    <p class="error-message">Please select your key business decision</p>
+                </div>
+            </div>
+
+            <!-- SUBMIT SECTION -->
+            <div class="submit-section">
+                <p class="submit-note">
+                    After submitting, you can optionally upload supporting data and choose your preferred deliverable format.
+                </p>
+                <button type="submit" class="submit-button">
+                    Continue to Data Upload
+                    <span class="arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Toggle selected state for radio items
+        document.querySelectorAll('.radio-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const name = this.querySelector('input[type="radio"]').name;
+                document.querySelectorAll(`input[name="${name}"]`).forEach(input => {
+                    input.closest('.radio-item').classList.remove('selected');
+                });
+                this.classList.add('selected');
+                this.querySelector('input[type="radio"]').checked = true;
+
+                // Handle conditional fields
+                if (name === 'business_type') {
+                    const otherField = document.getElementById('business_type_other');
+                    if (this.querySelector('input').value === 'other') {
+                        otherField.classList.add('visible');
+                    } else {
+                        otherField.classList.remove('visible');
+                    }
+                }
+
+                if (name === 'business_decision') {
+                    const otherField = document.getElementById('business_decision_other');
+                    if (this.querySelector('input').value === 'other') {
+                        otherField.classList.add('visible');
+                    } else {
+                        otherField.classList.remove('visible');
+                    }
+                }
+            });
+        });
+
+        // Toggle selected state for checkbox items
+        document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                this.closest('.checkbox-item').classList.toggle('selected', this.checked);
+            });
+        });
+
+        // Form validation and submission
+        document.getElementById('ecommerceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            
+            // Clear previous errors
+            document.querySelectorAll('.question.error').forEach(q => q.classList.remove('error'));
+            
+            // Validate required radio buttons
+            const requiredRadios = ['business_type', 'market_position', 'market_concern', 'market_velocity', 'growth_strategy', 'decision_timeline', 'business_decision'];
+            requiredRadios.forEach(name => {
+                if (!document.querySelector(`input[name="${name}"]:checked`)) {
+                    const question = document.querySelector(`input[name="${name}"]`).closest('.question');
+                    question.classList.add('error');
+                    isValid = false;
+                }
+            });
+            
+            // Validate required selects
+            const requiredSelects = ['product_category', 'annual_revenue'];
+            requiredSelects.forEach(name => {
+                const select = document.querySelector(`select[name="${name}"]`);
+                if (!select.value) {
+                    select.closest('.question').classList.add('error');
+                    isValid = false;
+                }
+            });
+            
+            // Validate required checkboxes (at least one selected)
+            const requiredCheckboxGroups = ['sales_channels', 'discovery_channels', 'competitive_signals'];
+            requiredCheckboxGroups.forEach(name => {
+                if (!document.querySelector(`input[name="${name}"]:checked`)) {
+                    const question = document.querySelector(`input[name="${name}"]`).closest('.question');
+                    question.classList.add('error');
+                    isValid = false;
+                }
+            });
+            
+            // Validate trend signals (2-4 required)
+            const trendChecked = document.querySelectorAll('input[name="trend_signals"]:checked').length;
+            if (trendChecked < 2 || trendChecked > 4) {
+                document.querySelector('input[name="trend_signals"]').closest('.question').classList.add('error');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Collect form data
+                const formData = new FormData(this);
+                const data = {};
+                formData.forEach((value, key) => {
+                    if (data[key]) {
+                        if (Array.isArray(data[key])) {
+                            data[key].push(value);
+                        } else {
+                            data[key] = [data[key], value];
+                        }
+                    } else {
+                        data[key] = value;
+                    }
+                });
+                
+                // Generate project ID
+                const projectId = 'ECOM-' + Date.now().toString(36).toUpperCase();
+                
+                // Store in session storage for next step
+                sessionStorage.setItem('questionnaireData', JSON.stringify({
+                    vertical: 'ecommerce',
+                    projectId: projectId,
+                    responses: data,
+                    timestamp: new Date().toISOString()
+                }));
+                
+                // Redirect to data upload page
+                window.location.href = '/upload?project_id=' + projectId;
+            } else {
+                // Scroll to first error
+                const firstError = document.querySelector('.question.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
+
+        // Update progress bar as user scrolls through sections
+        const sections = document.querySelectorAll('.form-section');
+        const progressFill = document.querySelector('.progress-fill');
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            
+            // Base progress is 33% (step 1 of 3), add scroll progress within questionnaire
+            const progress = 33 + (scrollPercent * 0.2);
+            progressFill.style.width = Math.min(progress, 50) + '%';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - ROUZE</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            margin: -20px -20px 40px -20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            grid-column: 1 / -1;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+        }
+
+        /* ORDER SUMMARY */
+        .order-summary {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 12px;
+            padding: 30px;
+            height: fit-content;
+        }
+
+        .summary-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            padding-bottom: 16px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .summary-label {
+            color: rgba(176, 166, 223, 0.8);
+        }
+
+        .summary-value {
+            color: #B0A6DF;
+            font-weight: 600;
+        }
+
+        .summary-divider {
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            margin: 20px 0;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: 700;
+            color: #B0A6DF;
+        }
+
+        .summary-total .summary-value {
+            color: #3A8FC3;
+            font-size: 28px;
+        }
+
+        /* PAYMENT FORM */
+        .payment-form {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .form-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #3A8FC3;
+            margin-bottom: 8px;
+        }
+
+        input[type="email"],
+        input[type="text"] {
+            width: 100%;
+            background: rgba(82, 66, 92, 0.3);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 14px;
+            color: #B0A6DF;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+        }
+
+        input[type="email"]:focus,
+        input[type="text"]:focus {
+            outline: none;
+            background: rgba(82, 66, 92, 0.5);
+            border-color: rgba(58, 143, 195, 0.5);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* STRIPE ELEMENTS */
+        .StripeElement {
+            background: rgba(82, 66, 92, 0.3);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 14px;
+            color: #B0A6DF;
+        }
+
+        .StripeElement--focus {
+            background: rgba(82, 66, 92, 0.5);
+            border-color: rgba(58, 143, 195, 0.5);
+        }
+
+        .StripeElement--invalid {
+            border-color: rgba(220, 100, 100, 0.8);
+        }
+
+        /* CHECKBOX */
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: #3A8FC3;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .checkbox-label {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.8);
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .checkbox-label a {
+            color: #3A8FC3;
+            text-decoration: none;
+        }
+
+        .checkbox-label a:hover {
+            color: #B0A6DF;
+        }
+
+        /* ERROR MESSAGE */
+        .error-message {
+            display: none;
+            background: rgba(220, 100, 100, 0.05);
+            border: 1px solid rgba(220, 100, 100, 0.3);
+            color: rgba(220, 100, 100, 0.9);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* SECURITY NOTICE */
+        .security-notice {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.6);
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 12px;
+            background: rgba(176, 166, 223, 0.05);
+            border-radius: 6px;
+        }
+
+        .security-notice strong {
+            color: #3A8FC3;
+        }
+
+        /* BUTTON */
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: #3A8FC3;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            background: rgba(58, 143, 195, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .order-summary {
+                order: 2;
+            }
+
+            .payment-form {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 16px 20px;
+                margin: -20px -20px 30px -20px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="logo">ROUZE</div>
+    </div>
+
+    <div class="container">
+        <!-- ORDER SUMMARY -->
+        <div class="order-summary">
+            <div class="summary-title">Order Summary</div>
+            
+            <div class="summary-item">
+                <span class="summary-label">Analysis Type</span>
+                <span class="summary-value" id="summaryTier">Strategic Intelligence</span>
+            </div>
+            
+            <div class="summary-item">
+                <span class="summary-label">Vertical</span>
+                <span class="summary-value" id="summaryVertical">SaaS</span>
+            </div>
+            
+            <div class="summary-item">
+                <span class="summary-label">Format</span>
+                <span class="summary-value" id="summaryFormat">HTML Interactive Report</span>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-item" id="baseLineItem">
+                <span class="summary-label">Base Intelligence</span>
+                <span class="summary-value" id="basePrice">$1,500</span>
+            </div>
+
+            <div class="summary-item" id="dashboardLineItem" style="display: none;">
+                <span class="summary-label">Dashboard Extension</span>
+                <span class="summary-value">+$200</span>
+            </div>
+
+            <div class="summary-item" id="apiLineItem" style="display: none;">
+                <span class="summary-label">API Integration</span>
+                <span class="summary-value">+$500</span>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-total">
+                <span>Total</span>
+                <span class="summary-value" id="totalPrice">$1,500</span>
+            </div>
+        </div>
+
+        <!-- PAYMENT FORM -->
+        <div class="payment-form">
+            <h1 class="form-title">Payment</h1>
+
+            <form id="paymentForm">
+                <div class="error-message" id="errorMessage"></div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="your@email.com" 
+                        required
+                    >
+                </div>
+
+                <!-- Stripe Card Element -->
+                <div class="form-group">
+                    <label for="cardElement">Card Details</label>
+                    <div id="cardElement" class="StripeElement"></div>
+                </div>
+
+                <!-- Security Notice -->
+                <div class="security-notice">
+                    <strong>Secure Payment:</strong> Your card information is processed securely by Stripe. We never see your card details.
+                </div>
+
+                <!-- Account Creation -->
+                <div class="checkbox-group">
+                    <input 
+                        type="checkbox" 
+                        id="createAccount" 
+                        name="createAccount" 
+                        checked
+                    >
+                    <label for="createAccount" class="checkbox-label">
+                        Create an account with this email so I can access my analysis and past reports
+                    </label>
+                </div>
+
+                <!-- Agreement -->
+                <div class="checkbox-group">
+                    <input 
+                        type="checkbox" 
+                        id="agree" 
+                        name="agree" 
+                        required
+                    >
+                    <label for="agree" class="checkbox-label">
+                        I agree to the <a href="/terms" target="_blank">Terms of Service</a> and <a href="/privacy" target="_blank">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    Complete Payment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // PARSE URL AND POPULATE SUMMARY
+        const pathParts = window.location.pathname.split('/');
+        const vertical = pathParts[2];
+        const tier = pathParts[3];
+        const format = pathParts[4];
+        const projectId = pathParts[5];
+
+        const basePrices = {
+            'quick': 750,
+            'strategic': 1500,
+            'predictive': 3500
+        };
+
+        const tierNames = {
+            'quick': 'Quick Intelligence',
+            'strategic': 'Strategic Intelligence',
+            'predictive': 'Predictive Intelligence'
+        };
+
+        const formatNames = {
+            'html': 'HTML Interactive Report',
+            'pdf': 'PDF Executive Brief'
+        };
+
+        // POPULATE SUMMARY
+        document.getElementById('summaryTier').textContent = tierNames[tier] || tier;
+        document.getElementById('summaryVertical').textContent = vertical.charAt(0).toUpperCase() + vertical.slice(1);
+        document.getElementById('summaryFormat').textContent = formatNames[format] || format;
+
+        let totalPrice = basePrices[tier] || 0;
+
+        // Check for upgrades in sessionStorage
+        const dashboardUpgrade = sessionStorage.getItem('dashboard_upgrade') === 'true';
+        const apiUpgrade = sessionStorage.getItem('api_upgrade') === 'true';
+
+        if (dashboardUpgrade) {
+            totalPrice += 200;
+            document.getElementById('dashboardLineItem').style.display = 'flex';
+        }
+
+        if (apiUpgrade) {
+            totalPrice += 500;
+            document.getElementById('apiLineItem').style.display = 'flex';
+        }
+
+        document.getElementById('basePrice').textContent = '$' + basePrices[tier];
+        document.getElementById('totalPrice').textContent = '$' + totalPrice;
+
+        // STRIPE SETUP
+        const stripe = Stripe('pk_test_YOUR_STRIPE_KEY'); // Replace with actual test key
+        const elements = stripe.elements();
+        const cardElement = elements.create('card', {
+            style: {
+                base: {
+                    fontSize: '16px',
+                    color: '#B0A6DF',
+                    fontFamily: 'inherit'
+                }
+            }
+        });
+        cardElement.mount('#cardElement');
+
+        // FORM SUBMISSION
+        document.getElementById('paymentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const errorDiv = document.getElementById('errorMessage');
+            const submitBtn = document.getElementById('submitBtn');
+            const email = document.getElementById('email').value;
+
+            errorDiv.classList.remove('show');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+
+            try {
+                // CREATE PAYMENT METHOD
+                const { paymentMethod, error } = await stripe.createPaymentMethod({
+                    type: 'card',
+                    card: cardElement,
+                    billing_details: {
+                        email: email
+                    }
+                });
+
+                if (error) {
+                    throw new Error(error.message);
+                }
+
+                // SUBMIT TO BACKEND
+                const response = await fetch('/api/checkout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        project_id: projectId,
+                        email: email,
+                        payment_method_id: paymentMethod.id,
+                        tier: tier,
+                        vertical: vertical,
+                        format: format,
+                        total_price: totalPrice,
+                        dashboard_upgrade: dashboardUpgrade,
+                        api_upgrade: apiUpgrade,
+                        create_account: document.getElementById('createAccount').checked
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    // Show success message and redirect
+                    submitBtn.textContent = 'Payment Successful! Redirecting...';
+                    setTimeout(() => {
+                        window.location.href = `/analysis/${projectId}`;
+                    }, 2000);
+                } else {
+                    throw new Error(result.error || 'Payment failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                errorDiv.textContent = error.message || 'Payment processing failed. Please try again.';
+                errorDiv.classList.add('show');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Complete Payment';
+            }
+        });
+    </script>
+</body>
+</html>

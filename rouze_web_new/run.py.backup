@@ -1,0 +1,218 @@
+from flask import render_template, request, redirect, url_for
+from app import app
+
+# ============================================================================
+# HOME & MAIN PAGES
+# ============================================================================
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/methodology')
+def methodology():
+    return render_template('methodology.html')
+
+@app.route('/pricing')
+def pricing():
+    return render_template('pricing.html')
+
+# ============================================================================
+# VERTICAL SELECTION
+# ============================================================================
+@app.route('/vertical-selector')
+def vertical_selector():
+    return render_template('vertical_selector.html')
+
+# ============================================================================
+# QUESTIONNAIRES - One per vertical
+# ============================================================================
+@app.route('/questionnaire/<vertical>')
+def questionnaire(vertical):
+    if vertical == 'healthcare':
+        return render_template('questionnaire_healthcare.html', vertical=vertical)
+    elif vertical == 'saas':
+        return render_template('questionnaire_saas.html', vertical=vertical)
+    elif vertical == 'ecommerce':
+        return render_template('questionnaire_ecommerce.html', vertical=vertical)
+    else:
+        return redirect('/')
+
+# ============================================================================
+# DATA UPLOAD - Optional, after questionnaire
+# ============================================================================
+@app.route('/upload/<vertical>')
+def upload_form(vertical):
+    return render_template('upload_form.html', vertical=vertical)
+
+# ============================================================================
+# FORMAT SELECTION - Choose deliverable type
+# ============================================================================
+@app.route('/format-selection/<vertical>')
+def format_selection(vertical):
+    return render_template('format_selection.html', vertical=vertical)
+
+# ============================================================================
+# TIER SELECTION & CHECKOUT
+# ============================================================================
+@app.route('/tier-selection/<vertical>/<format>')
+def tier_selection(vertical, format):
+    format_display = {
+        'html_interactive': 'HTML Interactive Report',
+        'pdf_brief': 'PDF Executive Brief',
+        'dashboard': 'Interactive Dashboard (+$200)',
+        'api': 'Full API Integration (+$500)'
+    }.get(format, format)
+    
+    return render_template('tier_selection.html', 
+                         vertical=vertical, 
+                         format=format,
+                         format_display=format_display)
+
+# ============================================================================
+# API ENDPOINTS (Form submissions)
+# ============================================================================
+@app.route('/api/questionnaire/<vertical>', methods=['POST'])
+def save_questionnaire(vertical):
+    # TODO: Save questionnaire data to database
+    # For now, redirect to upload
+    return redirect(f'/upload/{vertical}')
+
+@app.route('/api/upload', methods=['POST'])
+def save_upload():
+    # TODO: Handle file upload securely
+    vertical = request.form.get('vertical')
+    return redirect(f'/format-selection/{vertical}')
+
+@app.route('/api/format-selection', methods=['POST'])
+def save_format():
+    # TODO: Save format selection
+    vertical = request.form.get('vertical')
+    format_type = request.form.get('format')
+    return redirect(f'/tier-selection/{vertical}/{format_type}')
+
+@app.route('/api/checkout', methods=['POST'])
+def process_checkout():
+    # TODO: Process payment and create project
+    vertical = request.form.get('vertical')
+    tier = request.form.get('tier')
+    format_type = request.form.get('format')
+    
+    # For now, show a success page
+    return f"""
+    <html>
+        <head><title>Order Received</title></head>
+        <body style="background: #0c080d; color: #B0A6DF; font-family: Arial; text-align: center; padding: 100px;">
+            <h1>Order Received!</h1>
+            <p>Vertical: {vertical}</p>
+            <p>Tier: {tier}</p>
+            <p>Format: {format_type}</p>
+            <p>Next step: Payment integration (Stripe)</p>
+        </body>
+    </html>
+    """
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)
+
+@app.route('/upload/<vertical>')
+def upload_form(vertical):
+    """Data upload page (optional)"""
+    if vertical not in ['healthcare', 'saas', 'ecommerce']:
+        return redirect('/vertical-selector')
+    return render_template('upload_form.html', vertical=vertical)
+
+@app.route('/api/upload', methods=['POST'])
+def handle_upload():
+    """Handle file upload"""
+    vertical = request.form.get('vertical')
+    deletion_policy = request.form.get('deletion_policy', 'immediate')
+    # TODO: Handle file storage with encryption
+    return redirect(f'/format-selection/{vertical}')
+
+
+@app.route('/questionnaire/<vertical>')
+def questionnaire(vertical):
+    """Serve market-specific questionnaire"""
+    if vertical not in ['healthcare', 'saas', 'ecommerce']:
+        return redirect('/vertical-selector')
+    
+    template = f'questionnaire_{vertical}.html'
+    return render_template(template, vertical=vertical)
+
+@app.route('/api/questionnaire/<vertical>', methods=['POST'])
+def submit_questionnaire(vertical):
+    """Handle questionnaire submission"""
+    if vertical not in ['healthcare', 'saas', 'ecommerce']:
+        return redirect('/vertical-selector')
+    
+    # Store form data
+    form_data = request.form.to_dict()
+    
+    # Generate unique project ID
+    import uuid
+    project_id = str(uuid.uuid4())[:8]
+    
+    # Store in session
+    session['project_id'] = project_id
+    session['vertical'] = vertical
+    session['questionnaire_data'] = form_data
+    
+    # Redirect to upload page
+    return redirect(f'/upload/{vertical}?project_id={project_id}')
+
+
+@app.route('/upload/<vertical>')
+def upload_form(vertical):
+    """Data upload page (optional)"""
+    if vertical not in ['healthcare', 'saas', 'ecommerce']:
+        return redirect('/vertical-selector')
+    return render_template('upload_form.html', vertical=vertical)
+
+@app.route('/api/upload', methods=['POST'])
+def handle_upload():
+    """Handle file upload with encryption"""
+    vertical = request.form.get('vertical')
+    deletion_policy = request.form.get('deletion_policy', 'immediate')
+    
+    # TODO: Implement encryption and file storage
+    # For now, just redirect
+    
+    return jsonify({'success': True})
+
+@app.route('/format-selection/<vertical>')
+def format_selection(vertical):
+    """Format selection page"""
+    if vertical not in ['healthcare', 'saas', 'ecommerce']:
+        return redirect('/vertical-selector')
+    return render_template('format_selection.html', vertical=vertical)
+
+
+@app.route('/upload/<vertical>')
+def upload_form(vertical):
+    """Data upload page (optional)"""
+    if vertical not in ['healthcare', 'saas', 'ecommerce']:
+        return redirect('/vertical-selector')
+    return render_template('upload_form.html', vertical=vertical)
+
+@app.route('/api/upload', methods=['POST'])
+def handle_upload():
+    """Handle file upload with encryption"""
+    vertical = request.form.get('vertical')
+    deletion_policy = request.form.get('deletion_policy', 'immediate')
+    
+    # TODO: Implement actual encryption and file storage
+    # For now, just confirm and redirect
+    
+    return jsonify({'success': True})
+
+@app.route('/format-selection/<vertical>')
+def format_selection(vertical):
+    """Format selection page"""
+    if vertical not in ['healthcare', 'saas', 'ecommerce']:
+        return redirect('/vertical-selector')
+    return render_template('format_selection.html', vertical=vertical)
+

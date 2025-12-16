@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Competitive Intelligence Questionnaire - ROUZE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .questionnaire-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            margin: -20px -20px 40px -20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #B0A6DF;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            color: #B0A6DF;
+        }
+
+        .form-header p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(176, 166, 223, 0.8);
+            margin-bottom: 30px;
+        }
+
+        .progress-container {
+            margin-bottom: 40px;
+        }
+
+        .progress-label {
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #3A8FC3;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: rgba(176, 166, 223, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #3A8FC3;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .form-section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #B0A6DF;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+            padding-top: 30px;
+            margin-top: 30px;
+            margin-bottom: 24px;
+        }
+
+        .section-description {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.75);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .question-group {
+            margin-bottom: 36px;
+        }
+
+        .question-number {
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #3A8FC3;
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .helper-text {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.65);
+            font-style: italic;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        select,
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            background: rgba(82, 66, 92, 0.3);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 16px;
+            color: #B0A6DF;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+        }
+
+        select:focus,
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            background: rgba(82, 66, 92, 0.5);
+            border: 1px solid rgba(58, 143, 195, 0.5);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .options-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: #3A8FC3;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .option-label {
+            font-size: 16px;
+            color: #B0A6DF;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .error-message {
+            font-size: 12px;
+            color: rgba(220, 100, 100, 0.9);
+            background: rgba(220, 100, 100, 0.05);
+            border: 1px solid rgba(220, 100, 100, 0.3);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .question-group.error select,
+        .question-group.error input[type="text"],
+        .question-group.error textarea {
+            border-color: rgba(220, 100, 100, 0.8);
+            background: rgba(220, 100, 100, 0.05);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        button {
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            background: #3A8FC3;
+            color: white;
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            background: rgba(58, 143, 195, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .btn-back {
+            background: rgba(176, 166, 223, 0.1);
+            color: #B0A6DF;
+            border: 1px solid rgba(176, 166, 223, 0.2);
+        }
+
+        .btn-back:hover {
+            background: rgba(176, 166, 223, 0.15);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 16px 20px;
+                margin: -20px -20px 30px -20px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                font-size: 12px;
+            }
+
+            .form-header h1 {
+                font-size: 32px;
+            }
+
+            .section-header {
+                font-size: 20px;
+            }
+
+            .question-text {
+                font-size: 16px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="logo">ROUZE</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing">Pricing</a>
+        </div>
+    </div>
+
+    <div class="questionnaire-container">
+        <div class="form-header">
+            <h1>SaaS Competitive Intelligence</h1>
+            <p>Deep questionnaire to understand your competitive landscape. 13 targeted questions. ~7 minutes.</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-label">PROGRESS</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div style="font-size: 12px; color: rgba(176, 166, 223, 0.6); margin-top: 8px;">
+                <span id="progressText">0 of 13 questions</span>
+            </div>
+        </div>
+
+        <form id="saasForm" method="POST" action="/api/questionnaire">
+            <input type="hidden" name="vertical" value="saas">
+
+            <!-- SECTION 1: PRODUCT & POSITIONING -->
+            <div class="form-section">
+                <h2 class="section-header">Product & Market Positioning</h2>
+                <p class="section-description">
+                    Understanding your product category, customer type, and growth stage determines which competitive 
+                    signals are most relevant to your business.
+                </p>
+
+                <!-- Q1: Category -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 1 OF 13</div>
+                    <div class="question-text">What category of SaaS do you build?</div>
+                    <div class="helper-text">Your category determines which competitors, customers, and signal sources are most relevant.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q1_project_mgmt" name="q1_category" value="Project management & collaboration" required>
+                            <label for="q1_project_mgmt" class="option-label">Project management & collaboration (Asana, Monday, Jira)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_marketing" name="q1_category" value="Marketing & CRM">
+                            <label for="q1_marketing" class="option-label">Marketing & CRM (HubSpot, Salesforce, Pipedrive)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_sales" name="q1_category" value="Sales enablement & communication">
+                            <label for="q1_sales" class="option-label">Sales enablement & communication (Slack, Teams, Intercom)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_finance" name="q1_category" value="Finance & accounting">
+                            <label for="q1_finance" class="option-label">Finance & accounting (QuickBooks, Xero, FreshBooks)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_hr" name="q1_category" value="HR & talent management">
+                            <label for="q1_hr" class="option-label">HR & talent management (Workday, BambooHR)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_analytics" name="q1_category" value="Analytics & business intelligence">
+                            <label for="q1_analytics" class="option-label">Analytics & business intelligence (Mixpanel, Tableau)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_dev" name="q1_category" value="Development & DevOps tools">
+                            <label for="q1_dev" class="option-label">Development & DevOps tools (GitHub, Vercel)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_design" name="q1_category" value="Design & creative tools">
+                            <label for="q1_design" class="option-label">Design & creative tools (Figma, Adobe, Canva)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_support" name="q1_category" value="Communication & customer support">
+                            <label for="q1_support" class="option-label">Communication & customer support (Zendesk, Intercom)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q1_error"></div>
+                </div>
+
+                <!-- Q2: Customer Type -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 2 OF 13</div>
+                    <div class="question-text">Who is your primary customer type?</div>
+                    <div class="helper-text">Customer type affects pricing, feature requirements, and buying behavior. Different customer segments discuss needs in different places.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q2_enterprise" name="q2_customer" value="Enterprises (1000+ employees)" required>
+                            <label for="q2_enterprise" class="option-label">Enterprises (1,000+ employees, complex needs)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q2_midmarket" name="q2_customer" value="Mid-market (100-1000 employees)">
+                            <label for="q2_midmarket" class="option-label">Mid-market (100-1,000 employees)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q2_small" name="q2_customer" value="Small business (10-100 employees)">
+                            <label for="q2_small" class="option-label">Small business (10-100 employees)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q2_solo" name="q2_customer" value="Solo creators/freelancers">
+                            <label for="q2_solo" class="option-label">Solo creators/freelancers</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q2_multiple" name="q2_customer" value="Multiple segments">
+                            <label for="q2_multiple" class="option-label">Multiple segments</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q2_error"></div>
+                </div>
+
+                <!-- Q3: Maturity -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 3 OF 13</div>
+                    <div class="question-text">What is your product maturity stage?</div>
+                    <div class="helper-text">Product stage affects competitive landscape and the signals customers are discussing.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q3_mvp" name="q3_maturity" value="MVP stage" required>
+                            <label for="q3_mvp" class="option-label">MVP stage (minimum viable product, testing with users)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q3_early" name="q3_maturity" value="Early growth">
+                            <label for="q3_early" class="option-label">Early growth (first paying customers, PMF unclear)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q3_scaling" name="q3_maturity" value="Scaling">
+                            <label for="q3_scaling" class="option-label">Scaling (product-market fit achieved, growing)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q3_established" name="q3_maturity" value="Established">
+                            <label for="q3_established" class="option-label">Established (consistent revenue, mature market)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q3_mature" name="q3_maturity" value="Mature/consolidating">
+                            <label for="q3_mature" class="option-label">Mature/consolidating (competing on price/integration)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q3_error"></div>
+                </div>
+
+                <!-- Q4: ARR -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 4 OF 13</div>
+                    <div class="question-text">What is your current Annual Recurring Revenue (ARR)?</div>
+                    <div class="helper-text">Revenue size indicates market position, competitive intensity, and customer acquisition cost benchmarks.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q4_prerevenue" name="q4_arr" value="Pre-revenue" required>
+                            <label for="q4_prerevenue" class="option-label">Pre-revenue (no paying customers yet)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_under100k" name="q4_arr" value="Less than $100K">
+                            <label for="q4_under100k" class="option-label">Less than $100K (early stage)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_100k_1m" name="q4_arr" value="$100K - $1M">
+                            <label for="q4_100k_1m" class="option-label">$100K - $1M (early growth)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_1m_10m" name="q4_arr" value="$1M - $10M">
+                            <label for="q4_1m_10m" class="option-label">$1M - $10M (growing)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_10m_50m" name="q4_arr" value="$10M - $50M">
+                            <label for="q4_10m_50m" class="option-label">$10M - $50M (scaling)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_50m" name="q4_arr" value="$50M+">
+                            <label for="q4_50m" class="option-label">$50M+ (established)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q4_error"></div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: COMPETITIVE LANDSCAPE -->
+            <div class="form-section">
+                <h2 class="section-header">Competitive Landscape & Strategy</h2>
+                <p class="section-description">
+                    Understanding who your competitors are and what customers say about them reveals your competitive 
+                    advantages and vulnerabilities.
+                </p>
+
+                <!-- Q5: Top Competitors -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 5 OF 13</div>
+                    <div class="question-text">Who are your top 3-5 direct competitors?</div>
+                    <div class="helper-text">List exact company names. We'll analyze how your product compares in positioning, features, and customer sentiment.</div>
+                    
+                    <textarea name="q5_competitors" placeholder="Competitor 1, Competitor 2, Competitor 3, Competitor 4, Competitor 5" required></textarea>
+                    <div class="error-message" id="q5_error"></div>
+                </div>
+
+                <!-- Q6: Competitive Threats -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 6 OF 13</div>
+                    <div class="question-text">What competitive threats concern you most RIGHT NOW?</div>
+                    <div class="helper-text">Check all that apply. Each threat creates different market signals we can monitor.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" id="q6_feature_copy" name="q6_threats" value="Larger competitors copying features" required>
+                            <label for="q6_feature_copy" class="option-label">Larger competitors copying our features</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q6_cheaper" name="q6_threats" value="Cheaper alternatives">
+                            <label for="q6_cheaper" class="option-label">Cheaper alternatives stealing price-sensitive customers</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q6_outmarket" name="q6_threats" value="Better-funded competitors outmarketing">
+                            <label for="q6_outmarket" class="option-label">Better-funded competitors outmarketing us</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q6_feature_gap" name="q6_threats" value="Feature gaps vs competitors">
+                            <label for="q6_feature_gap" class="option-label">Feature gaps vs competitors</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q6_churn" name="q6_threats" value="Customer churn to competitors">
+                            <label for="q6_churn" class="option-label">Customer churn to specific competitors</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q6_incumbent" name="q6_threats" value="Incumbent software updating">
+                            <label for="q6_incumbent" class="option-label">Incumbent software being updated</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q6_entrants" name="q6_threats" value="New entrants disrupting">
+                            <label for="q6_entrants" class="option-label">New entrants disrupting the market</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q6_bundling" name="q6_threats" value="Enterprise bundling">
+                            <label for="q6_bundling" class="option-label">Enterprise vendors bundling solutions</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q6_error"></div>
+                </div>
+
+                <!-- Q7: Customer Complaints About Competitors -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 7 OF 13</div>
+                    <div class="question-text">What customer complaints about competitors do you hear most?</div>
+                    <div class="helper-text">Optional but valuable. These pain points reveal your differentiation opportunities.</div>
+                    
+                    <textarea name="q7_complaints" placeholder="Example: They love competitor X's interface but say it lacks our reporting features..."></textarea>
+                    <div class="error-message" id="q7_error"></div>
+                </div>
+
+                <!-- Q8: Signals to Monitor -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 8 OF 13</div>
+                    <div class="question-text">Which competitor signals matter most to track?</div>
+                    <div class="helper-text">Check all that apply. Each signal type requires monitoring different data sources.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_features" name="q8_signals" value="Feature releases" required>
+                            <label for="q8_features" class="option-label">Feature releases and product roadmap announcements</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_reviews" name="q8_signals" value="Customer reviews">
+                            <label for="q8_reviews" class="option-label">Customer satisfaction and review sentiment (G2, Capterra)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_pricing" name="q8_signals" value="Pricing changes">
+                            <label for="q8_pricing" class="option-label">Pricing changes and discount strategies</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_marketing" name="q8_signals" value="Sales & marketing">
+                            <label for="q8_marketing" class="option-label">Sales & marketing strategies (messaging, campaigns)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_funding" name="q8_signals" value="Funding and hiring">
+                            <label for="q8_funding" class="option-label">Funding and hiring signals (growth indicators)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_integrations" name="q8_signals" value="Integrations">
+                            <label for="q8_integrations" class="option-label">Integrations and partnerships (ecosystem expansion)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_leadership" name="q8_signals" value="Executive changes">
+                            <label for="q8_leadership" class="option-label">Executive changes (leadership stability)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_jobs" name="q8_signals" value="Job postings">
+                            <label for="q8_jobs" class="option-label">Job postings (team expansion, new product areas)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q8_error"></div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: MARKET OPPORTUNITY -->
+            <div class="form-section">
+                <h2 class="section-header">Market Opportunity & Customer Intelligence</h2>
+                <p class="section-description">
+                    Understanding customer needs and market opportunities helps us analyze the signals that matter 
+                    most to your growth strategy.
+                </p>
+
+                <!-- Q9: Feature Requests -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 9 OF 13</div>
+                    <div class="question-text">What features do customers request most frequently?</div>
+                    <div class="helper-text">Optional but valuable. Helps us understand market demand for specific features.</div>
+                    
+                    <textarea name="q9_features" placeholder="List top 5 feature requests you hear from customers..."></textarea>
+                    <div class="error-message" id="q9_error"></div>
+                </div>
+
+                <!-- Q10: Workarounds -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 10 OF 13</div>
+                    <div class="question-text">Are customers currently using workarounds instead of your product?</div>
+                    <div class="helper-text">Optional. Workarounds reveal unmet needs. Example: Using 3 tools instead of our all-in-one solution.</div>
+                    
+                    <textarea name="q10_workarounds" placeholder="Describe any workarounds customers are using..."></textarea>
+                    <div class="error-message" id="q10_error"></div>
+                </div>
+
+                <!-- Q11: Market Opportunity -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 11 OF 13</div>
+                    <div class="question-text">What is your biggest market opportunity RIGHT NOW?</div>
+                    <div class="helper-text">Choose one primary opportunity. This focuses our signal analysis on what matters most to you.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q11_expand_segment" name="q11_opportunity" value="Expand into new customer segment" required>
+                            <label for="q11_expand_segment" class="option-label">Expand into new customer segment</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q11_expand_geo" name="q11_opportunity" value="Expand geographically">
+                            <label for="q11_expand_geo" class="option-label">Expand into new geographic market</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q11_feature_gap" name="q11_opportunity" value="Build feature gap">
+                            <label for="q11_feature_gap" class="option-label">Build critical feature gap</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q11_retention" name="q11_opportunity" value="Improve retention">
+                            <label for="q11_retention" class="option-label">Improve customer retention (reduce churn)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q11_pricing" name="q11_opportunity" value="Increase pricing">
+                            <label for="q11_pricing" class="option-label">Increase pricing/upsell</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q11_integrations" name="q11_opportunity" value="Integrate ecosystem">
+                            <label for="q11_integrations" class="option-label">Integrate with ecosystem (become essential)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q11_error"></div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: DECISION FOCUS -->
+            <div class="form-section">
+                <h2 class="section-header">Signals & Strategic Decision</h2>
+                <p class="section-description">
+                    Different markets share signals in different places. Identifying where YOUR market congregates 
+                    helps us focus on the signals that matter most.
+                </p>
+
+                <!-- Q12: Signal Sources -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 12 OF 13</div>
+                    <div class="question-text">Which signals matter most to your business decisions?</div>
+                    <div class="helper-text">Check your top 5. These become your primary signal sources.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_g2" name="q12_signals" value="G2/Capterra/TrustPilot" required>
+                            <label for="q12_g2" class="option-label">G2/Capterra/TrustPilot reviews (customer sentiment)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_reddit" name="q12_signals" value="Reddit discussions">
+                            <label for="q12_reddit" class="option-label">Reddit discussions (authentic user conversations)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_producthunt" name="q12_signals" value="Product Hunt">
+                            <label for="q12_producthunt" class="option-label">Product Hunt launches (competitive launches)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_linkedin" name="q12_signals" value="LinkedIn posts">
+                            <label for="q12_linkedin" class="option-label">LinkedIn posts (industry opinion, executives)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_twitter" name="q12_signals" value="Twitter mentions">
+                            <label for="q12_twitter" class="option-label">Twitter mentions (brand sentiment, features)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_influencers" name="q12_signals" value="LinkedIn influencers">
+                            <label for="q12_influencers" class="option-label">LinkedIn influencer commentary (thought leaders)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_youtube" name="q12_signals" value="YouTube reviews">
+                            <label for="q12_youtube" class="option-label">YouTube reviews and tutorials (adoption)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q12_conferences" name="q12_signals" value="Industry conferences">
+                            <label for="q12_conferences" class="option-label">Industry conference mentions (market engagement)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q12_error"></div>
+                </div>
+
+                <!-- Q13: Key Business Question -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 13 OF 13</div>
+                    <div class="question-text">What is the KEY BUSINESS QUESTION you're trying to answer?</div>
+                    <div class="helper-text">This is the core question. Everything else is supporting detail. Choose the one that matters most.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q13_vulnerability" name="q13_decision" value="How vulnerable is our competitive position?" required>
+                            <label for="q13_vulnerability" class="option-label">How vulnerable is our competitive position?</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q13_features" name="q13_decision" value="What features would generate most revenue?">
+                            <label for="q13_features" class="option-label">What features would generate most revenue?</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q13_segment" name="q13_decision" value="Should we enter this new customer segment?">
+                            <label for="q13_segment" class="option-label">Should we enter this new customer segment?</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q13_churn" name="q13_decision" value="Why are customers churning?">
+                            <label for="q13_churn" class="option-label">Why are customers churning?</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q13_pricing" name="q13_decision" value="What should our pricing be?">
+                            <label for="q13_pricing" class="option-label">What should our pricing be?</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q13_growth" name="q13_decision" value="How fast is our market growing?">
+                            <label for="q13_growth" class="option-label">How fast is our market growing?</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q13_error"></div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn-back" onclick="window.history.back()">Back</button>
+                <button type="submit" class="btn-submit" id="submitBtn">Continue to Data Upload</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('saasForm');
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        const submitBtn = document.getElementById('submitBtn');
+        const totalQuestions = 13;
+
+        function updateProgress() {
+            let answeredCount = 0;
+
+            if (document.querySelector('input[name="q1_category"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q2_customer"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q3_maturity"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q4_arr"]:checked')) answeredCount++;
+            if (document.querySelector('textarea[name="q5_competitors"]').value.trim()) answeredCount++;
+            if (document.querySelector('input[name="q6_threats"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q8_signals"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q11_opportunity"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q12_signals"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q13_decision"]:checked')) answeredCount++;
+
+            const progress = (answeredCount / totalQuestions) * 100;
+            progressFill.style.width = progress + '%';
+            progressText.textContent = `${answeredCount} of ${totalQuestions} questions`;
+        }
+
+        form.addEventListener('change', updateProgress);
+        document.querySelector('textarea[name="q5_competitors"]').addEventListener('input', updateProgress);
+
+        function validateForm() {
+            let isValid = true;
+
+            if (!document.querySelector('input[name="q1_category"]:checked')) {
+                document.getElementById('q1_error').textContent = 'Please select a category';
+                document.getElementById('q1_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q2_customer"]:checked')) {
+                document.getElementById('q2_error').textContent = 'Please select a customer type';
+                document.getElementById('q2_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q3_maturity"]:checked')) {
+                document.getElementById('q3_error').textContent = 'Please select a maturity stage';
+                document.getElementById('q3_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q4_arr"]:checked')) {
+                document.getElementById('q4_error').textContent = 'Please select an ARR range';
+                document.getElementById('q4_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('textarea[name="q5_competitors"]').value.trim()) {
+                document.getElementById('q5_error').textContent = 'Please list at least 3 competitors';
+                document.getElementById('q5_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q6_threats"]:checked')) {
+                document.getElementById('q6_error').textContent = 'Please select at least one competitive threat';
+                document.getElementById('q6_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q8_signals"]:checked')) {
+                document.getElementById('q8_error').textContent = 'Please select at least one signal type';
+                document.getElementById('q8_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q11_opportunity"]:checked')) {
+                document.getElementById('q11_error').textContent = 'Please select your market opportunity';
+                document.getElementById('q11_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q12_signals"]:checked')) {
+                document.getElementById('q12_error').textContent = 'Please select at least one signal source';
+                document.getElementById('q12_error').classList.add('show');
+                isValid = false;
+            }
+
+            if (!document.querySelector('input[name="q13_decision"]:checked')) {
+                document.getElementById('q13_error').textContent = 'Please select your key business question';
+                document.getElementById('q13_error').classList.add('show');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            document.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
+
+            if (!validateForm()) {
+                return;
+            }
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            const checkboxGroups = ['q6_threats', 'q8_signals', 'q12_signals'];
+            checkboxGroups.forEach(group => {
+                const checked = document.querySelectorAll(`input[name="${group}"]:checked`);
+                data[group] = Array.from(checked).map(el => el.value);
+            });
+
+            console.log('Form Data:', data);
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            fetch('/api/questionnaire', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.project_id) {
+                    window.location.href = `/data-upload/${result.project_id}`;
+                } else {
+                    alert('Error: ' + (result.error || 'Something went wrong'));
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Continue to Data Upload';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error submitting questionnaire. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Continue to Data Upload';
+            });
+        });
+
+        updateProgress();
+    </script>
+</body>
+</html>

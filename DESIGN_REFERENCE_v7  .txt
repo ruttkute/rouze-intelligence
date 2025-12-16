@@ -1,0 +1,1136 @@
+================================================================================
+ROUZE DESIGN SYSTEM v7 - ULTRA PREMIUM TRANSPARENT GLASSMORPHIC
+================================================================================
+
+DATE: November 30, 2025
+FOCUS: Maximum transparency, complex cosmic background, all text Aura Indigo,
+        subtle glow, ultra-premium intelligence aesthetic, 100x visual detail
+
+STATUS: COMPLETE SPECIFICATION - PRODUCTION READY
+
+================================================================================
+CRITICAL CHANGE FROM v6 → v7
+================================================================================
+
+BACKGROUND:
+v6: Simple gradient (#1a0d2e → #2a1f3d)
+v7: Complex multi-layered cosmic background with 5+ color zones, depth illusion,
+    appearing colors throughout, starfield effect
+
+TRANSPARENCY:
+v6: 0.3 opacity (too opaque)
+v7: 0.05-0.15 opacity (maximum transparency, barely visible background)
+
+TEXT COLOR:
+v6: Body text grey (#b8b8b8)
+v7: ALL text Aura Indigo (#B0A6DF) - including headers, body, buttons, links
+
+GLOW:
+v6: Bright text-shadow (0 0 30px)
+v7: Subtle glow (0 0 12px) - barely perceptible
+
+VISUAL DETAIL:
+v6: Basic layout with cards
+v7: Dense information display, multiple visual zones, decorative elements,
+    sophisticated typography hierarchy
+
+================================================================================
+PART 1: BACKGROUND SPECIFICATION - COMPLEX COSMIC MULTI-COLOR
+================================================================================
+
+1.1 BACKGROUND LAYERS (Stack from bottom to top)
+
+LAYER 1: Base Gradient (Backdrop)
+```
+Linear gradient 135deg:
+  0%:    #0f0520 (Deep purple-black)
+  25%:   #1a0d2e (Dark purple)
+  50%:   #2a1f3d (Medium purple)
+  75%:   #1f1530 (Dark purple-blue)
+  100%:  #0d0818 (Nearly black)
+
+Alternative radial for dimension:
+  Radial gradient (at 50% 50%):
+    0%:    #2a1f3d (center - lighter)
+    40%:   #1a0d2e (mid - darker)
+    100%:  #0f0520 (edges - nearly black)
+```
+
+LAYER 2: Color Accents (Semi-transparent overlays to create "appearing colors")
+```
+Overlay 1 - Han Blue zone (top-right):
+  Position: 75% 20%
+  Size: 800px circle
+  Color: rgba(58, 143, 195, 0.02) [Nearly invisible but adds blue tint]
+  Blur: 200px
+
+Overlay 2 - Aura Indigo zone (bottom-left):
+  Position: 20% 80%
+  Size: 600px circle
+  Color: rgba(176, 166, 223, 0.015) [Nearly invisible but adds purple tint]
+  Blur: 180px
+
+Overlay 3 - Subtle pink accent (top-left):
+  Position: 15% 15%
+  Size: 400px circle
+  Color: rgba(200, 140, 180, 0.01) [Barely visible warm tone]
+  Blur: 150px
+```
+
+LAYER 3: Subtle Texture/Noise (Optional)
+```
+If using background-image:
+- SVG noise pattern at 1-2% opacity
+- Or: CSS filter: contrast(1.1) brightness(0.95)
+```
+
+LAYER 4: Starfield Effect (Visual depth)
+```
+Multiple box-shadow technique OR background-image with small radial gradients
+
+Option A - Box-shadow starfield (performance):
+  box-shadow on ::before pseudo-element:
+    10px 10px 1px rgba(176, 166, 223, 0.4),
+    50px 50px 1px rgba(58, 143, 195, 0.3),
+    100px 100px 1px rgba(176, 166, 223, 0.35),
+    150px 200px 1px rgba(255, 255, 255, 0.2),
+    [+ 50-100 more small light points at varying positions]
+  
+  Result: Sparse starfield scattered across background
+  Density: 1 star per 150-200px² area
+  Size: Mostly 1px, some 1.5px, few 2px
+  
+Option B - SVG starfield (visual quality):
+  <svg> with 100+ small <circle> elements
+  Positioned absolutely behind all content
+  Opacity: 0.3-0.4 for stars
+  Colors: Mix of #fff (50%), #B0A6DF (30%), #3A8FC3 (20%)
+  Sizes: 1px to 3px radius
+```
+
+COMPLETE CSS:
+```css
+body {
+  background-color: #0f0520;
+  
+  background-image: 
+    radial-gradient(circle at 75% 20%, rgba(58, 143, 195, 0.02) 0%, transparent 40%),
+    radial-gradient(circle at 20% 80%, rgba(176, 166, 223, 0.015) 0%, transparent 35%),
+    radial-gradient(circle at 15% 15%, rgba(200, 140, 180, 0.01) 0%, transparent 30%),
+    linear-gradient(135deg, #0f0520 0%, #1a0d2e 25%, #2a1f3d 50%, #1f1530 75%, #0d0818 100%);
+  
+  background-attachment: fixed; /* Parallax effect */
+  background-size: 100% 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Starfield layer */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 10px 10px, #B0A6DF, rgba(176, 166, 223, 0)),
+    radial-gradient(1px 1px at 50px 50px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 100px 100px, #3A8FC3, rgba(58, 143, 195, 0)),
+    radial-gradient(1px 1px at 150px 200px, #B0A6DF, rgba(176, 166, 223, 0)),
+    [+ pattern continues across entire viewport];
+  background-size: 400% 400%, 500% 500%, 600% 600%, 700% 700%;
+  background-position: 0 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+main {
+  position: relative;
+  z-index: 1; /* Above starfield */
+}
+```
+
+VISUAL EFFECT:
+✓ Very dark base (#0f0520 appears nearly black on monitor)
+✓ Subtle color shifts (blue zone top-right, purple zone bottom-left)
+✓ Depth illusion from radial gradients
+✓ Small scattered stars across viewport
+✓ Fixed background creates parallax as you scroll
+✓ Nearly impossible to see individual color overlays - just "feels" more alive than flat black
+✓ Multiple colors "appearing" throughout without being obvious
+
+================================================================================
+PART 2: TRANSPARENCY SPECIFICATIONS - MAXIMUM GLASSMORPHIC
+================================================================================
+
+2.1 OPACITY VALUES (Use consistently)
+
+NAVIGATION BAR:
+```css
+background: rgba(26, 13, 46, 0.05); /* EXTREMELY transparent - barely visible */
+backdrop-filter: blur(60px);
+border-bottom: 1px solid rgba(176, 166, 223, 0.05); /* Nearly invisible border */
+```
+
+Effect: You can see the background through the nav almost completely.
+Nav bar is defined by: blur effect + subtle border, NOT by background color.
+
+CARDS & CONTAINERS (Major sections):
+```css
+background: rgba(82, 66, 92, 0.08);
+border: 1.5px solid rgba(176, 166, 223, 0.08);
+backdrop-filter: blur(60px);
+```
+
+Effect: Cards are barely different from background.
+Definition comes from: border + blur + shadow
+
+FORM INPUTS:
+```css
+background: rgba(82, 66, 92, 0.06);
+border: 1px solid rgba(176, 166, 223, 0.1);
+```
+
+Effect: Input fields barely visible until focused
+
+INPUT FOCUS STATE:
+```css
+background: rgba(82, 66, 92, 0.12);
+border: 1px solid rgba(176, 166, 223, 0.25);
+box-shadow: 0 0 20px rgba(58, 143, 195, 0.15), inset 0 0 10px rgba(58, 143, 195, 0.08);
+```
+
+Effect: Focus brings input into visibility
+
+OVERLAY/MODAL BACKGROUND:
+```css
+background: rgba(15, 5, 32, 0.3); /* Modal backdrop */
+backdrop-filter: blur(5px);
+```
+
+Effect: Modal darkens page slightly but still see-through
+
+SEMI-TRANSPARENT SECTIONS (If needed):
+```css
+background: rgba(82, 66, 92, 0.04); /* Barely visible section separator */
+border-top: 1px solid rgba(176, 166, 223, 0.05);
+```
+
+TOOLTIP/HOVER ELEMENTS:
+```css
+background: rgba(58, 143, 195, 0.08);
+border: 1px solid rgba(58, 143, 195, 0.15);
+backdrop-filter: blur(40px);
+```
+
+KEY PRINCIPLE:
+Everything has 0.04-0.15 opacity (mostly 0.05-0.12).
+Elements are identified by: BORDER + BLUR + SHADOW, not by background color.
+If you remove the border and shadow, element should be nearly invisible.
+
+================================================================================
+PART 3: TEXT COLOR - ALL AURA INDIGO (#B0A6DF)
+================================================================================
+
+3.1 TEXT HIERARCHY (All same color family)
+
+HEADING 1:
+```css
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: #B0A6DF;
+  letter-spacing: 1.2px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+```
+
+HEADING 2:
+```css
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #B0A6DF;
+  letter-spacing: 0.8px;
+  margin-bottom: 16px;
+}
+```
+
+HEADING 3:
+```css
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #B0A6DF;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+```
+
+BODY TEXT (This was grey, now Aura Indigo):
+```css
+p, body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  color: #B0A6DF; /* Changed from #b8b8b8 */
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+  font-weight: 400;
+}
+```
+
+SMALL TEXT (Labels, captions, annotations):
+```css
+.small-text, label, .caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #B0A6DF; /* Changed from grey */
+  letter-spacing: 0.2px;
+  font-weight: 400;
+  opacity: 0.85; /* Slightly more transparent than body */
+}
+```
+
+BUTTON TEXT:
+```css
+button, .btn {
+  color: #B0A6DF;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  font-weight: 500;
+}
+```
+
+LINK TEXT:
+```css
+a {
+  color: #B0A6DF;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(176, 166, 223, 0.3); /* Subtle underline */
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  border-bottom-color: rgba(176, 166, 223, 0.8);
+}
+```
+
+SECONDARY TEXT (Subtitles, descriptions):
+```css
+.subtitle, .description {
+  color: #B0A6DF;
+  opacity: 0.75;
+  font-size: 18px;
+  line-height: 1.5;
+}
+```
+
+CONTRAST RULE:
+✓ Body text: #B0A6DF (full opacity)
+✓ Secondary text: #B0A6DF (0.75 opacity)
+✓ Tertiary text: #B0A6DF (0.6 opacity)
+✓ Disabled text: #B0A6DF (0.4 opacity)
+
+All text variations = same color, different opacity levels.
+
+================================================================================
+PART 4: GLOW EFFECTS - SUBTLE, NOT BRIGHT
+================================================================================
+
+4.1 GLOW SPECIFICATIONS (Barely perceptible)
+
+HEADING GLOW (Subtle luminescence):
+```css
+h1 {
+  text-shadow: 0 0 12px rgba(176, 166, 223, 0.12);
+  /* Much softer than v6's 0 0 30px */
+}
+
+h2 {
+  text-shadow: 0 0 10px rgba(176, 166, 223, 0.1);
+}
+
+h3 {
+  text-shadow: 0 0 8px rgba(176, 166, 223, 0.08);
+}
+```
+
+Effect: Text has barely-visible luminous quality. Not glowing bright, just... slightly alive.
+
+BUTTON GLOW (Default state - minimal):
+```css
+button, .btn {
+  box-shadow: 0 0 8px rgba(58, 143, 195, 0.08);
+  background: rgba(58, 143, 195, 0.08);
+  border: 1px solid rgba(58, 143, 195, 0.2);
+  color: #B0A6DF;
+  padding: 12px 28px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+```
+
+Effect: Button is barely different from background. You know it's clickable because of border.
+
+BUTTON GLOW (Hover state - more visible):
+```css
+button:hover, .btn:hover {
+  box-shadow: 
+    0 0 20px rgba(58, 143, 195, 0.25),
+    0 0 40px rgba(176, 166, 223, 0.15),
+    inset 0 0 15px rgba(58, 143, 195, 0.1);
+  background: rgba(58, 143, 195, 0.15);
+  border-color: rgba(58, 143, 195, 0.4);
+  transform: translateY(-2px);
+}
+```
+
+Effect: On hover, button "wakes up" - glows with Han Blue, slight lift
+
+CARD GLOW (Default - nearly invisible):
+```css
+.card {
+  box-shadow: 
+    0 0 15px rgba(176, 166, 223, 0.06),
+    inset 0 0 25px rgba(255, 255, 255, 0.02);
+  background: rgba(82, 66, 92, 0.08);
+  border: 1.5px solid rgba(176, 166, 223, 0.08);
+}
+```
+
+Effect: Card defined by subtle glow + inset light, not bright shadows
+
+CARD GLOW (Hover - awakens):
+```css
+.card:hover {
+  box-shadow: 
+    0 0 40px rgba(58, 143, 195, 0.3),
+    0 0 60px rgba(176, 166, 223, 0.2),
+    inset 0 0 30px rgba(176, 166, 223, 0.1);
+  background: rgba(82, 66, 92, 0.12);
+  border-color: rgba(58, 143, 195, 0.25);
+  transform: translateY(-6px);
+}
+```
+
+Effect: Card becomes prominent on hover - Han Blue + Aura Indigo glow
+
+INPUT FOCUS GLOW:
+```css
+input:focus, textarea:focus {
+  box-shadow: 
+    0 0 15px rgba(58, 143, 195, 0.2),
+    inset 0 0 10px rgba(58, 143, 195, 0.08);
+  border-color: rgba(58, 143, 195, 0.35);
+  background: rgba(82, 66, 92, 0.1);
+  outline: none;
+}
+```
+
+Effect: Input gets subtle blue glow on focus
+
+GENERAL RULE:
+Glow intensity: 0.08-0.15 for default states
+Glow intensity: 0.2-0.4 for hover states
+All glows: Use box-shadow with 2-3 layers (outer + middle + inset)
+Animation speed: 0.3s (not faster)
+
+================================================================================
+PART 5: VISUAL DESCRIPTIVENESS - DENSE INFORMATION ARCHITECTURE
+================================================================================
+
+5.1 INFORMATION DENSITY (100x more visual detail)
+
+HERO SECTION EXAMPLE:
+```
+Instead of:
+  "Insights"
+  [Single description line]
+  [Two buttons]
+
+Now:
+  "Insights"
+  Strategic Intelligence from Unfiltered Market Data
+  [Subheading line 2: Strategic + Intelligence + Unfiltered]
+  [Subheading line 3: 5-7 day delivery, premium analysis]
+  
+  [Four supporting metrics in visual cards]:
+    • 25,400+ Signals Analyzed    [small text: from 12 independent sources]
+    • 85-92% Confidence Level     [small text: cross-validated patterns]
+    • 5-7 Day Delivery            [small text: complete market analysis]
+    • Enterprise Grade Security   [small text: SOC2, GDPR, HIPAA]
+  
+  [Two primary CTAs]:
+    [Start Free Analysis] [Explore Pricing]
+  
+  [Trust section with 3 elements]:
+    ✓ Money-back guarantee    ✓ Revenue-share option    ✓ Free micro-intelligence
+```
+
+Navigation example (currently too simple):
+```
+Currently:
+  [Logo] [Home] [About] [Pricing] [Start Assessment]
+
+Now:
+  [Logo - with subtle glow]
+  
+  [Navigation items - each with hover state showing purpose]:
+    Home        → Market Intelligence Dashboard
+    Solutions   → Healthcare | SaaS | E-commerce
+    Intelligence → Quick | Strategic | Predictive
+    Pricing     → Tier comparison (Quick...$300-800)
+    Resources   → Methodology | Case Studies | Blog
+    
+  [Primary CTA]:
+    [Start Free Analysis] → Shows what you'll get
+  
+  [User account]:
+    [Profile icon] → Account settings
+```
+
+CARD DENSITY EXAMPLE (Current: 1 thing per card, New: 5 things per card):
+```
+Currently (Pricing tier):
+  Quick Intelligence
+  $300-800
+  24-48 hours
+  [Button]
+
+Now (Much more descriptive):
+  QUICK INTELLIGENCE
+  [Small icon/symbol: lightning bolt ⚡ or similar]
+  
+  Price: $300-800          Delivery: 24-48 Hours
+  
+  What You Get:
+    • 10,000+ signals from 5-7 sources
+    • 3-5 key insights with evidence
+    • Interactive HTML dashboard (90 days)
+    • Email support included
+  
+  Use When:
+    Need answers fast / Time-sensitive decision
+  
+  [Includes] [Add Dashboard +$200] [Choose This]
+```
+
+VISUAL ZONES ON PAGE:
+Instead of single column, create visual regions:
+```
+ZONE 1 - Hero (Attention grabber)
+  Title + Subtitle + Metrics + CTAs
+
+ZONE 2 - What We Do (Three verticals)
+  Healthcare | SaaS | E-commerce
+  [Each card shows: description + example use + CTA]
+
+ZONE 3 - How It Works (Four step process)
+  Step 1: Answer questions     Step 2: Upload data
+  Step 3: We analyze           Step 4: Results delivered
+  [Each step shows: visual + description + time estimate]
+
+ZONE 4 - Why Choose Us (Proof points)
+  • 25,400+ signals analyzed per project
+  • 85-92% confidence level
+  • 3-month competitive advantage
+  • Enterprise-grade security
+  [Each with supporting detail]
+
+ZONE 5 - Pricing (All tiers visible)
+  Quick | Strategic | Predictive | Enterprise
+  [Each shows: price, what you get, use cases, CTA]
+
+ZONE 6 - Methodology (Transparency)
+  How We Work (with visual steps)
+  Data Sources (with logos/names)
+  Accuracy & Confidence
+  Our Process (visual diagram)
+
+ZONE 7 - Trust (Removing doubt)
+  Money-back guarantee + Revenue-share + Free option
+  Client testimonials (3 visible)
+  Certifications: SOC2 | GDPR | HIPAA
+
+ZONE 8 - CTA (Final push)
+  [Start Free Analysis]
+  "No credit card needed"
+```
+
+KEY PRINCIPLE:
+Every element on page should have a PURPOSE and DESCRIPTION.
+No empty space.
+No generic text.
+Every card shows: WHAT + WHY + HOW + WHEN + RESULT.
+
+================================================================================
+PART 6: ELEMENT SPECIFICATIONS - ULTRA DETAILED
+================================================================================
+
+6.1 NAVIGATION BAR COMPLETE SPEC
+
+```css
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  
+  /* Extreme transparency */
+  background: rgba(26, 13, 46, 0.05);
+  border-bottom: 1px solid rgba(176, 166, 223, 0.05);
+  backdrop-filter: blur(60px);
+  
+  z-index: 1000;
+}
+
+/* Logo */
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #B0A6DF;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 8px rgba(176, 166, 223, 0.08);
+}
+
+.logo:hover {
+  letter-spacing: 3px;
+  text-shadow: 0 0 12px rgba(176, 166, 223, 0.15);
+}
+
+/* Nav items */
+nav a {
+  color: #B0A6DF;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  margin: 0 25px;
+  border-bottom: 1px solid rgba(176, 166, 223, 0);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav a:hover {
+  border-bottom: 1px solid rgba(176, 166, 223, 0.4);
+  text-shadow: 0 0 8px rgba(176, 166, 223, 0.15);
+}
+
+/* CTA Button */
+nav .cta-button {
+  background: rgba(58, 143, 195, 0.12);
+  border: 1px solid rgba(58, 143, 195, 0.25);
+  color: #B0A6DF;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 10px rgba(58, 143, 195, 0.08);
+}
+
+nav .cta-button:hover {
+  background: rgba(58, 143, 195, 0.2);
+  border-color: rgba(58, 143, 195, 0.45);
+  box-shadow: 
+    0 0 20px rgba(58, 143, 195, 0.3),
+    0 0 40px rgba(176, 166, 223, 0.15),
+    inset 0 0 12px rgba(58, 143, 195, 0.1);
+  transform: translateY(-2px);
+}
+```
+
+VISUAL EFFECT: Nav looks like it's barely there. Border at top and subtle blur is all that defines it. On hover, elements glow Aura Indigo. CTA button has subtle glow and becomes more visible.
+
+---
+
+6.2 HERO SECTION
+
+```css
+.hero {
+  margin-top: 80px;
+  padding: 80px 40px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.hero h1 {
+  font-size: 64px;
+  font-family: 'Playfair Display', serif;
+  color: #B0A6DF;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  text-shadow: 0 0 12px rgba(176, 166, 223, 0.12);
+  font-weight: 700;
+}
+
+.hero .subtitle {
+  font-size: 20px;
+  color: #B0A6DF;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+}
+
+.hero .description {
+  font-size: 16px;
+  color: #B0A6DF;
+  line-height: 1.7;
+  margin-bottom: 50px;
+  opacity: 0.75;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Metrics grid below hero */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.metric-card {
+  background: rgba(82, 66, 92, 0.08);
+  border: 1.5px solid rgba(176, 166, 223, 0.08);
+  border-radius: 16px;
+  padding: 30px;
+  backdrop-filter: blur(60px);
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 15px rgba(176, 166, 223, 0.06), inset 0 0 20px rgba(255, 255, 255, 0.02);
+}
+
+.metric-card:hover {
+  background: rgba(82, 66, 92, 0.12);
+  border-color: rgba(58, 143, 195, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 0 35px rgba(58, 143, 195, 0.3),
+    0 0 60px rgba(176, 166, 223, 0.2),
+    inset 0 0 25px rgba(176, 166, 223, 0.08);
+}
+
+.metric-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #B0A6DF;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(176, 166, 223, 0.1);
+}
+
+.metric-label {
+  font-size: 13px;
+  color: #B0A6DF;
+  letter-spacing: 0.3px;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.metric-detail {
+  font-size: 12px;
+  color: #B0A6DF;
+  margin-top: 8px;
+  opacity: 0.6;
+}
+
+/* CTA buttons */
+.cta-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.btn-primary {
+  background: rgba(58, 143, 195, 0.12);
+  border: 1px solid rgba(58, 143, 195, 0.3);
+  color: #B0A6DF;
+  padding: 14px 40px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 12px rgba(58, 143, 195, 0.1);
+}
+
+.btn-primary:hover {
+  background: rgba(58, 143, 195, 0.2);
+  border-color: rgba(58, 143, 195, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 0 25px rgba(58, 143, 195, 0.35),
+    0 0 45px rgba(176, 166, 223, 0.2),
+    inset 0 0 15px rgba(58, 143, 195, 0.12);
+}
+
+.btn-secondary {
+  background: rgba(82, 66, 92, 0.08);
+  border: 1.5px solid rgba(176, 166, 223, 0.15);
+  color: #B0A6DF;
+  padding: 14px 40px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 10px rgba(176, 166, 223, 0.08);
+}
+
+.btn-secondary:hover {
+  background: rgba(82, 66, 92, 0.14);
+  border-color: rgba(176, 166, 223, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 0 30px rgba(176, 166, 223, 0.25),
+    inset 0 0 15px rgba(176, 166, 223, 0.1);
+}
+```
+
+VISUAL EFFECT:
+- H1 floats with subtle glow
+- Subtitle and description in Aura Indigo (not grey)
+- Four metric cards below hero, nearly invisible but defined by borders
+- Cards glow and lift on hover, showing blue center with Aura Indigo halo
+- Two CTA buttons (Primary = Han Blue focus, Secondary = Aura Indigo focus)
+- All interactive elements respond to hover
+
+---
+
+6.3 CARD COMPONENTS (Generic reusable)
+
+```css
+.card {
+  background: rgba(82, 66, 92, 0.08);
+  border: 1.5px solid rgba(176, 166, 223, 0.08);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(60px);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 15px rgba(176, 166, 223, 0.06), inset 0 0 25px rgba(255, 255, 255, 0.02);
+}
+
+.card:hover {
+  background: rgba(82, 66, 92, 0.12);
+  border-color: rgba(58, 143, 195, 0.25);
+  transform: translateY(-8px);
+  box-shadow: 
+    0 0 45px rgba(58, 143, 195, 0.3),
+    0 0 80px rgba(176, 166, 223, 0.25),
+    inset 0 0 30px rgba(176, 166, 223, 0.1);
+}
+
+.card h3 {
+  font-size: 28px;
+  color: #B0A6DF;
+  margin-bottom: 16px;
+  text-shadow: 0 0 8px rgba(176, 166, 223, 0.08);
+}
+
+.card p {
+  font-size: 16px;
+  color: #B0A6DF;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.card li {
+  font-size: 14px;
+  color: #B0A6DF;
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+  opacity: 0.8;
+}
+
+.card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #3A8FC3;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+.card .value {
+  font-size: 32px;
+  color: #B0A6DF;
+  font-weight: 700;
+  margin: 15px 0;
+  text-shadow: 0 0 10px rgba(176, 166, 223, 0.1);
+}
+
+.card .label {
+  font-size: 12px;
+  color: #B0A6DF;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  opacity: 0.65;
+}
+```
+
+VISUAL EFFECT:
+- Card appears as transparent container (barely visible)
+- Content is clear (Aura Indigo text)
+- On hover, card becomes prominent with blue/purple glow
+- Subtle checkmarks in Han Blue for list items
+
+---
+
+6.4 FORM INPUTS
+
+```css
+input, textarea, select {
+  background: rgba(82, 66, 92, 0.06);
+  border: 1px solid rgba(176, 166, 223, 0.1);
+  color: #B0A6DF;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(176, 166, 223, 0.5);
+}
+
+input:focus, textarea:focus, select:focus {
+  background: rgba(82, 66, 92, 0.1);
+  border-color: rgba(58, 143, 195, 0.35);
+  outline: none;
+  box-shadow: 
+    0 0 15px rgba(58, 143, 195, 0.2),
+    inset 0 0 10px rgba(58, 143, 195, 0.08);
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  color: #B0A6DF;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+```
+
+VISUAL EFFECT:
+- Input appears nearly invisible until you focus
+- Focus reveals blue glow around input
+- All text in Aura Indigo
+
+================================================================================
+PART 7: RESPONSIVE DESIGN - MOBILE OPTIMIZATION
+================================================================================
+
+```css
+@media (max-width: 1024px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  nav {
+    padding: 0 24px;
+    height: 70px;
+  }
+  
+  .hero {
+    padding: 60px 24px;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  nav {
+    height: 60px;
+    padding: 0 16px;
+  }
+  
+  nav a {
+    margin: 0 12px;
+    font-size: 12px;
+  }
+  
+  .hero {
+    padding: 40px 16px;
+    margin-top: 60px;
+  }
+  
+  .hero h1 {
+    font-size: 40px;
+    letter-spacing: 1px;
+  }
+  
+  .hero .subtitle {
+    font-size: 16px;
+  }
+  
+  .card {
+    padding: 30px;
+  }
+  
+  .cta-group {
+    flex-direction: column;
+  }
+  
+  .btn-primary, .btn-secondary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+  
+  .hero .subtitle {
+    font-size: 14px;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
+  nav a {
+    margin: 0 8px;
+    font-size: 11px;
+  }
+}
+```
+
+================================================================================
+PART 8: ANIMATION SPECIFICATIONS
+================================================================================
+
+```css
+/* Smooth transitions (no rapid movements) */
+* {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Page load animation */
+main {
+  animation: pageLoad 0.6s ease-out;
+}
+
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle float animation for floating elements */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Glow pulse (optional for premium feel) */
+.glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(176, 166, 223, 0.06);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(176, 166, 223, 0.12);
+  }
+}
+```
+
+NO ANIMATIONS:
+✗ No bouncing (unless intentional)
+✗ No spinning (rotations)
+✗ No flashing (opacity rapidly changing)
+✗ No shaking (multiple rapid transforms)
+
+================================================================================
+PART 9: COMPLETE CSS STYLESHEET
+================================================================================
+
+[See next file: ROUZE_v7_COMPLETE_STYLES.css]
+
+This file shows the entire CSS implementation ready to copy-paste into base.html
+
+================================================================================
+STATUS: SPECIFICATION COMPLETE
+================================================================================
+
+Next steps:
+1. Create ROUZE_v7_COMPLETE_STYLES.css with full stylesheet
+2. Create updated base.html using this spec
+3. Test on localhost:5001
+4. Verify all transparency, glow, and text colors
+5. Adjust opacity values if needed (feedback: too opaque? reduce to 0.03-0.08)
+
+Key metrics for success:
+✓ Navigation barely visible (rgba 0.05)
+✓ All text is Aura Indigo (no grey)
+✓ Glow is subtle (not bright)
+✓ Cards transparent (defined by border/blur, not color)
+✓ Background has multiple color zones and starfield
+✓ Hover states reveal elements
+✓ Page feels "alive" but not jarring
+
+================================================================================
+END SPECIFICATION v7
+================================================================================
+
+Date: November 30, 2025
+Status: READY FOR IMPLEMENTATION

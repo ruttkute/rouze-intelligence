@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Market Intelligence Questionnaire - ROUZE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .questionnaire-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION BAR */
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            margin: -20px -20px 40px -20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #B0A6DF;
+        }
+
+        /* HEADER */
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            color: #B0A6DF;
+        }
+
+        .form-header p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(176, 166, 223, 0.8);
+            margin-bottom: 30px;
+        }
+
+        /* PROGRESS BAR */
+        .progress-container {
+            margin-bottom: 40px;
+        }
+
+        .progress-label {
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #3A8FC3;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: rgba(176, 166, 223, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #3A8FC3;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        /* FORM SECTIONS */
+        .form-section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #B0A6DF;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+            padding-top: 30px;
+            margin-top: 30px;
+            margin-bottom: 24px;
+        }
+
+        .section-description {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.75);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        /* QUESTION */
+        .question-group {
+            margin-bottom: 36px;
+        }
+
+        .question-number {
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #3A8FC3;
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .helper-text {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.65);
+            font-style: italic;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        /* FORM CONTROLS */
+        select,
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            background: rgba(82, 66, 92, 0.3);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 16px;
+            color: #B0A6DF;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+        }
+
+        select:focus,
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            background: rgba(82, 66, 92, 0.5);
+            border: 1px solid rgba(58, 143, 195, 0.5);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* CHECKBOXES & RADIO BUTTONS */
+        .options-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: #3A8FC3;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .option-label {
+            font-size: 16px;
+            color: #B0A6DF;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        /* TEXT INPUT FIELDS */
+        .text-input-container {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .text-input-container input[type="text"] {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        /* ERROR MESSAGES */
+        .error-message {
+            font-size: 12px;
+            color: rgba(220, 100, 100, 0.9);
+            background: rgba(220, 100, 100, 0.05);
+            border: 1px solid rgba(220, 100, 100, 0.3);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .question-group.error select,
+        .question-group.error input[type="text"],
+        .question-group.error textarea {
+            border-color: rgba(220, 100, 100, 0.8);
+            background: rgba(220, 100, 100, 0.05);
+        }
+
+        /* CONDITIONAL FIELDS */
+        .conditional-group {
+            display: none;
+        }
+
+        .conditional-group.show {
+            display: block;
+        }
+
+        /* BUTTONS */
+        .form-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        button {
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            background: #3A8FC3;
+            color: white;
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            background: rgba(58, 143, 195, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .btn-back {
+            background: rgba(176, 166, 223, 0.1);
+            color: #B0A6DF;
+            border: 1px solid rgba(176, 166, 223, 0.2);
+        }
+
+        .btn-back:hover {
+            background: rgba(176, 166, 223, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 16px 20px;
+                margin: -20px -20px 30px -20px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                font-size: 12px;
+            }
+
+            .form-header h1 {
+                font-size: 32px;
+            }
+
+            .section-header {
+                font-size: 20px;
+            }
+
+            .question-text {
+                font-size: 16px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
+        /* LOADING STATE */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <div class="nav-bar">
+        <div class="logo">ROUZE</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing">Pricing</a>
+        </div>
+    </div>
+
+    <!-- MAIN FORM -->
+    <div class="questionnaire-container">
+        <div class="form-header">
+            <h1>Healthcare Market Intelligence</h1>
+            <p>Deep questionnaire to understand your specific situation. 15 targeted questions. ~8 minutes.</p>
+        </div>
+
+        <!-- PROGRESS BAR -->
+        <div class="progress-container">
+            <div class="progress-label">PROGRESS</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div style="font-size: 12px; color: rgba(176, 166, 223, 0.6); margin-top: 8px;">
+                <span id="progressText">0 of 15 questions</span>
+            </div>
+        </div>
+
+        <!-- FORM STARTS HERE -->
+        <form id="healthcareForm" method="POST" action="/api/questionnaire">
+            <input type="hidden" name="vertical" value="healthcare">
+
+            <!-- SECTION 1: CONTEXT & COMPANY -->
+            <div class="form-section">
+                <h2 class="section-header">Understanding Your Company & Challenge</h2>
+                <p class="section-description">
+                    Your company type, focus area, and revenue stage determine which market signals are most relevant. 
+                    A $2M medical device startup watches different regulatory signals than a $100M pharma company.
+                </p>
+
+                <!-- Q1: Company Type -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 1 OF 15</div>
+                    <div class="question-text">What is your healthcare company type?</div>
+                    <div class="helper-text">This helps us identify which regulatory bodies, reimbursement challenges, and market timing factors are relevant to your segment.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q1_medical_device" name="q1_company_type" value="Medical device manufacturer" required>
+                            <label for="q1_medical_device" class="option-label">Medical device manufacturer</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_pharma" name="q1_company_type" value="Pharmaceutical company">
+                            <label for="q1_pharma" class="option-label">Pharmaceutical company</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_digital_health" name="q1_company_type" value="Digital health/health tech">
+                            <label for="q1_digital_health" class="option-label">Digital health/health tech</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_consulting" name="q1_company_type" value="Medical consulting firm">
+                            <label for="q1_consulting" class="option-label">Medical consulting firm</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_provider" name="q1_company_type" value="Healthcare provider/hospital system">
+                            <label for="q1_provider" class="option-label">Healthcare provider/hospital system</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q1_other" name="q1_company_type" value="Other">
+                            <label for="q1_other" class="option-label">Other</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q1_error"></div>
+                </div>
+
+                <!-- Q2: Primary Focus (ADAPTIVE based on Q1) -->
+                <div class="question-group" id="q2_container">
+                    <div class="question-number">QUESTION 2 OF 15</div>
+                    <div class="question-text">What is your primary area of focus?</div>
+                    <div class="helper-text">Your focus area determines which customer segments, regulatory bodies, and competitive dynamics matter most.</div>
+                    
+                    <select name="q2_focus_area" id="q2_focus_area" required>
+                        <option value="">-- Select your focus area --</option>
+                        <!-- Options will be populated by JavaScript based on Q1 answer -->
+                    </select>
+                    <div class="error-message" id="q2_error"></div>
+                </div>
+
+                <!-- Q3: Product Stage -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 3 OF 15</div>
+                    <div class="question-text">What is your product's current stage of development?</div>
+                    <div class="helper-text">Different stages have different market signals. Clinical trial stage watches different signals than established product.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q3_preclinical" name="q3_product_stage" value="Pre-clinical research" required>
+                            <label for="q3_preclinical" class="option-label">Pre-clinical research (lab testing, animal models)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q3_clinical" name="q3_product_stage" value="Clinical trials">
+                            <label for="q3_clinical" class="option-label">Clinical trials (human testing, efficacy/safety studies)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q3_fda_pending" name="q3_product_stage" value="FDA approval process">
+                            <label for="q3_fda_pending" class="option-label">FDA approval process (pending regulatory clearance)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q3_recently_approved" name="q3_product_stage" value="Recently approved (within 2 years)">
+                            <label for="q3_recently_approved" class="option-label">Recently approved (within 2 years of FDA clearance)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q3_established" name="q3_product_stage" value="Established product (2-5 years)">
+                            <label for="q3_established" class="option-label">Established product (2-5 years on market)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q3_mature" name="q3_product_stage" value="Mature product (5+ years)">
+                            <label for="q3_mature" class="option-label">Mature product (5+ years, established market position)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q3_error"></div>
+                </div>
+
+                <!-- Q4: Revenue -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 4 OF 15</div>
+                    <div class="question-text">What is your approximate annual revenue?</div>
+                    <div class="helper-text">Revenue size correlates with market opportunity and competitive dynamics. A $200M company faces different competitive threats than a $5M startup.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q4_prerevenue" name="q4_revenue" value="Pre-revenue (no sales yet)" required>
+                            <label for="q4_prerevenue" class="option-label">Pre-revenue (still in development, no sales yet)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_under1m" name="q4_revenue" value="Less than $1M">
+                            <label for="q4_under1m" class="option-label">Less than $1M (early stage, early customer validation)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_1to10m" name="q4_revenue" value="$1M - $10M">
+                            <label for="q4_1to10m" class="option-label">$1M - $10M (early growth)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_10to50m" name="q4_revenue" value="$10M - $50M">
+                            <label for="q4_10to50m" class="option-label">$10M - $50M (mid-market, established)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_50to200m" name="q4_revenue" value="$50M - $200M">
+                            <label for="q4_50to200m" class="option-label">$50M - $200M (large mid-market)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q4_over200m" name="q4_revenue" value="$200M+">
+                            <label for="q4_over200m" class="option-label">$200M+ (enterprise)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q4_error"></div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: REGULATORY & SAFETY INTELLIGENCE -->
+            <div class="form-section">
+                <h2 class="section-header">Regulatory & Safety Intelligence</h2>
+                <p class="section-description">
+                    Regulatory environment is THE most important factor in healthcare. FDA signals, clinical trial signals, 
+                    adverse event signals can make or break a company. This section identifies which regulatory risks are keeping you up at night.
+                </p>
+
+                <!-- Q5: Regulatory Risks -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 5 OF 15</div>
+                    <div class="question-text">What regulatory risks concern you most RIGHT NOW?</div>
+                    <div class="helper-text">Check all that apply. Different concerns = different data sources = different analysis focus.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" id="q5_safety_signals" name="q5_regulatory_risks" value="Emerging safety signals in the market">
+                            <label for="q5_safety_signals" class="option-label">Emerging safety signals in the market (adverse events)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q5_fda_delays" name="q5_regulatory_risks" value="FDA approval delays or rejections">
+                            <label for="q5_fda_delays" class="option-label">FDA approval delays or rejections for our products</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q5_competitor_recalls" name="q5_regulatory_risks" value="Competitor adverse event recalls">
+                            <label for="q5_competitor_recalls" class="option-label">Competitor adverse event recalls (their problems affecting our market)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q5_policy_changes" name="q5_regulatory_risks" value="Regulatory policy changes">
+                            <label for="q5_policy_changes" class="option-label">Regulatory policy changes (new rules, stricter enforcement)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q5_international" name="q5_regulatory_risks" value="International market compliance">
+                            <label for="q5_international" class="option-label">International market compliance (entering new countries)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q5_postmarket" name="q5_regulatory_risks" value="Post-market surveillance requirements">
+                            <label for="q5_postmarket" class="option-label">Post-market surveillance requirements (ongoing monitoring obligations)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q5_liability" name="q5_regulatory_risks" value="Liability and insurance issues">
+                            <label for="q5_liability" class="option-label">Liability and insurance issues (coverage, costs)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q5_clinical_enrollment" name="q5_regulatory_risks" value="Clinical trial enrollment challenges">
+                            <label for="q5_clinical_enrollment" class="option-label">Clinical trial enrollment challenges (recruiting patients)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q5_reimbursement" name="q5_regulatory_risks" value="Reimbursement denials">
+                            <label for="q5_reimbursement" class="option-label">Reimbursement denials (insurance won't pay)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q5_error"></div>
+                </div>
+
+                <!-- Q6: Safety Concerns (Optional) -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 6 OF 15</div>
+                    <div class="question-text">Describe any safety concerns you're actively monitoring for your product</div>
+                    <div class="helper-text">Optional, but encouraged for accuracy. Example: "We're monitoring for unexpected bleeding complications in elderly patients (>75)"</div>
+                    
+                    <textarea name="q6_safety_concerns" placeholder="Describe specific safety concerns you're monitoring..." maxlength="500"></textarea>
+                    <div style="font-size: 12px; color: rgba(176, 166, 223, 0.5); text-align: right;">
+                        <span id="q6_charcount">0</span>/500 characters
+                    </div>
+                    <div class="error-message" id="q6_error"></div>
+                </div>
+
+                <!-- Q7: Competitor Safety -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 7 OF 15</div>
+                    <div class="question-text">Are there competitors whose safety problems could affect your market position?</div>
+                    <div class="helper-text">If a major competitor has a recall or safety issue, it creates market opportunities or threats for you.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q7_yes" name="q7_competitor_safety" value="Yes - specific competitors" required>
+                            <label for="q7_yes" class="option-label">Yes - we're monitoring specific competitors</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q7_unclear" name="q7_competitor_safety" value="Unclear - need monitoring">
+                            <label for="q7_unclear" class="option-label">Unclear - need competitive safety monitoring</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q7_no" name="q7_competitor_safety" value="No - market is safe">
+                            <label for="q7_no" class="option-label">No - our market segment is relatively safe</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q7_dontknow" name="q7_competitor_safety" value="Don't know">
+                            <label for="q7_dontknow" class="option-label">Don't know yet</label>
+                        </div>
+                    </div>
+
+                    <!-- Conditional: If "Yes - specific competitors" -->
+                    <div class="conditional-group" id="q7_competitors_field">
+                        <div style="margin-top: 16px;">
+                            <div class="helper-text">Which competitors? (List 1-5 company names, separated by commas)</div>
+                            <textarea name="q7_competitor_names" placeholder="Competitor 1, Competitor 2, Competitor 3..." maxlength="300"></textarea>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q7_error"></div>
+                </div>
+
+                <!-- Q8: Regulatory Bodies -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 8 OF 15</div>
+                    <div class="question-text">Which regulatory bodies must you watch?</div>
+                    <div class="helper-text">Different countries have different approval processes, timelines, and requirements. Check all that apply.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_fda" name="q8_regulatory_bodies" value="FDA (United States)" required>
+                            <label for="q8_fda" class="option-label">FDA (United States)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_ema" name="q8_regulatory_bodies" value="EMA (Europe)">
+                            <label for="q8_ema" class="option-label">EMA (Europe)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_health_canada" name="q8_regulatory_bodies" value="Health Canada">
+                            <label for="q8_health_canada" class="option-label">Health Canada</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_pmda" name="q8_regulatory_bodies" value="PMDA (Japan)">
+                            <label for="q8_pmda" class="option-label">PMDA (Japan)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_cfda" name="q8_regulatory_bodies" value="CFDA (China)">
+                            <label for="q8_cfda" class="option-label">CFDA (China)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_mhra" name="q8_regulatory_bodies" value="MHRA (United Kingdom)">
+                            <label for="q8_mhra" class="option-label">MHRA (United Kingdom)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q8_tga" name="q8_regulatory_bodies" value="TGA (Australia)">
+                            <label for="q8_tga" class="option-label">TGA (Australia)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q8_error"></div>
+                </div>
+
+                <!-- Q9: Timeline -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 9 OF 15</div>
+                    <div class="question-text">What is your timeline for regulatory decisions you're watching?</div>
+                    <div class="helper-text">Timeline affects how fresh our data needs to be. Urgent decisions need the latest signals.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q9_urgent" name="q9_timeline" value="Urgent (within 3 months)" required>
+                            <label for="q9_urgent" class="option-label">Urgent (decision expected within 3 months)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q9_nearterm" name="q9_timeline" value="Near-term (3-6 months)">
+                            <label for="q9_nearterm" class="option-label">Near-term (decision expected 3-6 months)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q9_mediumterm" name="q9_timeline" value="Medium-term (6-12 months)">
+                            <label for="q9_mediumterm" class="option-label">Medium-term (decision expected 6-12 months)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q9_longterm" name="q9_timeline" value="Long-term (12+ months)">
+                            <label for="q9_longterm" class="option-label">Long-term (decision expected 12+ months)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q9_ongoing" name="q9_timeline" value="Ongoing monitoring">
+                            <label for="q9_ongoing" class="option-label">Ongoing monitoring (no specific deadline)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q9_error"></div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: MARKET & ADOPTION INTELLIGENCE -->
+            <div class="form-section">
+                <h2 class="section-header">Market & Adoption Intelligence</h2>
+                <p class="section-description">
+                    Once a product is approved, market adoption becomes critical. Are customers actually buying? 
+                    Are they satisfied? Are they switching to competitors? This section identifies which market signals matter most to you.
+                </p>
+
+                <!-- Q10: Customer Types -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 10 OF 15</div>
+                    <div class="question-text">Who are your primary customers?</div>
+                    <div class="helper-text">Different customer types signal differently. Hospitals discuss adoption on LinkedIn. Patients discuss on Reddit.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" id="q10_providers" name="q10_customer_types" value="Healthcare providers" required>
+                            <label for="q10_providers" class="option-label">Healthcare providers (hospitals, clinics, medical practices)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q10_patients" name="q10_customer_types" value="Individual patients/consumers">
+                            <label for="q10_patients" class="option-label">Individual patients/consumers</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q10_insurers" name="q10_customer_types" value="Insurance companies/payers">
+                            <label for="q10_insurers" class="option-label">Insurance companies/payers (making reimbursement decisions)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q10_distributors" name="q10_customer_types" value="Healthcare distributors">
+                            <label for="q10_distributors" class="option-label">Healthcare distributors (middlemen selling to providers)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q10_systems" name="q10_customer_types" value="Healthcare systems/networks">
+                            <label for="q10_systems" class="option-label">Healthcare systems/networks (large integrated organizations)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q10_government" name="q10_customer_types" value="Government programs">
+                            <label for="q10_government" class="option-label">Government programs (Medicare, Medicaid, VA)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q10_error"></div>
+                </div>
+
+                <!-- Q11: Market Concerns -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 11 OF 15</div>
+                    <div class="question-text">What market concerns are most important to monitor?</div>
+                    <div class="helper-text">Different companies care about different metrics. Check all that apply.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" id="q11_adoption" name="q11_market_concerns" value="Customer adoption rates" required>
+                            <label for="q11_adoption" class="option-label">Customer adoption rates (Are they actually buying?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q11_features" name="q11_market_concerns" value="Feature requests and unmet needs">
+                            <label for="q11_features" class="option-label">Feature requests and unmet needs (What do customers want?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q11_pricing" name="q11_market_concerns" value="Pricing sensitivity">
+                            <label for="q11_pricing" class="option-label">Pricing sensitivity (Price complaints, willingness to pay?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q11_switching" name="q11_market_concerns" value="Competitive switching">
+                            <label for="q11_switching" class="option-label">Competitive switching (Are customers leaving us?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q11_growth" name="q11_market_concerns" value="Market segment growth/decline">
+                            <label for="q11_growth" class="option-label">Market segment growth/decline (Is market expanding or shrinking?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q11_geographic" name="q11_market_concerns" value="Geographic expansion potential">
+                            <label for="q11_geographic" class="option-label">Geographic expansion potential (New markets opening?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q11_satisfaction" name="q11_market_concerns" value="Customer satisfaction and NPS">
+                            <label for="q11_satisfaction" class="option-label">Customer satisfaction and NPS (How happy are customers?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q11_reimbursement" name="q11_market_concerns" value="Reimbursement trends">
+                            <label for="q11_reimbursement" class="option-label">Reimbursement trends (Payer policies changing?)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q11_error"></div>
+                </div>
+
+                <!-- Q12: Competitive Threat -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 12 OF 15</div>
+                    <div class="question-text">What would represent a major competitive threat to your market position?</div>
+                    <div class="helper-text">Optional. Helps us identify which competitive signals matter most. Example: "New entrant with FDA-approved product at 50% lower price"</div>
+                    
+                    <textarea name="q12_competitive_threat" placeholder="Describe major competitive threat..." maxlength="500"></textarea>
+                    <div style="font-size: 12px; color: rgba(176, 166, 223, 0.5); text-align: right;">
+                        <span id="q12_charcount">0</span>/500 characters
+                    </div>
+                    <div class="error-message" id="q12_error"></div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: DECISION FOCUS & SIGNAL PRIORITIES -->
+            <div class="form-section">
+                <h2 class="section-header">What Decision Are You Trying To Make?</h2>
+                <p class="section-description">
+                    The entire analysis is shaped by YOUR decision. "Should we launch?" requires different signals 
+                    than "Should we raise pricing?" This section focuses the analysis on what actually matters to you.
+                </p>
+
+                <!-- Q13: Market Signals Interest -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 13 OF 15</div>
+                    <div class="question-text">What specific market signals interest you most?</div>
+                    <div class="helper-text">Select your top 3 - these determine which signals we monitor most closely.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" id="q13_patient_forums" name="q13_market_signals" value="Patient/provider forum discussions" required>
+                            <label for="q13_patient_forums" class="option-label">Patient/provider forum discussions about your product</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q13_adverse_events" name="q13_market_signals" value="Adverse event reports and safety signals">
+                            <label for="q13_adverse_events" class="option-label">Adverse event reports and safety signal patterns</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q13_competitor_launches" name="q13_market_signals" value="Competitor product announcements">
+                            <label for="q13_competitor_launches" class="option-label">Competitor product announcements and launches</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q13_adoption_trends" name="q13_market_signals" value="Customer adoption trends">
+                            <label for="q13_adoption_trends" class="option-label">Customer adoption trends (market penetration rates)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q13_reimbursement" name="q13_market_signals" value="Insurance/payer reimbursement discussions">
+                            <label for="q13_reimbursement" class="option-label">Insurance/payer reimbursement discussions</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q13_regulatory" name="q13_market_signals" value="Regulatory decision indicators">
+                            <label for="q13_regulatory" class="option-label">Regulatory decision indicators (approval timeline signals)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q13_clinical_enrollment" name="q13_market_signals" value="Clinical trial enrollment signals">
+                            <label for="q13_clinical_enrollment" class="option-label">Clinical trial enrollment signals</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" id="q13_consolidation" name="q13_market_signals" value="Market consolidation/acquisition signals">
+                            <label for="q13_consolidation" class="option-label">Market consolidation/acquisition signals</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q13_error"></div>
+                </div>
+
+                <!-- Q14: Competitors to Monitor -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 14 OF 15</div>
+                    <div class="question-text">Do you want us to monitor specific competitors?</div>
+                    <div class="helper-text">Optional. Leave blank if you want broad market intelligence. Name specific competitors if you want us to track their moves closely.</div>
+                    
+                    <textarea name="q14_monitor_competitors" placeholder="Competitor 1, Competitor 2, Competitor 3..." maxlength="300"></textarea>
+                    <div class="error-message" id="q14_error"></div>
+                </div>
+
+                <!-- Q15: Business Decision -->
+                <div class="question-group">
+                    <div class="question-number">QUESTION 15 OF 15</div>
+                    <div class="question-text">What business decision are you trying to make with this analysis?</div>
+                    <div class="helper-text">This determines which signals are most relevant and shapes the entire analysis.</div>
+                    
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" id="q15_launch" name="q15_business_decision" value="Launch decision" required>
+                            <label for="q15_launch" class="option-label">Launch decision (Should we enter this market?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q15_safety" name="q15_business_decision" value="Safety monitoring">
+                            <label for="q15_safety" class="option-label">Safety monitoring (Are emerging safety issues appearing?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q15_pricing" name="q15_business_decision" value="Pricing strategy">
+                            <label for="q15_pricing" class="option-label">Pricing strategy (What should we charge?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q15_expansion" name="q15_business_decision" value="Market expansion">
+                            <label for="q15_expansion" class="option-label">Market expansion (New geography or customer segment?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q15_competitive" name="q15_business_decision" value="Competitive defense">
+                            <label for="q15_competitive" class="option-label">Competitive defense (How do we respond to competitors?)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" id="q15_investment" name="q15_business_decision" value="Investment decision">
+                            <label for="q15_investment" class="option-label">Investment decision (Should we fund/acquire this company?)</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="q15_error"></div>
+                </div>
+            </div>
+
+            <!-- FORM ACTIONS -->
+            <div class="form-actions">
+                <button type="button" class="btn-back" onclick="window.history.back()">Back</button>
+                <button type="submit" class="btn-submit" id="submitBtn">Continue to Data Upload</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('healthcareForm');
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Q2 OPTIONS BY COMPANY TYPE
+        const q2Options = {
+            'Medical device manufacturer': [
+                'Cardiovascular devices',
+                'Orthopedic implants',
+                'Surgical instruments',
+                'Diagnostic/lab equipment',
+                'Wound care/advanced dressings',
+                'Respiratory/ventilation devices'
+            ],
+            'Pharmaceutical company': [
+                'Oncology/cancer treatments',
+                'Cardiovascular drugs',
+                'Respiratory/pulmonary drugs',
+                'Infectious disease',
+                'Mental health/psychiatry',
+                'Rare disease/orphan drugs'
+            ],
+            'Digital health/health tech': [
+                'EHR/Practice Management',
+                'Telehealth platforms',
+                'Health analytics',
+                'Patient engagement',
+                'AI/diagnostic tools',
+                'Wellness apps'
+            ],
+            'Medical consulting firm': [
+                'Clinical consulting',
+                'Regulatory consulting',
+                'Market access',
+                'Health economics',
+                'Business strategy'
+            ],
+            'Healthcare provider/hospital system': [
+                'Hospital operations',
+                'Specialty services',
+                'Primary care',
+                'Mental health services',
+                'Patient outcomes'
+            ]
+        };
+
+        // UPDATE Q2 OPTIONS WHEN Q1 CHANGES
+        document.querySelectorAll('input[name="q1_company_type"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const q2Select = document.getElementById('q2_focus_area');
+                q2Select.innerHTML = '<option value="">-- Select your focus area --</option>';
+                
+                const options = q2Options[this.value] || [];
+                options.forEach(option => {
+                    const opt = document.createElement('option');
+                    opt.value = option;
+                    opt.textContent = option;
+                    q2Select.appendChild(opt);
+                });
+
+                updateProgress();
+            });
+        });
+
+        // CONDITIONAL FIELD FOR Q7
+        document.querySelectorAll('input[name="q7_competitor_safety"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const field = document.getElementById('q7_competitors_field');
+                if (this.value === 'Yes - specific competitors') {
+                    field.classList.add('show');
+                } else {
+                    field.classList.remove('show');
+                }
+                updateProgress();
+            });
+        });
+
+        // CHARACTER COUNTERS
+        document.querySelector('textarea[name="q6_safety_concerns"]').addEventListener('input', function() {
+            document.getElementById('q6_charcount').textContent = this.value.length;
+        });
+
+        document.querySelector('textarea[name="q12_competitive_threat"]').addEventListener('input', function() {
+            document.getElementById('q12_charcount').textContent = this.value.length;
+        });
+
+        // PROGRESS BAR UPDATE
+        function updateProgress() {
+            const totalQuestions = 15;
+            let answeredCount = 0;
+
+            // Count answered questions
+            if (document.querySelector('input[name="q1_company_type"]:checked')) answeredCount++;
+            if (document.querySelector('select[name="q2_focus_area"]').value) answeredCount++;
+            if (document.querySelector('input[name="q3_product_stage"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q4_revenue"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q5_regulatory_risks"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q7_competitor_safety"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q8_regulatory_bodies"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q9_timeline"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q10_customer_types"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q11_market_concerns"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q13_market_signals"]:checked')) answeredCount++;
+            if (document.querySelector('input[name="q15_business_decision"]:checked')) answeredCount++;
+
+            const progress = (answeredCount / totalQuestions) * 100;
+            progressFill.style.width = progress + '%';
+            progressText.textContent = `${answeredCount} of ${totalQuestions} questions`;
+        }
+
+        // UPDATE PROGRESS ON ALL CHANGES
+        form.addEventListener('change', updateProgress);
+
+        // FORM VALIDATION
+        function validateForm() {
+            let isValid = true;
+
+            // Q1 - Required
+            if (!document.querySelector('input[name="q1_company_type"]:checked')) {
+                document.getElementById('q1_error').textContent = 'Please select a company type';
+                document.getElementById('q1_error').classList.add('show');
+                document.querySelector('.question-group').classList.add('error');
+                isValid = false;
+            }
+
+            // Q2 - Required
+            if (!document.querySelector('select[name="q2_focus_area"]').value) {
+                document.getElementById('q2_error').textContent = 'Please select a focus area';
+                document.getElementById('q2_error').classList.add('show');
+                isValid = false;
+            }
+
+            // Q3 - Required
+            if (!document.querySelector('input[name="q3_product_stage"]:checked')) {
+                document.getElementById('q3_error').textContent = 'Please select a product stage';
+                document.getElementById('q3_error').classList.add('show');
+                isValid = false;
+            }
+
+            // Q4 - Required
+            if (!document.querySelector('input[name="q4_revenue"]:checked')) {
+                document.getElementById('q4_error').textContent = 'Please select a revenue range';
+                document.getElementById('q4_error').classList.add('show');
+                isValid = false;
+            }
+
+            // Q5 - At least 1 checkbox
+            if (!document.querySelector('input[name="q5_regulatory_risks"]:checked')) {
+                document.getElementById('q5_error').textContent = 'Please select at least one regulatory risk';
+                document.getElementById('q5_error').classList.add('show');
+                isValid = false;
+            }
+
+            // Q8 - At least 1 checkbox
+            if (!document.querySelector('input[name="q8_regulatory_bodies"]:checked')) {
+                document.getElementById('q8_error').textContent = 'Please select at least one regulatory body';
+                document.getElementById('q8_error').classList.add('show');
+                isValid = false;
+            }
+
+            // Q9 - Required
+            if (!document.querySelector('input[name="q9_timeline"]:checked')) {
+                document.getElementById('q9_error').textContent = 'Please select a timeline';
+                document.getElementById('q9_error').classList.add('show');
+                isValid = false;
+            }
+
+            // Q10 - At least 1 checkbox
+            if (!document.querySelector('input[name="q10_customer_types"]:checked')) {
+                document.getElementById('q10_error').textContent = 'Please select at least one customer type';
+                document.getElementById('q10_error').classList.add('show');
+                isValid = false;
+            }
+
+            // Q11 - At least 1 checkbox
+            if (!document.querySelector('input[name="q11_market_concerns"]:checked')) {
+                document.getElementById('q11_error').textContent = 'Please select at least one market concern';
+                document.getElementById('q11_error').classList.add('show');
+                isValid = false;
+            }
+
+            // Q13 - At least 1, max 3 checkboxes
+            const q13Checked = document.querySelectorAll('input[name="q13_market_signals"]:checked').length;
+            if (q13Checked === 0) {
+                document.getElementById('q13_error').textContent = 'Please select at least one signal (maximum 3)';
+                document.getElementById('q13_error').classList.add('show');
+                isValid = false;
+            } else if (q13Checked > 3) {
+                document.getElementById('q13_error').textContent = 'Please select maximum 3 signals';
+                document.getElementById('q13_error').classList.add('show');
+                isValid = false;
+            }
+
+            // Q15 - Required
+            if (!document.querySelector('input[name="q15_business_decision"]:checked')) {
+                document.getElementById('q15_error').textContent = 'Please select a business decision';
+                document.getElementById('q15_error').classList.add('show');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // FORM SUBMISSION
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Clear previous errors
+            document.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
+
+            if (!validateForm()) {
+                return;
+            }
+
+            // COLLECT FORM DATA
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            // CONVERT CHECKBOXES TO ARRAYS
+            const checkboxGroups = ['q5_regulatory_risks', 'q8_regulatory_bodies', 'q10_customer_types', 'q11_market_concerns', 'q13_market_signals'];
+            checkboxGroups.forEach(group => {
+                const checked = document.querySelectorAll(`input[name="${group}"]:checked`);
+                data[group] = Array.from(checked).map(el => el.value);
+            });
+
+            console.log('Form Data:', data);
+
+            // SUBMIT TO BACKEND
+            submitBtn.disabled = true;
+            submitBtn.classList.add('loading');
+            submitBtn.textContent = 'Submitting...';
+
+            fetch('/api/questionnaire', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.project_id) {
+                    // Redirect to data upload page
+                    window.location.href = `/data-upload/${result.project_id}`;
+                } else {
+                    alert('Error: ' + (result.error || 'Something went wrong'));
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('loading');
+                    submitBtn.textContent = 'Continue to Data Upload';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error submitting questionnaire. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('loading');
+                submitBtn.textContent = 'Continue to Data Upload';
+            });
+        });
+
+        // INITIALIZE
+        updateProgress();
+    </script>
+</body>
+</html>

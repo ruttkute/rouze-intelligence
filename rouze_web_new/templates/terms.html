@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - ROUZE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.6);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #B0A6DF;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #B0A6DF;
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(176, 166, 223, 0.6);
+        }
+
+        .last-updated {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 8px 16px;
+            background: rgba(58, 143, 195, 0.1);
+            border: 1px solid rgba(58, 143, 195, 0.2);
+            border-radius: 20px;
+            font-size: 13px;
+            color: #3A8FC3;
+        }
+
+        /* MAIN CONTENT */
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* TABLE OF CONTENTS */
+        .toc {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 48px;
+        }
+
+        .toc-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 16px;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 24px;
+        }
+
+        .toc-list a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(176, 166, 223, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 6px 0;
+            transition: color 0.2s ease;
+        }
+
+        .toc-list a:hover {
+            color: #3A8FC3;
+        }
+
+        .toc-number {
+            color: #3A8FC3;
+            font-weight: 600;
+            min-width: 24px;
+        }
+
+        /* SECTIONS */
+        .legal-section {
+            margin-bottom: 48px;
+        }
+
+        .section-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: rgba(58, 143, 195, 0.15);
+            color: #3A8FC3;
+            border-radius: 8px;
+            text-align: center;
+            line-height: 32px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-right: 12px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-content {
+            color: rgba(176, 166, 223, 0.8);
+            font-size: 15px;
+        }
+
+        .section-content p {
+            margin-bottom: 16px;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-content ul,
+        .section-content ol {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        .section-content li {
+            margin-bottom: 10px;
+        }
+
+        .section-content strong {
+            color: #B0A6DF;
+        }
+
+        .section-content a {
+            color: #3A8FC3;
+            text-decoration: none;
+        }
+
+        .section-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* SUBSECTIONS */
+        .subsection {
+            margin-top: 24px;
+            padding-left: 20px;
+            border-left: 2px solid rgba(58, 143, 195, 0.2);
+        }
+
+        .subsection-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+        }
+
+        /* HIGHLIGHT BOX */
+        .highlight-box {
+            background: rgba(58, 143, 195, 0.1);
+            border: 1px solid rgba(58, 143, 195, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box.warning {
+            background: rgba(255, 152, 0, 0.1);
+            border-color: rgba(255, 152, 0, 0.2);
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+
+        /* DEFINITION LIST */
+        .definition-list {
+            margin: 16px 0;
+        }
+
+        .definition-item {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+        }
+
+        .definition-item:last-child {
+            border-bottom: none;
+        }
+
+        .definition-term {
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 4px;
+        }
+
+        .definition-desc {
+            color: rgba(176, 166, 223, 0.7);
+            font-size: 14px;
+        }
+
+        /* CONTACT BOX */
+        .contact-box {
+            background: rgba(82, 66, 92, 0.2);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .contact-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #B0A6DF;
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            color: rgba(176, 166, 223, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #3A8FC3;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        .footer {
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #B0A6DF;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: rgba(176, 166, 223, 0.4);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 12px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 20px 40px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="nav-bar">
+        <a href="/" class="logo">ROUZE</a>
+        <div class="nav-links">
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/case-studies">Case Studies</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1 class="hero-title">Terms of Service</h1>
+        <p class="hero-subtitle">Please read these terms carefully before using ROUZE services</p>
+        <span class="last-updated">Last Updated: December 1, 2025</span>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-container">
+        <!-- TABLE OF CONTENTS -->
+        <div class="toc">
+            <h2 class="toc-title">Table of Contents</h2>
+            <ol class="toc-list">
+                <li><a href="#acceptance"><span class="toc-number">1.</span> Acceptance of Terms</a></li>
+                <li><a href="#definitions"><span class="toc-number">2.</span> Definitions</a></li>
+                <li><a href="#services"><span class="toc-number">3.</span> Description of Services</a></li>
+                <li><a href="#account"><span class="toc-number">4.</span> Account Registration</a></li>
+                <li><a href="#payment"><span class="toc-number">5.</span> Payment Terms</a></li>
+                <li><a href="#deliverables"><span class="toc-number">6.</span> Deliverables & Ownership</a></li>
+                <li><a href="#data"><span class="toc-number">7.</span> Data Usage & Privacy</a></li>
+                <li><a href="#confidentiality"><span class="toc-number">8.</span> Confidentiality</a></li>
+                <li><a href="#warranties"><span class="toc-number">9.</span> Warranties & Disclaimers</a></li>
+                <li><a href="#liability"><span class="toc-number">10.</span> Limitation of Liability</a></li>
+                <li><a href="#indemnification"><span class="toc-number">11.</span> Indemnification</a></li>
+                <li><a href="#termination"><span class="toc-number">12.</span> Termination</a></li>
+                <li><a href="#modifications"><span class="toc-number">13.</span> Modifications to Terms</a></li>
+                <li><a href="#governing"><span class="toc-number">14.</span> Governing Law</a></li>
+                <li><a href="#contact"><span class="toc-number">15.</span> Contact Information</a></li>
+            </ol>
+        </div>
+
+        <!-- SECTION 1 -->
+        <section class="legal-section" id="acceptance">
+            <h2 class="section-title">
+                <span class="section-number">1</span>
+                Acceptance of Terms
+            </h2>
+            <div class="section-content">
+                <p>By accessing or using ROUZE's market intelligence services ("Services"), you agree to be bound by these Terms of Service ("Terms"). If you are using the Services on behalf of an organization, you represent and warrant that you have the authority to bind that organization to these Terms.</p>
+                <p>If you do not agree to these Terms, you may not access or use our Services. Your continued use of the Services following any modifications to these Terms constitutes acceptance of those changes.</p>
+                <div class="highlight-box">
+                    <p><strong>Important:</strong> These Terms constitute a legally binding agreement between you ("Client," "you," or "your") and ROUZE, LLC ("ROUZE," "we," "us," or "our"). Please read them carefully.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2 -->
+        <section class="legal-section" id="definitions">
+            <h2 class="section-title">
+                <span class="section-number">2</span>
+                Definitions
+            </h2>
+            <div class="section-content">
+                <div class="definition-list">
+                    <div class="definition-item">
+                        <div class="definition-term">"Services"</div>
+                        <div class="definition-desc">All market intelligence analysis, reports, dashboards, and related deliverables provided by ROUZE.</div>
+                    </div>
+                    <div class="definition-item">
+                        <div class="definition-term">"Analysis"</div>
+                        <div class="definition-desc">The market research, signal collection, processing, and insight generation performed by ROUZE.</div>
+                    </div>
+                    <div class="definition-item">
+                        <div class="definition-term">"Deliverables"</div>
+                        <div class="definition-desc">Reports, presentations, dashboards, data exports, and other materials provided to Client as part of the Services.</div>
+                    </div>
+                    <div class="definition-item">
+                        <div class="definition-term">"Signals"</div>
+                        <div class="definition-desc">Publicly available data points collected from social media, review platforms, forums, and other public sources.</div>
+                    </div>
+                    <div class="definition-item">
+                        <div class="definition-term">"Client Data"</div>
+                        <div class="definition-desc">Any data, files, or information provided by Client to ROUZE for use in the Services.</div>
+                    </div>
+                    <div class="definition-item">
+                        <div class="definition-term">"Dashboard"</div>
+                        <div class="definition-desc">The interactive web-based interface through which Client can access analysis results and Deliverables.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 -->
+        <section class="legal-section" id="services">
+            <h2 class="section-title">
+                <span class="section-number">3</span>
+                Description of Services
+            </h2>
+            <div class="section-content">
+                <p>ROUZE provides market intelligence services that analyze publicly available signals to generate strategic insights. Our Services include:</p>
+                <ul>
+                    <li><strong>Signal Collection:</strong> Gathering publicly available data from social media platforms, review sites, forums, and other public sources.</li>
+                    <li><strong>Signal Analysis:</strong> Processing collected signals using sentiment analysis, pattern recognition, and cross-validation techniques.</li>
+                    <li><strong>Insight Generation:</strong> Identifying key findings, trends, competitive positioning, and strategic recommendations.</li>
+                    <li><strong>Report Delivery:</strong> Providing analysis results through dashboards, PDF reports, presentations, and data exports.</li>
+                </ul>
+                
+                <div class="subsection">
+                    <h4 class="subsection-title">3.1 Service Tiers</h4>
+                    <p>ROUZE offers multiple service tiers with varying signal volumes, analysis depth, deliverables, and timelines. Specific deliverables and timelines are detailed at the time of purchase and may vary based on the selected tier and vertical specialization.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h4 class="subsection-title">3.2 Vertical Specializations</h4>
+                    <p>Our Services are tailored to specific industry verticals (Healthcare, SaaS, E-commerce, FinTech, Real Estate/PropTech). Each vertical utilizes specialized questionnaires, signal sources, and analysis frameworks appropriate to that market.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">3.3 Service Limitations</h4>
+                    <p>ROUZE Services are based on analysis of publicly available information. We do not guarantee access to all relevant signals, nor do we guarantee that our analysis will capture every market development. Our insights represent professional analysis based on available data and should be used as one input among many in your decision-making process.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4 -->
+        <section class="legal-section" id="account">
+            <h2 class="section-title">
+                <span class="section-number">4</span>
+                Account Registration
+            </h2>
+            <div class="section-content">
+                <p>To use certain features of our Services, you must create an account. When creating an account, you agree to:</p>
+                <ul>
+                    <li>Provide accurate, current, and complete information</li>
+                    <li>Maintain and promptly update your account information</li>
+                    <li>Maintain the security of your account credentials</li>
+                    <li>Accept responsibility for all activities that occur under your account</li>
+                    <li>Notify us immediately of any unauthorized access or use of your account</li>
+                </ul>
+                <p>ROUZE reserves the right to suspend or terminate accounts that violate these Terms or that we reasonably believe may be used for fraudulent or illegal purposes.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 5 -->
+        <section class="legal-section" id="payment">
+            <h2 class="section-title">
+                <span class="section-number">5</span>
+                Payment Terms
+            </h2>
+            <div class="section-content">
+                <div class="subsection">
+                    <h4 class="subsection-title">5.1 Pricing</h4>
+                    <p>All prices are displayed in US Dollars (USD) and are subject to change. The price in effect at the time of purchase will apply to your order. Prices do not include applicable taxes, which will be added where required by law.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">5.2 Payment Processing</h4>
+                    <p>Payments are processed securely through Stripe. By providing payment information, you authorize ROUZE to charge the applicable fees to your designated payment method. All payments are due at the time of purchase unless otherwise agreed in writing.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">5.3 Revision Policy</h4>
+                    <p>If your analysis does not meet reasonable expectations based on the agreed-upon deliverables, we will revise the analysis at no additional cost until you are satisfied.</p>
+                    <ul>
+                        <li>Revision requests must be submitted within 14 days of deliverable completion</li>
+                        <li>Requests must specify the ways in which the analysis did not meet expectations</li>
+                        <li>We will work with you to address specific concerns and improve the deliverables</li>
+                    </ul>
+                    <p>Due to the nature of market intelligence services (insights cannot be "unreceived" once delivered), we do not offer monetary refunds after analysis delivery. Cancellations before analysis begins will be refunded in full.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">5.4 Recurring Payments (Ongoing Intelligence)</h4>
+                    <p>For Ongoing Intelligence packages, recurring payments will be charged automatically based on your selected billing cycle (monthly or quarterly). You may cancel recurring payments at any time, with cancellation taking effect at the end of the current billing period.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6 -->
+        <section class="legal-section" id="deliverables">
+            <h2 class="section-title">
+                <span class="section-number">6</span>
+                Deliverables & Ownership
+            </h2>
+            <div class="section-content">
+                <div class="subsection">
+                    <h4 class="subsection-title">6.1 Deliverable Ownership</h4>
+                    <p>Upon full payment, Client receives a non-exclusive, perpetual license to use Deliverables for internal business purposes. Client may share Deliverables within their organization and with advisors, investors, or board members under confidentiality obligations.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">6.2 ROUZE Intellectual Property</h4>
+                    <p>ROUZE retains all intellectual property rights in our methodologies, analysis frameworks, software, algorithms, and proprietary processes. Nothing in these Terms transfers ownership of ROUZE intellectual property to Client.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">6.3 Aggregated Data</h4>
+                    <p>ROUZE may use aggregated, anonymized data derived from Services to improve our methodologies, conduct research, and develop benchmarks. Such data will not identify Client or include Client confidential information.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">6.4 Dashboard Access</h4>
+                    <p>Dashboard access is provided for the period specified in your selected service tier. After this period, dashboard access will expire unless extended through additional purchase. Clients may download and retain copies of Deliverables before dashboard access expires.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7 -->
+        <section class="legal-section" id="data">
+            <h2 class="section-title">
+                <span class="section-number">7</span>
+                Data Usage & Privacy
+            </h2>
+            <div class="section-content">
+                <div class="subsection">
+                    <h4 class="subsection-title">7.1 Signal Sources</h4>
+                    <p>ROUZE collects and analyzes publicly available information from various platforms including but not limited to: G2, TrustPilot, Reddit, Twitter/X, LinkedIn, YouTube, Discord, Product Hunt, industry forums, and news sources. We comply with the terms of service and API usage policies of these platforms.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">7.2 Client Data</h4>
+                    <p>If you provide Client Data (such as customer feedback files, competitive intelligence, or proprietary data), we will use it solely for the purpose of providing Services to you. Client Data will be:</p>
+                    <ul>
+                        <li>Encrypted in transit (TLS 1.3) and at rest (AES-256)</li>
+                        <li>Automatically deleted within 30 days of analysis completion</li>
+                        <li>Accessible only to personnel required for service delivery</li>
+                        <li>Not shared with third parties except as required for service delivery</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">7.3 Privacy Policy</h4>
+                    <p>Our collection and use of personal information is governed by our <a href="/privacy">Privacy Policy</a>, which is incorporated into these Terms by reference.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8 -->
+        <section class="legal-section" id="confidentiality">
+            <h2 class="section-title">
+                <span class="section-number">8</span>
+                Confidentiality
+            </h2>
+            <div class="section-content">
+                <p>Each party agrees to maintain the confidentiality of the other party's confidential information and to use such information only for purposes related to the Services. Confidential information includes:</p>
+                <ul>
+                    <li>Client business information, strategies, and plans</li>
+                    <li>Client Data provided to ROUZE</li>
+                    <li>ROUZE proprietary methodologies and processes</li>
+                    <li>Pricing and contract terms</li>
+                </ul>
+                <p>Confidentiality obligations do not apply to information that: (a) is or becomes publicly available through no fault of the receiving party; (b) was rightfully known prior to disclosure; (c) is rightfully obtained from a third party without confidentiality restrictions; or (d) is required to be disclosed by law.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 9 -->
+        <section class="legal-section" id="warranties">
+            <h2 class="section-title">
+                <span class="section-number">9</span>
+                Warranties & Disclaimers
+            </h2>
+            <div class="section-content">
+                <div class="subsection">
+                    <h4 class="subsection-title">9.1 ROUZE Warranties</h4>
+                    <p>ROUZE warrants that:</p>
+                    <ul>
+                        <li>Services will be performed in a professional and workmanlike manner</li>
+                        <li>Our analysis methodologies are applied consistently across all clients</li>
+                        <li>We will use commercially reasonable efforts to deliver Services within stated timelines</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">9.2 Disclaimers</h4>
+                    <div class="highlight-box warning">
+                        <p><strong>IMPORTANT:</strong> EXCEPT AS EXPRESSLY PROVIDED HEREIN, THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+                    </div>
+                    <p>ROUZE does not warrant that:</p>
+                    <ul>
+                        <li>The Services will meet your specific requirements or expectations</li>
+                        <li>The Services will be uninterrupted, timely, secure, or error-free</li>
+                        <li>Analysis results will be accurate, complete, or reliable</li>
+                        <li>Any particular business outcome will result from use of the Services</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">9.3 Not Professional Advice</h4>
+                    <p>ROUZE Services provide market intelligence and analysis for informational purposes only. Our Deliverables do not constitute legal, financial, investment, or professional advice. You should consult appropriate professionals before making business decisions based on our analysis.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 10 -->
+        <section class="legal-section" id="liability">
+            <h2 class="section-title">
+                <span class="section-number">10</span>
+                Limitation of Liability
+            </h2>
+            <div class="section-content">
+                <div class="highlight-box warning">
+                    <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</strong></p>
+                    <ul style="margin-top: 12px; margin-bottom: 0;">
+                        <li>ROUZE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, BUSINESS OPPORTUNITIES, OR GOODWILL.</li>
+                        <li>ROUZE'S TOTAL LIABILITY FOR ALL CLAIMS RELATED TO THE SERVICES SHALL NOT EXCEED THE AMOUNT PAID BY CLIENT FOR THE SPECIFIC SERVICES GIVING RISE TO THE CLAIM.</li>
+                    </ul>
+                </div>
+                <p>These limitations apply regardless of the theory of liability (contract, tort, strict liability, or otherwise) and even if ROUZE has been advised of the possibility of such damages.</p>
+                <p>Some jurisdictions do not allow the exclusion or limitation of certain damages. In such jurisdictions, ROUZE's liability shall be limited to the maximum extent permitted by law.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 11 -->
+        <section class="legal-section" id="indemnification">
+            <h2 class="section-title">
+                <span class="section-number">11</span>
+                Indemnification
+            </h2>
+            <div class="section-content">
+                <p>You agree to indemnify, defend, and hold harmless ROUZE and its officers, directors, employees, agents, and affiliates from and against any claims, liabilities, damages, losses, and expenses (including reasonable attorneys' fees) arising out of or in any way connected with:</p>
+                <ul>
+                    <li>Your access to or use of the Services</li>
+                    <li>Your violation of these Terms</li>
+                    <li>Your violation of any third-party rights, including intellectual property rights</li>
+                    <li>Any Client Data you provide that infringes third-party rights</li>
+                    <li>Any business decisions made based on our Services</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION 12 -->
+        <section class="legal-section" id="termination">
+            <h2 class="section-title">
+                <span class="section-number">12</span>
+                Termination
+            </h2>
+            <div class="section-content">
+                <div class="subsection">
+                    <h4 class="subsection-title">12.1 Termination by Client</h4>
+                    <p>For one-time analysis projects, you may cancel your order before analysis begins for a full refund. Once analysis has commenced, no monetary refunds are available, but you may request revisions per our Revision Policy in Section 5.3.</p>
+                    <p>For Ongoing Intelligence packages, you may cancel at any time. Cancellation will take effect at the end of your current billing period, and you will retain access to previously delivered Deliverables.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">12.2 Termination by ROUZE</h4>
+                    <p>ROUZE may terminate or suspend your access to the Services immediately, without prior notice, if:</p>
+                    <ul>
+                        <li>You breach these Terms</li>
+                        <li>We are required to do so by law</li>
+                        <li>We reasonably believe your use of the Services poses a security risk</li>
+                        <li>Payment is not received when due</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">12.3 Effect of Termination</h4>
+                    <p>Upon termination, your right to access the Dashboard and ongoing Services will cease. Provisions that by their nature should survive termination (including ownership, confidentiality, disclaimers, limitations of liability, and indemnification) shall survive.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 13 -->
+        <section class="legal-section" id="modifications">
+            <h2 class="section-title">
+                <span class="section-number">13</span>
+                Modifications to Terms
+            </h2>
+            <div class="section-content">
+                <p>ROUZE reserves the right to modify these Terms at any time. We will provide notice of material changes by:</p>
+                <ul>
+                    <li>Posting the updated Terms on our website</li>
+                    <li>Updating the "Last Updated" date at the top of this page</li>
+                    <li>Sending email notification to registered users for significant changes</li>
+                </ul>
+                <p>Your continued use of the Services following any modifications constitutes acceptance of the updated Terms. If you do not agree to the modified Terms, you should discontinue use of the Services.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 14 -->
+        <section class="legal-section" id="governing">
+            <h2 class="section-title">
+                <span class="section-number">14</span>
+                Governing Law & Disputes
+            </h2>
+            <div class="section-content">
+                <div class="subsection">
+                    <h4 class="subsection-title">14.1 Governing Law</h4>
+                    <p>These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, United States, without regard to its conflict of law provisions.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">14.2 Dispute Resolution</h4>
+                    <p>Any disputes arising out of or relating to these Terms or the Services shall first be attempted to be resolved through good-faith negotiation between the parties. If negotiation fails, disputes shall be resolved through binding arbitration in accordance with the rules of the American Arbitration Association.</p>
+                </div>
+
+                <div class="subsection">
+                    <h4 class="subsection-title">14.3 Class Action Waiver</h4>
+                    <p>You agree that any dispute resolution proceedings will be conducted only on an individual basis and not in a class, consolidated, or representative action.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 15 -->
+        <section class="legal-section" id="contact">
+            <h2 class="section-title">
+                <span class="section-number">15</span>
+                Contact Information
+            </h2>
+            <div class="section-content">
+                <p>If you have any questions about these Terms of Service, please contact us:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#394b4c4d4d524c4d5c795e54585055175a5654"><span class="__cf_email__" data-cfemail="25575051514e505140654248444c490b464a48">[email&#160;protected]</span></a></li>
+                </ul>
+                <p>We aim to respond to all inquiries within 2 business days.</p>
+            </div>
+        </section>
+
+        <!-- CONTACT BOX -->
+        <div class="contact-box">
+            <h3>Questions About These Terms?</h3>
+            <p>Our team is here to help clarify any questions you may have about our Terms of Service.</p>
+            <a href="/cdn-cgi/l/email-protection#e7959293938c929382a7808a868e8bc984888a" class="contact-email">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                <span class="__cf_email__" data-cfemail="21535455554a54554461464c40484d0f424e4c">[email&#160;protected]</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/terms">Terms of Service</a>
+            <a href="/privacy">Privacy Policy</a>
+       

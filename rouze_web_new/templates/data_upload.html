@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Upload - ROUZE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0314 0%, #0f0520 15%, #1a0d2e 30%, #1f1530 45%, #2a1f3d 50%, #1f1530 55%, #0d0818 85%, #0a0314 100%);
+            background-attachment: fixed;
+            color: #B0A6DF;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION */
+        .nav-bar {
+            background: rgba(26, 13, 46, 0.4);
+            border-bottom: 1px solid rgba(176, 166, 223, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 24px 40px;
+            margin: -20px -20px 40px -20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #B0A6DF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #B0A6DF;
+        }
+
+        /* PROGRESS BAR */
+        .progress-container {
+            margin-bottom: 40px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .progress-title {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.7);
+        }
+
+        .progress-step {
+            font-size: 14px;
+            color: #3A8FC3;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: rgba(176, 166, 223, 0.15);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3A8FC3, #5BA3D1);
+            border-radius: 2px;
+            width: 66%;
+            transition: width 0.5s ease;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .step-badge {
+            display: inline-block;
+            background: rgba(58, 143, 195, 0.15);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            color: #3A8FC3;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #B0A6DF;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: rgba(176, 166, 223, 0.75);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* OPTIONAL BADGE */
+        .optional-notice {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(176, 166, 223, 0.1);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.8);
+        }
+
+        .optional-notice svg {
+            color: #3A8FC3;
+        }
+
+        /* MAIN CARD */
+        .upload-card {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(58, 143, 195, 0.2);
+            border: 1px solid rgba(58, 143, 195, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3A8FC3;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #B0A6DF;
+        }
+
+        .card-description {
+            font-size: 15px;
+            color: rgba(176, 166, 223, 0.7);
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        /* UPLOAD ZONE */
+        .upload-zone {
+            border: 2px dashed rgba(176, 166, 223, 0.25);
+            border-radius: 12px;
+            padding: 48px 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: rgba(26, 13, 46, 0.3);
+        }
+
+        .upload-zone:hover {
+            border-color: rgba(58, 143, 195, 0.5);
+            background: rgba(58, 143, 195, 0.05);
+        }
+
+        .upload-zone.drag-over {
+            border-color: #3A8FC3;
+            background: rgba(58, 143, 195, 0.1);
+            transform: scale(1.01);
+        }
+
+        .upload-zone.has-files {
+            border-style: solid;
+            border-color: rgba(58, 143, 195, 0.4);
+        }
+
+        .upload-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            background: rgba(58, 143, 195, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3A8FC3;
+        }
+
+        .upload-zone h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 8px;
+        }
+
+        .upload-zone p {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.6);
+            margin-bottom: 16px;
+        }
+
+        .browse-button {
+            display: inline-block;
+            padding: 10px 24px;
+            background: rgba(58, 143, 195, 0.2);
+            border: 1px solid rgba(58, 143, 195, 0.4);
+            border-radius: 8px;
+            color: #3A8FC3;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .browse-button:hover {
+            background: rgba(58, 143, 195, 0.3);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .file-types {
+            margin-top: 16px;
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.5);
+        }
+
+        /* UPLOADED FILES LIST */
+        .uploaded-files {
+            margin-top: 24px;
+        }
+
+        .uploaded-files h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(176, 166, 223, 0.8);
+            margin-bottom: 12px;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: rgba(26, 13, 46, 0.5);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .file-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(58, 143, 195, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3A8FC3;
+        }
+
+        .file-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .file-name {
+            font-size: 14px;
+            color: #B0A6DF;
+            font-weight: 500;
+        }
+
+        .file-size {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.5);
+        }
+
+        .remove-file {
+            width: 32px;
+            height: 32px;
+            background: rgba(229, 115, 115, 0.1);
+            border: none;
+            border-radius: 6px;
+            color: #e57373;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .remove-file:hover {
+            background: rgba(229, 115, 115, 0.2);
+        }
+
+        /* DATA TYPES */
+        .data-types {
+            margin-top: 32px;
+        }
+
+        .data-types h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(176, 166, 223, 0.8);
+            margin-bottom: 16px;
+        }
+
+        .data-type-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .data-type-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px;
+            background: rgba(26, 13, 46, 0.4);
+            border: 1px solid rgba(176, 166, 223, 0.1);
+            border-radius: 10px;
+        }
+
+        .data-type-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(58, 143, 195, 0.15);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3A8FC3;
+            flex-shrink: 0;
+        }
+
+        .data-type-info h5 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #B0A6DF;
+            margin-bottom: 2px;
+        }
+
+        .data-type-info p {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.55);
+            line-height: 1.4;
+        }
+
+        /* SECURITY CARD */
+        .security-card {
+            background: rgba(82, 66, 92, 0.15);
+            border: 1px solid rgba(176, 166, 223, 0.15);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .security-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .security-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(76, 175, 80, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4CAF50;
+        }
+
+        .security-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #B0A6DF;
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .security-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .security-check {
+            width: 20px;
+            height: 20px;
+            background: rgba(76, 175, 80, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .security-check svg {
+            width: 12px;
+            height: 12px;
+            color: #4CAF50;
+        }
+
+        .security-text {
+            font-size: 14px;
+            color: rgba(176, 166, 223, 0.75);
+            line-height: 1.4;
+        }
+
+        .security-text strong {
+            color: #B0A6DF;
+        }
+
+        /* COMPLIANCE BADGES */
+        .compliance-badges {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(176, 166, 223, 0.1);
+            flex-wrap: wrap;
+        }
+
+        .compliance-badge {
+            padding: 6px 12px;
+            background: rgba(26, 13, 46, 0.5);
+            border: 1px solid rgba(176, 166, 223, 0.2);
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(176, 166, 223, 0.7);
+            letter-spacing: 0.5px;
+        }
+
+        /* ACTION BUTTONS */
+        .action-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            padding: 40px 0;
+        }
+
+        .continue-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 48px;
+            background: linear-gradient(135deg, #3A8FC3 0%, #2d7eb3 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(58, 143, 195, 0.3);
+        }
+
+        .continue-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(58, 143, 195, 0.4);
+        }
+
+        .continue-button:active {
+            transform: translateY(0);
+        }
+
+        .continue-button .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .continue-button:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        .skip-link {
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .skip-link:hover {
+            color: #B0A6DF;
+        }
+
+        /* PROJECT ID */
+        .project-id {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .project-id-label {
+            font-size: 12px;
+            color: rgba(176, 166, 223, 0.5);
+            margin-bottom: 4px;
+        }
+
+        .project-id-value {
+            font-family: 'SF Mono', 'Monaco', monospace;
+            font-size: 14px;
+            color: #3A8FC3;
+            background: rgba(58, 143, 195, 0.1);
+            padding: 6px 12px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        /* BACK LINK */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(176, 166, 223, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 32px;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #B0A6DF;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-links {
+                gap: 24px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .upload-card,
+            .security-card {
+                padding: 24px 20px;
+            }
+
+            .data-type-grid,
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .continue-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .compliance-badges {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="nav-bar">
+        <a href="/" class="logo">ROUZE</a>
+        <div class="nav-links">
+            <a href="/methodology">Methodology</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/case-studies">Case Studies</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- BACK LINK -->
+        <a href="javascript:history.back()" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Questionnaire
+        </a>
+
+        <!-- PROGRESS BAR -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <span class="progress-title">Analysis Setup</span>
+                <span class="progress-step">Step 2 of 3: Data Upload</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- PROJECT ID -->
+        <div class="project-id">
+            <div class="project-id-label">Project ID</div>
+            <div class="project-id-value" id="projectIdDisplay">Loading...</div>
+        </div>
+
+        <!-- HERO -->
+        <div class="hero">
+            <div class="step-badge">Optional Step</div>
+            <h1>Upload Supporting Data</h1>
+            <p>Enhance your analysis with your own data. This step is optional but can significantly improve the depth and accuracy of your insights.</p>
+            <div class="optional-notice">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+                You can skip this step and proceed directly to format selection
+            </div>
+        </div>
+
+        <!-- UPLOAD CARD -->
+        <div class="upload-card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                </div>
+                <h2 class="card-title">Upload Your Files</h2>
+            </div>
+            <p class="card-description">
+                Your data helps us customize the analysis to your specific situation. We can incorporate customer feedback, competitive data, financial metrics, and more to provide deeper insights.
+            </p>
+
+            <!-- UPLOAD ZONE -->
+            <div class="upload-zone" id="uploadZone">
+                <div class="upload-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                </div>
+                <h3>Drag and drop files here</h3>
+                <p>or click to browse your computer</p>
+                <span class="browse-button">Browse Files</span>
+                <input type="file" class="file-input" id="fileInput" multiple accept=".csv,.xlsx,.xls,.pdf,.doc,.docx,.txt,.json">
+                <p class="file-types">Supported: CSV, Excel, PDF, Word, TXT, JSON (Max 50MB per file)</p>
+            </div>
+
+            <!-- UPLOADED FILES LIST -->
+            <div class="uploaded-files" id="uploadedFiles" style="display: none;">
+                <h4>Uploaded Files</h4>
+                <div id="fileList"></div>
+            </div>
+
+            <!-- DATA TYPES -->
+            <div class="data-types">
+                <h4>What kind of data can you upload?</h4>
+                <div class="data-type-grid">
+                    <div class="data-type-item">
+                        <div class="data-type-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="data-type-info">
+                            <h5>Customer Feedback</h5>
+                            <p>Survey results, NPS data, support tickets, reviews</p>
+                        </div>
+                    </div>
+                    <div class="data-type-item">
+                        <div class="data-type-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <div class="data-type-info">
+                            <h5>Financial Data</h5>
+                            <p>Revenue reports, sales data, pricing analysis</p>
+                        </div>
+                    </div>
+                    <div class="data-type-item">
+                        <div class="data-type-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                            </svg>
+                        </div>
+                        <div class="data-type-info">
+                            <h5>Competitive Intel</h5>
+                            <p>Competitor analysis, market research, industry reports</p>
+                        </div>
+                    </div>
+                    <div class="data-type-item">
+                        <div class="data-type-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <div class="data-type-info">
+                            <h5>Internal Reports</h5>
+                            <p>Strategy docs, board decks, product roadmaps</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECURITY CARD -->
+        <div class="security-card">
+            <div class="security-header">
+                <div class="security-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <h3>Your Data is Protected</h3>
+            </div>
+            <div class="security-grid">
+                <div class="security-item">
+                    <div class="security-check">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <span class="security-text"><strong>TLS 1.3</strong> encryption during transmission</span>
+                </div>
+                <div class="security-item">
+                    <div class="security-check">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <span class="security-text"><strong>AES-256</strong> encryption at rest</span>
+                </div>
+                <div class="security-item">
+                    <div class="security-check">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <span class="security-text"><strong>Auto-deleted</strong> after 30 days</span>
+                </div>
+                <div class="security-item">
+                    <div class="security-check">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <span class="security-text"><strong>Never shared</strong> with third parties</span>
+                </div>
+            </div>
+            <div class="compliance-badges">
+                <span class="compliance-badge">SOC 2 TYPE II</span>
+                <span class="compliance-badge">GDPR</span>
+                <span class="compliance-badge">CCPA</span>
+                <span class="compliance-badge">HIPAA READY</span>
+            </div>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="action-section">
+            <button type="button" class="continue-button" id="continueButton">
+                Continue to Format Selection
+                <span class="arrow">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </span>
+            </button>
+            <a href="#" class="skip-link" id="skipLink">Skip this step and continue without uploading</a>
+        </div>
+    </div>
+
+    <script>
+        // Get project ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('project_id') || 'UNKNOWN';
+        document.getElementById('projectIdDisplay').textContent = projectId;
+
+        // File storage
+        let uploadedFiles = [];
+
+        // Upload zone functionality
+        const uploadZone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+        const uploadedFilesSection = document.getElementById('uploadedFiles');
+        const fileList = document.getElementById('fileList');
+
+        // Click to browse
+        uploadZone.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // File input change
+        fileInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        // Drag and drop
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('drag-over');
+        });
+
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('drag-over');
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('drag-over');
+            handleFiles(e.dataTransfer.files);
+        });
+
+        // Handle files
+        function handleFiles(files) {
+            const maxSize = 50 * 1024 * 1024; // 50MB
+            const allowedTypes = ['.csv', '.xlsx', '.xls', '.pdf', '.doc', '.docx', '.txt', '.json'];
+
+            for (let file of files) {
+                // Check size
+                if (file.size > maxSize) {
+                    alert(`File "${file.name}" exceeds 50MB limit.`);
+                    continue;
+                }
+
+                // Check type
+                const ext = '.' + file.name.split('.').pop().toLowerCase();
+                if (!allowedTypes.includes(ext)) {
+                    alert(`File type "${ext}" is not supported.`);
+                    continue;
+                }
+
+                // Add to list
+                uploadedFiles.push({
+                    name: file.name,
+                    size: file.size,
+                    file: file
+                });
+            }
+
+            updateFileList();
+        }
+
+        // Update file list display
+        function updateFileList() {
+            if (uploadedFiles.length > 0) {
+                uploadedFilesSection.style.display = 'block';
+                uploadZone.classList.add('has-files');
+                
+                fileList.innerHTML = uploadedFiles.map((file, index) => `
+                    <div class="file-item">
+                        <div class="file-info">
+                            <div class="file-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                            </div>
+                            <div class="file-details">
+                                <span class="file-name">${file.name}</span>
+                                <span class="file-size">${formatFileSize(file.size)}</span>
+                            </div>
+                        </div>
+                        <button class="remove-file" onclick="removeFile(${index})">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                        </button>
+                    </div>
+                `).join('');
+            } else {
+                uploadedFilesSection.style.display = 'none';
+                uploadZone.classList.remove('has-files');
+            }
+        }
+
+        // Format file size
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Remove file
+        function removeFile(index) {
+            uploadedFiles.splice(index, 1);
+            updateFileList();
+        }
+
+        // Continue button
+        document.getElementById('continueButton').addEventListener('click', () => {
+            // Store file info in session storage (actual upload would happen server-side)
+            const fileInfo = uploadedFiles.map(f => ({ name: f.name, size: f.size }));
+            sessionStorage.setItem('uploadedFiles', JSON.stringify(fileInfo));
+            
+            // Navigate to format selection
+            window.location.href = '/format-selection?project_id=' + projectId;
+        });
+
+        // Skip link
+        document.getElementById('skipLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            sessionStorage.setItem('uploadedFiles', JSON.stringify([]));
+            window.location.href = '/format-selection?project_id=' + projectId;
+        });
+    </script>
+</body>
+</html>
